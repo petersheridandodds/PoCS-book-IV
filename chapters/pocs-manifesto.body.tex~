@@ -1,0 +1,354 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% basic definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\changelogo{.18}{icons-lightbulb-tp.pdf}
+
+\section{Defining\ Complexity}
+  \textbf{Definitions}
+
+  %% dictionary definition
+  \alertb{Complex:} (Latin = with + fold/weave (com + plex))
+  \hfill
+  \includegraphics[width=.07\textwidth]{wikipedia-tp.pdf}
+
+  \medskip
+
+  \textbf{Adjective:}
+    
+     Made up of multiple parts; intricate or detailed.
+     Not simple or straightforward.
+  \textbf{Definitions}
+
+  \textbf{Complicated versus Complex:}
+      Complicated: Mechanical watches, airplanes, ...
+     
+      Engineered systems can be made to be \alertr{highly robust
+        but not adaptable}.
+    
+      But engineered systems can become complex (power grid, planes).
+     
+      They can also \alertr{fail spectacularly}.
+     
+      Explicit distinction: \alertb{Complex Adaptive Systems}.
+%% add this!!!!
+%% http://www.nytimes.com/2013/01/17/business/faa-orders-grounding-of-us-operated-boeing-787s.html
+%%  \textbf{Definitions}
+
+  \textbf{
+      A while ago:
+      \wordwikilink{https://en.wikipedia.org/wiki/Complex\_systems}{The
+        Wikipedia on Complex Systems:}
+    }
+    ``Complexity science is not a single theory: 
+    it encompasses more than one theoretical framework and is highly
+    interdisciplinary, seeking the answers to some fundamental questions
+    about living, adaptable, changeable systems.''
+  \textbf{
+      \wordwikilink{https://en.wikipedia.org/wiki/Complex\_systems}{Now:}
+      \hfill \includegraphics[width=.07\textwidth]{wikipedia-tp.pdf} 
+    }   
+    ``Complex systems present problems both in mathematical modelling
+and philosophical foundations. The study of complex systems represents
+a new approach to science that investigates how relationships between
+parts give rise to the collective behaviors of a system and how the
+system interacts and forms relationships with its environment.''
+  \textbf{Definitions}
+
+  \textbf{
+      \alertb{Nino Boccara} in \textit{Modeling Complex Systems}:}\cite{boccara2004a}
+    ``... there is no universally accepted definition
+    of a complex system ... most researchers would describe
+    a system of connected agents that exhibits
+    an emergent global behavior not imposed by a central
+    controller, but resulting from the interactions between
+    the agents.''
+  \textbf{\alertb{Philip Ball} in \textit{Critical Mass}:}\cite{ball2004a}
+    ``...complexity theory seeks to understand how order and 
+    stability arise from the interactions of many components
+    according to a few simple rules.''
+%%   \textbf{\alertb{Steve Strogatz} in \textit{Sync}:}
+%%     ``... every decade or so, a grandiose theory comes along, bearing
+%%     similar aspirations and often brandishing an ominous-sounding
+%%     C-name. In the 1960s it was cybernetics. In the '70s it was
+%%     catastrophe theory. Then came chaos theory in the '80s and complexity
+%%     theory in the '90s.''
+%%   
+
+%%   \textbf{\alertb{Cosma Shalizi:}}
+%%     ``The "sciences of complexity" are very much a potpourri, and while the
+%%     name has some justification---chaotic motion seems more complicated
+%%     than harmonic oscillation, for instance---I think the fact that it
+%%     is more dignified than "neat nonlinear nonsense" has not been the
+%%     least reason for its success.---That opinion wasn't exactly changed
+%%     by working at the Santa Fe Institute for five years.''
+%%   
+
+%% 
+%%   \textbf{Buzzword Definitions}
+%% 
+%%   \textbf{\alertb{Nonlinear} (OED)}
+%%     1. a. Math. and Physics. Not linear; ...
+%%     involving or possessing the property that the magnitude of an
+%%     effect or output is not linearly or proportionally related to that
+%%     of the cause or input.
+%%     \medskip
+%%     First cited use 1844.
+%%   
+%% 
+%% 
+%% 
+%% 
+%%   \textbf{Buzzword Definitions}
+%% 
+%%   \textbf{\alertb{Nonlinear} (OED)}
+%%     b. \textit{colloq.} \textbf{to go non-linear:} 
+%%     to lose one's head; to rave, esp. about a particular obsession.
+%%     \medskip
+%%     First cited use 1985.
+%%   
+%% 
+%% 
+  \textbf{Definitions}
+
+  %%  \hfill
+  %%  \includegraphics[width=.07\textwidth]{wikipedia-tp.pdf}
+
+  \textbf{A working definition of a \alertb{Complex System}:}
+      Distributed system of many interrelated (possibly networked) parts
+      with no centralized control
+      exhibiting 
+      emergent behavior---`More is Different'\cite{anderson1972a}
+  \textbf{Other features/aspects:}
+      Explicit nonlinear relationships.
+    
+      Presence of feedback loops.
+    
+      Being open or driven, opaque boundaries.
+    
+      Memory.
+    
+      Modular (nested)/multiscale structure.
+    
+      Mechanisms range from being purely physical to purely algorithmic in nature.
+  \textbf{Examples of Complex Systems:}
+    
+        
+          human societies 
+        
+          financial systems
+        
+          cells     
+        
+          ant colonies 
+        
+          weather systems 
+        
+          ecosystems     
+        
+          power grids
+      
+          animal societies     
+        
+          disease ecologies    
+        
+          brains               
+        
+          social insects       
+        
+          geophysical systems  
+        
+          Internet + Web
+    
+  
+  
+    i.e., everything that's interesting \ldots
+  \textbf{Relevant fields:}
+    
+       
+        Physics
+       
+        Economics
+       
+        Sociology
+       
+        Psychology
+       
+        Information Sciences
+      
+        Cognitive Sciences
+       
+        Biology
+       
+        Ecology
+       
+        Geociences
+       
+        Geography
+      
+        Medical Sciences
+       
+        Systems Engineering
+       
+        Computer Science
+       
+      \ldots
+  
+  
+    i.e., everything that's interesting \ldots
+  \textbf{A visualized history of Complex Systemsish fields:}
+
+  \includegraphics[width=\textwidth]{1200px-Complexity_Map.png}
+  
+  \attribution{``Complexity Map'' by Brian Castellani/Wiki}
+
+  Online here:
+  \wordwikilink{https://en.wikipedia.org/wiki/Complex\_systems\#History}{https://en.wikipedia.org/wiki/Complex\_systems\#History}
+  \textbf{The Golden Age of Reductionism:}
+  \includegraphics[width=\textwidth]{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard2_polaroid.png}
+\changelogo{.18}{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard2_polaroid-logo.png}
+  \textbf{Reductionism:}
+    
+    \includegraphics[width=\textwidth]{200px-Democritus2.jpg}\\
+    
+    \textbf{
+        \wordwikilink{http://en.wikipedia.org/wiki/Democritus}{Democritus}\\
+        (ca. 460 BC -- ca. 370 BC)
+      }
+        Atomic hypothesis
+       
+        Atom $\sim$ a (not) -- temnein (to cut)
+       
+        Plato allegedly wanted his books burned.
+  
+
+  \medskip
+    
+    \includegraphics[width=\textwidth]{240px-Dalton_John_desk.jpg}\\
+    
+    \textbf{
+        \wordwikilink{http://en.wikipedia.org/wiki/John\_Dalton}{John Dalton}\\
+        1766--1844
+      }
+        Chemist, Scientist
+       
+        Developed atomic theory
+       
+        First estimates of atomic weights
+  
+  %% \textbf{Reductionism:}
+
+  \textbf{ \wordwikilink{http://en.wikipedia.org/wiki/Ludwig\_Boltzmann}{Ludwig
+        Boltzmann}, 1844--1906. Atomic Theory.}
+      \includegraphics[width=\textwidth]{225px-Boltzmann2.jpg}\\
+      
+      \small
+      ``Boltzmann's kinetic theory of gases seemed to presuppose the
+      reality of atoms and molecules, but almost all German philosophers and
+      many scientists like Ernst Mach and the physical chemist Wilhelm
+      Ostwald disbelieved their existence.''
+  
+    \small
+    ``In 1904 at a physics conference in St. Louis most
+    physicists seemed to reject atoms and he was not even invited
+    to the physics section.
+    {
+      Rather, he was stuck in a section
+      called "applied mathematics,"} 
+    {
+      he violently attacked
+      philosophy, especially on allegedly Darwinian grounds
+      }
+    {
+      but
+      actually in terms of Lamarck's theory of the inheritance of
+      acquired characteristics that people inherited bad philosophy
+      }
+    {
+      from the past and that it was hard for scientists to overcome
+      such inheritance.''
+    }
+    \\
+    {\mbox{} \hfill
+      See: \wordwikilink{https://en.wikipedia.org/wiki/Epigenetics}{epigenetics}.}
+%%  \textbf{Reductionism:}
+    
+    \includegraphics[width=\textwidth]{220px-Einstein_1921_portrait2.jpg}\\
+    
+    \textbf{
+    \wordwikilink{http://en.wikipedia.org/wiki/Albert\_Einstein}{Albert Einstein}
+    1879--1955}
+      \wordwikilink{http://en.wikipedia.org/wiki/Annus_Mirabilis_papers}{Annus Mirabilis paper:} ``the Motion of Small Particles Suspended in a Stationary Liquid, as Required by the Molecular Kinetic Theory of Heat''\cite{einstein1905a,einstein1956a}
+     
+      Showed \wordwikilink{http://en.wikipedia.org/wiki/Brownian_motion}{Brownian motion} 
+      followed from an atomic model giving rise to diffusion.
+  
+
+  \medskip
+    
+    \includegraphics[width=\textwidth]{180px-Jean_Baptiste_Perrin.jpg}\\
+    
+    \textbf{
+        \wordwikilink{http://en.wikipedia.org/wiki/Jean\_Perrin}{Jean Perrin}
+        1870--1942}
+        1908: Experimentally verified Einstein's work and Atomic Theory.
+  
+  \small
+
+  \textbf{Feynmann:}
+      
+      ``If, in some cataclysm, all of scientific knowledge were to be
+      destroyed, and only one sentence passed on to the next generation of
+      creatures, what statement would contain the most information in the
+      fewest words?
+      
+      \includegraphics[width=\textwidth]{Richard_Feynman_Nobel.jpg}
+    \smallskip
+    {
+      ``I believe it is the atomic hypothesis that all things
+      are made of atoms}{---little particles that move around in perpetual
+      motion, attracting each other when they are a little distance apart,
+      but repelling upon being squeezed into one another.
+    } 
+    {
+      ``In that one
+      sentence, you will see, there is an enormous amount of information
+      about the world, if just a little imagination and thinking are
+      applied.''
+    }
+\tiny
+Snared from 
+\wordwikilink{http://www.brainpickings.org/index.php/2012/09/11/richard-feynman-lectures-on-physics/}{brainpickings.org}
+\changelogo{0.18}{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard3_polaroid-logo.png}
+
+\section{A\ Manifesto}
+  %% manifesto
+  \includegraphics[width=\textwidth]{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard3_polaroid.png}
+%%  
+  \small
+
+%%  {\fontsize{8}{10.2}\selectfont
+
+  \textbf{\wordwikilink{http://www.uvm.edu/\%7Epdodds/fama/2015/06/04/complex-sytems-a-manifesto/}{The Science of Complex Systems Manifesto:}}
+      Systems are ubiquitous and systems matter.
+    
+      Consequently, much of science is about understanding
+      how pieces dynamically fit together.
+    
+      1700 to 2000 = Golden Age of Reductionism:\newline
+      Atoms!, sub-atomic particles, DNA, genes, people, ...
+    
+      Understanding and creating systems (including new `atoms')
+      is the greater part of science and engineering.
+    
+      \wordwikilink{http://en.wikipedia.org/wiki/Universality\_(dynamical_systems)}{Universality}: systems with quantitatively different micro details
+      exhibit qualitatively similar macro behavior.
+    
+      Computing advances make the Science of Complex Systems possible:
+        We can measure and record enormous amounts of data,
+        research areas continue to transition from data scarce to data rich.
+      
+        We can simulate, model, and create complex systems
+        in extraordinary detail.  
+  
+\neuralreboot{a6QHzIJO5a8}{}{}{Monotrematic Love}

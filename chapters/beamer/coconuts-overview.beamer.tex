@@ -1,0 +1,856 @@
+%% fix the syllabus thing!
+
+%% incorporate stanford large network collection
+
+%% Erd\"{o}s-Bacon number
+%% http://en.wikipedia.org/wiki/Erdős–Bacon_number
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% very clear summary slide 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+%%  \showtarotcards{0.25}{
+  \dealnewtarotcard{0.35}{
+    john-dory,
+    overview,
+    complex-networks,
+%%    random-networks,
+%%    scale-free-networks,
+%%    small-world-networks,
+%%    theory-six-degrees,
+%%    landscapes-of-forking-paths,
+%%    law-of-optimal-forks,
+%%    laws-of-branching,
+%%    networks-of-blood,
+%%    orders-of-streams,
+%%    trees-of-reality,
+%%    unknown-mechanism,
+}
+
+\end{frame}
+
+
+\begin{frame}
+%%  \frametitle{Computational Story Lab:}
+
+  \includegraphics[width=\textwidth]{2015-09-29collaborators-twitter.pdf}\\
+  Funding: NSF, NASA, MITRE.
+  
+%%  \includegraphics[width=\textwidth]{collaborators-onehappybird-no-bliss1.jpg}
+%%  \includegraphics[width=\textwidth]{collaborators-onehappybird-no-bliss1-tp-1.pdf}
+%%  \includegraphics[width=\textwidth]{collaborators-onehappybird-no-bliss1-tp-3.pdf}
+  %%  \includegraphics[width=\textwidth]{collaborators-onehappybird.jpg}
+  %%   \includegraphics[width=\textwidth]{/Users/danforth/Local/collaborators-twitter.pdf}
+
+\end{frame}
+
+\changelecturelogo{0.18}{lightbulb-idea-calculus-circle-tp-1.pdf}
+
+\begin{frame}
+  %% display of papers by images
+
+  \setlength{\fboxsep}{0pt}
+  \setlength{\fboxrule}{0.5pt}
+
+  \newcommand{\paperfigureheight}{0.115}
+  \input{2016-01-18paper-tiles}
+
+\end{frame}
+
+%% heroes
+
+\changelecturelogo{.18}{conkslogo200.png}
+
+\section{Orientation}
+
+\subsection{Course\ Information}
+
+\begin{frame}
+  \frametitle{Basics:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item 
+    \alertb{Instructor:} \myname
+  \item 
+    \alertb{Lecture room and meeting times:}\\
+    \lectureroom, \meetingtimes
+  \item 
+    \alertb{Office:} \officelocation
+  \item 
+    \alertb{email:} \myemail
+  \item 
+    \alertb{Course Website:} \newline
+    {\small
+      \wordwikilinklong{\coursewebsite}{\coursewebsite}}
+  \item
+    \alertb{Course Twitter handle:} \coursehandle
+  \item
+    \alertb{Course hashtag:} \coursehashtag
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+%%  \frametitle{Admin:}
+
+  \begin{block}<1->{Potential paper products:}
+    \begin{itemize}
+    \item<1-> 
+%% fix!
+%%      The \syllabuslink{\coursewebsite/docs/\courseprefix}.
+      The
+      \wordwikilink{http://www.uvm.edu/~pdodds/teaching/courses/2014-01UVM-303/docs/2014-01UVM-303syllabus.pdf}{Syllabus}
+      and a 
+      \wordwikilink{http://www.uvm.edu/~pdodds/teaching/courses/2014-01UVM-303/docs/2014-01UVM-303poster.pdf}{Poster}.
+      %% and a 
+%%      \posterlink{\coursewebsite/docs/\courseprefix}.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<2->{Office hours:}
+    \begin{itemize}
+    \item<2-> 
+      \officehours, \\ \officelocation
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<3->{Graduate Certificate:}
+    \begin{itemize}
+    \item
+      Principles of Complex Systems is one of two core requirements
+      for UVM's five course
+      \wordwikilink{http://www.uvm.edu/~cems/complexsystems/?Page=gradApplications/certificate.php}{Certificate of Graduate Study in Complex Systems}.
+    \item
+     Other required course:  Prof.\ Maggie Eppstein's ``Modelling Complex Systems'' (CSYS/CS 302).
+    \item
+      coCoNuTS: The Sequel to PoCS: ``Complex Networks'' (CSYS/MATH 303).
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \small
+
+  \frametitle{Details regarding these artisanal slides:}
+%% made from
+%% locally-sourced, grade B bits:}
+
+  \begin{block}<1->{}
+    \begin{itemize}
+    \item<+->
+      Three versions (all in pdf): 
+      \begin{enumerate}
+      \item 
+        Presentation,
+      \item
+        Flat Presentation,
+      \item
+        Handout (3x2 slides per page).
+      \end{enumerate}
+    \item<+->
+      Presentation versions are \alertb{hyperly navigable}:\newline
+      \insertbackfindforwardnavigationsymbol
+      $\equiv$
+      back + search + forward.
+    \item<+->
+      Web links look 
+      \wordwikilink{http://www.google.com}{like this}
+      and are eminently clickable.
+    \item<+->
+      References in slides link to full citation at end.\cite{anderson1972a}
+    \item<+->
+      Citations contain links to pdfs for papers (if available).
+    \item<+->
+      Some books will be linked to on amazon.
+    \item<+->
+      Brought to you by a frightening melange of 
+      \wordwikilink{http://en.wikipedia.org/wiki/XeTeX}{\XeLaTeX}, 
+      \wordwikilink{http://en.wikipedia.org/wiki/Beamer\_(LaTeX)}{Beamer}, 
+      \wordwikilink{http://www.perl.org/}{perl}, 
+      \wordwikilink{http://www.ctan.org/tex-archive/macros/latex/contrib/perltex/}{PerlTeX},
+      \wordwikilink{http://en.wikipedia.org/wiki/Command-line_interface}{fevered command-line madness},
+      and 
+      \wordwikilink{http://www.youtube.com/watch?v=uprjmoSMJ-o}{an almost fanatical devotion}
+      to the indomitable \wordwikilink{http://en.wikipedia.org/wiki/Emacs}{emacs}.\newline
+      \uncover<+->{\alertr{\#superpowers}}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \small
+
+  \begin{block}{More super exciting details:}
+    \begin{itemize}
+    \item
+      This is Season \courseseason\ of \coursename.
+    \item
+      Lectures will be called Episodes.
+    \item
+      All lectures are 
+      \wordwikilink{http://en.wikipedia.org/wiki/Bottle_episode}{bottle} 
+      \wordwikilink{http://tvtropes.org/pmwiki/pmwiki.php/Main/BottleEpisode}{episodes}.
+    \item
+      \wordwikilink{http://tvtropes.org}{Other tropes} will be involved.
+    \end{itemize}
+  \end{block}
+
+  \begin{center}
+
+    \youtubevideo{6lzrm3SQynQ}{30}{60}
+
+    \begin{itemize}
+    \item
+      Last coCoNuTs Episodes are \wordwikilink{http://www.uvm.edu/~pdodds/teaching/courses/2013-08UVM-300/content/lectures.html}{here}.
+    \end{itemize}
+  \end{center}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Wonderful foundational support for PoCS and CoNKS has come from the NSF:}
+    \begin{itemize}
+    \item 
+    ``CAREER: Explorations of Complex Social and Psychological
+    Phenomena through Multiscale Online Sociological Experiments,
+    Empirical Studies, and Theoretical Models.'' 2009--2015.
+    \item 
+      SES Division of Social and Economic Sciences\\
+      SBE Directorate for Social, Behavioral \& Economic Sciences
+    \item 
+      Abstract is \wordwikilink{http://www.nsf.gov/awardsearch/showAward?AWD_ID=0846668}{here}.
+    \end{itemize}
+  \end{block}
+
+%%   \begin{block}<+->{}
+%%     \begin{itemize}
+%%       \item
+%%         People have 
+%%         \wordwikilink{http://www.uvm.edu/~pdodds/teaching/courses/2015-08UVM-300/content/comments.html}{said
+%%           nice things about PoCS}
+%%     \end{itemize}
+%%   \end{block}
+
+  \begin{block}<+->{}
+    \begin{itemize}
+    \item
+      Last season's Episodes are \wordwikilink{http://www.uvm.edu/~pdodds/teaching/courses/\lastcourseyear-\lastcoursemonth\institution-\coursenumber/content/lectures.html}{here}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Team coCoNuTs}
+
+  \begin{block}{We'll be carrying on with the PoCS Slack:}
+    \begin{itemize}
+    \item<+-> 
+      Place for discussions about all things PoCS/coCoNuTs
+      including assignments and projects.
+    \item<+-> 
+      Once invited, please sign up here:
+      \href{http://teampocs.slack.com}{http://teampocs.slack.com}
+    \item<+->
+      Very good: Install Slack app on laptops, tablets, phone.
+    \item<+->
+      Everyone will behave wonderfully.
+    \end{itemize}    
+
+  \includegraphics[width=0.9\textwidth]{Slack-Colour-RGB.png}
+
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Grading breakdown:}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item 
+      \alertb{Projects/talks (36\%)}---Students will 
+      work on semester-long projects.  Students will develop a
+      proposal in the first few weeks of the course which will be discussed
+      with the instructor for approval.  
+
+      \smallskip
+
+      Details: 12\% for the first talk, 12\% for the final talk,
+      and 12\% for the written project.
+    \end{itemize}
+  \end{block}
+  \begin{block}{}
+    \begin{itemize}
+    \item 
+      \alertb{Assignments (60\%)}---All assignments will be 
+      of equal weight and there will be 10 $\pm$ 1 of them.
+    \end{itemize}
+  \end{block}
+  \begin{block}{}
+    \begin{itemize}
+    \item 
+      \alertb{General attendance/Class participation (4\%)}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{How grading works:}
+
+  \begin{block}{Questions are worth 3 points according to the following scale:}
+    \begin{itemize}
+    \item 
+      3 = correct or very nearly so.
+    \item 
+      2 = acceptable but needs some revisions.
+    \item 
+      1 = needs major revisions.
+    \item 
+      0 = way off.
+    \end{itemize}
+
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Important things:}
+
+  \begin{block}{}
+    \importantdates
+  \end{block}
+
+  \begin{block}{}
+    \textbf{Do} check the course Twitter account, \coursehandle, for
+    updates regarding the course (part of the course site).
+  \end{block}
+
+  \begin{block}{}
+    \alertb{Academic assistance:} Anyone who requires assistance in any way 
+    (as per the ACCESS program
+    or due to athletic endeavors), please see or contact me as soon as possible.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[plain]
+  \frametitle{Schedule in detail:}
+
+  \tiny
+  \begin{block}{}
+    \settablerowcolours
+    \lectureschedule
+  \end{block}
+
+\end{frame}
+
+\subsection{Projects}
+
+\begin{frame}
+  \frametitle{Projects}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+->
+    Semester-long projects.
+  \item<+-> 
+    Possible theme: Stories, Narratives, and Language.
+  \item<+-> 
+    Develop proposal in first few weeks.
+  \item<+-> 
+    May range from novel research to investigation of an established area of complex systems.
+  \item<+-> 
+    Two talks + written piece + Project on Github Pages.
+  \item<+->
+    Usage of 
+    \wordwikilink{http://www.uvm.edu/~vacc/}{the VACC}
+    is encouraged (ability to code well = super powers).
+  \item<+->
+    Massive data sets available, including Twitter.
+  \item<+->
+    Academic output (journal papers) resulting from Principles
+    of Complex Systems and Complex Networks can be found
+    \wordwikilink{\coursewebsite/output/}{here}.  Add more!
+  \item<+->
+    We'll go through a list of possible projects soon.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+%%  \frametitle{Projects}
+
+  \begin{block}{\wordwikilink{http://www.uvm.edu/~pdodds/fama/2015/06/04/the-narrative-hierarchystories-and-storytelling-on-all-scales/}{The
+      narrative hierarchy---Stories and Storytelling on all Scales:}}
+    \begin{columns}
+      \column{0.3\textwidth}
+      \includegraphics[width=\textwidth]{2014-11-15narrative-hierarchy-sketches-stories_001_base_1200px-tp-5.png}\\
+      \includegraphics[width=\textwidth]{2014-11-15narrative-hierarchy-sketches-stories_001_broken-story_1200px-tp-5.png}\\
+      \includegraphics[width=\textwidth]{2014-11-15narrative-hierarchy-sketches-stories_001_broken_1200px-tp-5.png}
+      \column{0.7\textwidth}
+      \begin{itemize}
+      \item 
+        1 to 3 word encapsulation = a soundbite = a buzzframe,
+      \item 
+        1 sentence, title,
+      \item 
+        few sentences, a haiku,
+      \item 
+        a paragraph, abstract,
+      \item 
+        short paper, essay,
+      \item 
+        long paper,
+      \item 
+        chapter,
+      \item 
+        book,
+      \item 
+        \ldots
+      \end{itemize}
+    \end{columns}
+
+  \end{block}
+
+\end{frame}
+
+
+
+%% \begin{frame}
+%%   \frametitle{Projects}
+%% 
+%% The ``narrative hierarchy''---explaining things on many scales:
+%% 
+%% 1 to 3 word encapsulation, a soundbite,\\
+%% a sentence/title,\\
+%% a few sentences,\\
+%% a paragraph,\\
+%% a short paper,\\
+%% a long paper,\\
+%% a chapter,\\
+%% a book,\\
+%% $\vdots$
+%% 
+%% \end{frame}
+
+\section{The\ rise\ of\  networks}
+
+\begin{frame}
+  \frametitle{Key Observation:}
+
+  \begin{itemize}
+  \item <1->
+    Many \alert{complex systems}\\ 
+    can be viewed as \alert{complex networks}\\
+    of physical or abstract interactions.
+  \item <2->
+    Opens door to mathematical and numerical analysis.
+  \item <3-> 
+    Dominant approach of last decade of 
+    a \alertb{theoretical-physics/stat-mechish} flavor.
+  \item <4-> 
+    Mindboggling amount of work published 
+    on complex networks since 1998 \ldots
+  \item <5-> 
+    \ldots due to your typical theoretical physicist:
+    \begin{overprint}
+      \onslide<1-5 | handout:0 | trans: 0>
+      \onslide<6- | handout:1 | trans: 1>
+      \smallskip
+      \begin{columns}
+        \column{0.3\textwidth}
+        \includegraphics[width=\textwidth]{piranha3-tp.pdf}
+        \column{0.7\textwidth}
+        \begin{itemize}
+        \item \textit{Piranha physicus}
+        \item<7-> Hunt in packs.
+        \item<8-> Feast on new and interesting ideas \\
+          {\small (see chaos, cellular automata, \ldots)}
+        \end{itemize}
+      \end{columns}
+    \end{overprint}
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% popularity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Popularity (according to Google Scholar)}
+
+  \begin{block}<1->{``Collective dynamics of `small-world' networks''\cite{watts1998a}}
+    \begin{itemize}
+    \item[] 
+      Duncan Watts and Steve Strogatz\\
+      Nature, 1998
+    \item[] 
+      \wordwikilink{http://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=LhOAiXMAAAAJ\&citation\_for\_view=LhOAiXMAAAAJ:u5HHmVD\_uO8C}
+      {Times cited: \uncover<2->{\alert{$\sim 28,017$}} }
+      {\tiny(as of January 18, 2016)}
+        %% http://scholar.google.com/citations?view_op=view_citation&hl=en&user=LhOAiXMAAAAJ&citation_for_view=LhOAiXMAAAAJ:u5HHmVD_uO8C
+        %% 
+      \end{itemize}
+    \end{block}
+
+  \begin{block}<1->{``Emergence of scaling in random networks''\cite{barabasi1999a}}
+    \begin{itemize}
+    \item[] 
+      L\'{a}szl\'{o} Barab\'{a}si and R\'{e}ka Albert\\
+      Science, 1999
+    \item[] 
+      \wordwikilink{http://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=vsj2slIAAAAJ\&citation\_for\_view=vsj2slIAAAAJ:u5HHmVD\_uO8C}
+      {Times cited: \uncover<3->{\alert{$\sim 24,236$}}}
+      {\tiny(as of January 18, 2016)}
+      %% https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vsj2slIAAAAJ&citation_for_view=vsj2slIAAAAJ:u5HHmVD_uO8C
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{Models}
+
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{Some important models:}
+    \begin{enumerate}
+    \item<2-> generalized random networks \alert{(touched on in 300)}
+    \item<3->
+      \wordwikilink{http://en.wikipedia.org/wiki/Scale-free_network}{scale-free
+        networks} \alert{(partly covered in 300)}
+    \item<4-> \wordwikilink{http://en.wikipedia.org/wiki/Small-world_network}{small-world networks} \alert{(covered in 300)}
+    \item<5-> statistical generative models ($p^\ast$)
+    \item<6-> generalized affiliation networks \alert{(covered in 300)}
+    \end{enumerate}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \showtarotcards{0.35}{
+%%  \dealnewtarotcard{0.25}{
+    john-dory,
+    overview,
+    complex-networks,
+    random-networks,
+%%    scale-free-networks,
+%%    small-world-networks,
+%%    theory-six-degrees,
+}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}<1->{1. generalized random networks:}
+    \begin{itemize}
+    \item<2-> Arbitrary degree distribution $P_k$.
+    \item<3-> Wire nodes together randomly.
+    \item<4-> Create ensemble to test deviations from randomness.
+    \item<5-> Interesting, applicable, rich mathematically.
+    \item<6->
+      We will have fun with these things \ldots
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \showtarotcards{0.35}{
+%%  \dealnewtarotcard{0.25}{
+    john-dory,
+    overview,
+    complex-networks,
+    random-networks,
+    scale-free-networks,
+%%    small-world-networks,
+%%    theory-six-degrees,
+}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{2. `scale-free networks':}
+    \begin{columns}
+      \column{0.03\textwidth}
+      \column{0.33\textwidth}
+      \bigskip
+      \includegraphics[height=\textwidth]{nw_powerlaw_graphviz03maincluster_1}\\
+      \bigskip
+      \small{$\gamma$ = 2.5},
+      \small{$\tavg{k}$ = 1.8},
+      \small{$N = 150$}
+      \column{0.64\textwidth}
+      \begin{itemize}
+      \item<2-> Introduced by Barabasi and Albert\cite{barabasi1999a}
+      \item<2-> Generative model
+      \item<3-> Preferential attachment model with growth:
+      \item<4->  $P[\textnormal{attachment to node}\ i] \propto k_{i}^\alpha$.
+      \item<5-> Produces \alert{$P_k \sim k^{-\gamma}$} when $\alpha=1$.
+      \item<6-> Trickiness: other models generate skewed degree distributions.
+      \end{itemize}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \showtarotcards{0.35}{
+%%  \dealnewtarotcard{0.25}{
+    john-dory,
+    overview,
+    complex-networks,
+    random-networks,
+    scale-free-networks,
+    small-world-networks,
+%%    theory-six-degrees,
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}<1->{3. small-world networks}
+    \begin{itemize}
+    \item Introduced by Watts and Strogatz\cite{watts1998a}
+    \end{itemize}
+    \medskip
+    \visible<2->{Two scales:}
+    \begin{itemize}
+    \item<3-> \alert{local regularity} (an individual's friends know each other)
+    \item<4-> \alert{global randomness} (shortcuts).
+    \end{itemize}
+
+    \begin{columns}
+      \column{0.65\textwidth}
+      \begin{itemize}
+      \item<5-> Shortcuts allow disease to jump
+      \item<6-> Number of infectives increases exponentially in time
+      \item<7-> Facilitates synchronization
+      \end{itemize}
+      \column{0.35\textwidth}
+      \begin{overprint}
+        \onslide<1-2| handout:0| trans:0>
+        \onslide<3| handout:0| trans:0>
+        \includegraphics[height=0.3\textheight]{lattice4}
+        \onslide<4-| handout:1| trans:1>
+        \includegraphics[height=0.3\textheight]{latticeshortcut4}
+      \end{overprint}
+    \end{columns}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \showtarotcards{0.35}{
+%%  \dealnewtarotcard{0.25}{
+    john-dory,
+    overview,
+    complex-networks,
+    random-networks,
+    scale-free-networks,
+    small-world-networks,
+    theory-six-degrees,
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{5. generalized affiliation networks}
+    \bigskip
+    \begin{center}
+      \includegraphics[height=0.6\textheight]{bipartite}
+    \end{center}
+  \end{block}
+
+  Bipartite affiliation networks: boards and directors, movies and actors.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{5. generalized affiliation networks}
+    \centering
+    \includegraphics[width=1\textwidth]{bipartite2}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{5. generalized affiliation networks}
+    \includegraphics[width=1\textwidth]{generalcontext2}  
+    \begin{itemize}
+    \item Blau \& Schwartz\cite{blau1984a}, Simmel\cite{simmel1902a}, Breiger\cite{breiger1974a}, Watts \etal\cite{watts2002b}
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+\section{Resources}
+
+\begin{frame}
+  \frametitle{Bonus materials:}
+
+  \begin{block}<1->{Textbooks:}
+    \begin{itemize}
+      \item \small
+        Mark Newman (Physics, Michigan)\\
+        \alertb{``Networks: An Introduction''}
+        \wikilink{http://www.amazon.com/Networks-Introduction-Mark-Newman/dp/0199206651}
+      \item \small
+        David Easley and Jon Kleinberg (Economics and Computer Science, Cornell)\\
+        \alertb{``Networks, Crowds, and Markets: Reasoning About a Highly Connected World''}
+        \wikilink{http://www.cs.cornell.edu/home/kleinber/networks-book/}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bonus materials:}
+
+  \begin{block}<1->{Review articles:}
+    \begin{itemize}
+    \item
+      S. Boccaletti et al.,\\
+      Physics Reports, 2006,\\
+      \alertb{``Complex networks: structure and dynamics''}\cite{boccaletti2006a}\\
+      \wordwikilink{http://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=BEC76f4AAAAJ\&citation\_for\_view=BEC76f4AAAAJ:u5HHmVD\_uO8C}{Times
+        cited: \alert{$\sim$ 6,034}}
+      {\tiny(as of January 18, 2016)}
+      %% http://scholar.google.com/citations?view\_op=view\_citation&hl=en&user=BEC76f4AAAAJ&citation\_for\_view=BEC76f4AAAAJ:u5HHmVD\_uO8C
+    \item 
+      M. Newman,\\
+      SIAM Review, 2003,\\
+      \alertb{``The structure and function of complex networks''}\cite{newman2003a}\\
+      \wordwikilink{https://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=rQ68pVwAAAAJ\&citation\_for\_view=rQ68pVwAAAAJ:\_FxGoFyzp5QC}
+      {Times cited: \alert{$\sim$ 13,536}}
+      {\tiny(as of January 18, 2016)}
+      %% 
+      %% http://scholar.google.com/scholar?cites=12945060519911641528\&as\_sdt=5,46\&sciodt=0,46\&hl=en
+    \item 
+      R.\ Albert and A.-L.\ Barab\'{a}si\\
+      Reviews of Modern Physics, 2002,\\
+      \alertb{``Statistical mechanics of complex networks''}\cite{albert2002a}\\
+      \wordwikilink{http://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=d27Ji6kAAAAJ\&citation\_for\_view=d27Ji6kAAAAJ:WF5omc3nYNoC}
+      {Times cited: \alert{$\sim$ 16,041}} 
+      {\tiny(as of January 18, 2016)}
+      %% https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d27Ji6kAAAAJ&citation_for_view=d27Ji6kAAAAJ:WF5omc3nYNoC
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\section{Nutshell}
+
+\begin{frame}[label=]
+  \frametitle{Nutshell:}
+
+  \begin{block}{Overview Key Points:}
+    \begin{itemize}
+    \item<1->
+      The field of complex networks came into
+      existence in the late 1990s.
+    \item<2->
+      Explosion of papers and interest since 1998/99.
+    \item<3->
+      Hardened up much thinking about complex systems.
+    \item<4->
+      Specific focus on networks that are 
+      \alert{large-scale}, 
+      \alertb{sparse}, 
+      \alert{natural} or \alert{man-made}, 
+      \alertb{evolving} and \alertb{dynamic}, 
+      and 
+      (crucially) \alert{measurable}.
+    \item<5->
+      Three main (blurred) categories: 
+      \begin{enumerate}
+      \item 
+      \alert{Physical} (e.g., river networks),
+      \item 
+      \alert{Interactional} (e.g., social networks),
+      \item 
+      \alert{Abstract} (e.g., thesauri).
+      \end{enumerate}
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Nutshell:}
+
+  \begin{block}{Overview Key Points (cont.):}
+    \begin{itemize}
+    \item<1->
+      Obvious connections with the vast
+      extant field of graph theory.
+    \item<2->
+      But focus on dynamics is more of a physics/stat-mech/comp-sci
+      flavor.
+    \item<3->
+      Two main areas of focus:
+      \begin{enumerate}
+      \item 
+        \alertb{Description:} Characterizing very large networks
+      \item
+        \alertb{Explanation:} Micro story $\Rightarrow$ Macro features
+      \end{enumerate}
+    \item<4->
+      Some essential structural aspects are understood: degree distribution, clustering,
+      assortativity, group structure, overall structure, \ldots
+    \item<5->
+      Still much work to be done, especially with respect to dynamics \ldots
+      \uncover<6->{\alert{exciting!}}
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Neural solace---Temporal social networks:}
+
+  \begin{block}{
+      \wordwikilink{http://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans}
+      {Visualizing a day in the life of Americans}
+    }
+    
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{2016-01-18people-moving-flowing-data.png}
+    \end{center}
+
+    \begin{itemize}
+    \item   
+      Source: Flowing Data/Nathan Yau.
+    \end{itemize}
+  \end{block}
+
+  
+\end{frame}

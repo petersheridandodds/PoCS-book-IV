@@ -1,0 +1,518 @@
+%% is the gibrat gamma=1 error a re-sampling problem for logl-log?
+
+\section{Lognormals}
+
+\subsection{Empirical\ Confusability}
+
+  \textbf{Alternative distributions}
+
+  \textbf{There are other \alertb{`heavy-tailed'} distributions:}
+    
+     
+      The \wordwikilink{http://en.wikipedia.org/wiki/Log-normal\_distribution}{Log-normal distribution}
+      $$
+      P(x) = \frac{1}{x \sqrt{2\pi} \sigma}
+      \exp 
+      \left(
+        -\frac{(\ln x-\mu)^2}
+        {2\sigma^2}
+      \right)
+      $$
+     
+      \wordwikilink{http://en.wikipedia.org/wiki/Weibull\_distribution}{Weibull distributions}
+      $$ 
+      P(x) \dee{x}
+      =
+      \frac{k}{\lambda}
+      \left(
+        \frac{x}{\lambda}
+      \right)^{\mu-1} 
+      e^{-(x/\lambda)^\mu}
+      \dee{x}
+      $$
+      CCDF = \wordwikilink{http://en.wikipedia.org/wiki/Stretched\_exponential\_function}{stretched exponential}.
+     
+      \wordwikilink{http://en.wikipedia.org/wiki/Gamma\_distribution}{Gamma distributions}, and more.
+    
+  
+
+
+  \textbf{lognormals}
+
+  \textbf{The lognormal distribution:}
+    $$
+    P(x) = \frac{1}{x \sqrt{2\pi} \sigma}
+    \exp 
+    \left(
+      -\frac{(\ln x-\mu)^2}
+      {2\sigma^2}
+    \right)
+    $$
+  
+   $\ln x$ is distributed according 
+    to a normal distribution with mean $\mu$ and variance $\sigma$.
+   Appears in economics and biology where 
+    growth increments are distributed normally.
+  
+  
+
+
+  \textbf{lognormals}
+
+  
+  
+   
+    Standard form reveals the mean $\mu$ and
+    variance $\sigma^2$ of the underlying 
+    normal distribution:
+    $$
+    P(x) = \frac{1}{x \sqrt{2\pi} \sigma}
+    \exp 
+    \left(
+      -\frac{(\ln x-\mu)^2}
+      {2\sigma^2}
+    \right)
+    $$
+  
+    For lognormals:
+    $$
+    \mu_{\mbox{\tiny lognormal}} = e^{\mu+\frac{1}{2}\sigma^2},
+    \qquad
+    \mbox{median}_{\mbox{\tiny lognormal}} = e^{\mu},
+    $$
+    $$
+    \sigma_{\mbox{\tiny lognormal}} = (e^{\sigma^2} - 1 ) e^{2\mu + \sigma^2},
+    \qquad
+    \mbox{mode}_{\mbox{\tiny lognormal}} = e^{\mu-\sigma^2}.
+    $$
+  
+    All moments of lognormals are \alert{finite}.
+  
+  
+
+
+  \textbf{Derivation from a normal distribution}
+
+  \textbf{Take $Y$ as distributed normally:}
+    
+    
+      $$
+      P(y)\dee{y} = \frac{1}{\sqrt{2\pi} \sigma} \dee{y}
+      \exp 
+      \left(
+        -\frac{(y-\mu)^2}
+        {2\sigma^2}
+      \right)
+      $$
+    
+  
+
+  \textbf{Set $Y = \ln X$:}
+    
+     Transform according to $P(x) \dee{x} = P(y) \dee{y}$:
+    
+      $$
+      \diff{y}{x} = 1/x \Rightarrow \dee{y} = \dee{x} / x
+      $$
+    
+      $$
+      \Rightarrow P(x) \dee{x} 
+      = \frac{1}{\alert{x} \sqrt{2\pi} \sigma} 
+      \exp 
+      \left(
+        -\frac{(\alert{\ln x}-\mu)^2}
+        {2\sigma^2}
+      \right)
+      \dee{x}
+      $$
+    
+  
+
+
+  \textbf{Confusion between lognormals and pure power laws}
+
+      \begin{column}{0.6\textwidth}
+      \includegraphics[width=\textwidth]{figlognormal_powerlaw_confusion_noname.pdf}    
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      Near agreement over four orders of magnitude!
+    \end{column}
+  
+  
+   For lognormal (\alertb{blue}), $\mu=0$ and $\sigma=10$.
+   For power law (\alert{red}), $\gamma=1$ and $c=0.03$.
+  
+
+
+  \textbf{Confusion}
+
+  \textbf{What's happening:}
+    
+       $$
+      \ln P(x) = 
+      \ln 
+      \left\{ 
+        \frac{1}{x \sqrt{2\pi} \sigma}
+        \exp 
+        \left(
+          -\frac{(\ln x-\mu)^2}
+          {2\sigma^2}
+        \right)
+      \right\}
+      $$
+        $$
+      = -\ln x  
+      -\ln \sqrt{2\pi} \sigma
+      -\frac{(\ln x-\mu)^2}
+      {2\sigma^2}
+      $$
+       $$
+      = 
+      -\frac{1}
+      {2\sigma^2}
+      \alert{  (\ln x)^2}
+      + \left(
+        \frac{\mu}{\sigma^2} - 1
+      \right)
+      \alert{\ln x  }
+      -\ln \sqrt{2\pi} \sigma
+      -\frac{\mu^2}
+      {2\sigma^2}.
+      $$
+     $\Rightarrow$ If $\sigma^2 \gg 1$ and $\mu$,
+     $$
+      \boxed{\ln P(x) \sim - \ln {x} + \mbox{const.} }
+      $$
+
+    
+  
+
+
+  \textbf{Confusion}
+
+  
+  
+     Expect -1 scaling to hold until $(\ln{x})^2$ term 
+    becomes significant compared to $(\ln{x})$.
+     This happens when (roughly)
+   $$
+    -\frac{1}
+    {2\sigma^2}
+    \alert{  (\ln x)^2}
+    \simeq
+    \alert{0.05}
+    \left(
+      \frac{\mu}{\sigma^2} - 1
+    \right)
+    \alert{\ln x  }
+    $$
+  
+    $$
+    \Rightarrow
+    \alert{\log_{10} x}
+    \lesssim
+    0.05\times2(\sigma^2 - \mu) 
+    \log_{10} e
+    $$
+  
+    $$
+    \simeq 0.05 (\sigma^2 - \mu) 
+    $$
+  
+    $\Rightarrow$ If you find a -1 exponent,\\
+    \qquad you may have a lognormal distribution...
+  
+  
+
+
+%% %%   \textbf{Confusion}
+%% 
+%%   \textbf{Lognormals could imitate other power laws:}
+%%     
+%%      $$
+%%       \ln P(x) 
+%%       = 
+%%       -\frac{1}
+%%       {2\sigma^2}
+%%       \alert{  (\ln x)^2}
+%%       + \left(
+%%         \frac{\mu}{\sigma^2} - 1
+%%       \right)
+%%       \alert{\ln x  }
+%%       -\ln \sqrt{2\pi}
+%%       -\frac{\mu^2}
+%%       {2\sigma^2}.
+%%       $$
+%%      
+%%       Take $\mu<0$ and $\mu/\sigma^2 = -\alpha < 0$:
+%%     
+%%       Then the `exponent' is $-\alpha-1$
+%%       and the range of scaling is
+%%     
+%%       $$
+%%       \alert{\log_{10} x  }
+%%       \lesssim 0.05 (\sigma^2 - \mu)
+%%       = 0.05 (1 + \alpha) \sigma^2.
+%%       $$
+%%     
+%%   
+%% 
+%% 
+%% %% 
+%% %%   \textbf{Confusion}
+%% 
+%%   %%     \begin{column}{0.6\textwidth}
+%%       \includegraphics[width=\textwidth]{figlognormal_powerlaw_confusion5_noname.pdf}
+%%     \end{column}
+%%     \begin{column}{0.3\textwidth}
+%%       Variance for lognormal is absurdly large: $e^{100}$      
+%%     \end{column}
+%%   %% 
+%%   
+%%    
+%%     For lognormal (\alertb{blue}), $\mu=-50$ and $\sigma=10$.
+%%    
+%%     For power law (\alert{red}), $\alpha=3/2$ and $c=10^{-7}$.
+%%   
+%% 
+%% 
+
+\subsection{Random\ Multiplicative\ Growth\ Model}
+
+  \textbf{Generating lognormals:}
+
+  \textbf{Random multiplicative growth:}
+    
+    
+      $$ x_{n+1} = r x_n$$
+      where $r>0$ is a random growth variable
+     (Shrinkage is allowed)
+    
+      In log space, growth is by addition:
+      $$ \ln x_{n+1} = \ln r + \ln x_n $$
+    
+      $\Rightarrow \ln x_{n}$ is normally distributed
+      
+      $\Rightarrow x_{n}$ is lognormally distributed
+    
+    
+  
+
+
+  \textbf{Lognormals or power laws?}
+
+  
+  
+  
+   Gibrat\cite{gibrat1931a} (1931) uses preceding argument
+    to explain lognormal distribution of firm sizes $(\gamma \simeq 1$).
+   But Robert Axtell\cite{axtell2001a} (2001) shows a power
+    law fits the data very well with \alertb{$\gamma=2$, not $\gamma=1$} (!)
+    %% is this sampling?
+   Problem of data censusing (missing small firms).
+  
+          
+      
+              
+        
+        \includegraphics[width=\textwidth]{axtell2001afig1.pdf}
+        
+        $ \mbox{Freq} \propto (\mbox{size})^{-\gamma}$
+        \medskip
+        \alertb{$\gamma \simeq 2$}
+            
+    One piece in Gibrat's model seems okay empirically: 
+    Growth rate $r$ appears to be independent of firm size.\cite{axtell2001a}.
+  
+  
+
+
+
+  \textbf{An explanation}
+
+  
+  
+   Axtel (mis?)cites Malcai et al.'s (1999) argument\cite{malcai1999a}
+    for why power laws appear with exponent $\gamma \simeq 2$
+   The set up: $N$ entities with size $x_i(t)$
+   
+    Generally:
+    $$
+    x_i(t+1) = rx_i(t) 
+    $$
+    where $r$ is drawn from some happy distribution
+   
+    Same as for lognormal but one extra piece.
+   
+    Each $x_i$ cannot drop too low with respect to the other sizes:
+    $$
+    x_i(t+1) = \max(rx_i(t),c\avg{x_i})
+    $$
+  
+  
+
+
+
+%%  \textbf{An explanation}
+
+  \textbf{Some math later...}
+    \insertassignmentquestionsoft{06}{6}
+    
+     
+      $$ \mbox{Find} \ \ \ \ P(x) \sim x^{-\gamma} $$
+      
+       
+      where $\gamma$ is implicitly given by
+      $$
+      N = \frac{(\gamma-2)}{(\gamma-1)}
+      \left[
+        \frac{(c/N)^{\gamma-1} - 1}
+        {(c/N)^{\gamma-1} - (c/N)}
+      \right]
+      $$
+      $N$ = total number of firms.
+    
+      $$      
+      \mbox{Now, if $c/N \ll 1$ and $\gamma>2$}  \ \ \ 
+      N = \frac{(\gamma-2)}{(\gamma-1)}
+      \left[
+        \frac{- 1}
+        {- (c/N)}
+      \right]
+      $$
+    
+      $$
+      \mbox{Which gives} \ \ \ 
+      \gamma  \sim 1 + \frac{1}{1-c}
+      $$
+     \alert{Groovy...}  $c$ small $\Rightarrow \gamma \simeq 2$
+    
+  
+  
+
+
+%% %%   \textbf{Generating other things:}
+%% 
+%%   
+%%    Tweak the model and lognormal slips away
+%%    Two modifications:
+%%     
+%%      Restrict all $x > x_0 > 0$ \\
+%%       (minimum size or reflecting boundary)
+%%      Vary time of growth (or number of updates)
+%%     
+%%   
+%% 
+%% 
+%% %%   
+%% 
+%% 
+\subsection{Random\ Growth\ with\ Variable\ Lifespan}
+
+  \textbf{The second tweak}
+
+  \textbf{Ages of firms/people/... may not be the same}
+    
+     Allow the number of updates for each size $x_i$
+      to vary
+     Example: $ P(t) \dee{t} = ae^{-at} \dee{t} $ where $t$ = age.
+     Back to no bottom limit: each $x_i$ follows
+      a lognormal
+    
+      Sizes are distributed as\cite{mitzenmacher2003a}
+      $$
+      P(x) = \int_{t=0}^\infty
+      \alertb{a e^{-at}}
+      \alert{
+      \frac{1}{x \sqrt{2\pi t}}
+      \exp
+      \left(
+        -\frac{(\ln x - \mu)^2}
+        {2t}
+      \right)
+      }
+      \dee{t}
+      $$
+      (Assume for this example that $\sigma \sim t$ and $\mu = \ln m$)
+      
+      Now averaging different lognormal distributions.
+    
+  
+
+
+  \textbf{Averaging lognormals}
+
+  
+    
+    
+      $$
+      P(x) = \int_{t=0}^\infty
+      \alertb{a e^{-at}}
+      \alert{
+        \frac{1}{x \sqrt{2\pi t}}
+        \exp
+        \left(
+          -\frac{(\ln \frac{x}{m})^2}
+          {2t}
+        \right)
+      }
+      \dee{t}
+      $$
+    
+      \insertassignmentquestionsoft{05}{5}
+    
+      Some enjoyable suffering leads to:
+      $$
+      P(x)
+      \propto
+      x^{-1} e^{- \sqrt{2\lambda (\ln \frac{x}{m}) ^2}} 
+      $$
+    
+  
+
+
+  \textbf{The second tweak}
+
+  
+  
+   $$
+    P(x)
+    \propto
+    x^{-1} e^{- \sqrt{2\lambda (\ln \frac{x}{m}) ^2}} 
+    $$
+   Depends on sign of $\ln \frac{x}{m}$, i.e., whether $\frac{x}{m}>1$ or $\frac{x}{m}<1$.
+   
+    $$
+    P(x) 
+    \propto
+    \left\{
+      \begin{array}{cl}
+        x^{-1 + \sqrt{2\lambda}} & \mbox{if $\frac{x}{m}<1$} \\
+        x^{-1 - \sqrt{2\lambda}} & \mbox{if $\frac{x}{m}>1$} \\
+      \end{array}
+    \right.
+    $$
+   \alert{`Break' in scaling} (not uncommon)
+   Double-\wordwikilink{http://en.wikipedia.org/wiki/Pareto_distribution}{Pareto distribution}
+  
+    First noticed by Montroll and Shlesinger\cite{montroll1982a,montroll1983a}
+   
+    Later: Huberman and Adamic\cite{huberman1999a,huberman2000a}: Number of pages per website
+  
+  
+
+
+  \textbf{Summary of these exciting developments:}
+  
+  
+  
+   Lognormals and power laws can be \alert{awfully} similar
+   Random Multiplicative Growth leads to lognormal distributions
+   Enforcing a minimum size leads to a power law tail
+   With no minimum size but a distribution of lifetimes, 
+    the double Pareto distribution appears
+   \alertb{Take-home message}: Be careful out there...
+  
+  
+  
+

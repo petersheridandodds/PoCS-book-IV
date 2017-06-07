@@ -1,0 +1,75 @@
+\documentclass[
+  10pt,
+  letterpaper,
+  oneside,
+  openright
+]{book}
+
+
+\newcommand*{\refname}{Bibliography}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX,Numbers=OldStyle]{Palatino}
+%% \usefonttheme[onlymath]{serif}
+
+%% general settings, packages, macros
+\input{settings.layout}
+\input{settings.general}
+\input{settings.matrices}
+\input{settings.specific}
+
+%% load in root name
+\usepackage{currfile}
+
+%% \setboolean{twocolswitch}{true}
+
+%%%%%% author(s), address(es) plus abstract
+
+\begin{document}
+
+\title{\protect
+\input{\currfilebase.title}
+}
+
+\input{\currfilebase.author}
+
+\date{\today}
+
+%% \input{\currfilebase.logline}
+
+
+\protect
+\input{\currfilebase.abs} 
+
+\maketitle
+
+\input{\currfilebase.acknowledgments}
+
+%%%%%%%%% end of author(s), address(es) plus abstract
+
+\input{\currfilebase.body}
+
+%% bibliography
+
+\clearpage
+
+%% \input{\currfilebase.biblio}
+%% \bibliographystyle{unsrtabbrv}
+
+
+\bibliographystyle{plain}
+\bibliography{everything}
+
+
+%%%%%%%%%
+%% indexes
+%%
+%% papers
+%% people
+%% ideas
+%% 
+
+
+
+\end{document}
+

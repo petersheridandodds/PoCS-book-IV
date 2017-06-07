@@ -1,0 +1,147 @@
+\section{First return random walk}
+
+\begin{frame}[label=1]
+  \frametitle{Random walks}
+
+  \begin{itemize}
+  \item<1-> We've seen that Scheidegger networks
+    have random walk boundaries\cite{scheidegger1967a,scheidegger1991a} 
+  \item<2-> Determining expected shape of a `basin' becomes
+    a problem of finding the probability that a 1-d random walk
+    returns to the origin after $t$ time steps
+  \item<3-> We solved this with a counting argument for
+    the discrete random walk the preceding Complex Systems course
+  \item<4-> For fun and the constitution, 
+    let's work on the continuous time 
+    Wiener process version
+  \item<5-> A classic, delightful problem
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Random walks}
+
+  \includegraphics[width=0.8\textwidth]{Wiener_process_zoom.png}
+
+  The \wordwikilink{http://en.wikipedia.org/wiki/Wiener_process}{Wiener process}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Random walking on a sphere...}
+
+  \includegraphics[width=0.7\textwidth]{BMonSphere.jpg}
+
+  The \wordwikilink{http://en.wikipedia.org/wiki/Wiener_process}{Wiener process}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Random walks}
+
+  \begin{itemize}
+  \item<1-> Wiener process = Brownian motion
+  \item<2-> 
+    $$
+    x(t_2) - x(t_1) \sim \mathcal{N}(0,t_2-t_1)
+    $$
+    where 
+    $$
+    \mathcal{N}(x,t) = \frac{1}{\sqrt{2\pi t} } e^{-x^2/2t}
+    $$
+  \item<3-> Continuous but nowhere differentiable
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{First return}
+
+  \begin{itemize}
+  \item<1-> \alert{Objective:} find $g(t)$, the probability
+    that Wiener process first returns to the origin at time $t$.
+  \item<2-> Use what we know: the probability density for
+    \alert{a return} (not necessarily the first) at time $t$ is 
+    $$
+    f(t) = \frac{1}{\sqrt{2\pi t}} e^{-0/2t} = \frac{1}{\sqrt{2\pi t}}
+    $$
+  \item<3-> Observe that $f$ and $g$ are connected like this:
+    $$
+    f(t) = \int_{\tau=0}^{t} f(\tau) g(t - \tau) \dee{\tau} + \underbrace{\delta(t)}_{\mbox{\tiny Dirac delta function}}
+    $$
+  \item<4-> In words: Probability of returning at time $t$ equals
+    the integral of the probability of returning at time $\tau$
+    and then not returning until exactly $t-\tau$ time units later.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{First return}
+
+  \begin{itemize}
+  \item<1-> 
+    Next see that right hand side of 
+    $f(t) = \int_{\tau=0}^{t} f(\tau) g(t - \tau) \dee{\tau} + \delta(t)$
+    is a juicy convolution.
+  \item<2-> So we take the Laplace transform: 
+    $$ 
+    \mathcal{L}[f(t)] = F(s) = \int_{t=0^-}^{\infty} f(t) e^{-st} \dee{t}
+    $$
+  \item<3->
+    and obtain 
+    $$
+    F(s) = F(s)G(s) + 1
+    $$
+  \item<4->
+    Rearrange:
+    $$
+    G(s) = 1 - 1/F(s)
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{First return}
+
+  \begin{itemize}
+  \item<1-> We are here: $G(s) = 1 - 1/F(s)$
+  \item<2-> Now we want to invert $G(s)$ to find $g(t)$
+  \item<3-> Use calculation that $F(s) = (2s)^{-1/2}$
+  \item<4-> 
+    $$
+    G(s) = 1 - (2s)^{1/2} \uncover<5->{\simeq \alert{e^{-(2s)^{1/2}}}}
+    $$
+%%   \item<6-> 
+%%     Next use fact that the Laplace transform of $t^{-3/2}$ 
+%%     is 
+%%     $
+%%     \mathcal{L}[t^{-3/2}] = -2 \sqrt{\pi} s^{1/2}
+%%     $
+%%   \item<7-> 
+%%     Unpack boxes to find 
+%%     $$
+%%     g(t) \sim \frac{1}{\sqrt{2\pi}}t^{-3/2}
+%%     $$
+%%     
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{First return}
+
+  \begin{block}<1->{Groovy aspects of $g(t) \sim t^{-3/2}$:}
+    \begin{itemize}
+    \item<2-> Variance is infinite (weird but okay...)
+    \item<3-> Mean is also infinite (just plain crazy...)
+    \item<4-> Distribution is normalizable so process always returns to 0.
+    \item<5-> For river networks: $P(\msl) \sim \msl^{-\gamma}$ so
+      $\gamma = 3/2$ for Scheidegger networks.
+    \end{itemize}
+  \end{block}
+
+\end{frame}

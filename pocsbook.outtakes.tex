@@ -1,0 +1,20 @@
+\clearpage
+
+%% supplementary
+
+%% following records the starting page number of the supplementary
+%% section in a file called startsupp.txt
+%% enables script-based breaking of manuscript and supplementary
+\newwrite\tempfile
+\immediate\openout\tempfile=startsupp.txt
+\immediate\write\tempfile{\thepage}
+\immediate\closeout\tempfile
+
+\setcounter{page}{1}
+\renewcommand{\thepage}{S\arabic{page}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\input{\filenamebase.supplementary}

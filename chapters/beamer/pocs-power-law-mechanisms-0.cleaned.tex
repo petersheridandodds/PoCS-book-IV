@@ -1,0 +1,1004 @@
+\section{Random\ Walks}
+
+  \textbf{Mechanisms}
+
+  A powerful theme in complex systems: \\
+  \alertb{structure arises out of randomness.}
+
+  {
+    \alert{Exhibit A:} Random walks...
+  }
+
+
+  \textbf{Random walks}
+
+  The essential random walk:
+
+  \inv
+  \tc{white}{\ding{228} One dimension.}
+
+  \tc{white}{\ding{228} Time and space are discrete.}
+
+  Random walker (e.g., a drunk) starts at origin $x=0$.
+
+  Step at time $t$ is $\epsilon_t$:
+  $$
+  \epsilon_t = 
+  \left\{
+    \begin{array}{ll}
+      +1 & \mbox{with probability 1/2} \\
+      -1 & \mbox{with probability 1/2} \\
+    \end{array}
+  \right.
+  $$
+
+
+  \textbf{Random walks}
+
+  The essential random walk:
+
+  \alertb{\ding{228} One dimension.}
+
+  \inv
+
+  \tc{white}{\ding{228}} Time and space are discrete.
+
+  Random walker (e.g., a drunk) starts at origin $x=0$.
+
+  Step at time $t$ is $\epsilon_t$:
+  $$
+  \epsilon_t = 
+  \left\{
+    \begin{array}{ll}
+      +1 & \mbox{with probability 1/2} \\
+      -1 & \mbox{with probability 1/2} \\
+    \end{array}
+  \right.
+  $$
+
+
+  \textbf{Random walks}
+
+  The essential random walk:
+
+  \tc{black}{\ding{228}} One dimension.
+
+  \alertb{\ding{228} Time and space are discrete.}
+
+  \inv
+
+  Random walker (e.g., a drunk) starts at origin $x=0$.
+
+  Step at time $t$ is $\epsilon_t$:
+  $$
+  \epsilon_t = 
+  \left\{
+    \begin{array}{ll}
+      +1 & \mbox{with probability 1/2} \\
+      -1 & \mbox{with probability 1/2} \\
+    \end{array}
+  \right.
+  $$
+
+
+  \textbf{Random walks}
+
+  The essential random walk:
+
+  \ding{228} One dimension.
+
+  \ding{228} Time and space are discrete.
+
+  \alertb{Random walker (e.g., a drunk) starts at origin $x=0$.}
+
+  \inv
+
+  Step at time $t$ is $\epsilon_t$:
+  $$
+  \epsilon_t = 
+  \left\{
+    \begin{array}{ll}
+      +1 & \mbox{with probability 1/2} \\
+      -1 & \mbox{with probability 1/2} \\
+    \end{array}
+  \right.
+  $$
+
+
+
+  \textbf{Random walks}
+
+  The essential random walk:
+
+  \tc{black}{\ding{228}} One dimension.
+
+  \tc{black}{\ding{228}} Time and space are discrete.
+
+  Random walker (e.g., a drunk) starts at origin $x=0$.
+
+  \alertb{Step at time $t$ is $\epsilon_t$:}
+  $$
+  \epsilon_t = 
+  \left\{
+    \begin{array}{ll}
+      +1 & \mbox{with probability 1/2} \\
+      -1 & \mbox{with probability 1/2} \\
+    \end{array}
+  \right.
+  $$
+
+
+
+  \textbf{Random walks}
+
+  \alertb{Displacement after $t$ steps:}
+  $$x_t = \sum_{i=1}^{t} \epsilon_t$$
+
+  \inv
+
+  Expected displacement:
+  \tc{black}{$$\avg{x_t} = \avg{\sum_{i=1}^{t} \epsilon_t}$$}
+  \tc{black}{$$= \sum_{i=1}^{t} \avg{\epsilon_t}$$}
+  \tc{black}{$$ = 0$$}
+
+
+  \textbf{Random walks}
+
+  Displacement after $t$ steps:
+  $$x_t = \sum_{i=1}^{t} \epsilon_t$$
+
+  \alertb{Expected displacement:}
+  \tc{black}{$$\avg{x_t} = \avg{\sum_{i=1}^{t} \epsilon_t}$$}
+  \tc{black}{$$= \sum_{i=1}^{t} \avg{\epsilon_t}$$}
+  \tc{black}{$$ = 0$$}
+
+
+  \textbf{Random walks}
+
+  \tc{black}{Variances sum:}
+  \alertb{$$ \var(x_t) = \var\left( \sum_{i=1}^{t} \epsilon_t \right) $$}
+  \inv
+  \tc{black}{$$ = \sum_{i=1}^{t} \var\left(  \epsilon_t \right) $$}
+  \tc{black}{$$ = \sum_{i=1}^{t} 1 $$}
+  \tc{black}{$$ = t $$}
+
+
+  \textbf{Random walks}
+
+  \tc{black}{Variances sum:}
+  \tc{black}{$$ \var(x_t) = \var\left( \sum_{i=1}^{t} \epsilon_t \right) $$}
+  \alertb{$$ = \sum_{i=1}^{t} \var\left(  \epsilon_t \right) $$}
+  \inv
+  \tc{black}{$$ = \sum_{i=1}^{t} 1 $$}
+  \tc{black}{$$ = t $$}
+
+
+  \textbf{Random walks}
+
+  \tc{black}{Variances sum:}
+  \tc{black}{$$ \var(x_t) = \var\left( \sum_{i=1}^{t} \epsilon_t \right) $$}
+  \tc{black}{$$ = \sum_{i=1}^{t} \var\left(  \epsilon_t \right) $$}
+  \alertb{$$ = \sum_{i=1}^{t} 1 $$}
+  \inv
+  \tc{black}{$$ = t $$}
+
+
+  \textbf{Random walks}
+
+  \tc{black}{Variances sum:}
+  \tc{black}{$$ \var(x_t) = \var\left( \sum_{i=1}^{t} \epsilon_t \right) $$}
+  \tc{black}{$$ = \sum_{i=1}^{t} \var\left(  \epsilon_t \right) $$}
+  \tc{black}{$$ = \sum_{i=1}^{t} 1 $$}
+  \alertb{$$ = t $$}
+
+
+  \textbf{Random walks}
+
+  So the typical displacement from the origin
+  scales as 
+  $$\sigma = t^{1/2}$$
+
+  \inv
+
+  $\Rightarrow$ A non-trivial power-law arises out
+  of \alertb{additive aggregation} or \alertb{accumulation}
+
+
+  \textbf{Random walks}
+
+  So the typical displacement from the origin
+  scales as 
+  $$\sigma = t^{1/2}$$
+
+  $\Rightarrow$ A non-trivial power-law arises out
+  of \alertb{additive aggregation} or \alertb{accumulation}
+
+
+  \textbf{Random walks}
+
+  Random walks are weirder than you might think...
+
+  \inv
+
+  For example:
+
+  $\xi_{r,t}$ = the probability that by time step $t$,
+  a random walk has crossed the origin $r$ times.
+
+  Think of a coin flip game with ten thousand tosses.
+
+  If you are behind early on, what are the chances you
+  will make a comeback?
+
+  The most likely number of lead changes is...  
+  0.
+
+  %% {\tiny See Feller, Intro to Probability Theory, Volume I } 
+
+
+  \textbf{Random walks}
+
+  Random walks are weirder than you might think...
+
+  For example:
+
+  $\xi_{r,t}$ = the probability that by time step $t$,
+  a random walk has crossed the origin $r$ times.
+
+  \inv
+
+  Think of a coin flip game with ten thousand tosses.
+
+  If you are behind early on, what are the chances you
+  will make a comeback?
+
+  The most likely number of lead changes is...  
+  0.
+
+  %% {\tiny See Feller, Intro to Probability Theory, Volume I } 
+
+
+
+  \textbf{Random walks}
+
+  Random walks are weirder than you might think...
+
+  For example:
+
+  $\xi_{r,t}$ = the probability that by time step $t$,
+  a random walk has crossed the origin $r$ times.
+
+  Think of a coin flip game with ten thousand tosses.
+
+  If you are behind early on, what are the chances you
+  will make a comeback?
+
+  \inv 
+
+  The most likely number of lead changes is...  
+  0.
+
+  %% {\tiny See Feller, Intro to Probability Theory, Volume I } 
+
+
+  \textbf{Random walks}
+
+  Random walks are weirder than you might think...
+
+  For example:
+
+  $\xi_{r,t}$ = the probability that by time step $t$,
+  a random walk has crossed the origin $r$ times.
+
+  Think of a coin flip game with ten thousand tosses.
+
+  If you are behind early on, what are the chances you
+  will make a comeback?
+
+  The most likely number of lead changes is...  
+  \inv  0.
+
+  %% {\tiny See Feller, Intro to Probability Theory, Volume I } 
+
+
+  \textbf{Random walks}
+
+  Random walks are weirder than you might think...
+
+  For example:
+
+  $\xi_{r,t}$ = the probability that by time step $t$,
+  a random walk has crossed the origin $r$ times.
+
+  Think of a coin flip game with ten thousand tosses.
+
+  If you are behind early on, what are the chances you
+  will make a comeback?
+
+  The most likely number of lead changes is...  
+  \alertb{0}.
+
+  %% {\tiny See Feller, Intro to Probability Theory, Volume I } 
+
+
+  \textbf{Random walks}
+
+  In fact,
+  $$\xi_{0,t} > \xi_{1,t} > \xi_{2,t} > \cdots $$
+
+  \inv 
+
+  Even crazier:
+
+  The expected time between tied scores = $\infty$!
+
+
+  \textbf{Random walks}
+
+  In fact,
+  $$\xi_{0,t} > \xi_{1,t} > \xi_{2,t} > \cdots $$
+
+  Even crazier:
+
+  The expected time between tied scores = $\infty$!
+
+
+  \textbf{Random walks}
+
+  \includegraphics[width=\textwidth]{figrandwalk1_noname.pdf}
+  \includegraphics[width=\textwidth]{figrandwalk2_noname.pdf}
+  \includegraphics[width=\textwidth]{figrandwalk3_noname.pdf}
+
+
+  \textbf{Random walks}
+
+  \includegraphics[width=\textwidth]{figrandwalk4_noname.pdf}
+  \includegraphics[width=\textwidth]{figrandwalk5_noname.pdf}
+  \includegraphics[width=\textwidth]{figrandwalk6_noname.pdf}
+
+
+%%%%%%%%%%%%%%%%%%%
+  %% gaussians
+  %% proof of central limit theorem?
+  %% renormalization group approach
+  %% random walks
+%%%%%%%%%%%%%%%%%%%
+
+
+%% %%   \textbf{The Don}
+%% 
+%%   An aside---statistical outliers in sport:
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=0.7\textwidth]{CricketBattingAverageHistogram.png}
+%%     \includegraphics[width=.07\textwidth]{wikipedia.jpg}
+%%   \end{center}
+%% 
+%%   Don Bradman's average score in test cricket.
+%% 
+%% 
+  \textbf{First returns}
+
+  What is the probability that a random walker
+  in one dimension returns to the origin
+  for the first time after $t$ steps?
+
+  Will our drunkard always return to the origin?
+
+  What about higher dimensions?
+
+
+  \textbf{First returns}
+
+  \textbf{Reasons for caring:}
+    
+     
+      We will find a power-law size distribution
+      with an interesting exponent
+     
+      Some physical structures may result from random walks
+     
+      We'll start to see how different scalings relate to each other
+    
+  
+
+
+
+\subsection{The\ First\ Return\ Problem}
+
+  \textbf{Random Walks}
+
+  \includegraphics[width=\textwidth]{figrandwalk2_noname.pdf}
+
+  \includegraphics[width=\textwidth]{figrandwalk5_noname.pdf}
+
+  {
+  Recall: expected time between ties = $\infty$...
+
+  Let's find out why...\cite{feller1968a}}
+
+
+
+%%%%%%%%%%%%%%%%%%%
+% gaussians
+% proof of central limit theorem?
+% renormalization group approach
+% random walks
+%%%%%%%%%%%%%%%%%%%
+
+  \textbf{First Returns of Random Walks}
+
+  
+
+    What is the probability that a random walker
+    in one dimension \alert{first returns} to the origin
+    after $t$ steps?
+
+   Will our drunkard always come home?
+
+    What about higher dimensions?
+
+  
+
+
+  \textbf{First Returns}
+
+More reasons for caring:
+
+ We will find a power-law size distribution
+with an \alert{interesting} exponent.
+ Some \alert{physical structures} result from random walks
+ Simple example of scalings being \alert{connected}
+
+
+
+  \textbf{First Returns}
+
+  \includegraphics[width=\textwidth]{figrandomwalk_firstreturn_noname.pdf}
+
+
+
+  \textbf{First Returns}
+
+  For random walks in 1-d:
+
+  
+   
+    {Return can only happen when $t=2n$.}
+  
+    {Call $P_{\textrm{first\ return}(2n) = P_{\textrm{fr}(2n)$ probability of first return at $t=2n$.}
+  
+    {Assume drunkard first lurches to $x=1$.}
+  
+    {The problem
+      $$P_{\textrm{fr}(2n) = Pr(x_{t} \ge 1, t=1,\ldots,2n-1, \ \mbox{and} \  x_{2n} =0) $$
+    }
+  
+
+
+
+  \textbf{First Returns}
+    \includegraphics[width=\textwidth]{figrandomwalk_firstreturn2_noname.pdf}%
+    \includegraphics[width=\textwidth]{figrandomwalk_firstreturn3_noname.pdf}
+%%    \includegraphics[width=\textwidth]{figrandomwalk_firstreturn4_noname.pdf}
+
+  
+   {A useful restatement: $P_{\textrm{fr}(2n) = $\\
+      $  \frac{1}{2}Pr(x_{t} \ge 1, t=1,\ldots,2n-1, \ \mbox{and} \  x_1 = x_{2n-1} = 1) $}
+   {Want walks that can return many times to $x=1$}
+  
+
+
+  \textbf{First Returns}
+
+  
+   Counting problem (combinatorics/statistical mechanics)
+   Use a method of images
+  
+  Define 
+      $N(i,j,t)$ as the \# of possible walks between $x=i$ and $x=j$ taking $t$ steps.
+   Consider all paths starting at $x=1$ and ending at $x=1$ after $t=2n-2$ steps.
+   Subtract how many hit $x=0$.
+  
+
+  \textbf{First Returns}
+
+  \alert{Key observation:}
+
+  {\# of $t$-step paths starting and ending at $x=1$\\
+  and hitting $x=0$ at least once\\}
+  {= \# of $t$-step paths starting at $x=-1$ and ending at $x=1$\\}
+  {= $N(-1,1,t)$\\}
+
+  \bigskip
+
+  {So \alert{$N_{\textrm{first\ return}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$}\\}
+
+  \bigskip
+
+  {\alertb{See this 1-1 correspondence visually...}}
+
+
+  \textbf{First Returns}
+  
+  \includegraphics[width=\textwidth]{figrandomwalk_firstreturn5_noname.pdf}
+
+
+  \textbf{First Returns}
+ 
+  
+    For any path starting at $x=1$ that hits 0,\\
+    there is a unique matching path starting at $x=-1$.
+     Matching path first mirrors and then tracks.
+  
+
+
+
+  \textbf{First Returns}
+  
+  \includegraphics[width=\textwidth]{figrandomwalk_firstreturn6_noname.pdf}
+
+
+%% %%   \textbf{First Returns}
+%% 
+%%   Probability of first return at time $t=2n$ \\
+%%   is \alert{the same} as\\
+%%   the probability of a walk returning at time $t=2n-2$
+%%   such that $x_{t} \ge 0$ until then.
+%%   
+%%   $$P_{\textrm{first\ return}(2n) = \frac{1}{2} P_{\textrm{return}(2n-2)$$
+%% 
+%% 
+  \textbf{First Returns}
+
+  
+   Next problem: what is $N(i,j,t)$?
+   \# positive steps + \# negative steps = $t$.
+   Random walk must displace by $j-i$ after $t$ steps.
+   \# positive steps - \# negative steps = $j - i$.
+   \# positive steps = $(t+j-i)/2$.
+   $$ N(i,j,t) = \binom{t}{\textrm{\#\ positive\ steps} = \binom{t}{(t+j-i)/2} $$
+  
+
+
+
+  \textbf{First Returns}
+
+  \textbf{We now have}
+    $$N_{\textrm{first\ return}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$$
+    $$ N(i,j,t) = \binom{t}{(t+j-i)/2} $$
+  
+  
+  
+  
+    $
+    N(1,1,2n-2) = \binom{2n-2}{(2n-2)/2} = \binom{2n-2}{n-1} $
+  
+   $ N(-1,1,2n-2) = \binom{2n-2}{(2n-2+2)/2} = \binom{2n-2}{n} $
+  
+  
+
+  \textbf{First Returns}
+
+  {$$N_{\textrm{first\ return}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$$}
+  {$$ = \binom{2n-2}{n-1} - \binom{2n-2}{n} $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} - \frac{(2n-2)!}{n!(n-2)!} $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} - \frac{(2n-2)!}{\alert{(n-1)!(n-1)!}}\alert{\frac{(n-1)}{n}} $$}
+  
+
+
+
+  \textbf{First Returns}
+
+  {$$N_{\textrm{first\ return}(2n) = \frac{(2n-2)!}{(n-1)!(n-1)!} - \frac{(2n-2)!}{{(n-1)!(n-1)!}}{\frac{(n-1)}{n}} $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} \left( 1 - \frac{n-1}{n} \right) $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} \left( 1 - 1 + \frac{1}{n} \right) $$}
+  {$$ = \frac{1}{n}\frac{(2n-2)!}{(n-1)!(n-1)!} $$}
+
+% ??? Catalan numbers
+
+
+  \textbf{First Returns}
+  
+  \textbf{Time for Stirling's Sterling Approximation:}
+    $$ \boxed{ n! \simeq \sqrt{2\pi} n^{n+1/2}e^{-n}} $$\cite{abramowitz1974a,gradshteyn1965a}
+  
+  $$( \mbox{good for} \  n \ \mbox{is large}) $$
+
+%  {
+%    More generally:
+%    $\Gamma(z) \simeq \frac{\sqrt{\pi}}{e} z^{z-1/2}e^{-z}$
+%  }
+
+
+\begin{frame}[t]
+  \textbf{First Returns}
+  {$$N_{\textrm{first\ return}(2n) = \frac{1}{n}\frac{(2n-2)!}{[(n-1)!]^2} $$}
+  {$$
+    \simeq
+    \frac{1}{n}
+    \frac{
+      \sqrt{2\pi} (2n-2)^{2n-2+1/2} e^{-(2n-2)}
+    }
+    {
+      [\sqrt{2\pi} (n-1)^{n-1+1/2} e^{-(n-1)}]^2
+    }
+    $$}
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \sqrt{2\pi} \alert{2^{2n-2+1/2}} (n-1)^{2n-2+1/2} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^2 (n-1)^{2n-2+1} e^{-(2n-2)}}
+    }
+    $$}%
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} (n-1)^{2n-2+1/2} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} (n-1)^{2n-2+1} e^{-(2n-2)}
+    }
+    $$}%
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} \alert{\cancel{(n-1)^{2n-2+1/2}}} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} \alert{\cancel{(n-1)^{2n-2+1/2}}} (n-1)^{1/2} e^{-(2n-2)}
+    }
+    $$}
+
+\begin{frame}[t]
+  \textbf{First Returns}
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} \alert{\cancel{(n-1)^{2n-2+1/2}}} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} \alert{\cancel{(n-1)^{2n-2+1/2}}} (n-1)^{1/2} e^{-(2n-2)}
+    }
+    $$}
+
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} \alert{\cancel{(n-1)^{2n-2+1/2}}} \alert{\cancel{e^{-(2n-2)}}}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} \alert{\cancel{(n-1)^{2n-2+1/2}}} (n-1)^{1/2} \alert{\cancel{e^{-(2n-2)}}}
+    }
+    $$}
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      2^{2n-3/2} 
+    }
+    {
+      \sqrt{2\pi} (n-1)^{1/2}
+    }
+    $$}
+  {$$
+    \sim 
+    \alertb{
+      \frac{
+        2^{2n-3/2}
+      }
+      {
+        \sqrt{2 \pi} n^{3/2}
+      }
+    }.
+    $$}
+
+
+  \textbf{First Returns}
+
+  
+   Normalized Number of Paths gives Probability
+   Total number of possible paths = $2^{2n}$
+  
+    $$ 
+    P_{\textrm{first\ return}(2n) = \frac{1}{2^{2n}} N_{\textrm{first\ return}(2n)
+    $$
+    {
+    $$ 
+    \simeq
+    \frac{1}{2^{2n}}
+    \frac{
+      2^{2n-3/2}
+    }
+    {
+      \sqrt{2 \pi} n^{3/2}
+    }
+    $$}
+    {
+    $$
+    =  \frac{1}{\sqrt{2 \pi}}
+    (2n)^{-3/2}
+    $$}
+  
+  
+
+  \textbf{First Returns}
+
+  
+   Same scaling holds for continuous space/time walks.
+   $$ P(t) \propto t^{-3/2},\  \gamma = 3/2 $$
+   $P(t)$ is normalizable
+   \alert{Recurrence:} Random walker always returns to origin 
+   Repeated gambling against an $\infty$ly wealthy opponent
+    must lead to ruin.
+  
+
+
+  \textbf{First Returns}
+
+  
+   Walker in $d=2$ dimensions must also return
+   Walker may not return in $d \ge 3$ dimensions
+   For $d=1$, $\gamma = 3/2 \rightarrow \avg{t} = \infty$
+   Even though walker must return, expect a long wait...
+  
+
+
+  \textbf{Random walks on finite spaces}
+  
+  
+   In any finite volume, a random walker will visit every
+  site with equal probability
+   Random walking $\equiv$ Diffusion
+   Call this probability the Invariant Density of
+    a dynamical system
+   Non-trivial Invariant Densities arise in chaotic systems.
+  
+
+
+% \end{comment}
+
+% \begin{comment}
+
+  \textbf{Random walks on networks}
+  
+  
+   
+    On networks, a random walker visits each node
+    with frequency $\propto$ node degree
+   
+    Equal probability still present:\\
+    walkers traverse
+    \alert{edges} with equal frequency.
+  
+
+
+% ???
+
+
+% %   \textbf{Random walks on networks}
+%   
+%   Some slides explaining diffusion
+%
+% 
+% add section on
+% linear algebra
+
+
+% \subsection{Random River Networks}
+\subsection{Examples}
+
+  \textbf{Scheidegger Networks\cite{scheidegger1967b,dodds2000a}}
+  \includegraphics[angle=90,width=\textwidth]{scheidmodel.pdf}
+  
+   Triangular lattice
+   `Flow' is southeast or southwest with equal probability.
+  
+
+
+  \textbf{Scheidegger Networks}
+
+  
+   
+    Creates basins with random walk boundaries
+   
+    \alert{Observe} Subtracting one random walk from another
+    gives random walk with increments
+    $$
+    \epsilon_t = 
+    \left\{
+      \begin{array}{cl}
+        +1 & \mbox{with probability $1/4$} \\
+        0 & \mbox{with probability $1/2$} \\
+        -1 & \mbox{with probability $1/4$} \\
+      \end{array}
+    \right.
+    $$
+   
+    Basin length $l$ distribution: $P(l) \propto l^{-3/2}$
+  
+  
+
+% \subsection{Scaling Relations}
+
+  \textbf{Connections between Exponents}
+
+  
+      
+    For a basin of length $l$, width $\propto l^{1/2}$
+      
+    Basin area $a \propto l\cdot l^{1/2} = l^{3/2}$
+      
+    Invert: $ l \propto a^{2/3} $
+      
+    $ \dee{l} \propto \dee{(a^{2/3})} = 2/3 a^{-1/3} \dee{a} $
+     
+    \alert{$
+    Pr(\mbox{basin area} = a) \dee{a}
+    $}\\
+    $
+    =
+    Pr(\mbox{basin length} = l) \dee{l}
+    $\\
+    {
+      $
+      \propto
+      l^{-3/2} \dee{l} 
+      $\\}
+    {
+      $
+      \propto
+      (a^{2/3})^{-3/2} a^{-1/3} \dee{a} 
+      $\\}
+    {
+      $
+      =
+      a^{-4/3} \dee{a} 
+      $\\}
+    {
+      \alert{$
+      =
+      a^{-\tau} \dee{a}
+      $}\\}
+  
+
+
+  \textbf{Connections between Exponents}
+
+  
+   Both basin area and length obey power law distributions
+   Observed for real river networks
+   Typically: $1.3 < \beta < 1.5$ and $1.5 < \gamma < 2$
+   Smaller basins more allometric ($h>1/2$)
+   Larger basins more isometric ($h=1/2$)
+  
+  
+
+  \textbf{Connections between Exponents}
+  
+   Generalize relationship between area and length
+   Hack's law\cite{hack1957a}:
+    $$l \propto a^h$$
+    where $0.5 \lesssim h \lesssim 0.7$
+   Redo calc with $\gamma$, $\tau$, and $h$.
+  
+
+
+  \textbf{Connections between Exponents}
+
+  
+      
+    Given $$ l \propto a^{h}, \ P(a) \propto a^{-\tau},\ \mbox{and} \  P(l) \propto l^{-\gamma}$$
+      
+    $ \dee{l} \propto \dee{(a^{h})} = h a^{h-1} \dee{a} $    
+     
+    $
+    Pr(\mbox{basin area} = a) \dee{a}
+    $\\
+    $
+    =
+    Pr(\mbox{basin length} = l) \dee{l}
+    $\\
+    {
+    $
+    \propto
+    l^{-\gamma} \dee{l} 
+    $\\}
+    {
+    $
+    \propto
+    (a^{h})^{-\gamma} a^{h-1} \dee{a} 
+    $\\}
+    {
+    $
+    =
+    a^{-(1+h\, (\gamma-1))} \dee{a} 
+    $\\}
+    
+      $$\boxed{\tau = 1 + h(\gamma-1)} $$
+  
+
+
+
+  \textbf{Connections between Exponents}
+
+  With more detailed description of network structure,
+  $\tau = 1 + h(\gamma-1)$ simplifies:
+  $$ \tau = 2 - h$$
+  $$ \gamma = 1/h $$
+
+  
+    {Only one exponent is independent}
+    {Simplify system description}
+    {Expect scaling relations where power laws are found}
+    {Characterize universality class with independent exponents}
+  
+
+
+
+%% ??? 
+% make connection
+
+  \textbf{Other First Returns}
+
+  \textbf{Failure}
+    
+     A very simple model of failure/death:
+     $x_t$ = entity's `health' at time $t$
+     $x_0$ could be $>$ 0.
+     Entity fails when $x$ hits 0.
+    
+  
+
+  \bigskip
+
+  \textbf{Streams}
+    
+    
+      Dispersion of suspended sediments in streams.
+     
+      Long times for clearing.
+    
+  
+
+
+
+%% ???  Inverse Gaussian
+
+% \end{comment}
+
+
+  \textbf{More than randomness}
+  
+  
+  
+  Can generalize to Fractional Random Walks
+   
+    Levy flights, Fractional Brownian Motion
+   
+  In 1-d, $$\avg{x} \sim t^{\, \alpha}$$\\
+  {
+    $\alpha > 1/2$ --- \alert{superdiffusive}
+  }\\
+  {
+    $\alpha < 1/2$ --- \alert{subdiffusive}
+  }
+   Extensive memory of path now matters...
+  
+
+\end{frame}  
+
+% how to measure exponents
+% roughness
+
+% ???
+% %    \textbf{Random walks in nature}
+%
+% 

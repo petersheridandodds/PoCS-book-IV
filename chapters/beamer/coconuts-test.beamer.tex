@@ -1,0 +1,343 @@
+\section{Physically-motivated analysis}
+
+\begin{frame}
+  \frametitle{Giant componentry:}
+
+  \begin{block}{We'd like to know:}
+    
+  \begin{itemize}
+  \item<1->
+    If a given random network has a giant component.
+  \item<2->
+    If so, which nodes are in, which nodes are out.
+  \item<3->
+    Consequently, how big the giant component is.
+  \item<4->
+    Smaller details: total number of components,
+    their size distribution, snore.
+  \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  The local growth equation is simple: $f(d+1) = R f(d)$.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+%%  \setlength{\extrarowheight}{5pt}
+%%  \renewcommand{\arraystretch}{2.8}
+  \begin{tabular}{|>{\PBS\raggedright\hspace{0pt}}m{0.13\textwidth}|>{\PBS\raggedright\hspace{2pt}}m{0.33\textwidth}|>{\hspace{3pt}}m{0.52\textwidth}|}
+    \toprule
+%%    \textbf{Random Network Class:} & 
+    \textbf{\, Network:} & 
+    \textbf{\, Local Growth Equation:} &
+    \textbf{\, Gain Ratio Matrix:} \\
+    \colrule
+    & & \\
+    I. Undirected, Uncorrelated & 
+    $f(d+1) = R f(d)$ &
+    $
+    \displaystyle
+    R = 
+%%    \sum_{\kbid=0}^{\infty} 
+    \sum_{\kbid}
+    \Probbid(\kbid\, |\, \ast)
+    \bullet
+    (\kbid-1)
+    \bullet
+    B_{\kbid,\ast}
+    $ \\
+    & & \\
+%%    \colrule
+    II. Directed, Uncorrelated & 
+    $f(d+1) = R f(d)$ &
+    $
+    \displaystyle
+    R = 
+    \sum_{\kin,\kout}
+%%    \sum_{\kin,\kout=0}^{\infty}
+%%    \sum_{\kin=0}^{\infty}
+%%    \sum_{\kout=0}^{\infty}
+    \Probin(\kin,\kout\, |\, \ast)
+    \bullet
+    \kout
+    \bullet
+    B_{\kin,\ast}
+    $ \\
+    & & \\
+%%    \colrule
+    III. Mixed Directed and Undirected, Uncorrelated & 
+    $
+    \displaystyle
+    \left[
+    \begin{array}{c}
+    f^{\textnormal{(\bidmark)}}(d+1) \\
+    f^{\textnormal{(\outmark)}}(d+1)
+    \end{array}
+    \right]
+    =
+    \textbf{R} 
+    \left[
+    \begin{array}{c}
+    f^{\textnormal{(\bidmark)}}(d) \\
+    f^{\textnormal{(\outmark)}}(d)
+    \end{array}
+    \right]
+    $ 
+    &
+    $
+    \displaystyle
+    \textbf{R} 
+    = 
+    \sum_{\veck}
+    \left[
+      \begin{array}{ll}
+        \Probbid(\veck\,|\, \ast)
+        \bullet
+        (\kbid-1)
+        &
+        \Probin(\veck\,|\, \ast)
+        \bullet
+        \kbid
+        \\
+        \Probbid(\veck\,|\, \ast)
+        \bullet
+        \kout
+        &
+        \Probin(\veck\,|\, \ast)
+        \bullet
+        \kout
+      \end{array}
+    \right]
+%%      \bullet
+%%      \Probbid(\veck\,|\, \veck')
+%%      \Prob(\veck\, |\, \ast)
+%%      \Prob(\kbid,\kin,\kout \, |\, \ast)
+    \bullet
+    B_{\kbid\kin,\ast}
+    $ 
+    \\
+    & & \\
+    \colrule
+    & & \\
+%%    \colrule
+    IV. Undirected, Correlated & 
+    $\displaystyle
+    f_{\kbid}(d+1) = 
+%%    \sum_{\kbid'=0}^{\infty} 
+    \sum_{\kbid'}
+    R_{\kbid\kbid'} 
+    f_{\kbid'}(d)$ &
+    $
+    \displaystyle
+    R_{\kbid\kbid'} =
+    \Probbid(\kbid\, |\, \kbid')
+    \bullet
+    (\kbid-1)
+    \bullet
+    B_{\kbid\kbid'}
+    $ \\
+    & & \\
+%%    \colrule
+    V. Directed, Correlated & 
+    $\displaystyle
+    f_{\kin\kout}(d+1) = 
+    \sum_{\kin',\kout'}
+%%    \sum_{\kin',\kout'=0}^{\infty} 
+%%    \sum_{\kin'=0}^{\infty} 
+%%    \sum_{\kout'=0}^{\infty} 
+    R_{\kin\kout\kin'\kout'} 
+    f_{\kin'\kout'}(d)$ 
+    &
+    $
+    \displaystyle
+    R_{\kin\kout\kin'\kout'} 
+    =
+    \Probin(\kin,\kout\, |\, \kin',\kout')
+    \bullet
+    \kout
+    \bullet
+    B_{\kin\kout\kin'\kout'} 
+    $ \\
+    & & \\
+%%    \colrule
+    VI. Mixed Directed and Undirected, Correlated & 
+    $
+    \displaystyle
+    \left[
+    \begin{array}{c}
+    f_{\veck}^{\textnormal{(\bidmark)}}(d+1) \\
+    f_{\veck}^{\textnormal{(\outmark)}}(d+1)
+    \end{array}
+    \right]
+    =
+    \sum_{k'}
+    \textbf{R}_{\veck\veck'}
+    \left[
+    \begin{array}{c}
+    f_{\veck'}^{\textnormal{(\bidmark)}}(d) \\
+    f_{\veck'}^{\textnormal{(\outmark)}}(d)
+    \end{array}
+    \right]
+    $ 
+    &
+    $
+    \displaystyle
+    \textbf{R}_{\veck\veck'}
+%%    \textbf{R}_{\kbid\kin\kout\kbid'\kin'\kout'}
+    = 
+    \left[
+    \begin{array}{ll}
+      \Probbid(\veck\,|\, \veck')
+      \bullet
+      (\kbid-1)
+      &
+      \Probin(\veck\,|\, \veck')
+      \bullet
+      \kbid
+      \\
+      \Probbid(\veck\,|\, \veck')
+      \bullet
+      \kout
+      &
+      \Probin(\veck\,|\, \veck')
+      \bullet
+      \kout
+    \end{array}
+    \right]
+    %%    \bullet
+    %%  
+    %%  \Prob(\kbid,\kin,\kout\,|\, \kbid',\kin',\kout')
+    \bullet
+    B_{\veck\veck'}
+    $ 
+    \\
+    & & \\
+    \botrule
+  \end{tabular}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+  
+
+\begin{frame}[label=]
+  \frametitle{More with the happy-making thing}
+
+  \begin{block}<1->{Start with Tokunaga's law: $T_k = T_1 R_T^{k-1}$}
+    \begin{itemize}
+    \item<2-> 
+      Start looking for Horton's stream number law: \alert{$n_{\om}/n_{\om+1} = R_n$}.
+    \item<3->
+      Estimate $n_\om$, the number of streams of order $\om$ in terms 
+      of other $n_{\om'}$, $\om'>\om$.
+    \item<4-> 
+      Observe that each stream of order $\om$ terminates by either:
+      \begin{columns}
+        \column{0.25\textwidth}
+        \begin{overprint}
+          \onslide<1-4| handout:0 | trans:0>
+          \onslide<5-| handout:1 | trans:1>
+          \includegraphics[angle=-90,width=\textwidth]{figstream_gen01}
+        \end{overprint}
+        \begin{overprint}
+          \onslide<1-5| handout:0 | trans:0>
+          \onslide<6-| handout:1 | trans:1>
+          \includegraphics[angle=-90,width=\textwidth]{figstream_abs01}
+        \end{overprint}
+        \column{0.75\textwidth}
+        \begin{enumerate}
+        \item<5-> Running into another stream of order $\om$ and 
+          generating a stream of order $\om+1$...
+          \uncover<7->{
+            \begin{itemize}
+            \item  \alert{$2n_{\om+1}$ streams of order $\om$ do this}
+            \end{itemize}
+          }
+        \item<6-> Running into and being absorbed by a stream
+          of higher order $\om'>\om$...
+          \uncover<8->{
+            \begin{itemize}
+            \item \alert{$n_\om' T_{\om'-\om}$ streams of order $\om$ do this}
+            \end{itemize}
+          }
+        \end{enumerate}
+      \end{columns}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    Time for pure excitement: Find \alert{asymptotic behavior} 
+    of $n_k$ given $A_k \rightarrow k$ as $k \rightarrow \infty$.
+  \item<2->
+    For large $k$:
+    $$
+    n_k = 
+    \frac{\mu}{A_k}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \uncover<3->{
+      \frac{\mu}{A_k}
+      \prod_{j=1}^{k}
+      \frac{A_j}{A_j + \mu}
+    }
+    $$
+    \uncover<4->{
+    $$
+      \frac{\mu}{\alert{\cancel{A_k}}}
+      \frac{A_1}{A_1+\mu}
+      \frac{A_2}{A_2+\mu}
+      \cdots
+      \frac{k-1}{k-1+\mu}
+      \frac{\cancel{k}}{k+\mu}
+    $$
+    }
+  \end{itemize}
+
+\end{frame}
+
+\end{comment}

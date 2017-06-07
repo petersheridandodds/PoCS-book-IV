@@ -1,0 +1,1033 @@
+
+%% add this:
+%% http://www.babycenter.com/0_unusual-baby-names-of-2012_10375911.bc
+
+%% Add section on dragon kings
+%% 
+%% Add section on stable distributions
+%% 
+%% Add an assignment question or two
+%% 
+%% convolve distributions
+%% 
+%% Cauchy
+%% 
+%% Inverse Gaussian
+
+%% add zipf's law from
+%% estoup, 1912
+
+%% add polya urn stuff
+
+%% add stuff from clauset's lectures?
+
+%% todo
+%% 
+%% good figure...
+%% http://www.noop.nl/2009/07/your-project-will-suffer-from-power-laws.html
+
+%% add gaussian distribution
+%% 
+
+%% have students sketch the curve
+
+%% Cancer?
+%% http://mskcc.convio.net/pdf/cycle_for_survival/cfs_cancer_fact_sheet1.pdf
+%% Maybe make this an assignment question
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We (The Humans)\footnote{Whenever someone starts talking about humans ...}
+have many aptitudes.
+We are unparalleled at running long distances,
+and we can throw with remarkable power and accuracy.
+
+
+We can guess~\cite{FACES,deceptionpaper}
+An experience visual-story-consumer can 
+often predict what's about to happen in a movie,
+
+We are also very good at saying how very good we are,
+with a strong tradition in explaining how 
+much better than animals from which we are so clearly separate.
+
+Slowly, we've awakened to the brilliance of others.
+Octopuses\footnote{Look: this sounds better than Octopi which really should
+  be Octopodes} are worryingly clever\footnote{If they ever stop
+  eating each other, we're in a lot of trouble.\footnote{Possibly what
+the dinosaurs said about mammals}}
+
+But let's make an admission: We (humans) are not especially
+good with thinking probabilistically.
+Sure, we have skill in inference.
+
+
+
+
+We are 
+
+
+
+While multiplying many digit numbers together
+
+\section{Our\ Intuition}
+
+  \textbf{Let's test our collective intuition:}
+
+  
+      
+      
+      \includegraphics[width=\textwidth]{Onedolar2009series.png}
+      
+      Money \\
+      $\equiv$ \\
+      Belief
+      
+      
+
+  \textbf{Two questions about wealth distribution in the United States:}
+    
+    
+      Please estimate the percentage of all wealth 
+      owned by individuals when grouped into quintiles.
+    
+      Please estimate what you believe each quintile
+      should own, ideally.
+    
+      Extremes: 100, 0, 0, 0, 0 and 20, 20, 20, 20, 20
+    
+  
+  
+
+
+  \textbf{\small Wealth distribution in the United States:\cite{norton2011a}}
+    \includegraphics[width=\textwidth]{norton2011a_fig2-tp-10}
+  
+  \small
+  ``Building a better America---One wealth quintile at a time''\newline
+  Norton and Ariely, 2011.\cite{norton2011a}
+  
+
+
+  \textbf{\small Wealth distribution in the United States:\cite{norton2011a}}
+    \includegraphics[height=0.8\textheight]{norton2011a_fig3-tp-10}
+    \small
+    \small
+    A highly watched video based on this research is
+    \wordwikilink{http://www.youtube.com/watch?v=QPKKQnijnsM}{here.}
+  
+  
+
+
+      
+    
+    Actual:\\
+    {\small Fall 2013:}\\
+    \includegraphics[width=\textwidth]{figquintiles2013-08_001_1_noname.pdf}\\
+    {\small Spring 2013:}\\
+    \includegraphics[width=\textwidth]{figquintiles001_1_noname.pdf}\\
+    
+    
+    
+    Ideal:\\
+    {\small Fall 2013:}\\
+    \includegraphics[width=\textwidth]{figquintiles2013-08_001_2_noname.pdf}\\
+    {\small Spring 2013:}\\
+    \includegraphics[width=\textwidth]{figquintiles001_2_noname.pdf}\\
+    
+  
+\changelogo{.18}{2013-01-17power-law-cartoons001-tp-3.pdf}
+
+\section{Definition}
+
+%%  \textbf{Size distributions:}
+  
+  
+    The sizes of many systems' elements
+    appear to obey an\\
+    \alertb{inverse power-law 
+      size distribution}:
+    $$P(\mbox{size}=x) \sim  c\, x^{-\gamma}$$
+    $$
+    \mbox{where} 
+    \quad 
+    0 < x_{\textrm{min}} < x < x_{\textrm{max}}
+    \quad 
+    \mbox{and} 
+    \quad 
+    \gamma > 1.
+    $$
+    
+    
+      Exciting class exercise: sketch this function.
+    
+  
+
+  
+    
+    
+      $x_{\textrm{min}}$ = lower cutoff, 
+      $x_{\textrm{max}}$ = upper cutoff
+    
+      Negative linear relationship in log-log space:
+      $$ \log_{10} P(x) = \log_{10} c - \gamma \log_{10} x $$
+    
+      We use base 10 because we are \alertg{good people}.
+    
+  
+
+  
+    
+    
+      power-law decays in probability:  \\
+      The \alertb{Statistics of Surprise}.
+    
+  
+
+
+  \textbf{Size distributions:}
+
+  \textbf{Usually, only the tail of the distribution obeys a power law:}
+    $$\alertb{P(x) \sim  c\, x^{-\gamma}} \ \mbox{for}\ x \ \mbox{large}.$$
+    
+     
+      Still use term `power-law size distribution.'
+     
+      Other terms: 
+      
+       
+        \alertg{Fat-tailed} distributions.
+       
+        \alertg{Heavy-tailed} distributions.
+      
+    
+
+    \textbf{Beware:}
+      
+       Inverse power laws aren't the only ones:\\
+          \wordwikilink{http://en.wikipedia.org/wiki/Log-normal\_distribution}{lognormals}, 
+          \wordwikilink{http://en.wikipedia.org/wiki/Weibull\_distribution}{Weibull distributions}, \ldots
+      
+    
+
+  
+
+
+  \textbf{Size distributions:}
+
+  \textbf{Many systems have discrete sizes $k$:}
+    
+    
+      Word frequency
+    
+      Node degree in networks: \# friends, \# hyperlinks, etc.
+    
+      \# citations for articles, court decisions, etc.
+    
+  
+
+  
+    $$P(k) \sim  c\, k^{-\gamma}$$
+    $$\mbox{where} \ \  k_{\textrm{min}} \le k \le k_{\textrm{max}}$$
+    
+     
+      Obvious fail for $k=0$.
+     
+      Again, typically a description of distribution's tail.
+    
+  
+
+
+
+\section{Examples}
+
+\textbf{The statistics of surprise---words:}
+
+\textbf{\wordwikilink{http://en.wikipedia.org/wiki/Brown\_Corpus}{Brown Corpus} ($\sim 10^6$ words):}
+  \begin{tabular}{|rrr|}
+    \hline
+    rank & word & \% q \\
+    \hline
+    1. &     the   &    6.8872 \\
+    2. &     of    &    3.5839 \\
+    3. &     and   &    2.8401 \\
+    4. &     to    &    2.5744 \\
+    5. &     a     &    2.2996 \\
+    6. &     in    &    2.1010 \\
+    7. &     that  &    1.0428 \\
+    8. &     is    &    0.9943 \\
+    9. &     was   &    0.9661 \\
+    10.&     he    &    0.9392 \\
+    11.&     for   &    0.9340 \\
+    12.&     it    &    0.8623 \\
+    13.&     with  &    0.7176 \\
+    14.&     as    &    0.7137 \\
+    15.&     his   &    0.6886 \\
+    \hline
+  \end{tabular}\quad\begin{tabular}{|rrr|}
+    \hline
+    rank & word & \% q \\
+    \hline
+    1945. &  apply   &      0.0055 \\
+    1946. &  vital   &      0.0055 \\
+    1947. &  September&      0.0055 \\
+    1948. &  review  &      0.0055 \\
+    1949. &  wage    &      0.0055 \\
+    1950. &  motor   &      0.0055 \\
+    1951. &  fifteen &      0.0055 \\
+    1952. &  regarded&      0.0055 \\
+    1953. &  draw    &      0.0055 \\
+    1954. &  wheel   &      0.0055 \\
+    1955. &  organized&      0.0055 \\
+    1956. &  vision  &      0.0055 \\
+    1957. &  wild    &      0.0055 \\
+    1958. &  Palmer  &      0.0055 \\
+    1959. &  intensity&      0.0055 \\
+    \hline
+  \end{tabular}
+
+
+
+  \textbf{Jonathan Harris's \wordwikilink{http://wordcount.org}{Wordcount:}}
+
+  \textbf{A word frequency distribution explorer:}
+  \includegraphics[width=.95\textwidth]{2011-09-13jonathanharris-wordcount.pdf}\\
+  \smallskip
+  \includegraphics[width=.95\textwidth]{2011-09-13jonathanharris-wordcount-alt.pdf}
+  
+  
+
+
+
+  \textbf{The statistics of surprise---words:}
+
+  \textbf{First---a Gaussian example:}
+    $$
+    P(x) \dee{x} = 
+    \frac{1}{\sqrt{2\pi} \sigma}
+    e^{-(x-\mu)^2/2\sigma} 
+    \dee{x}
+    $$
+          
+      
+      linear:
+      \includegraphics[width=\textwidth]{figgaussian2_noname}
+      
+      log-log\\
+      \includegraphics[width=\textwidth]{figgaussian1_noname}
+      
+        mean $\mu=10$, variance $\sigma^2$ = 1.
+  
+
+  
+    
+    
+      Sketch $n_q \sim q^{-2}$ for $q=1$ to $q=10^6$ 
+      where  $q_w$ = percentage of all words that are a given word $w$.
+    
+  
+
+
+
+  \textbf{The statistics of surprise---words:}
+
+  \textbf{Raw `probability' (binned) for Brown Corpus:}
+          
+      
+      linear:
+      \includegraphics[width=\textwidth]{figwords5_noname} % 5
+      
+              
+          
+        log-log\\
+        \includegraphics[width=\textwidth]{figwords6_noname} % 6
+            
+        $q_{w}$ = percentage of all words that are a given word $w$.
+
+
+
+  \textbf{The statistics of surprise---words:}
+
+  \textbf{`Exceedance probability' $N_{> q}$:}
+          
+      
+      linear:
+      \includegraphics[width=\textwidth]{figwords4_noname}
+      
+      log-log\\
+      \includegraphics[width=\textwidth]{figwords1_noname}
+      
+      
+
+
+
+  \textbf{My, what big words you have...}
+
+  
+    \includegraphics[width=\textwidth]{2011-08UVM-300test.png}
+
+    
+    
+      Test capitalizes on word frequency following a
+      heavily skewed frequency distribution
+      with a decaying power-law tail.
+     
+      \wordwikilink{http://testyourvocab.com/}{Let's do it
+        collectively \ldots}
+    
+  
+
+
+
+\textbf{The statistics of surprise:}
+
+
+\textbf{\wordwikilink{http://en.wikipedia.org/wiki/Gutenberg-Richter\_law}{Gutenberg-Richter law}}
+      
+    
+    \includegraphics[width=\textwidth]{christensen2002a_fig2-tp-5.pdf}
+    
+    
+     
+      Log-log plot
+     
+      Base 10
+     
+      Slope = -1
+    
+    $N(M>m) \propto m^{-1}$
+    
+  
+
+
+  
+   
+    From \alertb{both} the very awkwardly similar Christensen et al. and Bak et al.:\\
+    ``Unified scaling law for earthquakes''\cite{christensen2002a,bak2002a}
+  
+
+
+
+
+\textbf{The statistics of surprise:}
+
+\textbf{From:
+\wordwikilink{http://www.nytimes.com/2011/03/14/world/asia/14seismic.html}{``Quake Moves Japan Closer to U.S. and Alters Earth's Spin''}
+by Kenneth Chang, March 13, 2011, NYT:
+}
+`What is perhaps most surprising about the Japan earthquake is how
+misleading history can be. In the past 300 years, no earthquake nearly
+that large---nothing larger than magnitude eight---had struck in the
+Japan subduction zone. That, in turn, led to assumptions about how
+large a tsunami might strike the coast.'
+
+
+
+```It did them a giant disservice,'' said Dr. Stein of the geological
+survey. That is not the first time that the earthquake potential of a
+fault has been underestimated. Most geophysicists did not think the
+Sumatra fault could generate a magnitude 9.1 earthquake, \ldots'
+%% and a
+%% magnitude 7.3 earthquake in Landers CA in 1992 also caught
+%% earthquake experts by surprise.
+
+
+
+
+
+  \textbf{Well, that's just great:}
+
+  \textbf{Two things we have poor cognitive understanding of:}
+    
+     
+      Probability
+      
+       
+        Ex. \wordwikilink{http://en.wikipedia.org/wiki/Monty\_Hall\_problem}{The Monty Hall Problem.}
+      
+        Ex. \wordwikilink{http://www.sciencenews.org/view/generic/id/60598/title/When\_intuition\_and\_math\_probably\_look\_wrong}{Daughter/Son born on Tuesday.} \newline
+        {\small(see asides; Wikipedia entry \wordwikilink{http://en.wikipedia.org/wiki/Boy\_or\_Girl\_paradox}{here}.)}
+      
+      
+      Logarithmic scales.
+    
+  
+
+  \textbf{On counting and logarithms:}
+                
+            
+      \includegraphics[width=\textwidth]{radiolab_134345_medium_image.jpg}
+      
+      
+       
+        Listen to Radiolab's\\ 
+        \wordwikilink{http://www.radiolab.org/2009/nov/30/}{``Numbers.''}.
+       
+        Later: \wordwikilink{http://en.wikipedia.org/wiki/Benford's\_law}{Benford's Law}.
+      
+      
+      
+  
+
+  %% example
+  \includegraphics[width=0.8\textwidth]{zhu2013a}
+
+  
+   
+    From ``Geography and Similarity of Regional Cuisines in China''\cite{zhu2013a},
+    Zhu et al., PLoS ONE, 2013.
+   
+    Fraction of ingredients that appear in at least $k$ recipes.
+   
+    Bad notation: $P(k)$ is the Complementary Cumulative Distribution $P_{\ge}(k)$ 
+  
+
+
+
+%%  \textbf{Size distributions:}
+
+  
+    \includegraphics[height=.95\textheight]{newman2005b_fig4.pdf}
+    \includegraphics[width=.95\textheight,angle=90]{newman2005b_fig4caption.pdf}
+  
+
+
+  \textbf{Size distributions:}
+
+  \textbf{Examples:}
+    
+     
+      Earthquake magnitude (\wordwikilink{http://en.wikipedia.org/wiki/Gutenberg-Richter\_law}{Gutenberg-Richter law}):\cite{gutenberg1942a,bak2002a} $P(M) \propto M^{-2}$
+     
+      \alertg{\# war deaths:\cite{richardson1949a} $P(d) \propto d^{-1.8}$}
+     
+      Sizes of forest fires\cite{grassberger2002a}
+     
+      \alertg{Sizes of cities:\cite{simon1955a} $P(n) \propto n^{-2.1}$}
+     
+      \# links to and from websites\cite{barabasi1999a}
+    
+  
+
+  
+    
+     
+      See in part Simon\cite{simon1955a} and 
+      M. E. J. Newman\cite{newman2005b}
+      ``Power laws, Pareto distributions and Zipf's law''
+      and Clauset, Shalizi, and Newman\cite{clauset2009b} for more.
+     
+      Note: Exponents range in error
+    
+  
+
+
+
+  \textbf{Size distributions:}
+
+  \textbf{Examples:}
+    
+     
+      \# citations to papers:\cite{price1965a,price1976a} $P(k) \propto k^{-3}$.
+     
+      \alertg{Individual wealth (maybe): $P(W) \propto W^{-2}$.}
+     
+      Distributions of tree trunk diameters: $P(d) \propto d^{-2}$.
+     
+      \alertg{The gravitational force at a random point in the universe:\cite{holtsmark1917a} $P(F) \propto F^{-5/2}$.}
+      (see the 
+      \wordwikilink{http://en.wikipedia.org/wiki/Holtsmark\_distribution}{Holtsmark distribution}
+      and 
+      \wordwikilink{http://en.wikipedia.org/wiki/Stable\_distribution}{stable distributions}
+     
+      Diameter of moon craters:\cite{newman2005b} $P(d) \propto d^{-3}$.
+     
+      \alertg{Word frequency:\cite{simon1955a} e.g., $P(k) \propto k^{-2.2}$ (variable).}
+     
+      \# religious adherents in cults:\cite{clauset2009b} 
+      $P(k) \propto k^{-1.8 \pm 0.1}.$
+    
+      \alertg{\# sightings of birds per species (North American
+      Breeding Bird Survey for 2003):\cite{clauset2009b} 
+      $P(k) \propto k^{-2.1 \pm 0.1}.$}
+    
+      \# species per genus:\cite{yule1924a,simon1955a,clauset2009b} 
+      $P(k) \propto k^{-2.4 \pm 0.2}.$
+    
+  
+
+
+
+%%    \wordwikilink{http://www.arxiv.org/cond-mat/0412004}{arxiv.org/cond-mat/0412004}
+
+% ??? add exponents
+
+
+
+
+  \textbf{Table 3 from Clauset, Shalizi, and Newman\cite{clauset2009b}:}
+    \includegraphics[width=1.2\textwidth]{clauset2009b_tab3.pdf}
+  
+
+  
+   
+    We'll explore various exponent measurement techniques in assignments.
+  
+  
+
+%% %%   \textbf{Size distributions:}
+%% 
+%%   \textbf{Power-law distributions are..}
+%%     
+%%      
+%%       often called `heavy-tailed'
+%%      
+%%       or said to have `fat tails'
+%%     
+%%   
+
+%% 
+\section{Wild\ vs.\ Mild}
+
+  \textbf{power-law distributions}
+
+  \textbf{Gaussians versus power-law distributions:}
+    
+    
+      \alertb{Mediocristan} versus \alertb{Extremistan}\\
+    
+      Mild versus Wild (Mandelbrot)
+    
+      Example: Height versus wealth.
+    
+  
+
+  
+          
+      
+      \includegraphics[width=\textwidth]{blackswan_cover.pdf}
+      
+      
+       
+        See ``The Black Swan'' by Nassim Taleb.\cite{taleb2007a}
+      
+      
+      
+
+
+  \textbf{Turkeys...}
+
+  \begin{center}
+    \includegraphics[angle=-0.3,width=\textwidth]{taleb_turkey.pdf}
+  \end{center}
+
+  {\small From ``The Black Swan''\cite{taleb2007a}}
+
+
+  \textbf{Taleb's table\cite{taleb2007a}}
+
+{\small
+  \textbf{Mediocristan/Extremistan}
+    
+     
+      \alertg{Most typical member is} \alertb{mediocre}/Most typical is either \alertb{giant or tiny}
+     
+      \alertg{Winners get a small segment}/Winner take almost all effects 
+     
+      \alertg{When you observe for a while, you know what's going on}/It
+      takes a \alertr{very long time} to figure out what's going on
+     
+      Prediction is \alertb{easy}/Prediction is \alertr{hard}
+     
+      \alertg{History crawls}/History makes jumps
+     
+      \alertg{Tyranny of the collective}/Tyranny of the rare and accidental
+    
+  
+}
+
+
+  \textbf{Size distributions:}
+
+      
+    \includegraphics[width=\textwidth]{Vilfredo_Pareto.jpg}
+    
+  
+    Power-law size distributions 
+    are sometimes called\\ 
+    \wordwikilink{http://en.wikipedia.org/wiki/Pareto_distribution}{Pareto distributions}
+    after Italian scholar 
+    \wordwikilink{http://en.wikipedia.org/wiki/Vilfredo\_Pareto}{Vilfredo Pareto.}
+  
+
+  
+    
+    
+      Pareto noted wealth in Italy was distributed unevenly
+      (80--20 rule; misleading).
+    
+      Term used especially by practitioners of the 
+      \wordwikilink{http://en.wikipedia.org/wiki/The\_dismal\_science}{Dismal Science}.
+    
+  
+  
+
+
+  \textbf{Devilish power-law size distribution details:}
+
+  \textbf{Exhibit A:} 
+    
+     
+      Given $P(x) = c x^{-\gamma}$ with $0 < \xmin < x < \xmax$,\\
+      the mean is ($\gamma \ne 2$):
+    
+    $$ \avg{x} = \frac{c}{2-\gamma} \left( \xmax^{2-\gamma} - \xmin^{2-\gamma} \right). $$
+  
+
+  
+    
+    
+      Mean `blows up' with upper cutoff if $\gamma < 2$.
+    
+      Mean depends on lower cutoff if $\gamma > 2$.
+    
+      \alertr{$\gamma < 2$}: Typical sample is large.
+    
+      \alertr{$\gamma > 2$}: Typical sample is small.
+    
+  
+
+  \insertassignmentquestionsoft{01}{1}
+
+
+
+  \textbf{And in general...}
+
+  \textbf{Moments:}
+    
+    
+      All moments depend only on cutoffs.
+    
+      \alertb{No internal scale} that dominates/matters.
+    
+      Compare to a Gaussian, exponential, etc.
+    
+  
+
+  \textbf{For many real size distributions: $ 2 < \gamma < 3 $}
+    
+     
+      mean is finite (depends on lower cutoff)
+     
+      $\sigma^2$ = variance is `infinite' (depends on upper cutoff)    
+     
+      Width of distribution is `infinite'    
+    
+      If $\gamma > 3$, distribution is less terrifying and may
+      be easily confused with other kinds of distributions.
+    
+  
+
+  \insertassignmentquestionsoft{01}{1}
+
+
+%% %%   \textbf{Moments}
+%% 
+%%   \textbf{The variance:}
+%%     $$ \sigma^2 = \avg{(x-\avg{x})^2} $$
+%%     $$ = \int_{\xmin}^{\xmax} (x-\avg{x})^2 P(x) \dee{x} $$
+%%     $$ = \tavg{x^2} - \tavg{x}^2 $$
+%%   
+%% 
+%% 
+  \textbf{Moments}
+
+  \textbf{Standard deviation is a mathematical convenience:}
+    
+     
+      Variance is nice analytically...
+     
+      Another measure of distribution width:
+      $$
+      \mbox{Mean average deviation (MAD)} =
+      \avg{\left| x - \avg{x} \right|}
+      $$
+    
+      For a pure power law with $2 < \gamma < 3$:
+      $$\avg{\left| x - \avg{x} \right|} \ \mbox{is finite.}$$
+    
+      But MAD is mildly unpleasant analytically...
+    
+      We still speak of infinite `width' if $\gamma < 3$.
+    
+  
+
+  \insertassignmentquestionsoft{02}{2}
+
+
+%% %%   \textbf{Moments}
+%% 
+%% 
+%%   Still, we say such a distribution has infinite `width'
+%% 
+%% 
+  \textbf{How sample sizes grow...}
+
+  \textbf{Given $P(x) \sim c x^{-\gamma}$:}
+    
+     
+      We can show that after $n$ samples,
+      we expect the largest sample to be 
+      $$ x_{1} \gtrsim c' n^{1/(\gamma-1)} $$
+     
+      Sampling from a 
+      finite-variance distribution 
+      gives a much slower growth with $n$.
+     
+      e.g., for $P(x) = \lambda e^{-\lambda x}$,
+      we find
+      $$ x_{1} \gtrsim \frac{1}{\lambda} \ln n. $$
+    
+  
+
+  \insertassignmentquestionsoft{02}{2}
+
+
+\section{CCDFs}
+
+  \textbf{\small Complementary Cumulative Distribution Function:}
+
+  \textbf{CCDF:}
+    
+    
+      $$ P_{\ge}(x) = P(x' \ge x)  = 1 - P(x'<x) $$
+    
+      $$ = \int_{x' = x}^{\infty} P(x') \dee{x'}  $$
+    
+      $$ \propto \int_{x' = x}^{\infty} (x')^{-\gamma} \dee{x'}  $$
+    
+      $$ = \left. \frac{1}{-\gamma+1}(x')^{-\gamma+1} \right|_{x' = x}^{\infty} $$
+    
+      $$ \propto x^{-\gamma+1} $$
+    
+  
+
+
+  \textbf{\small Complementary Cumulative Distribution Function:}
+
+  \textbf{CCDF:}
+    
+    
+      $$ P_{\ge}(x) \propto x^{-\gamma+1} $$
+    
+      Use when tail of $P$ follows a power law.
+    
+      Increases exponent by one.
+    
+      Useful in cleaning up data.
+    
+  
+
+      
+      
+    
+              
+        
+        PDF:\\
+        \includegraphics[width=\textwidth]{figwords6_noname}
+        
+        CCDF:\\
+        \includegraphics[width=\textwidth]{figwords1_noname}
+        
+          
+  
+
+  \textbf{\small Complementary Cumulative Distribution Function:}
+
+  
+    
+    
+      Discrete variables:
+      $$ P_\ge(k) = P(k' \ge k) $$
+    {
+      $$ = \sum_{k'=k}^{\infty} P(k) $$
+      }
+    {
+      $$ \propto k^{-\gamma+1} $$
+      }
+    
+      Use integrals to approximate sums.
+    
+  
+
+
+\section{Zipf's\ law}
+
+  \textbf{Zipfian rank-frequency plots}
+
+  \textbf{George Kingsley Zipf:}
+    
+    
+      Noted various rank distributions\\ 
+      have power-law tails, often with exponent -1\\
+      (word frequency, city sizes...)
+    
+      Zipf's 1949 \wordwikilink{http://en.wikipedia.org/wiki/Principle\_of\_least\_effort}{Magnum Opus}:\\
+    
+          
+      
+      \amazonbook{zipf1949a}
+        
+     We'll study Zipf's law in depth...
+    
+  
+
+  %% \alertb{``Human Behaviour and the Principle of Least-Effort''}\cite{zipf1949a}
+  %% {\small Addison-Wesley, Cambridge MA, 1949.}
+
+
+  \textbf{Zipfian rank-frequency plots}
+
+  \textbf{Zipf's way:}
+  
+  
+    Given a collection of entities, rank them by
+    size, largest to smallest.
+  
+    $x_\rank$ = the size of the $\rank$th ranked entity.
+   
+    $r=1$ corresponds to the largest size.
+   
+    Example: $x_1$ could be the frequency of occurrence of
+    the most common word in a text.
+  
+    Zipf's observation:
+    $$ x_r \propto r^{-\alpha} $$
+  
+  
+
+
+\section{Zipf\ \texorpdfstring{$\Leftrightarrow$}{is\ equivalent\ to}\ CCDF}
+
+  \textbf{Size distributions:}
+
+  \textbf{Brown Corpus (1,015,945 words):}
+    \medskip
+          
+      
+      CCDF:\\
+      \includegraphics[width=\textwidth]{figwords1_noname}
+      
+      Zipf:\\
+      \includegraphics[width=\textwidth]{figwords2_noname}
+      
+      
+
+  
+    
+     
+      The, of, and, to, a, ...  = `objects'
+     
+      `Size' = word frequency
+    
+      {
+        \alertr{Beep:} (Important) CCDF and Zipf plots are related...}
+    
+  
+
+
+  \textbf{Size distributions:}
+
+  \textbf{Brown Corpus (1,015,945 words):}
+          
+      
+      CCDF:\\
+      \includegraphics[width=\textwidth]{figwords1_noname}
+      
+      Zipf:\\
+      \includegraphics[width=\textwidth]{figwords3_noname}
+      
+    
+  
+
+  
+    
+     
+      The, of, and, to, a, ...  = `objects'
+     
+      `Size' = word frequency
+    
+      {
+        \alertr{Beep:} (Important) CCDF and Zipf plots are related...}
+    
+  
+
+
+
+%%  \textbf{Size distributions:}
+
+  \textbf{Observe:}
+    
+     $ NP_\ge(x) = $ the number of objects with size at least $x$\\
+      where $N$ = total number of objects.
+     If an object has size $x_\rank$, then $NP_\ge(x_\rank)$ is its rank $\rank$.
+     So 
+      $$\alertb{x_\rank \propto \rank^{-\alpha} = (NP_\ge(x_\rank))^{-\alpha}}$$
+    [] 
+      $$
+      \alertb{ \propto x_\rank^{(-\gamma+1)(-\alpha)}}
+      \mbox{\ since $P_\ge(x) \sim x^{-\gamma+1}$}.
+      $$
+    [] 
+      We therefore have $1=(-\gamma+1)(-\alpha)$ or:
+      $$
+      \alertb{
+        \boxed{\alpha = \frac{1}{\gamma-1}}
+      }
+      $$
+     
+      A rank distribution exponent of $\alpha = 1$ 
+      corresponds to a size distribution exponent $\gamma=2$.
+    
+  
+
+
+
+%% %%   \textbf{Details on the lack of scale:}
+%% 
+%%   \textbf{Let's find the mean:}
+%%     
+%%      
+%%       $$ \avg{x} = \int_{x=\xmin}^{\xmax} x P(x) \dee{x} $$
+%%     [] 
+%%       $$ = c \int_{x=\xmin}^{\xmax} x x^{-\gamma} \dee{x} $$
+%%     [] 
+%%       $$ = \frac{c}{2-\gamma} \left(
+%%         \xmax^{2-\gamma} - \xmin^{2-\gamma} \right).
+%%       $$
+%%     
+%%   
+%% 
+%% 
+
+  \textbf{\wordwikilink{http://en.wikipedia.org/wiki/Donald_Bradman}{The Don.}}
+
+  \textbf{Extreme deviations in \alertg{test cricket:}}
+      
+    \begin{center}
+      \includegraphics[width=.2\textwidth]{bradman.jpg}
+      \includegraphics[angle=-90,width=0.6\textwidth]{CricketBattingAverageHistogram.pdf}
+      \includegraphics[width=.05\textwidth]{wikipedia-tp.pdf}
+    \end{center}
+    
+    
+      {Don Bradman's \wordwikilink{http://en.wikipedia.org/wiki/Batting\_average}{batting average} \\ = \alertr{166\%} next best.}
+    
+      That's pretty solid.
+    
+      Later in the course: Understanding success--- \newline
+      is the Mona Lisa like Don Bradman?
+    
+  
+
+

@@ -1,0 +1,2516 @@
+\section{Introduction}
+
+\begin{frame}
+
+  \frametitle{Generalized contagion model}
+
+  \begin{block}<1->{Basic questions about contagion}
+    \begin{itemize}
+    \item<2-> How many types of contagion are there?
+    \item<3-> How can we categorize real-world contagions?
+    \item<4-> Can we connect models of disease-like and social contagion?
+    \item<5-> \alert{Focus:} mean field models.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\section{Independent\ Interaction\ models}
+
+\begin{frame}
+  \frametitle{Mathematical Epidemiology (recap)}
+
+  \begin{block}<1->{The standard \alert{SIR model}\cite{murray2002a}}
+    \begin{itemize}
+    \item<2-> = basic model of disease contagion
+    \item<3-> Three states:
+      \begin{enumerate}
+      \item<4-> \alertb{S = Susceptible}
+      \item<5-> \alertb{I = Infective/Infectious}
+      \item<6-> \alertb{R = Recovered}
+        \uncover<7->{ or Removed or Refractory}
+      \end{enumerate}
+      \item<8-> $S(t) + I(t) + R(t) = 1$
+      \item<9-> Presumes random interactions (mass-action principle)
+      \item<10-> Interactions are independent (no memory)
+      \item<11-> Discrete and continuous time versions
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Independent Interaction Models}
+
+  \begin{block}{Discrete time automata example:}
+    \medskip
+    \begin{columns}
+      \begin{column}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{SIRtransitions_std}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \visible<2->{Transition Probabilities:}
+
+        \bigskip
+        \visible<3->{\alertb{$\beta$} for being infected given contact with infected}\\
+        \visible<4->{\alertb{$r$} for recovery}\\
+        \visible<5->{\alertb{$\rho$} for loss of immunity}\\
+      \end{column}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Independent Interaction Models}
+
+  \begin{block}{Original models attributed to}
+    \begin{itemize}
+    \item<2-> 1920's: Reed and Frost
+    \item<3-> 1920's/1930's: Kermack and McKendrick\cite{kermack1927a,kermack1932a,kermack1933a}
+    \item<4-> Coupled differential equations with a mass-action principle
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  \begin{block}{Differential equations for continuous model}
+    $$
+    \frac{\dee{}}{\dee{t}} S = - \beta  \alert{I S} + \rho R 
+    $$
+    $$
+    \frac{\dee{}}{\dee{t}} I=  \beta \alert{I S} - r I 
+    $$
+    $$
+    \frac{\dee{}}{\dee{t}} R=  r I - \rho R 
+    $$
+  \end{block}
+  $\beta$, $r$, and $\rho$ are now \alert{rates}.
+  
+  \begin{block}<2->{Reproduction Number $R_0$:}
+  \begin{itemize}
+  \item<3-> $R_0$ = expected number of infected individuals resulting
+    from a single initial infective
+  \item<4-> Epidemic threshold: If $R_0 > 1$, `epidemic' occurs.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reproduction Number $R_0$}
+
+  \begin{block}{Discrete version:}
+    \begin{itemize}
+    \item<1-> Set up: One Infective in a randomly mixing population of Susceptibles
+    \item<2-> At time $t=0$, single infective random bumps into a Susceptible
+    \item<3-> Probability of transmission = $\beta$
+    \item<4-> At time $t=1$, single Infective remains infected with probability $1-r$
+    \item<5-> At time $t=k$, single Infective remains infected with probability $(1-r)^k$
+    \end{itemize}
+  \end{block}    
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reproduction Number $R_0$}
+
+  \begin{block}{Discrete version:}
+    \begin{itemize}
+    \item<1-> Expected number infected by original Infective:
+      $$
+      R_0 = \beta + (1-r)\beta + (1-r)^2\beta + (1-r)^3\beta + \ldots
+      $$
+      \uncover<2->{
+        $$
+        = \beta\left( 1 + (1-r) + (1-r)^2 + (1-r)^3 + \ldots \right)
+        $$
+      }
+      $$
+      \uncover<3->{= \beta \frac{1}{1 - (1-r)}}
+      \uncover<4->{\alert{= \beta/r}}
+      $$
+      \item<5->{Similar story for continuous model.}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  \centering 
+
+  Example of epidemic threshold:
+
+  % add figure here
+  \includegraphics[width=0.6\textwidth]{figR0_noname}
+
+  \begin{itemize}
+  \item \visible<2->{Continuous phase transition.}
+  \item \visible<3->{Fine idea from a simple model.}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simple disease spreading models}
+
+  \begin{block}<1->{Valiant attempts to use SIR and co. elsewhere:}
+    \begin{itemize}
+    \item<2-> Adoption of ideas/beliefs (Goffman \& Newell, 1964)\cite{goffman1964a}
+    \item<3-> Spread of rumors (Daley \& Kendall, 1964, 1965)\cite{daley1964a,daley1965a}
+    \item<4-> Diffusion of innovations (Bass, 1969)\cite{bass1969a}
+    \item<5-> Spread of fanatical behavior (Castillo-Ch\'{a}vez \& Song, 2003)%\cite{chastillo-chavez2003a}
+    \end{itemize}
+  \end{block}
+
+  % (religion, beliefs, rumors)
+
+\end{frame}
+
+\section{Interdependent\ interaction\ models}
+
+\begin{frame}
+  \frametitle{Granovetter's model (recap of recap)}
+
+  \begin{itemize}
+  \item Action based on perceived behavior of others.
+  \end{itemize}
+
+  \includegraphics[width=1\textwidth]{figthreshold_noname}
+
+  \begin{itemize}
+  \item<1-> Two states: S and I.
+  \item<1-> Recovery now possible (SIS).
+  \item<1-> $\phi$ = fraction of contacts `on' (e.g., rioting).
+  \item<1-> Discrete time, synchronous update.
+  \item<1-> This is a \alert{Critical mass model}.
+  \item<1-> \alert{Inter}dependent interaction model.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some (of many) issues}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1-> Disease models assume independence of infectious events.
+    \item<2-> Threshold models only involve proportions:
+      $3/10 \equiv 30/100$.
+    \item<3-> Threshold models ignore exact sequence of influences
+    \item<4-> Threshold models assume immediate polling.
+    \item<5-> Mean-field models neglect network structure
+    \item<6-> Network effects only part of story: \\
+      media, advertising, direct marketing.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%\begin{frame}
+%  \frametitle{Overview of I. Generalized Contagion}
+
+%  \begin{enumerate}
+%  \item Independent Interaction models.
+%  \item Threshold models.
+%  \item Other models of contagion.
+%  \item Generalized model.
+%  \item Results: analysis, numerics, and model simulations.
+%  \item Conclusions.
+%  \end{enumerate}
+%
+%\end{frame}
+
+\section{Generalized\ Model}
+
+
+\begin{frame}
+  \frametitle{Generalized model}
+
+  \begin{block}{Basic ingredients:}
+    \begin{itemize}
+    \item<1-> Incorporate memory of a contagious element\cite{dodds2004a,dodds2005a}
+    \item<2-> Population of $N$ individuals, each in state S, I, or R.
+    \item<3-> Each individual randomly contacts another at each time step.
+    \item<4-> $\phi_t$ = fraction infected at time $t$ \\
+      \quad \quad \ = probability of \underline{\alertb{contact}} with infected individual
+    \item<5-> With probability $p$, contact with infective\\
+      \quad leads to an \underline{\alertb{exposure}}.
+    \item<6-> If exposed, individual receives a dose of size $d$\\
+      \quad  drawn from distribution \alertb{$f$}.  Otherwise $d=0$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%
+% 2a. ingredients:
+%     memory
+%     prob of infection being transferred
+
+\begin{frame}
+  \frametitle{Generalized model---ingredients}
+
+  \begin{block}{$\boxed{\mbox{S} \Rightarrow \mbox{I}}$}
+    \begin{itemize}
+    \item<2->
+      Individuals `remember' last $T$ contacts:
+      $$ D_{t,i} = \sum_{t'=t-T+1}^{t} d_i(t') $$
+    \item<3-> 
+      Infection occurs if individual $i$'s `threshold' is exceeded:
+      $$ D_{t,i} \ge \dstari $$
+    \item<4->
+      Threshold $\dstari$ drawn from arbitrary distribution \alert{$g$} at $t=0$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model---ingredients}
+
+  \begin{block}<1->{$\boxed{\mbox{I} \Rightarrow \mbox{R}}$}
+    When  $D_{t,i} < \dstari $,\\
+    individual $i$ recovers to state R
+    with probability $r$.
+  \end{block}
+
+  \bigskip
+    
+  \begin{block}<2->{$\boxed{\mbox{R} \Rightarrow \mbox{S}}$}
+    Once in state R, individuals become susceptible again with
+    probability $\rho$.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{A visual explanation}
+
+   \includegraphics[width=1\textwidth]{SIRtransitions4}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%% 5 mins
+% 3b. our model---results
+
+% homogeneous
+
+% heterogeneous
+
+\begin{frame}
+  \frametitle{Generalized mean-field model}
+
+  \begin{block}<1->{Study SIS-type contagion first:}
+    \begin{itemize}
+    \item<2->
+      Recovered individuals are immediately susceptible again:
+      $$
+      \alert{r=\rho=1.}
+      $$
+    \item<3->
+      Look for steady-state behavior 
+      as a function of exposure probability $p$.
+    \item<4->
+      Denote fixed points by $\phifix$.
+    \end{itemize}
+  \end{block}
+  
+  \begin{block}<5->{Homogeneous version:}
+    \begin{itemize}
+    \item<6->
+      All individuals have threshold $\dstar$
+    \item<7->
+      All dose sizes are equal: $d=1$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\subsection{Homogeneous\ version}
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}<1->{Fixed points for \alertb{$r<1$}, $\dstar=1$, and $T=1$:}
+    \begin{itemize}
+    \item<2->
+      \alert{$r<1$} means recovery is probabilistic.
+    \item<3->
+      \alert{$T=1$} means individuals forget past interactions.
+    \item<4->
+      \alert{$\dstar=1$} means one positive interaction 
+      will infect an individual.
+    \item<5-> 
+      Evolution of infection level:
+      $$
+      \phi_{t+1} = 
+      \uncover<6->{
+        \underbrace{p \phi_{t}}_{\mbox{\alertb{a}}}
+      }
+      \uncover<7->{
+        + 
+        \underbrace{\phi_t(1 - p\phi_t)}_{\mbox{\alertb{b}}}
+      }
+      \uncover<8->{
+        \underbrace{(1-r)}_{\mbox{\alertb{c}}}.
+      }
+      $$
+      \begin{enumerate}
+      \uncover<6->{
+      \item[a:]
+        Fraction infected between $t$ and $t+1$,
+        independent of past state or recovery.
+        }
+      \uncover<7->{
+      \item[b:]
+         Probability of being infected and not being reinfected.
+      }
+      \uncover<8->{
+      \item[c:]
+        Probability of not recovering.
+      }
+      \end{enumerate}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}{Fixed points for \alertb{$r<1$}, $\dstar=1$, and $T=1$:}
+    \begin{itemize}
+    \item<1-> 
+      Set $\phi_t = \phifix$:
+      \uncover<2->{
+        $$
+        \phifix = p \phifix + ( 1 -p \phifix) \phifix (1-r)
+        $$
+      }
+      \uncover<3->{
+        $$
+        \Rightarrow  1 = p + (1-p\phifix)(1-r), \quad \phifix \ne 0,
+        $$
+      }
+      \uncover<4->{
+        $$
+        \Rightarrow 
+        \alert{\phifix = \frac{1 - r/p}{1-r}} 
+        \quad \mbox{and} \quad 
+        \alert{\phifix = 0}.
+        $$
+      }
+    \item<5-> 
+      Critical point at $p = p_c = r$.
+    \item<6-> 
+      Spreading takes off if $p/r > 1$
+    \item<7->
+      Find continuous phase transition as for SIR model.
+    \item<8->
+      \alertb{Goodness:} Matches $R_o = \beta/\gamma > 1$ condition.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simple homogeneous examples}
+
+  \begin{block}<1->{Fixed points for $r=1$, $\dstar=1$, and $T>1$}
+    \begin{itemize}
+    \item<2->
+      \alert{$r=1$} means recovery is immediate.
+    \item<3->
+      \alert{$T>1$} means individuals remember at least 2 interactions.
+    \item<4->
+      \alert{$\dstar=1$} means only one positive interaction in past $T$ 
+      interactions will infect individual.
+    \item<5->
+      Effect of individual interactions is independent from effect of others.
+    \item<6->
+      Call \alert{$\phifix$} the steady state level of infection.
+    \item<7->
+      $\Pr$(infected) = 1 - $\Pr$(uninfected):
+      \uncover<8->{
+      $$
+      \phifix = 1 - (1 - p\phifix)^T.
+      $$
+      }
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}{Fixed points for $r=1$, $\dstar=1$, and $T>1$}
+    \begin{itemize}
+    \item<1-> Closed form expression for $\phifix$:
+      $$
+      \phifix = 1 - (1 - p\phifix)^T.
+      $$
+    \item<2->
+      Look for critical infection probability $p_c$.
+    \item<3->
+      As $\phifix \rightarrow 0$, we see
+      $$
+      \phifix \simeq p T \phifix 
+      \uncover<4->{\ \ \Rightarrow \alert{p_c = 1/T}.}
+      $$
+    \item<5->
+      Again find continuous phase transition...
+    \item<6->
+      Note: we can solve for $p$ but not $\phifix$:
+      $$
+      p = (\phifix)^{-1} [ 1 - (1-\phifix)^{1/T} ].
+      $$
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}{Fixed points for \alertb{$r \le 1$}, $\dstar=1$, and \alertb{$T \ge 1$}}
+    \begin{itemize}
+    \item<1-> 
+      Start with $r=1$, $\dstar=1$, and $T \ge 1$ case we have
+      just examined:
+      $$
+      \phifix = 1 - (1 - p\phifix)^T.
+      $$
+    \item<2-> 
+      For $r<1$, add to right hand side fraction who:
+      \begin{enumerate}
+      \item<3->
+        Did not receive any infections in last T time steps,
+      \item<4->
+        And \alert{did not recover} from a previous infection.
+      \end{enumerate}
+    \item<5->
+      Define corresponding dose histories.  Example:
+      \uncover<6->{
+      $$
+      H_1 = \{ \ldots, d_{t-T-2}, d_{t-T-1}, 1, 
+      \underbrace{0, 0, \ldots, 0, 0}_{\mbox{$T$ 0's}} \},
+      $$
+      }
+    \item<7->
+      With history $H_1$, probability of being infected
+      (not recovering in one time step) is $1-r$.
+    \end{itemize}
+  \end{block}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}{Fixed points for \alertb{$r \le 1$}, $\dstar=1$, and \alertb{$T \ge 1$}}
+    \begin{itemize}
+    \item<1->
+      In general, relevant dose histories are:
+      $$
+      H_{m+1} = \{ \ldots, d_{t-T-m-1}, 1, \underbrace{0, 0, \ldots, 0, 0}_{\mbox{$m$ 0's}}, \underbrace{0, 0, \ldots, 0, 0}_{\mbox{$T$ 0's}} \}.
+      $$
+    \item<2->
+      Overall probabilities for dose histories occurring:
+      \uncover<2->{
+      $$
+      P(H_1) = p\phifix (1 -p\phifix)^T (1-r), 
+      $$
+      }
+      $$
+      \uncover<3->{
+        P(H_{m+1}) = 
+        }
+      \uncover<4->{
+       \underbrace{p\phifix}_{\alertb{a}}
+      }
+      \uncover<5->{
+        \underbrace{(1 -p\phifix)^{T+m}}_{\alertb{b}}
+      }
+      \uncover<6->{
+        \underbrace{(1-r)^{m+1}}_{\alertb{c}}.
+      }
+      $$
+      \begin{enumerate}
+      \item<4->[a:] $\Pr$(infection $T+m+1$ time steps ago)
+      \item<5->[b:] $\Pr$(no doses received in $T+m$ time steps since)
+      \item<6->[c:] $\Pr$(no recovery in $m$ chances)
+      \end{enumerate}
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}{Fixed points for \alertb{$r \le 1$}, $\dstar=1$, and \alertb{$T \ge 1$}}
+    \begin{itemize}
+    \item<1->
+      $\Pr$(recovery) = $\Pr$(seeing no doses for at least $T$ time steps
+      and recovering) 
+      $$
+      \uncover<2->{
+        = \alert{r} \sum_{m=0}^{\infty} P(H_{T+m})
+      }
+      \uncover<3->{
+        = \alert{r} \sum_{m=0}^{\infty} 
+        p\phifix
+        (1 -p\phifix)^{T+m}
+        (1-r)^{m}
+      }
+      $$
+      $$
+      \uncover<4->{
+        = \alert{r} 
+        \frac{p\phifix (1-p\phifix)^T}
+        {1 - (1-p\phifix)(1-r)}.
+      }
+      $$
+    \item<5->
+      Fixed point equation:
+      $$
+      \phifix =
+      1 - \frac{r (1-p\phifix)^T }
+      {1 - (1-p\phifix)(1-r)}.
+      $$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, one hit models:}
+
+  \begin{block}{Fixed points for \alertb{$r \le 1$}, $\dstar=1$, and \alertb{$T \ge 1$}}
+    \begin{itemize}
+    \item<1-> 
+      Fixed point equation (again):
+      $$
+      \phifix =
+      1 - \frac{r (1-p\phifix)^T }
+      {1 - (1-p\phifix)(1-r)}.
+      $$
+    \item<2-> 
+      Find critical exposure probability by examining
+      above as $\phifix \rightarrow 0$.
+    \item<3-> 
+      $$
+      \Rightarrow \quad 
+      \alert{p_c} = \frac{1}{T + 1/r - 1} \alert{= \frac{1}{\alert{T + \tau}}}.
+      $$
+      where \alertb{$\tau$ = mean recovery time} for simple relaxation
+      process.
+    \item<4->
+      Decreasing $r$ keeps individuals infected for longer
+      and decreases $p_c$.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Epidemic threshold:}
+
+  \begin{block}{Fixed points for $\dstar=1$, \alertb{$r \le 1$}, and $T \ge 1$}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item 
+      $
+      \phifix =
+      1 - \frac{r (1-p\phifix)^T }
+      {1 - (1-p\phifix)(1-r)}
+      $
+    \item
+      $\phifix = 0$
+    \item
+      $p_c = 1/(T+\tau)$
+    \end{itemize}
+    \column{0.5\textwidth}
+  \includegraphics[width=\textwidth]{figgc_r0p50_k1_T2_paper2_noname.pdf}
+  \end{columns}
+  \end{block}
+
+  \begin{itemize}
+  \item
+    Example details:
+    $T=2$ \& $r=1/2$ $\Rightarrow p_c = 1/3$.
+  \item
+    \alertb{Blue} = stable, \alert{red} = unstable, fixed points.
+  \item
+    $\tau = 1/r - 1$ = characteristic recovery time = 1.
+  \item
+    $T + \tau \simeq $  average memory in system = 3.
+  \item<2->
+    Phase transition can be seen as
+    a \alertb{transcritical bifurcation}.\cite{strogatz1994a}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, multi-hit models:}
+
+  \begin{itemize}
+  \item<1-> 
+    All right: $\dstar=1$ models correspond
+    to simple disease spreading models.
+  \item<2-> 
+    What if we allow $\dstar \ge 2$?
+  \item<3->
+    Again first consider SIS with immediate recovery ($r=1$)
+  \item<4->
+    Also continue to assume unit dose sizes ($f(d) = \delta(d-1)$).
+  \item<5->
+    To be infected, must have at least $\dstar$
+    exposures in last $T$ time steps.
+  \item<6->
+    Fixed point equation:
+    $$
+    \phifix = 
+    \sum_{i=\dstar}^{T}
+    \binom{T}{i}
+    (p\phifix)^{i} (1 - p\phifix)^{T-i}.
+    $$
+  \item<7->
+    As always, $\phifix=0$ works too.
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, multi-hit models:}
+
+  \begin{block}<1->{Fixed points for $r = 1$, $\dstar > 1$, and $T \ge 1$}
+    \begin{itemize}
+    \item<2-> 
+      Exactly solvable for small $T$.
+    \item<3-> 
+      e.g., for $\dstar=2$, $T=3$:
+    \end{itemize}
+  \end{block}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{overprint}
+      \onslide<1-5 | handout:0 | trans:0>
+      \onslide<6->
+      \includegraphics[width=\textwidth]{figgc_r1_k2_T3_noname.pdf} 
+    \end{overprint}
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item<4->
+      Fixed point equation:
+      $\phifix = 3 p^2 \phifix^2 (1 - p \phifix) + p^3 \phifix^3$
+    \item<5->
+      See new structure: a \alert{saddle node bifurcation}\cite{strogatz1994a} 
+      appear as $p$ increases.
+    \item<6->
+      $(p_b,\phifix)=(8/9,27/32)$.
+    \end{itemize}
+  \end{columns}
+
+  \begin{itemize}
+  \item<7->
+    Behavior akin to output of Granovetter's threshold model.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homogeneous, multi-hit models:}
+
+  \begin{itemize}
+  \item Another example:
+  \end{itemize}
+
+  \begin{center}
+  Critical Mass Models\\
+  \includegraphics[width=0.6\textwidth]{figgc_r1_k3_T12_paper2_noname.pdf}\\
+  \end{center}
+
+  \begin{itemize}
+  \item $r=1$, $\dstar=3$, $T=12$ \hfill Saddle-node bifurcation.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Fixed points for $r = 1$, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+ \begin{columns}
+   \column{0.6\textwidth}
+   \begin{itemize}
+   \item<1->
+     $T=24$, $\dstar$ = 1, 2, \ldots 23.
+   \end{itemize}
+   \includegraphics[width=\columnwidth]{figgc_T24_kvar_r1_noname.pdf} 
+   \column{0.4\textwidth}
+   \begin{itemize}
+   \item 
+     $\dstar=1 \rightarrow \dstar>1$: 
+     jump between continuous phase transition
+     and pure critical mass model.
+   \item 
+     Unstable curve for $\dstar=2$ \alert{does not} hit $\phifix=0$.
+   \end{itemize}
+ \end{columns}
+
+ \begin{itemize}
+ \item<2-> 
+   See \alert{either} simple phase transition or saddle-node bifurcation,
+   nothing in between.
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Fixed points for $r = 1$, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+ \begin{itemize}
+ \item 
+   Bifurcation points for example fixed $T$, varying $\dstar$:
+ \end{itemize}
+ \begin{columns}
+   \column{0.7\textwidth}
+   \includegraphics[width=\textwidth]{figgc_bipts_r1_noname.pdf}
+   \column{0.3\textwidth}
+   \begin{itemize}
+   \item 
+     $T=96$ ($\vartriangle$).
+   \item 
+     $T=24$ ($\triangleright$),
+   \item 
+     $T=12$ ($\triangleleft$),
+   \item 
+     $T=6$ ($\Box$),
+   \item 
+     $T=3$ ($\bigcirc$), 
+   \end{itemize}
+
+ \end{columns}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{itemize}
+  \item<1->
+    For $r < 1$, need to determine probability of
+    recovering as a function of time since 
+    dose load last dropped below threshold.
+  \item<2->
+    Partially summed random walks:
+    $$
+    D_i(t) = \sum_{t'=t-T+1}^{t} d_i(t')
+    $$
+  \item<3->
+    Example for $T=24$, $\dstar=14$:
+    \begin{overprint}
+      \onslide<1-3 | handout: 0 | trans: 0>
+      \onslide<4->
+      \includegraphics[width=0.9\columnwidth]{figrandomwalkcalc_noname.pdf}
+    \end{overprint}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{itemize}
+  \item<1->
+    Define $\gamma_m$ as fraction of individuals 
+    for whom $D(t)$ last equaled, and his since been
+    below, their threshold $m$ time steps ago,
+  \item<2->
+    Fraction of individuals below threshold but not recovered:
+    $$
+    \Gamma(p,\phifix;r) = \sum_{m=1}^{\infty} (1-r)^m \gamma_m(p,\phifix).
+    $$
+  \item<3->
+    Fixed point equation:
+    $$
+    \phifix = \Gamma(p,\phifix;r) 
+    + \sum_{i=\dstar}^{T}
+    \binom{T}{i}
+    (p\phifix)^{i} (1 - p\phifix)^{T-i}.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{block}<1->{Example: $T=3$, $\dstar=2$}
+    \begin{itemize}
+    \item<2-> 
+      Want to examine how dose load can drop below threshold of $\dstar=2$:
+      $$D_n=2 \Rightarrow D_{n+1}=1$$
+    \item<3-> 
+      Two subsequences do this:
+      \uncover<4->{
+        $
+        \qquad \alertb{\{d_{n-2},d_{n-1},d_{n},d_{n+1}\} = \{1,1,0,\alert{0}\}}
+        $
+      }
+      \uncover<5->{
+        $
+        \mbox{and} \ \alertb{\{d_{n-2},d_{n-1},d_{n},d_{n+1},d_{n+2}\} 
+          = \{1,0,1,\alert{0},\alert{0}\}}.
+        $
+      }
+    \item<6->
+      Note: second sequence includes an extra 0 since
+      this is necessary to stay below $\dstar=2$.
+    \item<7->
+      To stay below threshold, observe
+      acceptable following sequences may be composed of
+      any combination of two subsequences:
+      $$ 
+      a=\{0\} \quad \mbox{and} \quad b=\{1,0,0\}. 
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{itemize}
+  \item<1-> Determine number of sequences of length $m$ that
+    keep dose load below $\dstar=2$.
+  \item<2->
+    $N_a$ = number of $a = \{0\}$ subsequences.
+  \item<3->
+    $N_b$ = number of $b = \{1,0,0\}$ subsequences.
+    \uncover<4->{
+      $$
+      m = N_a \cdot 1 + N_b \cdot 3
+      $$
+    }
+    \uncover<5->{
+      Possible values for $N_b$:
+      $$
+     0, 1, 2, \ldots, \left\lfloor\frac{m}{3}\right\rfloor.
+      $$
+      where $\lfloor\cdot \rfloor$ means floor.
+    }
+  \item<6->
+    \uncover<6->{
+      Corresponding possible values for $N_a$:
+      $$
+      m, m-3, m-6, \ldots, m-3\left\lfloor\frac{m}{3}\right\rfloor.
+      $$
+    }
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{itemize}
+  \item<1->
+    How many ways to arrange $N_a$ $a$'s and $N_b$ $b$'s?
+  \item<2-> 
+    Think of overall sequence in terms of subsequences:
+    $$ \{Z_1, Z_2, \ldots, Z_{N_a + N_b} \} $$
+  \item<3->
+    $N_a + N_b$ slots for subsequences.
+  \item<4-> 
+    Choose positions of either $a$'s or $b$'s:
+    $$
+    \binom{N_a + N_b}{N_a} = \binom{N_a + N_b}{N_b}.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{itemize}
+  \item<1->
+    Total number of allowable sequences of length $m$:
+    $$
+    \sum_{N_b=0}^{\lfloor m/3\rfloor}
+    \binom{N_b+N_a}{N_b}
+    = 
+    \sum_{k=0}^{\lfloor m/3\rfloor}
+    \binom{m-2k}{k}
+    $$
+    where $k=N_b$ and we have used $m = N_a + 3N_b$.
+  \item<2->
+    $P(a) = (1-p\phifix)$ and $P(b) = p\phifix(1-p\phifix)^2$
+  \item<3->
+    Total probability of allowable sequences of length $m$:
+    $$
+    \chi_m(p,\phifix)
+    = 
+    \sum_{k=0}^{\lfloor m/3\rfloor}
+    \binom{m-2k}{k}
+    (1-p\phifix)^{m-k}
+    (p\phifix)^k.
+    $$
+  \item<4->
+    Notation: Write a randomly chosen 
+    sequence of $a$'s and $b$'s of length $m$
+    as $D_{m}^{a,b}$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{itemize}
+  \item<1->
+    Nearly there...  must account for details of sequence endings.
+  \item<1->
+    Three endings $\Rightarrow$ Six possible sequences:
+  \end{itemize}
+
+    \bigskip
+
+    {\small
+    \begin{tabular}{l}
+        $ D_1 = \{1, 1, 0, 0, D_{m-1}^{a,b}\} $ \\
+        \qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \uncover<3->{\alertb{$ P_1 = (p\phi)^2 (1-p\phi)^2 \chi_{m-1}(p,\phi) $}} \\
+        $ D_2 = \{1, 1, 0, 0, D_{m-2}^{a,b}, 1\} $ \\
+        \qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \uncover<3->{\alertb{$ P_2 = (p\phi)^3 (1-p\phi)^2 \chi_{m-2}(p,\phi) $}} \\
+        $ D_3 = \{1, 1, 0, 0, D_{m-3}^{a,b}, 1, 0\}$ \\
+        \qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \uncover<3->{\alertb{$ P_3 = (p\phi)^3 (1-p\phi)^3 \chi_{m-3}(p,\phi) $}} \\
+        $ D_4 = \{1, 0, 1, 0, 0, D_{m-2}^{a,b}\} $ \\
+        \qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \uncover<3->{\alertb{$ P_4 = (p\phi)^2 (1-p\phi)^3 \chi_{m-2}(p,\phi) $}} \\
+        $ D_5 = \{1, 0, 1, 0, 0, D_{m-3}^{a,b}, 1\} $ \\
+        \qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \uncover<3->{\alertb{$ P_5 = (p\phi)^3 (1-p\phi)^3 \chi_{m-3}(p,\phi) $}} \\
+        $ D_6 = \{1, 0, 1, 0, 0, D_{m-4}^{a,b}, 1, 0\} $ \\
+        \qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \uncover<3->{\alertb{$ P_6 = (p\phi)^3 (1-p\phi)^4 \chi_{m-4}(p,\phi) $}}
+    \end{tabular}
+    }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar = 2$}, and \alertb{$T = 3$}}
+  $$
+  \mbox{F.P.\ Eq:} \ \
+  \phifix = \Gamma(p,\phifix;r) 
+  + \sum_{i=\dstar}^{T}
+  \binom{T}{i}
+  (p\phifix)^{i} (1 - p\phifix)^{T-i}.
+  $$
+  where
+  $
+  \Gamma(p,\phifix;r) = $
+  $$
+  \alert{(1-r)(p\phi)^2 (1-p\phi)^2}
+   +  \sum_{m=1}^{\infty} (1-r)^m 
+  (p\phi)^2 (1-p\phi)^2 \times
+  $$
+  $$
+  \left[ 
+    \chi_{m-1} + 
+    \chi_{m-2} + 
+    2p\phi (1-p\phi)\chi_{m-3} + 
+    p\phi (1-p\phi)^2\chi_{m-4}
+  \right]
+  $$
+  and
+  $$
+  \chi_m(p,\phifix)
+  = 
+  \sum_{k=0}^{\lfloor m/3\rfloor}
+  \binom{m-2k}{k}
+  (1-p\phifix)^{m-k}
+  (p\phifix)^k.
+  $$
+  \small{
+    Note: $\alert{(1-r)(p\phi)^2 (1-p\phi)^2}$ accounts
+    for $\{1, 0, 1, 0\}$ sequence.
+  }
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{block}{$T=3$, $\dstar=2$}
+  \begin{center}
+      \includegraphics[width=0.625\textwidth]{figgc_T3_k2_bif_theorycomp2_noname.pdf}
+      \begin{itemize}
+      \item 
+        $r=0.01, 0.05, 0.10, 0.15, \alertb{0.20},\ldots, 1.00$.
+      \end{itemize}
+  \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+  \begin{block}{$T=2$, $\dstar=2$}
+  \begin{center}
+      \includegraphics[width=0.625\textwidth]{figgc_T2_k2_bif_theorycomp_noname.pdf}
+      \begin{itemize}
+      \item 
+        $r=0.01, 0.05, 0.10,\ldots, 0.3820 \pm 0.0001$.
+      \item<2-> 
+        No spreading for $r \gtrsim 0.382$.
+      \end{itemize}
+  \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{What we have now:}
+  
+  \begin{itemize}
+  \item 
+    Two kinds of contagion processes:
+    \begin{enumerate}
+    \item<2-> 
+      Continuous phase transition: \alert{SIR-like}.
+    \item<3-> 
+      Saddle-node bifurcation: \alert{threshold model-like}.
+    \end{enumerate}
+  \item<4->
+    \alert{$\dstar=1$:} spreading from small seeds possible.
+  \item<5->
+    \alert{$\dstar>1$:} critical mass model.
+  \item<6->
+    \alertb{Are other behaviors possible?}
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Heterogeneous\ version}
+
+\begin{frame}
+  \frametitle{Generalized model}
+
+  \begin{itemize}
+  \item<1-> 
+    Now allow for general dose distributions ($f$)
+    and threshold distributions ($g$).
+  \item<2->
+    Key quantities:
+    $$
+    P_k
+    =
+    \int_{0}^{\infty} \dee{\dstar}
+    g(\dstar)
+    P\left(
+      %%    \textstyle{\sum_{i=1}^{k} d_i \ge \dstar}
+      \sum_{j=1}^{k} d_j \ge \dstar
+    \right)
+    \  \mbox{where} \  1 \le k \le T.
+    $$
+  \item<3->
+    $P_k$ = Probability that the threshold of \\
+    \quad \quad \  a randomly selected individual\\
+    \quad \quad \  will be exceeded by $k$ doses.
+  \item<4->
+    e.g., \\
+    $P_1$ = Probability that \underline{\alertb{one dose}} will exceed\\
+    \quad \quad \ the threshold of a random individual\\
+    \ \quad  = Fraction of \underline{\alertb{most vulnerable}} individuals.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model---\alertb{heterogeneity}, $r=1$}
+
+  \begin{itemize}
+  \item
+    Fixed point equation:
+    $$
+    \phifix
+    =
+    \sum_{k=1}^{T}
+    \binom{T}{k}
+    (p\phifix)^{k}
+    (1-p\phifix)^{T-k}
+    \underline{\alertb{P_k}}
+    $$
+  \item<2-> 
+    Expand around $\phifix=0$ to find
+    when spread from single seed is possible:
+    $$\alert{\boxed{p P_1 T \ge 1}}
+    \uncover<3->{\qquad \mbox{or} \qquad
+      \boxed{\alert{\Rightarrow p_c = 1/(TP_1)}}
+    }
+    $$
+  \item<4->
+    Very good:
+    \begin{enumerate}
+    \item<4-> 
+      $P_1T$ is the expected number of vulnerables the
+      initial infected individual meets before recovering.
+    \item<5-> 
+      $pP_1T$ is $\therefore$ the expected number of
+      successful infections (equivalent to $R_0$).
+    \end{enumerate}
+  \item<6->
+    Observe: $p_c$ may exceed 1 meaning no spreading from
+    a small seed.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Heterogeneous case}
+
+  \begin{itemize}
+  \item<1->
+    \alertb{Next:} Determine slope of fixed point curve at 
+    critical point $p_c$.
+  \item<2->
+    Expand fixed point equation around $(p,\phifix) = (p_c,0)$.
+  \item<3->
+    Find slope depends on $(P_1 - P_2/2)$\cite{dodds2005a}\\
+    (see Appendix).
+  \item<4->
+    Behavior near fixed point depends on whether
+    this slope is
+    \begin{enumerate}
+    \item<5->
+      positive: $P_1>P_2/2$ (continuous phase transition)
+    \item<6->
+      negative: $P_1<P_2/2$ (discontinuous phase transition)
+    \end{enumerate}
+%%  \item<6->
+%%    Interpretation 
+  \item<7->
+    Now find \underline{\alert{three}} 
+    basic universal classes
+    of contagion models...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Heterogeneous case}
+
+  \begin{block}{Example configuration:}
+    \begin{itemize}
+    \item<1-> Dose sizes are lognormally distributed with mean 1
+      and variance 0.433.
+    \item<2-> Memory span: $T = 10$.
+    \item<3-> Thresholds are uniformly set at 
+      \begin{enumerate}
+      \item<3-> $d_\ast = 0.5$
+      \item<3-> $d_\ast = 1.6$
+      \item<3-> $d_\ast = 3$
+      \end{enumerate}
+    \item<4-> Spread of dose sizes matters, details are not important.
+    \end{itemize}
+  \end{block}
+
+\end{frame} 
+
+\begin{frame}
+  \frametitle{Three universal classes}
+
+  \includegraphics[width=1\textwidth]{figgc_paperfigs_classes6c_noname}
+
+  \begin{itemize}
+  \item<2-> 
+    Epidemic threshold: \hfill \small{$P_1 > P_2/2$, $p_c = 1/(TP_1) < 1$}
+  \item<3-> 
+    Vanishing critical mass: \hfill \small{$P_1 < P_2/2$, $p_c = 1/(TP_1) < 1$}
+  \item<4-> 
+    Pure critical mass: \hfill \small{$P_1 < P_2/2$, $p_c = 1/(TP_1) > 1$}
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Heterogeneous case}
+
+  \begin{block}{Now allow $r<1$:}
+    \includegraphics[width=0.6\textwidth]{figgc_T3_k2k1_bif_theorycomp2b_noname}
+  \end{block}
+  
+  \begin{itemize}
+  \item 
+    II-III transition generalizes: $p_c = 1/[P_1 (T + \tau)]$
+    where $ \tau = 1/r - 1 = $ expected recovery time
+  \item 
+    I-II transition less pleasant analytically.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{More complicated models}
+
+  \includegraphics[width=0.95\textwidth]{figgc_manybif_thy_comb03_noname}
+
+  \begin{itemize}
+  \item 
+    Due to heterogeneity in individual thresholds.
+  \item
+    Three classes based on behavior for small seeds.
+  \item
+    Same model classification holds:  I, II, and III.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hysteresis in vanishing critical mass models}
+
+  \centering
+  \includegraphics[width=0.65\textwidth]{figgc_manybif_thy_comb03b_noname}
+
+\end{frame}
+
+\section{Nutshell}
+
+\begin{frame}
+  \frametitle{Nutshell (one half)}
+
+  \begin{itemize}
+  \item<1-> 
+    Memory is a natural ingredient. % emulsifying
+  \item<2->
+    Three universal classes of contagion processes:
+    \begin{enumerate}
+    \item 
+      \alertb{I. Epidemic Threshold}
+    \item 
+      \alertb{II. Vanishing Critical Mass}
+    \item 
+      \alertb{III. Critical Mass}
+    \end{enumerate}
+  \item<3->
+    Dramatic changes in behavior possible.
+  \item<4->
+    To change kind of model: `adjust' memory, recovery, fraction
+    of vulnerable individuals ($T$, $r$, $\rho$, $P_1$, and/or $P_2$).
+  \item<5->
+    To change behavior given model: `adjust' probability
+    of exposure ($p$) and/or initial number infected ($\phi_0$).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nutshell (other half)}
+
+  \begin{itemize}
+  \item<1-> 
+    Single seed infects others if $p P_1 (T + \tau) \ge 1$.
+  \item<2-> 
+    Key quantity: $\alertb{p_c = 1/[P_1 (T + \tau)]}$
+  \item<3-> 
+    If $p_c < 1$ $\Rightarrow$ contagion can spread from single seed.
+  \item<4->
+    Depends only on:
+    \begin{enumerate}
+    \item 
+      \alertb{System Memory ($T+\tau$).}
+    \item 
+      \alertb{Fraction of highly vulnerable individuals ($P_1$).}
+    \end{enumerate}
+  \item<5->
+    \alertb{Details unimportant:}
+    Many threshold and dose distributions give same $P_k$.
+  \item<6->
+    Another example of a model where
+    vulnerable/gullible population may be more important than
+    a small group of super-spreaders or influentials.
+  \end{itemize}
+
+\end{frame}
+
+\section{Appendix}
+
+\begin{frame}
+  \frametitle{Appendix: Details for Class I-II transition:}
+
+  \begin{eqnarray*}
+    \label{gcontlong.eq:transIcalc1}
+    \lefteqn{\phifix 
+      = 
+      \sum_{k=1}^{T}
+      \binom{T}{k}
+      P_k
+      (p\phifix)^{k}
+      (1-p\phifix)^{T-k},
+    }
+    \nonumber \\
+%%    \uncover<2->{
+      & = & 
+      \sum_{k=1}^{T}
+      \binom{T}{k}
+      P_k
+      (p\phifix)^{k}
+      \sum_{j=0}^{T-k}
+      \binom{T-k}{j}
+      (-p\phifix)^{j},
+      \nonumber \\
+%%    }
+%%    \uncover<3->{
+      & = & 
+      \sum_{k=1}^{T}
+      \sum_{j=0}^{T-k}
+      \binom{T}{k}
+      \binom{T-k}{j}
+      P_k
+      (-1)^{j}(p\phifix)^{k+j},
+      \nonumber \\
+%%    }
+%%    \uncover<4->{
+      & = &
+      \sum_{m=1}^{T}
+      \sum_{k=1}^{m}
+      \binom{T}{k}
+      \binom{T-k}{m-k}
+      P_k
+      (-1)^{m-k}
+      (p\phifix)^{m},
+      \nonumber \\
+%%    }
+%%    \uncover<5->{
+      & = & 
+      \sum_{m=1}^{T}
+      C_m
+      (p\phifix)^{m}
+      \nonumber \\
+%%    }
+  \end{eqnarray*}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Appendix: Details for Class I-II transition:}
+
+  $$
+  C_m = 
+  (-1)^{m}
+  \binom{T}{m}
+  \sum_{k=1}^{m}
+  (-1)^{k}
+  \binom{m}{k}
+  P_k,
+  $$
+  since 
+  \begin{eqnarray*}
+    \label{gcontlong.eq:ckcalc}  
+    \binom{T}{k} \binom{T-k}{m-k}
+    & = &
+    \frac{T!}{k!(T-k)!}
+    \frac{(T-k)!}{(m-k)!(T-m)!}
+    \nonumber  \\
+    & = & 
+    \frac{T!}{m!(T-m)!}
+    \frac{m!}{k!(m-k)!}
+    \nonumber \\
+    & = &
+    \binom{T}{m} \binom{m}{k}.
+  \end{eqnarray*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Appendix: Details for Class I-II transition:}
+
+  \begin{itemize}
+  \item<1->
+    Linearization gives
+    \begin{equation*}
+      \label{gcontlong.eq:transIcalc2}
+      \phifix
+      \simeq
+      C_1 p \phifix
+      + C_2 p_c^2 \phifix^2.
+    \end{equation*}
+    where $C_1 = T P_1 (= 1/p_c)$ 
+    and $C_2 = \binom{T}{2}(-2P_1 + P_2)$.
+  \item<2->
+    Using $p_c = 1/(TP_1)$:
+    \begin{equation*}
+      \label{gcontlong.eq:transIcalc3}
+      \phifix 
+      \simeq
+      \frac{C_1}{C_2 p_c^2} (p-p_c)
+      =
+      \frac{T^2 P_1^3}{(T-1)(P_1 - P_2/2)} (p-p_c).
+    \end{equation*}
+  \item<3->
+    Sign of derivative governed by $P_1 - P_2/2$.
+  \end{itemize}
+\end{frame}
+
+\begin{comment}
+  
+\begin{frame}
+  \frametitle{Generalized model---ingredients}
+  Basic idea: Incorporate memory of contagious element.
+
+  \ding{228} Population of $N$ individuals, each in state S, I, or R.
+
+  Independent of state:\\
+  \ding{228} Each individual randomly contacts another at each time step.
+
+  \ding{228} $\phi_t$ = fraction infected at time $t$ \\
+  \quad \quad \ = probability of \underline{\alertb{contact}} with infected individual
+
+  \ding{228} With probability $p$, contact with infective\\
+  \quad leads to an \underline{\alertb{exposure}}.
+
+  \ding{228} If exposed, individual receives a dose of size $d$\\
+  \quad  drawn from distribution \alert{$f(d)$}.  Otherwise $d=0$.
+\end{frame}
+
+%%%%%%%%%%%%%
+% 2a. ingredients:
+%     memory
+%     prob of infection being transferred
+
+\begin{frame}
+  \frametitle{Generalized model---ingredients}
+
+  \alertb{$\boxed{\mbox{S} \Rightarrow \mbox{I}}$}
+
+  Individuals `remember' last $T$ contacts:
+  $$ D_{t,i} = \sum_{t'=t-T+1}^{t} d_i(t') $$
+
+  Infection occurs if individual $i$'s `threshold' is exceeded:
+  $$ D_{t,i} \ge \dstari $$
+
+  Threshold $\dstari$ drawn from arbitrary distribution \alert{$g$} at $t=0$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model---ingredients}
+
+  \alertb{$\boxed{\mbox{I} \Rightarrow \mbox{R}}$}
+
+  When  $D_{t,i} < \dstari $,\\
+  individual $i$ recovers to state R
+  with probability $r$.
+
+  \alertb{$\boxed{\mbox{R} \Rightarrow \mbox{S}}$}
+
+  Once in state R, individuals become susceptible again with
+  probability $\rho$.
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Model `explained'}
+%  \centering
+%   % \epsfig{SIRtransitions4.ps,width=.97\textwidth}
+% \end{frame}
+
+
+% P_k
+\begin{frame}
+  \frametitle{Generalized model}
+
+  Important quantities:
+  $$  
+  P_k
+  =
+  \int_{0}^{\infty} \dee{\dstar}
+  g(\dstar)
+  P\left(
+%    \textstyle{\sum_{i=1}^{k} d_i \ge \dstar}
+    \sum_{j=1}^{k} d_j \ge \dstar
+    \right)
+  $$
+  where $1 \le k \le T$.
+
+  $P_k$ = Probability that the threshold of \\
+\quad \quad \  a randomly selected individual\\
+\quad \quad \  will be exceeded by $k$ doses.
+
+e.g., \\
+$P_1$ = Probability that \underline{\alertb{one dose}} will exceed\\
+\quad \quad \ the threshold of a random individual\\
+\ \quad  = Fraction of \underline{\alertb{most vulnerable}} individuals.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model---dose response curves}
+
+  Contact with $K$ infected individuals in last $T$ time steps:
+  $$
+  P_{\textnormal{inf}}
+  = \sum_{k=1}^K
+  \binom{K}{k} 
+  p^k ( 1 -p)^{K-k} P_k.
+  $$
+  % \epsfig{file=figdoseresponse11b_noname.ps,width=0.9\textwidth}\\
+% \textbf{A.} Independent Interaction model; \\
+% \textbf{B.} Stochastic Threshold model;\\
+% \textbf{C.} Deterministic Threshold model.
+\textbf{A.} Independent Interaction model
+\hfill 
+{\small $p=0.3$, 
+$d = 1$, 
+$\dstar=1$}\\
+\textbf{B.} Stochastic threshold model
+\hfill
+{\small $p=1$, 
+$f(d) \sim$ logn,
+$\dstar=5$}\\
+\textbf{C.} Deterministic threshold model
+\hfill
+{\small $p=1$, 
+$d=1$,
+$\dstar=5$}
+
+%\textbf{A.} I. I. model
+%\textbf{B.} Stochastic T. model
+%\textbf{C.} Deterministic threshold model: 
+
+\end{frame}
+
+
+%%%%%%%%%%%% 5 mins
+% 3b. our model---results
+
+% homogeneous
+
+% heterogeneous
+
+\begin{frame}
+  \frametitle{Generalized mean-field model}
+
+  SIS-type contagion.
+
+  Recovered individuals are immediately susceptible again.\\
+  ($r=\rho=1$)
+  
+  Look for steady-state behavior (fixed points $\phifix$)\\
+  as a function of exposure probability $p$.
+
+%  \alertb{Homogeneous version:}\\
+%  \ding{228} All individuals have threshold $\bar{\dstar}$\\
+%  \ding{228} All dose sizes are equal: $d=1$
+
+\end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Generalized model}
+% 
+%   \alertb{Model details:}
+% 
+%   Mean field.
+% 
+%   Population size $N = 10^5$
+% 
+%   Number of time steps $N_t = 10^4$.
+% 
+%   Initialize with fixed $\phi$.
+% 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r<1$}, $\dstar=1$, and $T=1$}
+% 
+% $$
+%   \phi_{t+1} = \underbrace{p \phi_{t}}_{\mbox{a}} 
+%   + \phi_t
+%   \underbrace{(1 - p\phi_t)}_{\mbox{c}}
+%   \underbrace{(1-r)}_{\mbox{d}}.
+% $$
+% 
+% a: Fraction newly infected between $t$ and $t+1$.
+% 
+% b: Probability of not being infected.
+% 
+% c: Probability of not recovering.
+% 
+% \end{frame}
+% 
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r<1$}, $\dstar=1$, and $T=1$}
+% 
+%   Set $\phi_t = \phifix$:
+% $$
+% \phifix = p \phifix + ( 1 -p \phifix) \phifix (1-r)
+% $$
+% %$$
+% %\Rightarrow  1 = p + (1-p\phifix)(1-r), \quad \phifix \ne 0,
+% %$$
+% 
+% 
+% $$
+%  \Rightarrow 
+%  \alert{\phifix = \frac{1 - r/p}{1-r}} 
+%  \quad \mbox{and} \quad 
+%  \alert{\phifix = 0}.
+% $$
+% 
+% 
+% \end{frame}
+% 
+% 
+% %%%%%%%%%%%%%%%
+%3a.  SIS, r=1, dstar=1, T>1
+% 
+% 
+% \begin{frame}
+%   \frametitle{Fixed points for $r=1$, $\dstar=1$, and \alertb{$T>1$}}
+% 
+%   
+%   Recovery is immediate.
+% 
+%   Probability of being uninfected = $(1 - p\phifix)^T$.
+% 
+% 
+% \alert{  $$
+%   \phifix = 1 - (1 - p\phifix)^T.
+%   $$
+%   }
+%   
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   \frametitle{Fixed points for $r=1$, $\dstar=1$, and \alertb{$T>1$}}
+% 
+%   $$
+%   \phifix = 1 - (1 - p\phifix)^T.
+%   $$
+% 
+%   $$
+%   \phifix \rightarrow 0, \ \ \phifix \simeq p T \phifix \ \ \Rightarrow \alert{p_c = 1/T}.
+%   $$
+% 
+%   Can solve for $p$ but not $\phifix$:
+%   $$
+%   p = \phifix^{-1} [ 1 - (1-\phifix)^{1/T} ].
+%   $$
+%   
+%   
+% \end{frame}
+% 
+% 
+% %%%%%%%%%%%%%%%
+% %3c.  SIS, r<=1, dstar=1, T>=1
+% 
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r \le 1$}, $\dstar=1$, and \alertb{$T \ge 1$}}
+% 
+%   Add fraction who did not receive any infections in last T time steps
+%   and have not recovered from a previous infection.
+%   $$H_1 = \{ \ldots, d_{t-T-2}, d_{t-T-1}, 1, \underbrace{0, 0, \ldots, 0, 0}_{\mbox{$T$ 0's}} \},$$
+%   $$H_{m+1} = \{ \ldots, d_{t-T-m-1}, 1, \underbrace{0, 0, \ldots, 0, 0}_{\mbox{$m$ 0's}}, \underbrace{0, 0, \ldots, 0, 0}_{\mbox{$T$ 0's}} \};$$
+% 
+%   $$P(H_1) = p\phifix (1 -p\phifix)^T (1-r), $$
+%   $$P(H_{m+1}) = p\phifix (1 -p\phifix)^{T+m} (1-r)^{m+1}. $$
+% 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for $\dstar=1$, \alertb{$r \le 1$}, and \alertb{$T \ge 1$}}
+% 
+%   Fixed point equation:
+% 
+%   $$
+%   \phifix =
+%  1 - \frac{r (1-p\phifix)^T }
+%     {1 - (1-p\phifix)(1-r)}.
+%   $$
+% 
+%   $$
+%   \phifix \rightarrow 0
+%   \quad \Rightarrow \quad 
+%   \alert{p_c} = \frac{1}{T + 1/r - 1} \alert{= \frac{1}{T + \tau}}.
+%   $$
+% 
+%   \hfill $\tau$ = mean recovery time.
+% 
+% \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Homogeneous Model}
+% 
+%   Fixed points for $\dstar=1$, \alertb{$r \le 1$},  and \alertb{$T \ge 1$}.
+%   $$
+%   \begin{array}{l}
+%     \phifix =
+%     1 - \frac{r (1-p\phifix)^T }
+%     {1 - (1-p\phifix)(1-r)}\\
+%     \\
+%     p_c = 1/(T+\tau)\\
+%     \\
+%     \mbox{from} \ \ p (T+\tau) \ge 1
+%   \end{array}
+%   \ \ \raisebox{-4cm}{% \epsfig{file=figgc_r0p50_k1_T2_paper2_noname.ps,width=0.425\textwidth}}
+%   $$
+%   $\tau = 1/r - 1$ = characteristic recovery time\\
+%   $T + \tau \simeq $  total memory in system\\
+% %  \hfill $T=2=1/r \rightarrow p_c = 1/3$ \qquad \mbox{}
+% \hfill $\Rightarrow$  \alertb{Epidemic Threshold Models}
+% \end{frame}
+% 
+% 
+% 
+% %%%%%%%%%%%%%%%
+% %3d.  SIS, r=1, dstar>1, T>=dstar
+% 
+% \begin{frame}
+%   \frametitle{Homogeneous models}
+% 
+%   Fixed points for $\dstar > 1$, \alertb{$r = 1$},  and \alertb{$T \ge 1$}.\\
+%   $$
+%   \begin{array}{l}
+%   \phifix = \\
+%   \sum_{i=\dstar}^{T}
+%   \binom{T}{i}
+%   (p\phifix)^{i} (1 - p\phifix)^{T-i}\\
+%   \\
+%   p_c = \infty\\
+%   \end{array}
+%    \raisebox{-4cm}{
+%     % \epsfig{file=figgc_r1_k3_T12_paper2_noname.ps,width=0.425\textwidth}}
+%   $$
+% %  $\dstar=3$, $T=12$ 
+%   $d=1$, $\bar{\dstar}=3$, $T=12$ \hfill $\Rightarrow$ Critical mass models\\
+%   \hfill \ldots are there any other types?
+%   
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Homogeneous models}
+% 
+%   \ding{228} Nontrivial threshold ($\dstar > 1$) \\
+%   \ding{228} Immediate recovery ($r=1$)
+% 
+%   To be infected,\\ must have at least $\dstar$
+%   exposures in last $T$ time steps:
+% 
+%   $$
+%   \phifix = 
+%   \sum_{i=\dstar}^{T}
+%   \binom{T}{i}
+%   (p\phifix)^{i} (1 - p\phifix)^{T-i}.
+%   $$
+% 
+% \end{frame}
+% 
+% \begin{frame}
+%   \frametitle{Homogeneous models}
+%   \centering
+%   Critical Mass Models\\
+%   % \epsfig{file=figgc_r1_k3_T12_paper2_noname.ps,width=0.6\textwidth}\\
+% %  $\dstar=3$, $T=12$ 
+%   $d=1$, $\bar{\dstar}=3$, $T=12$ \hfill Saddle-node bifurcation
+%   
+% \end{frame}
+% 
+
+% \begin{frame}
+%   \frametitle{Fixed points for $r = 1$, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   Solvable for small $T$; e.g., for $\dstar=2$, $T=3$:
+% 
+%   \begin{center}
+%   % \epsfig{file=figgc_r1_k2_T3_noname.ps,width=0.4\textwidth}
+%   \end{center}
+% 
+%  $\phifix = 3 p^2 \phifix (1 - p \phifix) + p^3 \phifix^2$
+%  $\Rightarrow$ $(p_b,\phifix)=(8/9,27/32)$.
+% 
+% \end{frame}
+
+% \begin{frame}
+%  \frametitle{Fixed points for $r = 1$, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+
+% \begin{center}
+%  % \epsfig{file=figgc_T24_kvar_r1_noname.ps,width=0.45\columnwidth} 
+%  % \epsfig{file=figgc_bipts_r1_noname.ps,width=0.45\textwidth}
+%  $T=96$ ($\vartriangle$).
+%  $T=24$ ($\triangleright$),
+%  $T=12$ ($\triangleleft$),
+%  $T=6$ ($\Box$),
+%  and
+%  $T=3$ ($\bigcirc$), 
+% $T=24$ \hfill Bifurcation points \\
+% \mbox{} \hfill $T=3$, 6, 12, 24, 96; 
+%  \end{center}
+%\end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Homogeneous models}
+% 
+%   \centering
+%   
+%   Two classes of contagion models:
+% 
+% % \epsfig{file=figgc_r0p50_k1_T2_paper2_noname,width=0.475\textwidth}
+% \hfill      
+% % \epsfig{file=figgc_r1_k3_T12_paper2_noname.ps,width=0.475\textwidth}\\
+% 
+%  % \epsfig{file=figgc_T24_kvar_r1_noname.ps,width=0.45\columnwidth}
+%  $T=96$ ($\vartriangle$).
+%  $T=24$ ($\triangleright$),
+%  $T=12$ ($\triangleleft$),
+%  $T=6$ ($\Box$),
+%  and
+%  $T=3$ ($\bigcirc$), 
+%  $T=24$\\
+% 
+%   \qquad I. Epidemic threshold models \hfill
+%   II. Critical mass models
+% 
+%   \ding{228} Shift from $\dstar=1$ to $\dstar>1$ causes fundamental change.
+% 
+% \end{frame}
+
+
+%%%%%%%%%%%%%
+%3e   SIS, some specific cases
+
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   $D_i(t) = \sum_{t'=t-T+1}^{t} d_i(t')$ \hfill 
+%   Partially summed random walk.
+% 
+%   \centering
+%   % \epsfig{file=figrandomwalkcalc_noname.ps,width=0.7\columnwidth}
+%   
+%   $T=24$, $\dstar=14$.
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   $\gamma_m$ = fraction of individuals for whom $D(t)$ last equaled the threshold $m$ time steps ago.
+% 
+%   Fraction not recovered:
+%   $$
+%   \Gamma(p,\phifix;r) = \sum_{m=1}^{\infty} (1-r)^m \gamma_m(p,\phifix).
+%   $$
+% 
+%   Fixed point equation:
+% $$
+%   \phifix = \Gamma(p,\phifix;r) 
+%   + \sum_{i=\dstar}^{T}
+%   \binom{T}{i}
+%   (p\phifix)^{i} (1 - p\phifix)^{T-i}.
+% $$
+% 
+% \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+% $T=3$, $\dstar=2$:
+% 
+% Two sequences lead to being below threshold:
+% $$D_n=2 \Rightarrow D_{n+1}=1$$
+% \alertb{\qquad \qquad \qquad $\{d_{n-2},d_{n-1},d_{n},d_{n+1}\} = \{1,1,0,\alert{0}\}$} \hfill  \\
+% \alertb{\qquad \qquad \qquad $\{d_{n-2},d_{n-1},d_{n},d_{n+1},d_{n+2}\} = \{1,0,1,\alert{0},\alert{0}\}$} 
+% 
+%   Acceptable following sequences composed of
+%   $$ a=\{0\} \quad \mbox{and} \quad b=\{1,0,0\}. $$
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   $N_a$ = number of $a$ subsequences.\\
+%   $N_b$ = number of $b$ subsequences.
+% 
+%   $$
+%   m = N_a \cdot 1 + N_b \cdot 3
+%   $$
+% 
+%   $$
+%   N_b = 0, 1, \ldots, [m/3].
+%   $$
+% 
+%   $$
+%   N_a = m, m-3, m-6, \ldots, m-3[m/3].
+%   $$
+% 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   How many ways to arrange $N_a$ $a$'s and $N_b$ $b$'s?
+% 
+%   Think of overall sequence in terms of subsequences:
+%   $$ \{Z_1, Z_2, \ldots, Z_{N_a + N_b} \} $$
+% 
+%   $N_a + N_b$ slots for subsequences.
+% 
+%   Choose positions of $a$'s or $b$'s:
+%   $$
+%   \binom{N_a + N_b}{N_a} = \binom{N_a + N_b}{N_b}.
+%   $$
+% 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+%   Total number of allowable sequences of length $m$:
+%   $$
+%   \sum_{N_b=0}^{[m/3]}
+%   \binom{N_b+N_a}{N_b}
+%   = 
+%   \sum_{k=0}^{[m/3]}
+%   \binom{m-2k}{k}
+%   $$
+% 
+%   $P(a) = (1-p\phifix)$ and $P(b) = p\phifix(1-p\phifix)^2$
+%   
+%   Total probability of allowable sequences of length $m$:
+%   $$
+%   \chi_m(p,\phifix)
+%   = 
+%   \sum_{k=0}^{[m/3]}
+%   \binom{m-2k}{k}
+%   (1-p\phifix)^{m-k}
+%   (p\phifix)^k.
+%   $$
+% 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   Three endings $\Rightarrow$ Six possible sequences:
+%   $$ D_1 = \{1, 1, 0, 0, D_{m-1}^{a,b}\} $$
+%   $$ D_2 = \{1, 1, 0, 0, D_{m-2}^{a,b}, 1\} $$
+%   $$ D_3 = \{1, 1, 0, 0, D_{m-3}^{a,b}, 1, 0\}$$
+%   $$ D_4 = \{1, 0, 1, 0, 0, D_{m-2}^{a,b}\} $$
+%   $$ D_5 = \{1, 0, 1, 0, 0, D_{m-3}^{a,b}, 1\} $$
+%   $$ D_6 = \{1, 0, 1, 0, 0, D_{m-4}^{a,b}, 1, 0\} $$
+% 
+% 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   Their corresponding probabilities:
+%   $$ P_1 = (p\phi)^2 (1-p\phi)^2 \chi_{m-1}(p,\phi) $$
+n%   $$ P_2 = (p\phi)^3 (1-p\phi)^2 \chi_{m-2}(p,\phi) $$
+%   $$ P_3 = (p\phi)^3 (1-p\phi)^3 \chi_{m-3}(p,\phi) $$
+%   $$ P_4 = (p\phi)^2 (1-p\phi)^3 \chi_{m-2}(p,\phi) $$
+%   $$ P_5 = (p\phi)^3 (1-p\phi)^3 \chi_{m-3}(p,\phi) $$
+%   $$ P_6 = (p\phi)^3 (1-p\phi)^4 \chi_{m-4}(p,\phi) $$
+% \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar = 2$}, and \alertb{$T = 3$}}
+%   $$
+%   \mbox{F.P.\ Eq:} \ \
+%   \phifix = \Gamma(p,\phifix;r) 
+%   + \sum_{i=\dstar}^{T}
+%   \binom{T}{i}
+%   (p\phifix)^{i} (1 - p\phifix)^{T-i}.
+%   $$
+%   \begin{eqnarray*}
+%   \Gamma(p,\phifix;r) & = & (1-r)(p\phi)^2 (1-p\phi)^2 
+%    +  \sum_{m=1}^{\infty} (1-r)^m 
+%   (p\phi)^2 (1-p\phi)^2 \times
+%   \\ \nonumber
+%   \\ \nonumber
+n%   &  & 
+%   \left[ 
+%     \chi_{m-1} + 
+%     \chi_{m-2} + 
+%     2p\phi (1-p\phi)\chi_{m-3} + 
+%     p\phi (1-p\phi)^2\chi_{m-4}
+%   \right]
+%   \\ \nonumber
+%   \end{eqnarray*}
+%   $$
+%   \mbox{where} \ \  \chi_m(p,\phifix)
+%   = 
+%   \sum_{k=0}^{[m/3]}
+%   \binom{m-2k}{k}
+%   (1-p\phifix)^{m-k}
+%   (p\phifix)^k.
+%   $$
+
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+n%   \begin{center}
+%       % \epsfig{file=figgc_T3_k2_bif_theorycomp2_noname.ps,width=0.625\textwidth}\\
+%       $T=3$, $\dstar=2$;
+%       \hfill
+%       $r=0.01, 0.05, 0.10, 0.15, \alertb{0.20},\ldots, 1.00$.
+%   \end{center}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Fixed points for \alertb{$r < 1$}, \alertb{$\dstar > 1$}, and \alertb{$T \ge 1$}}
+% 
+%   \begin{center}
+%       % \epsfig{file=figgc_T2_k2_bif_theorycomp_noname.ps,width=0.625\textwidth}\\
+%       $T=2$, $\dstar=2$;
+%       \hfill
+%       $r=0.01, 0.05, 0.10,\ldots, 0.3820 \pm 0.0001$.
+%   \end{center}
+% \end{frame}
+
+
+\begin{frame}
+  \frametitle{Generalized model---heterogeneity, $r=1$}
+
+%  Generalize to \alert{heterogeneous case} ($r=1$).
+
+%  \ding{228} doses and thresholds arbitrarily distributed.
+
+  Fixed point equation:
+  $$
+  \phifix
+  =
+  \sum_{k=1}^{T}
+  \binom{T}{k}
+  (p\phifix)^{k}
+  (1-p\phifix)^{T-k}
+  \underline{\alertb{P_k}}
+  $$
+  $$ \hfill \ \mbox{where} \
+  P_k
+  =
+  \int_{0}^{\infty} \dee{\dstar}
+  g(\dstar)
+  P\left(
+%    \textstyle{\sum_{i=1}^{k} d_i \ge \dstar}
+    \sum_{j=1}^{k} d_j \ge \dstar
+    \right)
+  $$
+
+  Spread from single seed if $p P_1 T \ge 1 \Rightarrow p_c = 1/(TP_1)$.
+
+  Find \underline{\alertb{three}} universal classes
+  of contagion models...
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Heterogeneous case---Three universal classes}
+
+  \begin{center}
+    % \epsfig{file=figgc_paperfigs_classes6c_noname.ps,width=0.95\textwidth}
+  \end{center}
+
+  Epidemic threshold: \hfill $P_1 > P_2/2$, $p_c = 1/(TP_1) < 1$
+
+  Vanishing critical mass: \hfill $P_1 < P_2/2$, $p_c = 1/(TP_1) < 1$
+
+  Pure critical mass: \hfill $p_c = 1/(TP_1) > 1$
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Heterogeneous case---Transitions between classes}
+
+  \begin{center}
+    % \epsfig{file=figgc_paperfigs_classes7a_noname.ps,width=0.9\textwidth}
+  \end{center}
+
+  I--II: $P_1 = P_2/2$, $p_c = 1/(TP_1) < 1$
+
+  \hfill II---III: $p_c = 1/(TP_1) = 1$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{SIS model}
+
+%  Now allow $r<1$: \hfill
+%  \raisebox{-4cm}{\epsfig{file=figgc_T3_k2k1_bif_theorycomp2b_noname.ps,width=0.49\textwidth}}
+
+  II-III transition generalizes: $p_c = 1/[P_1 (T + \tau)]$ 
+  
+  (I-II transition less pleasant analytically)
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{More complicated models}
+
+  % \epsfig{file=figgc_manybif_thy_comb03_noname.ps,width=0.95\textwidth}
+
+  \ding{228} Due to heterogeneity in individual thresholds.
+
+  \ding{228} Same model classification holds:  I, II, and III.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hysteresis in vanishing critical mass models}
+
+  \centering
+  % \epsfig{file=figgc_manybif_thy_comb03b_noname.ps,width=0.65\textwidth}
+
+\end{frame}
+
+ 
+
+\begin{frame}
+  \frametitle{SIRS model}
+ % And $\rho<1$\ldots \hfill
+%  \raisebox{-4cm}{% \epsfig{file=figgcSIR_logn_070b_noname.ps,width=0.49\textwidth}}
+
+  Type II models become type I as $\rho$ decreases.
+
+  (Type I and III models stay in same class)
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{SIR model}
+  
+%  Once immune state R is reached, no return to S: $\rho=0$.
+  All individuals end in state R: $\rho=0$.
+
+  But: for $T>1$ individuals remain infected\\ 
+  for relatively long times:
+
+  $$ \tmax \propto (1-p)^{-(T-1)} $$
+
+  $\Rightarrow$ More `sick days.'
+
+  $\Rightarrow$ More chance of spreading to
+  other populations.
+\end{frame}
+
+% MUST DO BETTER THAN THIS!
+%\begin{frame}
+%  \frametitle{SIRS indicates SIR behavior}
+%
+%  \centering
+%  % \epsfig{file=figgc_manybif_thy_comb03c_noname.ps,width=0.6\textwidth}\\
+%  
+%  Total fraction infected $\nearrow$ faster in SIS `growth' region.
+% \end{frame}
+
+%\begin{frame}
+%  \frametitle{SIR model, $\rho=0$}
+%  
+%  $\tmax \propto (1-p)^{-(T-1)}$ \hfill
+%  \raisebox{-4cm}{% \epsfig{file=figgcSIR_logn_050comb3_noname.ps,width=0.65\textwidth}}
+%\end{frame}
+
+ 
+%%%%%%%%%%%% 2 mins
+% 4. conclusions
+%    future work
+%     SIR etc.
+%     networks
+%     memory may be important in disease
+
+
+
+\begin{frame}
+  \frametitle{Discussion}
+
+  \begin{itemize}
+  \item <1->
+   Memory is crucial ingredient. % emulsifying
+  \item <2->
+   Three universal classes of contagion processes:\\
+  \qquad \alertb{I. Epidemic Threshold}\\
+  \qquad \alertb{II. Vanishing Critical Mass} \\ %\hfill $\Rightarrow P_1$ vs.\ $P_2/2$\\
+  \qquad \alertb{III. Critical Mass}
+  \item <3->
+   Dramatic changes in behavior possible.
+  \item <4->
+   To change kind of model: `adjust' memory, recovery, fraction
+  of vulnerable individuals ($T$, $r$, $\rho$, $P_1$, and/or $P_2$).
+  \item <5->
+   To change behavior given model: `adjust' probability
+  of exposure ($p$) and/or initial number infected ($\phi_0$).
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discussion}
+
+  \begin{itemize}
+  \item<1->
+    If $p P_1 (T + \tau) \ge 1$, contagion can spread from single seed.
+  \item<2->
+    Key quantity: $\alertb{p_c = 1/[P_1 (T + \tau)]}$\\
+  \item<3->
+    Depends only on:\\
+    1. \alertb{System Memory ($T+\tau$).}\\
+    2. \alertb{Fraction of highly vulnerable individuals ($P_1$).}
+  \item<4-> 
+    \alert{Details unimportant} (Universality):\\
+    Many threshold and dose distributions give same $P_k$.
+  \item<5->
+    Most vulnerable/gullible population may be more important than
+    small group of super-spreaders or influentials.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Future work/questions}
+
+  \begin{itemize}
+  \item <1->
+   Do any real diseases work like this?\\
+   \visible<2->{Cholera...}
+  \item <3->
+   Examine model's behavior on networks
+  \item <4->
+   Media/advertising + social networks model
+  \item <5->
+   Classify real-world contagions
+  \end{itemize}
+
+\end{frame}
+
+\end{comment}
+
+\begin{comment}
+
+
+\begin{frame}
+  \frametitle{Social Sciences---Threshold models}
+
+  Action based on perceived behavior of others.
+
+  \raisebox{3.5cm}{
+    \begin{tabular}{l}
+      \includegraphics[width=0.16\textwidth]{figthreshold_eg1_noname}\\
+      \includegraphics[width=0.16\textwidth]{figthreshold_eg2_noname}
+    \end{tabular}
+  }
+  \includegraphics[width=0.32\textwidth]{figthreshold3_noname}
+  \includegraphics[width=0.32\textwidth]{figthresholdF3b_noname}
+
+  $\phi$ = fraction of contacts `on' (e.g., rioting)\\
+  Two states: S and I.  \hfill $\Rightarrow$ Critical mass model
+
+
+
+%
+%  \end{frame}
+%%
+%% \begin{frame}
+%%    \frametitle{Fixed points for $r=1/3$, $\dstar=1$, and $T=1$}
+
+%  \centering
+%
+%
+
+% %%%%%%%%%%%%%%%
+% %3a.  SIS, r=1, dstar=1, T>1
+% 
+% 
+% 
+%   \end{frame}
+%%
+
+\begin{frame}
+  \frametitle{Generalized model}
+
+  \alertb{Model details:}
+
+  Mean field.
+
+  Population size $N = 10^5$
+
+  Number of time steps $N_t = 10^4$.
+
+  Initialize with fixed $\phi$.
+
+
+
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%
+% outtakes %
+%%%%%%%%%%%%
+
+% SIR comparison
+%
+%  \end{frame}
+%%
+%% \begin{frame}
+%%    \frametitle{}
+%  
+%\includegraphics{figtest_nw_SIR_01f2_noname.ps,width=0.45\textwidth}
+%
+%
+
+
+%
+%  \end{frame}
+%%
+%% \begin{frame}
+%%    \frametitle{}
+%  
+%  \includegraphics{figtest_nw_thr2_06fcost1_noname.ps,width=0.45\textwidth}
+%  \includegraphics{figtest_nw_thr2_06fcost2_noname.ps,width=0.45\textwidth}
+%
+%
+
+
+\begin{frame}
+  \frametitle{Discussion}
+
+  \ding{228} Memory is a natural ingredient. % emulsifying
+
+  \ding{228} Three universal classes of contagion processes:\\
+  \qquad \alertb{I. Epidemic Threshold}\\
+  \qquad \alertb{II. Vanishing Critical Mass} \\ %\hfill $\Rightarrow P_1$ vs.\ $P_2/2$\\
+  \qquad \alertb{III. Critical Mass}
+
+  \ding{228} Dramatic changes in behavior possible.
+
+  \ding{228} To change kind of model: `adjust' memory, recovery, fraction
+  of vulnerable individuals ($T$, $r$, $\rho$, $P_1$, and/or $P_2$).
+
+  \ding{228} To change behavior given model: `adjust' probability
+  of exposure ($p$) and/or initial number infected ($\phi_0$).
+
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discussion}
+
+  Single seed infects others if $p P_1 (T + \tau) \ge 1$.
+
+  Key quantity: $\alertb{p_c = 1/[P_1 (T + \tau)]}$\\
+
+  If $p_c < 1$ $\Rightarrow$ contagion can spread from single seed.
+  
+  Depends only on:\\
+  1. \alertb{System Memory ($T+\tau$).}\\
+  2. \alertb{Fraction of highly vulnerable individuals ($P_1$).}
+
+  Details unimportant:\\
+  Many threshold and dose distributions give same $P_k$.
+
+  \ding{228} Most vulnerable/gullible population may be more important than
+  small group of super-spreaders or influentials.
+
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Overview}
+
+  \alertb{\ding{202}} The SIR model and $R_0$.
+
+  \alertb{\ding{203}} Some important aspects of real epidemics:\\
+  \qquad \alert{\ding{42}} peculiar distributions of epidemic size\\
+  \qquad \alert{\ding{42}} resurgence
+
+  \alertb{\ding{204}} Usual simple models do not fare well regarding \alertb{\ding{203}}
+%  (\alertb{\ding{204}} does not yield \alertb{\ding{203}})
+
+  \alertb{\ding{205}} A simple model incorporating movement does fare well.
+
+  \alertb{\ding{206}} Conclusion.
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  Infectious diseases---Tuberculosis, HIV, Ebola, SARS,...
+
+  SIR model of infectious disease dynamics:
+
+  Population of individuals, each of which are either S, I, or R.
+
+  \alertb{S = Susceptible}
+ 
+  \alertb{I = Infective/Infectious}
+
+  \alertb{R = Recovered/Removed/Refractory} \hfill $[S(t) + I(t) + R(t) = 1]$
+
+  Reed and Frost, 20's\\
+  Kermack and McKendrick, 1927. \hfill many, many variations.
+
+
+
+\end{frame}
+
+
+  
+\end{comment}
+
+
+
+
+
+%     Examples of time series for single initial seeds and deterministic on/off response functions
+%     averaging to a tent map distribution
+%     for $\tavg{k}=5$.
+%    Here, $N=10^4$ and the histograms of cascade size $s$ are derived from $s(t)$ for $t \ge 100$.
+
+
+
+
+
+
+

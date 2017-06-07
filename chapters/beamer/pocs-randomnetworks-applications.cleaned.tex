@@ -1,0 +1,233 @@
+\section{Analysis\ of\ real\ networks}
+
+\begin{frame}[label=]
+  \textbf{More on building random networks}
+
+  
+   
+    \alert{Problem:} 
+    How much of a real network's structure is non-random?
+   
+    Key elephant in the room: the \alert{degree distribution} $P_k$.
+   
+    First observe \alert{departure} of $P_k$ from a Poisson distribution.
+  
+    \alertb{Next:}
+    measure the departure of a real network 
+    with a \alertb{degree frequency $N_k$}
+    from a random
+    network with the same degree frequency.
+  
+    Degree frequency $N_k$ = observed frequency of degrees for a real network.
+   
+    \alert{What we now need to do}: 
+    Create an ensemble of random networks
+    with degree frequency $N_k$ and then compare.
+  
+
+
+\subsection{How\ to\ build\ revisited}
+
+\begin{frame}[label=]
+  \textbf{Building random networks: Stubs}
+
+  \textbf{Phase 1:}
+    
+     \alert{Idea:} start with a soup of unconnected nodes
+      with \alertb{stubs} (half-edges):
+      \begin{center}
+        \includegraphics[angle=-90,width=0.7\textwidth]{rn_stubs02_examples}
+      \end{center}
+    
+          
+      \includegraphics[angle=-90,width=\textwidth]{rn_stubs03_examples}
+      
+      
+       Randomly select stubs (not nodes!) and connect them.
+       Must have an even number of stubs.
+       Initially allow \alert{self-} and \alert{repeat} connections.
+      
+    
+  
+
+
+
+
+\begin{frame}[label=]
+  \textbf{Building random networks: First rewiring}
+
+  \textbf{Phase 2:}
+    
+     Now find any (A) self-loops and (B) repeat edges 
+      and \alert{randomly rewire} them.
+      \begin{center}
+        (A)
+        \includegraphics[height=0.125\textheight]{rn_stubs04_examples}
+        \qquad
+        (B)
+        \includegraphics[height=0.1\textheight]{rn_stubs05_examples}
+      \end{center}
+     \alert{Being careful:} we can't change
+      the degree of any node, so we can't simply move
+      links around.
+     \alert{Simplest solution:} 
+      randomly rewire \alertb{two edges} at a time.
+    
+  
+
+
+\begin{frame}[label=]
+  \textbf{General random rewiring algorithm}
+
+      
+    \includegraphics[width=\textwidth]{rn_stubs06_examples}
+    
+    
+     Randomly choose \alert{two edges}.\\
+      (Or choose problem edge and a random edge)
+     Check to make sure edges are \alertb{disjoint}.
+    
+        
+          
+      
+      \includegraphics[width=\textwidth]{rn_stubs08_examples}
+        
+    
+     Rewire one end of each edge.
+     Node degrees \alert{do not change}.
+     Works if $e_1$ is a self-loop or repeated edge.
+     Same as finding on/off/on/off 4-cycles.
+      and rotating them.
+    
+    
+
+\begin{frame}[label=]
+  \textbf{Sampling random networks}
+
+  \textbf{Phase 2:}
+    
+     Use rewiring algorithm to remove
+      all self and repeat loops.
+    
+    
+
+  \textbf{Phase 3:}
+    
+     \alert{Randomize network} wiring by applying
+      rewiring algorithm liberally.
+     \alertb{Rule of thumb}:
+      \# Rewirings $\simeq$
+      10 $\times$ \# edges\cite{milo2003a}.
+    
+    
+  
+
+\begin{frame}[label=]
+  \textbf{Random sampling}
+
+  
+   \alertb{Problem} with only joining up stubs
+    is \alert{failure} to randomly sample from all possible networks.
+   Example from Milo et al. (2003)\cite{milo2003a}:
+          
+      
+      \includegraphics[width=0.6\textwidth]{milo2003a_fig2panel1}
+      \includegraphics[width=0.3\textwidth]{milo2003a_fig2panel2}
+      
+
+
+
+\begin{frame}[label=]
+  \textbf{Sampling random networks}
+  
+  
+    What if we have \alert{$P_k$} instead of \alertb{$N_k$}?
+  
+    Must now create nodes before start of the construction algorithm.
+  
+    Generate $N$ nodes by sampling from degree distribution $P_k$.
+   
+    Easy to do exactly numerically since $k$ is discrete.
+   
+    \alert{Note:} not all $P_k$ will always give nodes
+    that can be wired together.
+  
+
+% an example?
+
+\subsection{Motifs}
+
+\begin{frame}[label=]
+  \textbf{Network motifs}
+
+  
+   
+    Idea of \alert{motifs}\cite{shen-orr2002a} 
+    introduced by Shen-Orr, Alon et al. in 2002.
+   
+    Looked at gene expression within full context of
+    \alertb{transcriptional regulation networks}.
+   
+    Specific example of Escherichia coli.
+   
+    Directed network with 577 interactions (edges) and 424 operons (nodes).
+   
+    Used network randomization to produce ensemble of alternate networks
+    with same degree frequency $N_k$.
+   
+    Looked for \alert{certain subnetworks} (\alertb{motifs}) that appeared more or less often than expected
+  
+  
+
+\begin{frame}[label=]
+  \textbf{Network motifs}
+
+          
+      \includegraphics[width=\textwidth]{shen-orr2002a_fig1ab}
+      
+      \includegraphics[width=\textwidth]{shen-orr2002a_fig2a}
+    
+    
+     $Z$ only turns on in response to sustained activity in $X$.
+     Turning off $X$ rapidly turns off $Z$.
+     Analogy to elevator doors.
+    
+  
+
+\begin{frame}[label=]
+  \textbf{Network motifs}
+
+  \includegraphics[width=0.7\textwidth]{shen-orr2002a_fig1cd}
+
+  
+   Master switch.
+  
+  
+
+\begin{frame}[label=]
+  \textbf{Network motifs}
+
+  \includegraphics[width=0.7\textwidth]{shen-orr2002a_fig1ef}
+  
+
+\begin{frame}[label=]
+  \textbf{Network motifs}
+
+  
+   Note: selection of motifs to test is reasonable
+    but nevertheless ad-hoc.
+   For more, see work carried out
+    by Wiggins et al. at Columbia.
+  
+ 
+
+
+%% \begin{frame}[label=]
+%%   
+%% 
+%%   Random walks on networks.
+%% 
+%%   More on random walks \wordwikilink{http://en.wikipedia.org/wiki/Random_walk}{here}.
+%% 
+%% 
+

@@ -1,0 +1,1361 @@
+\section{Basics}
+
+\subsection{Definitions}
+
+\begin{frame}[label=]
+  \frametitle{Random networks}
+  
+  \begin{block}<1->{Pure, abstract random networks:}
+    \begin{itemize}
+    \item<2->
+      Consider set of all networks with $N$ labelled nodes
+      and $m$ edges.
+    \item<3-> 
+      Standard random network = \\
+      one \alert{randomly chosen} network from this set.
+    \item<4-> 
+      To be clear: each network is \alert{equally} probable.
+    \item<5-> 
+      Sometimes equiprobability is a good assumption, but
+      it is always an assumption.
+    \item<6-> 
+      Known as \erdosrenyi\ random networks 
+      or \alertb{ER graphs}.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Random network generator for $N=3$:}
+
+  \includegraphics[width=\textwidth]{2011-02-26random-network-generator-tp-5}
+
+  \begin{itemize}
+  \item 
+    Get your own exciting generator
+    \wordwikilink{\coursewebsite/docs/2011-02-26random-network-generator.png}{here}.
+  \item 
+    As $N \nearrow$, our polyhedral die rapidly becomes a ball...
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Random networks---basic features:}
+
+    \begin{itemize}
+    \item<1-> 
+      Number of possible edges:
+      $$
+      0 \le m \le \binom{N}{2} = \frac{N(N-1)}{2}
+      $$
+    \item<2->
+      Limit of $m = 0$: empty graph.
+    \item<3->      
+      Limit of $m = \binom{N}{2}$: complete or fully-connected graph.
+    \item<4->
+      Number of possible networks with $N$
+      labelled nodes: 
+      $$
+      2^{\binom{N}{2}} \sim e^{\frac{\ln{2}}{2} N^2}.
+      $$
+    \item<5->
+      Given $m$ edges, there are 
+      $ \binom{\binom{N}{2}}{m} $
+      different possible networks.
+    \item<6->
+      Crazy factorial explosion for $1 \ll m \ll \binom{N}{2}$.
+    \item<7->
+      \alertb{Real world:} links are usually costly
+      so real networks are almost always \alert{sparse}.
+    \end{itemize}
+  
+\end{frame}
+
+
+\subsection{How\ to\ build}
+
+\begin{frame}[label=]
+  \frametitle{Random networks}
+
+  \begin{block}{How to build standard random networks:}
+    \begin{itemize}
+    \item<1-> Given $N$ and $m$.
+    \item<2-> Two probablistic methods \uncover<3->{(we'll see a third later on)}
+    \end{itemize}
+    \begin{enumerate}
+    \item<4-> Connect each of the $\binom{N}{2}$ pairs 
+      with appropriate probability $p$.
+        \begin{itemize}
+        \item<6-> \alert{Useful for theoretical work.}
+        \end{itemize}
+      \item<5-> Take $N$ nodes and add exactly $m$ links
+        by selecting edges without replacement.
+        \begin{itemize}
+        \item<7-> \alert{Algorithm:} Randomly choose a pair of nodes $i$ and $j$, $i \ne j$,
+          and connect if unconnected; repeat until all $m$ edges
+          are allocated.
+        \item<8-> Best for adding relatively small numbers of links (most cases).
+        \item<9-> \alertb{1} and \alertb{2} are effectively equivalent
+          for large $N$.
+        \end{itemize}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random networks}
+
+  \begin{block}<1->{A few more things:}
+  \begin{itemize}
+  \item<1->
+    For method \alertb{1}, \# links is
+    probablistic:
+    $$
+    \avg{m} = p \binom{N}{2} \uncover<2->{= p\frac{1}{2}N(N-1)}
+    $$
+  \item<3->
+    So the expected or \alert{average degree} is 
+    $$
+    \avg{k} = \frac{\alert{2} \avg{m}}{N} 
+    $$
+    $$
+    \uncover<4->{
+      = \frac{2}{N} p\frac{1}{2}N(N-1)
+    }
+    \uncover<5->{
+      = \frac{\cancel{2}}{\cancel{N}} p\frac{1}{\cancel{2}}\cancel{N}(N-1)
+      }
+    \uncover<6->{
+      = p(N-1).
+    }
+    $$
+  \item<7-> Which is what it should be...
+  \item<8-> 
+    If we keep $\tavg{k}$ constant then
+    $p \propto 1/N \rightarrow 0$ as $N \rightarrow \infty$.
+  \end{itemize}
+    
+  \end{block}
+  
+\end{frame}
+
+
+\subsection{Some\ visual\ examples}
+
+\begin{frame}<handout: 0>[label=]
+  \frametitle{Random networks: examples}
+
+  \begin{block}{Next slides:}
+    Example realizations of random networks
+    \begin{itemize}
+    \item<2-> $N=500$
+    \item<3-> Vary $m$, the number of edges from 100 to 1000.
+    \item<4-> Average degree $\tavg{k}$ runs from 0.4 to 4.
+    \item<5-> Look at full network plus the largest component.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% series of random network examples
+%% varying m
+\input{nw_purerandom_graphviz01}
+
+%% entire networks on one page
+\input{nw_purerandom_graphviz01all}
+
+%% largest components on one page
+\input{nw_purerandom_graphviz01giants}
+
+%% now keeping m constant
+%% entire networks on one page
+\input{nw_purerandom_graphviz02all}
+
+%% largest components on one page
+\input{nw_purerandom_graphviz02giants}
+
+\section{Structure}
+
+\subsection{Clustering}
+
+\begin{frame}
+  \frametitle{Clustering in random networks:}
+  
+  \begin{itemize}
+    \item<1-> 
+      For method \alertb{1}, 
+      what is the clustering coefficient for a finite network?
+    \item<2->
+      Consider triangle/triple clustering coefficient:\cite{newman2003a}
+      $$ C_2 = \frac{3 \times \textnormal{\#triangles}}{\textnormal{\#triples}} $$ 
+  \end{itemize}
+  \begin{overprint}
+  \onslide<3-| handout:1 | trans: 1>
+  \begin{columns}
+    \column{0.4\textwidth}
+    \includegraphics[width=\textwidth]{2011-02-25clustering-randomnetworks-tp-10.pdf}
+    \column{0.6\textwidth}
+    \begin{itemize}
+    \item<3-> 
+      Recall:
+      $C_2$ = probability that two friends
+      of a node are also friends. 
+    \item<4-> 
+      Or: $C_2$ = probability that a triple is part of a triangle.
+    \item<5-> 
+      For standard random networks, we have simply
+      that 
+      $$\alertb{C_2 = p}.$$
+    \end{itemize}
+  \end{columns}
+  \end{overprint}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other ways to compute clustering:}
+
+  \begin{itemize}
+  \item<1-> 
+    Expected number of triples in entire network:
+    $$
+    \frac{1}{2}N(N-1)(N-2)p^2
+    $$
+    (Double counting dealt with by $\frac{1}{2}$.)
+  \item<2-> 
+    Expected number of triangles in entire network:
+    $$
+    \frac{1}{6}N(N-1)(N-2)p^3
+    $$
+    (Over-counting dealt with by $\frac{1}{6}$.)
+  \item<3->
+    $$ 
+    C_2 = \frac{3 \times \textnormal{\#triangles}}{\textnormal{\#triples}} 
+    = 
+    \frac{
+      3 \times \frac{1}{6}N(N-1)(N-2)p^3
+    }
+    {
+      \frac{1}{2}N(N-1)(N-2)p^2
+    }
+    = p.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other ways to compute clustering:}
+
+  \begin{itemize}
+  \item<1->
+    \alertb{Or:} take any three nodes, call them $a$, $b$, and $c$.
+  \item<2->
+    Triple $a$-$b$-$c$ centered at $b$ occurs with probability
+    $p^2 \times (1-p) + p^2 \times p = p^2$.
+  \item<3->
+    Triangle occurs with probability $p^3$.
+  \item<4->
+    Therefore, 
+    $$
+    C_2 = \frac{p^3}{p^2} = p.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Clustering in random networks:}
+  
+  \begin{columns}
+    \column{0.4\textwidth}
+    \includegraphics[width=\textwidth]{2011-02-26branching-networks-local-tp-5}
+    %%     \includegraphics[width=\textwidth]{nw_purerandom_graphviz01maincluster_7}
+    \column{0.6\textwidth}
+    \begin{itemize}
+    \item<1-> 
+      So for large random networks ($N \rightarrow \infty$),
+      clustering drops to zero.
+    \item<2-> 
+      Key structural feature of random networks is that
+      they locally look like\\ 
+      \alertb{pure branching networks}
+    \item<3-> 
+      No small loops.
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\subsection{Degree\ distributions}
+
+\begin{frame}
+  \frametitle{Random networks}
+  
+  \begin{block}<1->{Degree distribution:}
+    \begin{itemize}
+    \item<1-> 
+      Recall $P_k$ = probability that a randomly
+      selected node has degree $k$.
+    \item<2-> 
+      Consider method \alertb{1} for constructing
+      random networks: each possible link is realized
+      with probability $p$.
+    \item<3-> 
+      Now consider one node: there are `$N-1$ choose $k$'
+      ways the node can be connected to $k$ of 
+      the other $N-1$ nodes.
+    \item<4->
+      Each connection occurs with probability $p$,
+      each non-connection with probability $(1-p)$.
+    \item<5-> 
+      Therefore have a binomial distribution:
+      $$
+      P(k;p,N) = \binom{N-1}{k} p^k (1-p)^{N-1-k}.
+      $$
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Random networks}
+
+  \begin{block}<1->{Limiting form of $P(k;p,N)$:}
+    \begin{itemize}
+    \item<2->
+      Our degree distribution:
+      $
+      P(k;p,N) = \binom{N-1}{k} p^k (1-p)^{N-1-k}.
+      $
+    \item<3->
+      What happens as $N \rightarrow \infty$?
+    \item<4->
+      We must end up with the normal distribution right?
+    \item<5->
+      If $p$ is fixed, then we would end up
+      with a Gaussian with average 
+      degree $\tavg{k} \simeq pN \rightarrow \infty$.
+    \item<6->
+      But we want to keep $\tavg{k}$ fixed...
+    \item<6->
+      So examine limit of $P(k;p,N)$
+      when \alert{$p \rightarrow 0$} and \alert{$N \rightarrow \infty$}
+      with \alertb{$\tavg{k} = p(N-1)$ = constant}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Limiting form of $P(k;p,N)$:}
+
+    \small
+    \begin{itemize}
+    \item<1->
+      Substitute $p = \frac{\tavg{k}}{N-1}$ into $P(k;p,N)$
+      and hold $k$ fixed:
+      $$
+      P(k;p,N) = \binom{N-1}{k} 
+      \left(
+      \frac{\tavg{k}}{N-1}
+      \right)^k 
+      \left(
+      1-\frac{\tavg{k}}{N-1}
+      \right)^{N-1-k}
+      $$
+    \item[]<2->
+      $$
+      = 
+      \frac{(N-1)!}
+      {k!(N-1-k)!}
+      \frac{\tavg{k}^k}{(N-1)^k}
+      \left(
+      1-\frac{\tavg{k}}{N-1}
+      \right)^{N-1-k}
+      $$
+    \item[]<3->
+      $$
+      = 
+      \frac{\alert{(N-1)(N-2)\cdots(N-k)}}
+      {k!}
+      \frac{\tavg{k}^k}{(N-1)^k}
+      \left(
+      1-\frac{\tavg{k}}{N-1}
+      \right)^{N-1-k}
+      $$
+    \item[]<4->
+      \begin{overprint}
+        \onslide<4| handout:0 | trans: 0>
+      $$
+      =
+      \frac{\alert{N^k}
+        {(1-\frac{1}{N})\cdots(1-\frac{k}{N})}}
+      {k! \alert{N^k}}
+      \frac{\tavg{k}^k}{(1-\frac{1}{N})^k}
+      \left(
+      1-\frac{\tavg{k}}{N-1}
+      \right)^{N-1-k}
+      $$
+        \onslide<5| handout:0 | trans: 0>
+      $$
+      =
+      \frac{\cancel{\alert{N^k}}
+        {(1-{\frac{1}{N}})\cdots(1-\frac{k}{N})}}
+      {k! \cancel{\alert{N^k}}}
+      \frac{\tavg{k}^k}{(1-\frac{1}{N})^k}
+      \left(
+      1-\frac{\tavg{k}}{N-1}
+      \right)^{N-1-k}
+      $$
+        \onslide<6| handout:1 | trans: 1>
+      $$
+      \simeq
+      \frac{\cancel{\alert{N^k}}
+        {(1-\cancel{\frac{1}{N}})\cdots(1-\cancel{\frac{k}{N}})}}
+      {k! \cancel{\alert{N^k}}}
+      \frac{\tavg{k}^k}{(1-\cancel{\frac{1}{N}})^k}
+      \left(
+      1-\frac{\tavg{k}}{N-1}
+      \right)^{N-1-k}
+      $$
+      \end{overprint}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Limiting form of $P(k;p,N)$:}
+  \small
+
+  \begin{itemize}
+  \item<1->
+    We are now here:
+    $$
+    P(k;p,N)
+    \simeq
+    \frac{\tavg{k}^k}
+    {k!}
+    \left(
+      1-\frac{\tavg{k}}{N-1}
+    \right)^{N-1-k}
+    $$
+  \item<2->
+    Now use the excellent result:
+    $$
+    \lim_{n \rightarrow \infty}
+    \left(
+      1+\frac{x}{n}
+    \right)^n
+    = e^{x}.
+    $$
+    \uncover<3->{
+      (Use l'H\^{o}pital's rule to prove.)
+    }
+  \item<3->
+    Identifying $n=N-1$ and $x=-\tavg{k}$:
+    $$
+    P(k;\tavg{k})
+    \simeq
+    \frac{\tavg{k}^k}
+    {k!}
+    e^{-\tavg{k}}
+    \left(
+      1-\frac{\tavg{k}}{N-1}
+    \right)^{-k}
+    \uncover<4->{
+      \rightarrow
+      \alert{
+        \frac{\tavg{k}^k}
+        {k!}
+        e^{-\tavg{k}}
+      }
+    }
+    $$
+  \item<4->
+    This is a 
+    \wordwikilink{http://en.wikipedia.org/wiki/Poisson_distribution}
+    {Poisson distribution}
+    with mean $\tavg{k}$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Poisson basics:}
+
+  %% example figures
+  %% note when the Poisson appears in general
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    $$
+    \boxed{
+      \alertb{
+      P(k;\lambda)
+      =
+      \frac{\lambda^k}
+      {k!}
+      e^{-\lambda}}
+  }
+    $$
+    \bigskip
+    \includegraphics[width=\textwidth]{325px-Poisson_pmf-svg-tp-10.pdf}\\
+    \mbox{}\hfill\includegraphics[width=.1\textwidth]{wikipedia-tp.pdf}
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item 
+      $\lambda > 0$
+    \item 
+      $k=0, 1, 2, 3, \ldots$
+    \item 
+      Classic use: probability
+      that an event occurs $k$ 
+      times in a given time period,
+      given an average rate of occurrence.
+    \item 
+      e.g.:\\ 
+      phone calls/minute,\\ 
+      horse-kick deaths.
+    \item 
+      `Law of small numbers'
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Poisson basics:}
+
+  \begin{itemize}
+  \item<1-> 
+    Normalization: we must have
+    $$ 
+    \sum_{k=0}^\infty
+    P(k;\tavg{k})
+    = 1
+    $$
+  \item<2->
+    Checking:
+    $$ 
+    \sum_{k=0}^\infty
+    P(k;\tavg{k})
+    =
+    \sum_{k=0}^\infty
+    \frac{\tavg{k}^k}
+    {k!}
+    e^{-\tavg{k}}
+    $$
+  \item[]<3->
+    $$
+    =
+    e^{-\tavg{k}}
+    \sum_{k=0}^\infty
+    \frac{\tavg{k}^k}
+    {k!}
+    $$
+  \item[]<4->
+    $$
+    =
+    e^{-\tavg{k}}
+    e^{\tavg{k}}
+    \uncover<5->{
+      =
+      1
+      \alert{\faCheck}
+    }
+    $$
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Poisson basics:}
+
+  \small
+  \begin{itemize}
+  \item<1-> Mean degree: we must have
+    $$
+    \tavg{k}
+    =
+    \sum_{k=0}^\infty
+    k
+    P(k;\tavg{k}).
+    $$
+  \item<2->
+    Checking:
+    $$ 
+    \sum_{k=0}^\infty
+    k P(k;\tavg{k})
+    =
+    \sum_{k=0}^\infty
+    k \frac{\tavg{k}^k}
+    {k!}
+    e^{-\tavg{k}}
+    $$
+  \item[]<3->
+    $$
+    = e^{-\tavg{k}}
+    \sum_{k=\alert{1}}^\infty
+    \frac{\tavg{k}^k}
+    {\alert{(k-1)!}}
+    $$
+  \item[]<4->
+    $$
+    = 
+    \alert{\tavg{k}}
+    e^{-\tavg{k}}
+    \sum_{k={1}}^\infty
+    \frac{\tavg{k}^{\alert{k-1}}}
+    {{(k-1)!}}
+    $$
+  \item[]<5->
+    $$
+    = 
+    \tavg{k}
+    e^{-\tavg{k}}
+    \sum_{\alert{i=0}}^\infty
+    \frac{\tavg{k}^{i}}
+    {\alert{i!}}
+    \uncover<6->{
+      =
+      \tavg{k}
+    e^{-\tavg{k}}
+    e^{\tavg{k}}
+    }
+    \uncover<7->{
+      =
+      \alertb{\tavg{k}}
+      \alert{\faCheck}
+    }
+    $$
+  \item<8->
+    Note: We'll get to a better and crazier way of doing this...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Poisson basics:}
+
+    \begin{itemize}
+    \item<1-> The \alertb{variance} of degree distributions
+      for random networks turns out to be \alert{very important}.
+    \item<2-> Using calculation similar to one for finding $\tavg{k}$
+      we find the \alertb{second moment} to be:
+      $$
+      \tavg{k^2} = \tavg{k}^2 + \tavg{k}.
+      $$
+      \insertassignmentquestionsoft{05}{5}
+    \item<3-> 
+      Variance is then
+      $$
+      \sigma^2 = \alert{\tavg{k^2}} - \alertb{\tavg{k}^2} 
+      \uncover<4->{
+        = 
+        \alert{\tavg{k}^2 + \tavg{k}} - \alertb{\tavg{k}^2}
+      }
+      \uncover<5->{
+        = 
+        \tavg{k}.
+      }
+      $$
+    \item<6->
+      So standard deviation $\sigma$ is equal to $\sqrt{\tavg{k}}$.
+    \item<7->
+      Note: This is a special property of Poisson distribution 
+      and can trip us up...
+    \end{itemize}
+
+\end{frame}
+
+\subsection{Configuration\ model}
+
+\begin{frame}[label=]
+  \frametitle{General random networks}
+
+  \begin{itemize}
+  \item<1->
+    So... standard random networks have a Poisson degree distribution
+  \item<2->
+    Generalize to arbitrary degree distribution $P_k$.
+  \item<3->
+    Also known as the \alertb{configuration model}.\cite{newman2003a}
+  \item<4->
+    Can generalize construction method from ER random networks.
+  \item<5->
+    Assign each node a weight $w$ from some distribution $P_w$
+    and form links with probability
+    $$ P(\mbox{link between $i$ and $j$}) \propto w_i w_j.$$
+  \item<6->
+    But we'll be more interested in 
+    \begin{enumerate}
+    \item<7->
+      Randomly wiring up (and rewiring) already existing nodes
+      with fixed degrees.
+    \item<8->
+      Examining mechanisms that lead to networks with
+      certain degree distributions.
+    \end{enumerate}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}<handout: 0>[label=]
+  \frametitle{Random networks: examples}
+
+  \begin{block}{Coming up:}
+    Example realizations of random networks with
+    power law degree distributions:
+    \begin{itemize}
+    \item<2-> $N=1000$.
+    \item<3-> $P_k \propto k^{-\gamma}$ for $k \ge 1$.
+    \item<4-> Set $P_0 = 0$ (no isolated nodes).
+    \item<5-> Vary exponent $\gamma$ between 2.10 and 2.91.
+    \item<6-> Again, look at full network plus the largest component.
+    \item<7-> Apart from degree distribution, wiring is random.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% examples with power law degree distributions
+%% varying gamma
+% \input{nw_purerandom_graphviz01}
+
+%% entire networks on one page
+\input{nw_powerlaw_graphviz01all}
+
+%% largest components on one page
+\input{nw_powerlaw_graphviz01giants}
+
+\subsection{Random\ friends\ are\ strange}
+
+\begin{frame}[label=]
+  \frametitle{The edge-degree distribution:}
+
+  \begin{itemize}
+  \item<2-> 
+    The degree distribution $P_k$ is fundamental for our description
+    of many complex networks
+  \item<3-> 
+    Again: $P_k$ is the degree of \alert{randomly chosen node}.
+  \item<4-> 
+    A second very important distribution arises
+    from \alertb{choosing randomly on edges} rather than on nodes.
+  \item<5->
+    Define \alertb{$Q_k$} to be the 
+    probability the node at a \alert{random end}
+    of a \alert{randomly chosen edge} has
+    degree \alertb{$k$}.
+  \item<6-> Now choosing nodes based on their degree (i.e., size):
+    $$
+    \boxed{
+      \alertb{Q_k \propto k P_k}
+    }
+    $$
+  \item<7->
+    Normalized form:
+    $$
+    \alertb{Q_k} = \frac{kP_k}{\sum_{k'=0}^{\infty} k' P_{k'}}
+    \uncover<8->
+    {
+      \alertb{= \frac{kP_k}{\tavg{k}}}.
+    }
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{The edge-degree distribution:}
+
+    \begin{itemize}
+    \item<1-> 
+      For random networks, $Q_k$ is also the probability
+      that a friend (neighbor) of a random node has \alert{$k$ friends}.
+    \item<2-> 
+      Useful variant on $Q_k$:\\
+      \bigskip
+      \alertb{
+        $
+        R_k 
+        $
+      }
+      = probability that a friend of a random node
+      has \alert{$k$ other friends}.
+    \item<3->
+      $$
+      R_k
+      =
+      \frac{(k+1)P_{k+1}}
+      {\sum_{k'=0} (k'+1) P_{k'+1}}
+      \uncover<4->{
+        =
+        \frac{(k+1)P_{k+1}}
+        {\tavg{k}}
+      }
+      $$
+    \item<5->
+      Equivalent to friend having degree $k+1$.
+    \item<6->
+      \alertb{Natural question}: what's the expected
+      number of other friends that one friend has?
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{The edge-degree distribution:}
+  \small
+    \begin{itemize}
+    \item<1-> Given $R_k$ is the probability that a friend
+      has $k$ other friends, then the average number of
+      \alert{friends' other friends} is
+      $$
+      \avg{k}_{R}
+      =
+      \sum_{k=0}^{\infty}
+      k R_k
+      \uncover<2->{
+        =
+        \sum_{k=0}^{\infty}
+        k
+        \frac{(k+1)P_{k+1}}
+        {\tavg{k}}
+      }
+      $$
+      \uncover<3->{
+        $$
+        =
+        \frac{1}{\tavg{k}}
+        \sum_{\alert{k=1}}^{\infty}
+        k(k+1)P_{k+1}
+        $$
+      }
+      \uncover<4->{
+        $$
+        =
+        \frac{1}{\tavg{k}}
+        \sum_{{k=1}}^{\infty}
+        \left((k+1)^2 - (k+1)\right) 
+        P_{k+1}
+        $$
+        (where we have sneakily matched up indices)
+      }
+      \uncover<5->{
+        $$
+        =
+        \frac{1}{\tavg{k}}
+        \sum_{\alert{j=0}}^{\infty}
+        (j^2 - j)
+        P_j
+        \mbox{\quad (using j = k+1)}
+        $$
+      }
+      \uncover<6->{
+        $$
+        =
+        \frac{1}{\tavg{k}}
+        \left(
+          \tavg{k^2} - \tavg{k}
+        \right)
+        $$
+      }
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The edge-degree distribution:}
+
+  \begin{itemize}
+  \item<1-> Note: our result, 
+    $
+    \avg{k}_{R}
+    =
+    \frac{1}{\tavg{k}}
+    \left(
+      \tavg{k^2} - \tavg{k}
+    \right)
+    $,
+    is true for \alert{all} random networks, 
+    \alertb{independent of degree distribution}.
+  \item<2->
+    For standard random networks, recall
+    $$
+    \tavg{k^2} = \tavg{k}^2 + \tavg{k}.
+    $$
+  \item<3->
+    Therefore:
+    $$
+    \avg{k}_{R}
+    =
+    \frac{1}{\tavg{k}}
+    \left(
+      \alert{\tavg{k}^2 + \tavg{k}} - \tavg{k}
+    \right)
+    \uncover<4->{
+      = \alertb{\tavg{k}}
+    }
+    $$
+  \item<5->
+    Again, neatness of results is a special property of the Poisson distribution.
+  \item<6->
+    So friends on average have $\tavg{k}$ other friends,
+    and $\tavg{k}+1$ total friends...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The edge-degree distribution:}
+
+  \begin{itemize}
+  \item<+->
+    In fact, $R_k$ is rather special for pure random networks \ldots
+  \item<+->
+    Substituting
+    $$
+    P_k
+    =
+    \frac{\tavg{k}^k}
+    {k!}
+    e^{-\tavg{k}}
+    $$
+    into
+    $$
+    R_k
+    =
+    \frac{(k+1)P_{k+1}}
+    {\tavg{k}}
+    $$
+  \item<+->[]
+    we have
+    $$
+    R_k
+    =
+    \frac{(k+1)}
+    {\tavg{k}}
+    \frac{\tavg{k}^{(k+1)}}
+    {(k+1)!}
+    e^{-\tavg{k}}
+    \uncover<+->{
+    =
+    \frac{\cancel{(k+1)}}
+    {\cancel{\tavg{k}}}
+    \frac{\tavg{k}^{(k+\cancel{1})}}
+    {\cancel{(k+1)} k!}
+    e^{-\tavg{k}}
+    }
+    $$
+  \item<+->[]
+    $$
+    =
+    \frac{\tavg{k}^{k}}
+    {k!}
+    e^{-\tavg{k}}
+    \uncover<+->{
+    \equiv P_k.}
+    $$
+  \item<+->
+    \#samesies.
+  \end{itemize}
+ 
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Two reasons why this matters}
+  
+  \small
+  
+  \begin{block}<1->{Reason \#1:}
+    \begin{itemize}
+    \item<2-> 
+      Average \# friends of friends per node
+      is 
+      $$
+      \tavg{k_2}
+      =
+      \tavg{k} \times \tavg{k}_{R}
+      \uncover<3->{
+        =
+        \tavg{k}
+        \frac{1}{\tavg{k}}
+        \left(
+          \tavg{k^2} - \tavg{k}
+        \right)
+      }
+      \uncover<4->{
+        = \alertb{\tavg{k^2} - \tavg{k}}.
+      }
+      $$
+    \item<5->
+      Key: Average depends on the \alert{1st and 2nd
+        moments} of $P_k$ and \alertb{not just the 1st moment}.
+    \item<6->
+      Three peculiarities:
+      \begin{enumerate}
+      \item<6->
+        We might guess $\tavg{k_2} = \tavg{k}(\tavg{k}-1)$
+        but it's actually $\tavg{k(k-1)}$.
+      \item<7->
+        If $P_k$ has a \alert{large second moment},\\
+        then $\tavg{k_2}$ will be big.\\
+        \uncover<8->{(e.g., in the case of a power-law distribution)}
+      \item<9->
+        Your friends really are different from you...\cite{feld1991a,newman2003h}
+      \item<10->
+        See also: class size paradoxes (nod to: Gelman)
+      \end{enumerate}
+    \end{itemize}
+    
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Two reasons why this matters}
+  
+  \begin{block}{More on peculiarity \#3:}
+    \begin{itemize}
+    \item<1->
+      A node's average \# of friends: \alertb{$\tavg{k}$}
+    \item<2-> 
+      Friend's average \# of friends: $\frac{\tavg{k^2}}{\tavg{k}}$
+    \item<3->
+      Comparison:
+      $$
+      \frac{\tavg{k^2}}{\tavg{k}}
+      = \alertb{\tavg{k}} \alert{\frac{\tavg{k^2}}{\tavg{k}^2}}
+      \uncover<4->{
+        = \alertb{\tavg{k}} \alert{\frac{\sigma^2 + \tavg{k}^2}{\tavg{k}^2}}
+      }
+      \uncover<5->{
+        = \alertb{\tavg{k}} 
+        \left(
+          \alert{1 + \frac{\sigma^2}{\tavg{k}^2}}
+        \right)
+      }
+      \uncover<6->{
+        \ge \alertb{\tavg{k}}
+      }
+      $$
+    \item<7->
+      So only if everyone has the same degree (variance$ = \sigma^2=0$)
+      can a node be the same as its friends.
+    \item<8->
+      Intuition: for random networks,
+      the more connected a node, the more likely it is to be chosen
+      as a friend.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Two reasons why this matters}
+  
+  \begin{block}{(Big) Reason \#2:}
+    \begin{itemize}
+    \item<1-> 
+      $\tavg{k}_R$ is \alertb{key} to understanding
+      how well random networks are connected together.
+    \item<2-> 
+      e.g., we'd like to know what's the 
+      size of the largest component within a network.
+    \item<3-> 
+      As $N \rightarrow \infty$, does 
+      our network have a \alert{giant component}?
+    \item<4-> 
+      \alert{Defn:}
+      Component = connected subnetwork of nodes
+      such that $\exists$ path between each
+      pair of nodes in the subnetwork, and no
+      node outside of the subnetwork is connected to it.
+    \item<5-> 
+      \alert{Defn:}
+      Giant component = component that comprises
+      a non-zero fraction of a network as $N \rightarrow \infty$.
+    \item<6-> 
+      Note: Component = Cluster
+    \end{itemize}
+    
+  \end{block}
+  
+\end{frame}
+
+\subsection{Largest\ component}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+
+  \includegraphics[height=0.9\textheight,angle=-90]{figphastrans3}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Structure of random networks}
+  
+  \begin{block}{Giant component:}
+    \begin{itemize}
+    \item<1-> 
+      A giant component exists if when
+      we follow a random edge, we are likely
+      to hit a node with \alert{at least 1} other
+      outgoing edge.
+    \item<2-> Equivalently, expect exponential growth in
+      node number as we move out from 
+      a random node.
+    \item<3-> 
+      All of this is the same as requiring $\tavg{k}_R > 1$.
+    \item<4-> 
+      \alert{Giant component condition} (or percolation condition):
+      $$
+      \tavg{k}_R 
+      =
+      \frac{\tavg{k^2}-\tavg{k}}{\tavg{k}}
+      > 
+      1
+      $$
+    \item<5->
+      Again, see that the second moment is an essential
+      part of the story.
+    \item<6->
+      Equivalent statement:
+      $
+      \tavg{k^2} > 2\tavg{k}
+      $
+    \end{itemize}
+    
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+
+  \begin{block}<1->{Standard random networks:}
+    \begin{itemize}
+    \item<1-> 
+      Recall $\tavg{k^2} = \tavg{k}^2 + \tavg{k}$.
+    \item<2->
+      Determine condition for giant component:
+      $$
+      \tavg{k}_R = 
+      \frac{\tavg{k^2} - \tavg{k}}
+      {\tavg{k}}
+      \uncover<3->{
+        =
+      \frac{\alert{\tavg{k}^2 + \tavg{k}} - \tavg{k}}
+      {\tavg{k}}
+      }
+      \uncover<4->{
+        = \tavg{k}
+      }
+      $$
+    \item<5->
+      Therefore when $\tavg{k} > 1$,
+      standard random networks have a giant component.
+    \item<6->
+      When $\tavg{k} < 1$,
+      all components are finite.
+    \item<7->
+      Fine example of a continuous
+      \wordwikilink{http://en.wikipedia.org/wiki/Phase_transition}
+      {phase transition}.
+    \item<8->
+      We say $\tavg{k}=1$ marks the critical point of the system.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+
+  \begin{block}<1->{Random networks with skewed $P_k$:}
+    \begin{itemize}
+    \item<1-> 
+      e.g, if $P_k = c k^{-\gamma}$ with $2 < \gamma < 3$, $k \ge 1$, 
+      then
+      $$
+      \tavg{k^2} 
+      = c \sum_{k=1}^{\infty}
+      k^2 k^{-\gamma}
+      $$
+      \uncover<2->{
+        $$
+        \sim
+        \int_{x=1}^{\infty} x^{2-\gamma} \dee{x}
+        $$
+      }
+      \uncover<3->{
+        $$
+        \propto
+        \left.
+        x^{3-\gamma}
+        \right|_{x=1}^{\infty}
+        \uncover<4->{
+          \alertb{=\infty}
+        }
+        \uncover<5->{
+          \quad \alertb{(\gg \tavg{k})}.
+        }
+        $$
+      }
+    \item<6->
+      So giant component \alert{always exists}
+      for these kinds of networks.
+    \item<7->
+      Cutoff scaling is $k^{-3}$: if $\gamma>3$ then
+      we have to look harder at $\tavg{k}_R$.
+    \item<8->
+      How about $P_k = \delta_{kk_0}$?
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+  
+  \small
+  \begin{block}{And how big is the largest component?}
+    \begin{itemize}
+    \item<1->
+      Define \alertb{$S_1$} as the \alert{size of the largest component}.
+    \item<2->
+      Consider an infinite ER random network with average
+      degree $\tavg{k}$.
+    \item<3-> 
+      Let's find $S_1$ with a back-of-the-envelope argument.
+    \item<4-> 
+      Define \alert{$\delta$} as the probability that a randomly
+      chosen node \alert{does not} belong to the largest component.
+    \item<5-> Simple connection: $\delta = 1 - S_1$.
+    \item<6->
+      \alertb{Dirty trick:} If a randomly chosen node is not part
+      of the largest component, then none of its neighbors are.
+    \item<7->
+      So
+      $$
+      \delta = \sum_{k=0}^\infty P_k \delta^k
+      $$
+    \item<8->
+      Substitute in Poisson distribution...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+  
+  \begin{itemize}
+  \item<1-> 
+    Carrying on:
+    $$ 
+    \alert{\delta} = \sum_{k=0}^{\infty} P_k \delta^k 
+    \uncover<2->{
+      = \sum_{k=0}^{\infty} \frac{\tavg{k}^k}{k!} e^{-\tavg{k}} \delta^k 
+    }
+    $$
+    \uncover<3->{
+      $$
+      = e^{-\tavg{k}} \sum_{k=0}^{\infty} \frac{(\tavg{k} \delta)^k}{k!}
+      $$
+    }
+    \uncover<4->{
+    $$
+    =
+    e^{-\tavg{k}}
+    e^{\tavg{k}\delta}
+    }
+    \uncover<5->{
+    =
+    \alert{e^{-\tavg{k}(1-\delta)}}.
+    $$
+    }
+  \item<6->
+    Now substitute in $\delta = 1 -S_1$ and rearrange
+    to obtain:
+    $$
+    S_1 = 1 - e^{-\tavg{k}S_1}.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+  
+  \begin{itemize}
+  \item<1-> 
+    We can figure out some limits and details for 
+    $
+    S_1 = 1 - e^{-\tavg{k}S_1}.
+    $
+  \item<2-> 
+    First, we can write $\tavg{k}$ in terms of $S_1$:
+    $$
+    \tavg{k} = \frac{1}{S_1}\ln{\frac{1}{1-S_1}}.
+    $$
+  \item<3->
+    As $\tavg{k} \rightarrow 0$, $S_1 \rightarrow 0$.
+  \item<4->
+    As $\tavg{k} \rightarrow \infty$, $S_1 \rightarrow 1$.
+  \item<5->
+    Notice that at $\tavg{k}=1$, the critical point, $S_1=0$.
+  \item<6->
+    Only solvable for $S_1>0$ when $\tavg{k}>1$.
+  \item<7->
+    Really a transcritical bifurcation.\cite{strogatz1994a}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+
+  \includegraphics[height=0.9\textheight,angle=-90]{figphastrans3}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Giant component}
+
+  \begin{block}{Turns out we were lucky...}
+    \begin{itemize}
+    \item<1-> 
+      Our dirty trick \alert{only works for} ER random networks.
+    \item<2-> 
+      \alert{The problem:} We assumed that neighbors have the same
+      probability $\delta$ of belonging to the
+      largest component.
+    \item<3-> 
+      But we know our friends are different from us...
+    \item<4->
+      Works for ER random networks because $\tavg{k} = \tavg{k}_R$.
+    \item<5->
+      We need a separate probability $\delta'$ for
+      the chance that an edge \alert{leads to}
+      the giant (infinite) component.
+    \item<6->
+      We can sort many things out with \alertb{sensible probabilistic arguments}...
+    \item<7>
+      More detailed investigations will profit from
+      a spot of \alertb{Generatingfunctionology}.\cite{wilf2006a}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+

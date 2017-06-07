@@ -1,0 +1,139 @@
+\section{First return random walk}
+
+\begin{frame}[label=1]
+  \textbf{Random walks}
+
+  
+   We've seen that Scheidegger networks
+    have random walk boundaries\cite{scheidegger1967a,scheidegger1991a} 
+   Determining expected shape of a `basin' becomes
+    a problem of finding the probability that a 1-d random walk
+    returns to the origin after $t$ time steps
+   We solved this with a counting argument for
+    the discrete random walk the preceding Complex Systems course
+   For fun and the constitution, 
+    let's work on the continuous time 
+    Wiener process version
+   A classic, delightful problem
+  
+
+
+\begin{frame}[label=]
+  \textbf{Random walks}
+
+  \includegraphics[width=0.8\textwidth]{Wiener_process_zoom.png}
+
+  The \wordwikilink{http://en.wikipedia.org/wiki/Wiener_process}{Wiener process}
+
+
+\begin{frame}[label=]
+  \textbf{Random walking on a sphere...}
+
+  \includegraphics[width=0.7\textwidth]{BMonSphere.jpg}
+
+  The \wordwikilink{http://en.wikipedia.org/wiki/Wiener_process}{Wiener process}
+
+
+\begin{frame}[label=]
+  \textbf{Random walks}
+
+  
+   Wiener process = Brownian motion
+   
+    $$
+    x(t_2) - x(t_1) \sim \mathcal{N}(0,t_2-t_1)
+    $$
+    where 
+    $$
+    \mathcal{N}(x,t) = \frac{1}{\sqrt{2\pi t} } e^{-x^2/2t}
+    $$
+   Continuous but nowhere differentiable
+  
+
+
+
+\begin{frame}[label=]
+  \textbf{First return}
+
+  
+   \alert{Objective:} find $g(t)$, the probability
+    that Wiener process first returns to the origin at time $t$.
+   Use what we know: the probability density for
+    \alert{a return} (not necessarily the first) at time $t$ is 
+    $$
+    f(t) = \frac{1}{\sqrt{2\pi t}} e^{-0/2t} = \frac{1}{\sqrt{2\pi t}}
+    $$
+   Observe that $f$ and $g$ are connected like this:
+    $$
+    f(t) = \int_{\tau=0}^{t} f(\tau) g(t - \tau) \dee{\tau} + \underbrace{\delta(t)}_{\mbox{\tiny Dirac delta function}}
+    $$
+   In words: Probability of returning at time $t$ equals
+    the integral of the probability of returning at time $\tau$
+    and then not returning until exactly $t-\tau$ time units later.
+  
+
+
+\begin{frame}[label=]
+  \textbf{First return}
+
+  
+   
+    Next see that right hand side of 
+    $f(t) = \int_{\tau=0}^{t} f(\tau) g(t - \tau) \dee{\tau} + \delta(t)$
+    is a juicy convolution.
+   So we take the Laplace transform: 
+    $$ 
+    \mathcal{L}[f(t)] = F(s) = \int_{t=0^-}^{\infty} f(t) e^{-st} \dee{t}
+    $$
+  
+    and obtain 
+    $$
+    F(s) = F(s)G(s) + 1
+    $$
+  
+    Rearrange:
+    $$
+    G(s) = 1 - 1/F(s)
+    $$
+  
+
+
+\begin{frame}[label=]
+  \textbf{First return}
+
+  
+   We are here: $G(s) = 1 - 1/F(s)$
+   Now we want to invert $G(s)$ to find $g(t)$
+   Use calculation that $F(s) = (2s)^{-1/2}$
+   
+    $$
+    G(s) = 1 - (2s)^{1/2} {\simeq \alert{e^{-(2s)^{1/2}}}}
+    $$
+%%    
+%%     Next use fact that the Laplace transform of $t^{-3/2}$ 
+%%     is 
+%%     $
+%%     \mathcal{L}[t^{-3/2}] = -2 \sqrt{\pi} s^{1/2}
+%%     $
+%%    
+%%     Unpack boxes to find 
+%%     $$
+%%     g(t) \sim \frac{1}{\sqrt{2\pi}}t^{-3/2}
+%%     $$
+%%     
+   
+
+
+\begin{frame}[label=]
+  \textbf{First return}
+
+  \textbf{Groovy aspects of $g(t) \sim t^{-3/2}$:}
+    
+     Variance is infinite (weird but okay...)
+     Mean is also infinite (just plain crazy...)
+     Distribution is normalizable so process always returns to 0.
+     For river networks: $P(\msl) \sim \msl^{-\gamma}$ so
+      $\gamma = 3/2$ for Scheidegger networks.
+    
+  
+

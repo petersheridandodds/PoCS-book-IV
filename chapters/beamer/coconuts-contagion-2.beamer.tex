@@ -1,0 +1,320 @@
+\section{Cascade size}
+
+%% idea
+
+\subsection{Distributed seeds}
+
+\begin{frame}
+  \frametitle{}
+  
+\end{frame}
+
+\subsection{Theory}
+
+\begin{frame}
+  \frametitle{}
+  
+\end{frame}
+
+
+\subsection{Comparison to simulations}
+
+\begin{frame}
+  \frametitle{Comparison to data}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{gleeson2007a_fig1.pdf}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparison to data}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{gleeson2007a_fig2.pdf}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\section{Groups}
+
+\begin{frame}
+  \frametitle{Extensions}
+
+  \begin{itemize}
+  \item<1-> Assumption of sparse interactions is good
+  \item<2-> Degree distribution is (generally) key to a network's function
+  \item<3-> Still, random networks don't represent all networks
+  \item<4-> Major element missing: \alert{group structure}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Group structure---Ramified random networks}
+ 
+   \centering
+   \includegraphics[width=0.48\textwidth]{ramifiednetwork}
+ 
+   $p$ = intergroup connection probability\\
+   $q$ = intragroup connection probability.
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bipartite networks}
+ 
+   \centering
+   \includegraphics[height=0.75\textheight]{bipartite}
+ 
+   % boards of directors
+   % movies
+   % transportation
+ 
+ 
+ 
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Context distance}
+ 
+   \centering
+   \includegraphics[width=1\textwidth]{bipartite2}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized affiliation model}
+ 
+   \centering
+   \includegraphics[width=1\textwidth]{generalcontext2}
+ 
+   (Blau \& Schwartz, Simmel, Breiger)
+ 
+ 
+ % \includegraphics[width=0.6\textwidth]{figgroupcascade_good}
+ 
+ %% cascade windows for group based networks
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized affiliation model networks with triadic closure}
+
+  \begin{itemize}
+  \item<1-> Connect nodes with probability $\propto \exp^{-\alpha d}$\\
+  where\\
+  $\alpha$ = homophily parameter\\
+  and \\
+  $d$ = distance between nodes (height of lowest common ancestor)
+  \item<2->
+  $\tau_1$ = intergroup probability of friend-of-friend connection
+  \item<3->
+  $\tau_2$ = intragroup probability of friend-of-friend connection
+  \end{itemize}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cascade windows for group-based networks}
+
+  \includegraphics[width=1\textwidth]{figgroupcascade3}\\
+
+\end{frame}
+
+%%  
+%% %%   
+%%
+%% \begin{frame}
+%%   \frametitle{Starting cascades with seed groups---group-based networks}
+%% 
+%%   \centering
+%%   \includegraphics[width=0.4\textwidth]{fignetwork_ramify_cw21_3b_noname}\\
+%%   \includegraphics[width=0.4\textwidth]{fignetwork_multibip_cw03_3_noname}
+%% 
+%%   
+%% 
+%%   
+%% \end{frame}
+%% %%
+%% \begin{frame}
+%%   \frametitle{Starting cascades with seed groups---group-based networks}
+%%   
+%%   \begin{tabular}{cc}
+%%     \includegraphics[width=0.4\textwidth]{fignetwork_ramify_cw21_5b_noname} &
+%%     \includegraphics[width=0.4\textwidth]{fignetwork_ramify_cw22_4b_noname} \\
+%%     \includegraphics[width=0.4\textwidth]{fignetwork_multibip_cw03_5_noname} & 
+%%     \includegraphics[width=0.4\textwidth]{fignetwork_multibip_cw03_4_noname}
+%%   \end{tabular}
+%% 
+
+\begin{frame}
+  \frametitle{Assortativity in group-based networks}
+
+  \centering
+
+  \includegraphics[width=0.6\textwidth]{fignw_thr_ramify_startprob211_mod2_1_noname}
+
+  \begin{itemize}
+  \item<2-> Very surprising: the most connected nodes aren't always the most influential
+  \item<3-> \alert{Assortativity} is the reason
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Social contagion}
+
+  \begin{block}{Summary}
+    \begin{itemize}
+
+    \item<1-> \alert{`Influential vulnerables'} are key to spread.
+    \item<2-> Early adopters are mostly vulnerables.
+    \item<3-> Vulnerable nodes important but not necessary.
+    \item<4-> Groups may greatly facilitate spread.
+    \item<5-> Seems that cascade condition is a global one.
+    \item<6-> Most extreme/unexpected cascades occur in highly connected networks 
+    \item<7-> `Influentials' are posterior constructs.\\
+    \item<8-> Many potential influentials exist.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Summary}
+%% 
+%%   \begin{itemize}
+%% %  \item<1-> Cascade initiators not greatly above average.
+%% %  \item<2-> Average initiators easier to find and influence.
+%% %  \item<4-> Early adopters may be above or below average.
+%%   \end{itemize}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Social contagion}
+
+  \begin{block}{Implications}
+  \begin{itemize}
+  \item<1->
+    Focus on \tc{blue}{the influential vulnerables}.
+  \item<2->
+    Create entities that can be transmitted successfully
+    through many individuals rather than broadcast from one `influential.'
+  \item<3->
+    Only \tc{blue}{simple ideas} can spread by word-of-mouth.\\
+    \qquad (Idea of opinion leaders spreads well...)
+  \item<4->
+    Want enough individuals who will adopt and display.
+  \item<5->
+    Displaying can be \tc{blue}{passive} = free (yo-yo's, fashion),\\
+    or \tc{blue}{active} = harder to achieve (political messages).
+  \item<6->
+    Entities can be novel or designed to combine with others,
+    e.g. block another one.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% \begin{frame}
+%%    \frametitle{Social Sciences: Threshold models}
+                                %
+                                %  At time $t+1$, fraction rioting
+                                %  = fraction with $\gamma \le \phi_t$.
+                                %
+                                %  \[ \phi_{t+1} = \int_{0}^{\phi_t} f(\gamma) \dee{\gamma}
+                                %  = \left. F(\gamma) \right|_{0}^{\phi_t} = F(\phi_t) \]
+                                %
+                                %  $\Rightarrow$ Iterative maps of the interval.
+                                %
+
+                                %
+                                %  \end{frame}
+%%
+%% \begin{frame}
+%%    \frametitle{Social Sciences: Threshold models}
+                                %
+                                %  Distribution of individual thresholds, $f(\gamma)$ $\Rightarrow$ interval maps
+                                %  \includegraphics{[],figthreshold2_noname.ps,width=0.45\textwidth}
+                                %  \includegraphics{[],figthresholdF2b_noname.ps,width=0.45\textwidth}\\
+                                %  $\Rightarrow$ Single stable state model
+                                %
+
+
+                                % \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Social Sciences---Threshold models}
+%% 
+%%   \includegraphics[width=0.45\textwidth]{figthreshold3_noname}
+%%   \includegraphics[width=0.45\textwidth]{figthresholdF3b_noname}
+%% 
+%%   Critical mass model
+%% 
+%% \end{frame}
+%% 
+
+
+
+
+                                %
+  %%
+  %% \begin{frame}
+  %%    \frametitle{Cascade windows for group-based networks}
+                                %
+                                %  \centering
+                                %  \includegraphics[width=0.65\textwidth]{fignetwork_ud_meanfield03_pdd_noname}
+                                %
+                                %
+
+
+                                %  \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Starting cascades with seed groups---random networks}
+%% 
+%%   \centering
+%%   \includegraphics[width=0.6\textwidth]{fignw_thr_ramify_startprob211_mod2_1_noname}
+%% 
+%% 
+%% 
+%% 
+%% 
+%% \end{frame}
+
+
+
+
+
+                                % definition of model
+                                % figure
+
+
+
+%%   \caption{
+%%     Examples of networks where (A) cascades are possible
+%%     even when no vulnerable cluster of nonzero fractional
+%%     size exists, and (C) activation spreads at an
+%%     exponential rate also in the absence of a vulnerable
+%%     cluster.  In both networks, all nodes have the
+%%     same threshold $\phi=1/3$.  
+%%     In plot A, the initiator $i_0$ and $i_0$'s 
+%%     two neighbors are the only vulnerable nodes
+%%     in the network.  The ladder then allows
+%%     activation to propagate from left to right, and the cascade
+%%     grows at a linear rate.
+%%     The network shown in plot C is a renormalized
+%%     version of a trivalent Bethe Lattice, which is shown in plot B.
+%%     Each node of the Bethe lattice is replaced by two nodes and additional edges
+%%     as shown.  Activation in the resulting network will spread providing
+%%     both nodes in a single group are initially activated together,
+%%     and the rate of spread will be exponential.
+
+

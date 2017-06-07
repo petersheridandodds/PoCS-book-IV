@@ -1,0 +1,464 @@
+%%\section{Introduction}
+
+\section{Optimal\  transportation}
+
+\begin{frame}
+  \frametitle{Optimal supply networks}
+
+  \begin{block}<1->{What's the best way to distribute stuff?}
+    \begin{itemize}
+    \item<2-> Stuff = medical services, energy, people, \ldots
+    \item<3-> \alert{Some} fundamental network problems:
+      \begin{enumerate}
+      \item<4-> Distribute stuff from a \alert{single source} to
+        \alert{many sinks}
+      \item<5-> Distribute stuff from \alert{many sources} to
+        many sinks
+      \item<6-> \alert{Redistribute} stuff between nodes that
+        are both sources and sinks
+      \end{enumerate}
+    \item<7-> Supply and Collection are equivalent problems
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  \begin{block}{Basic question for distribution/supply networks:}
+    \begin{itemize}
+    \item<1->
+      How does flow behave given cost:
+      $$
+      C 
+      = 
+      \sum_{j} I_j^{\, \gamma} Z_j
+      $$
+      where \\
+      \alertb{$
+      I_j 
+      $
+      = current on link $j$}\\
+      and\\
+      \alertb{$Z_j$ = link $j$'s impedance}?
+    \item<2->
+      Example: $\gamma=2$ for electrical networks.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  \includegraphics[width=\textwidth]{bohn2007a_fig2}
+  
+  \begin{itemize}
+  \item[(a)]
+    $\gamma > 1$: \alert{Braided} (bulk) flow 
+  \item[(b)]
+    $\gamma < 1$:
+    Local minimum: \alert{Branching} flow
+  \item[(c)] 
+    $\gamma < 1$:
+    Global minimum: \alert{Branching} flow
+    
+  \end{itemize}
+
+  \medskip
+  
+  {\small From Bohn and Magnasco\cite{bohn2007a}}
+
+  {\small See also Banavar et al.\cite{banavar2000a}}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  Optimal paths related to transport (Monge) problems:
+
+  \includegraphics[width=0.48\textwidth]{xia2003a_fig1.pdf}
+  \includegraphics[width=0.48\textwidth]{xia2003a_fig6.pdf}
+
+  Xia (2003)\cite{xia2003a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Growing networks:}
+
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{xia2007a_fig1.pdf}
+  \end{center}
+
+%%  \includegraphics[width=0.49\textwidth]{xia2007a_fig2}
+
+  Xia (2007)\cite{xia2007a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Growing networks:}
+
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{xia2007a_fig3.pdf}
+  \end{center}
+
+%%  \includegraphics[width=0.49\textwidth]{xia2007a_fig4}
+
+  Xia (2007)\cite{xia2007a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  \begin{block}{An immensely controversial issue...}
+    \begin{itemize}
+    \item<1->
+      The form of river networks and blood networks:
+      optimal or not?\cite{west1997a,banavar1999a,dodds2001a,dodds2010a}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<2->{Two observations:}
+    \begin{itemize}
+    \item<2->
+      Self-similar networks appear everywhere in nature
+      for single source supply/single sink collection.
+    \item<3->
+      Real networks \alertb{differ} in \alert{details of scaling}
+      but reasonably \alertb{agree} in \alert{scaling relations}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{River network models}
+
+  \begin{block}<1->{Optimality:}
+    \begin{itemize}
+    \item<1->Optimal channel networks\cite{rodriguez-iturbe1997a}
+    \item<1->Thermodynamic analogy\cite{scheidegger1991a}
+    \end{itemize}
+  \end{block}
+  \uncover<2->{versus...}
+  \begin{block}<2->{Randomness:}
+    \begin{itemize}
+    \item<2->Scheidegger's directed random networks
+    \item<2->Undirected random networks
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\section{Optimal\ branching}
+
+\begin{frame}
+
+  \showtarotcards{0.35}{
+%%  \dealnewtarotcard{0.35}{
+    john-dory,
+    overview,
+    complex-networks,
+    random-networks,
+    scale-free-networks,
+    small-world-networks,
+    theory-six-degrees,
+    landscapes-of-forking-paths,
+    networks-of-blood,
+    trees-of-reality,
+    orders-of-streams,
+    laws-of-branching,
+    unknown-mechanism,
+    law-of-optimal-forks,
+}
+
+\end{frame}
+
+\subsection{Murray's\ law}
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{columns}
+    \column{0.45\textwidth}
+    \includegraphics[width=\textwidth]{murrays-law-tp-10}
+    \column{0.55\textwidth}
+    \begin{itemize}
+    \item<1-> Murray's law (1926) connects branch radii at forks:\cite{murray1926a,murray1926b,murray1927a,labarbera1990a,thompson1961a}
+      $$ \boxed{ \alert{r_0^{3} = r_1^{3} + r_2^{3}}} $$
+      where $r_0$ = radius of main branch,
+      and $r_1$ and $r_2$ are radii of sub-branches.
+    \end{itemize}
+  \end{columns}
+    \begin{itemize}
+    \item<2-> Holds up well for outer branchings of blood networks.
+    \item<3-> Also found to hold for trees\cite{murray1927a,mcculloh2003a,mcculloh2004a}.
+    \item<4-> See D'Arcy Thompson's ``On Growth and Form'' for background inspiration\cite{thompson1952a,thompson1961a}.
+    \end{itemize}
+
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Optimization approaches}
+%% 
+%%   \begin{block}{Cardiovascular networks:}
+%%     \begin{itemize}
+%%     \item<1-> Murray's law (1926) connects branch radii at forks:\cite{murray1926a,murray1926b,murray1927a,labarbera1990a,thompson1961a}
+%%       $$ \boxed{ \alert{r_0^{3} = r_1^{3} + r_2^{3}}} $$
+%%       where $r_0$ = radius of main branch\\
+%%       and $r_1$ and $r_2$ are radii of sub-branches.
+%%     \item<1-> See D'Arcy Thompson's ``On Growth and Form'' for background inspiration\cite{thompson1952a,thompson1961a}.
+%%     \item<2-> Calculation assumes 
+%%       \wordwikilink{http://en.wikipedia.org/wiki/Hagen-Poiseuille_equation}{Poiseuille flow}.
+%%     \item<3-> Holds up well for outer branchings of blood networks.
+%%     \item<4-> Also found to hold for trees\cite{murray1927a,mcculloh2003a,mcculloh2004a}.
+%%     \item<5-> Use hydraulic equivalent of Ohm's law:
+%%       $$
+%%       \Delta p = \Phi Z  \Leftrightarrow V = IR
+%%       $$
+%%       where $\Delta p$ = pressure difference, $\Phi$ = flux.
+%%     \end{itemize}
+%%   \end{block}
+%% \end{frame}
+
+\begin{frame}
+%%  \frametitle{Optimization---Murray's law}
+
+    \begin{itemize}
+    \item<1-> Use hydraulic equivalent of Ohm's law:
+      $$
+      \Delta p = \Phi Z  \Leftrightarrow V = IR
+      $$
+      where $\Delta p$ = pressure difference, $\Phi$ = flux.
+      \begin{columns}
+        \column{0.4\textwidth}
+        \includegraphics[width=\textwidth]{poiseuille-flow-tp-10}
+        \column{0.6\textwidth}
+        \begin{itemize}
+        \item<2->
+          Fluid mechanics: 
+          \wordwikilink{http://en.wikipedia.org/wiki/Hagen-Poiseuille_equation}{Poiseuille impedance}
+          for smooth 
+          \wordwikilink{http://en.wikipedia.org/wiki/Hagen-Poiseuille_equation}{Poiseuille flow}
+          in a tube
+          of radius $r$ and length $\ell$:
+          $$ Z = \frac{8\eta \ell}{\pi r^4} $$
+        \end{itemize}
+      \end{columns}
+    \item<2->
+      $\eta$ = 
+      \wordwikilink{http://en.wikipedia.org/wiki/Dynamic_viscosity}{dynamic viscosity}
+      (units: $ML^{-1}T^{-1}$).
+    \item<3-> 
+      Power required to overcome impedance: 
+      $$ P_{\textnormal{drag}} = \Phi \Delta p  = \Phi^2 Z. $$
+    \item<4-> 
+      Also have rate of energy expenditure in maintaining blood
+      given metabolic constant $c$:
+      $$ P_{\textnormal{metabolic}} = c r^2 \ell  $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}<1->{Aside on $P_{\textnormal{drag}}$}
+  \begin{itemize}
+  \item<2-> 
+    Work done = $F \cdot d$ = energy transferred by force $F$
+  \item<3-> 
+    Power = $P$ = rate work is done = $F \cdot v$
+  \item<4-> $\Delta p$ = Force per unit area
+  \item<5-> $\Phi$ = Volume per unit time \\ = cross-sectional area $\cdot$ velocity
+  \item<6-> So $\Phi \Delta p$ = Force $\cdot$ velocity
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}{Murray's law:}
+    \begin{itemize}
+    \item<1-> Total power (cost):
+      $$ 
+      P = P_{\textnormal{drag}} + P_{\textnormal{metabolic}}
+      \uncover<2->{=
+      \Phi^2 \frac{8\eta \alert{\ell}}{\pi \alert{r^4}}
+      + c \alert{r^2 \ell}}
+      $$
+    \item<3-> Observe power increases linearly with $\ell$
+    \item<4-> But $r$'s effect is nonlinear: 
+      \begin{itemize}
+      \item<5->  
+        increasing $r$
+        makes flow easier \alert{but increases metabolic cost} (as $r^2$)
+      \item<6->
+        decreasing $r$
+        decrease metabolic cost \alert{but impedance goes up} (as $r^{-4}$)
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}{Murray's law:}
+    \begin{itemize}
+    \item<1-> Minimize $P$ with respect to $r$:
+      $$
+      \partialdiff{P}{r}
+      = 
+      \partialdiff{}{r} 
+      \left( 
+        \Phi^2 \frac{8\eta {\ell}}{\pi {r^4}}
+      + c {r^2 \ell}
+      \right)
+    $$
+      \uncover<2->{
+        $$
+        = 
+        -4 \Phi^2 \frac{8\eta {\ell}}{\pi {r^5}}
+        + c {2r \ell}
+        \uncover<3->{\alert{=0}}
+      $$
+      \item<4-> Rearrange/cancel/slap:
+        $$
+        \alert{\Phi^2} = \frac{c \pi r^6}{16 \eta} \uncover<5->{= k^2 \alert{r^6}}
+        $$
+        \uncover<5->{where $k$ = constant.}
+        
+      }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}{Murray's law:}
+    \begin{itemize}
+    \item<1-> So we now have:
+      $$
+      \Phi = k r^3 
+      $$
+    \item<2-> 
+      Flow rates at each branching have to add up
+      (else our organism is in serious trouble...):
+      $$
+      \Phi_0 = \Phi_1 + \Phi_2
+      $$
+      where again 0 refers to the  main branch and 1 and 2 refers
+      to the offspring branches
+    \item<3->
+      All of this means we have a groovy cube-law:
+      $$ 
+      \boxed{\alert{r_0^3 = r_1^3 + r_2^3}}
+      $$
+      
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Murray\ meets\ Tokunaga}
+
+
+\begin{frame}
+  \frametitle{Optimization}
+
+  \begin{block}{Murray meets Tokunaga:}
+    \begin{itemize}
+    \item<1-> 
+      $\Phi_\om$ = volume rate of flow into an order
+      $\om$ vessel segment
+    \item<2-> 
+      Tokunaga picture:
+      $$ 
+      \Phi_\om
+      = 
+      2 \Phi_{\om - 1}
+      +
+      \sum_{k=1}^{\om-1}
+      T_k
+      \Phi_{\om-k}
+      $$
+    \item<3->
+      Using $\phi_\om = k r_{\om}^{3}$
+      $$
+      r_\om^3
+      = 
+      2 r_{\om - 1}^{3}
+      +
+      \sum_{k=1}^{\om-1}
+      T_k
+      r_{\om-k}^{3}
+      $$
+    \item<4->
+      Find Horton ratio for vessel radius $R_r = r_{\om}/r_{\om-1}$...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization}
+
+  \begin{block}{Murray meets Tokunaga:}
+    \begin{itemize}
+    \item<1-> 
+      Find $R_r^{\, 3}$ satisfies same equation as $R_n$ and $R_v$\\
+      ($v$ is for volume):
+      $$
+      \boxed{ \alert{R_r^3 = R_n = R_v} }
+      $$
+    \item<2->
+      Is there more we could do here to constrain the Horton
+      ratios and Tokunaga constants?
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization}
+
+  \begin{block}{Murray meets Tokunaga:}
+    \begin{itemize}
+    \item<1-> 
+      Isometry: $V_\om \propto \ell_\om^{\, 3}$
+    \item<2->
+      Gives 
+      $$\boxed{\alert{R_\ell^3 = R_v = R_n}}$$
+    \item<3-> 
+      We need one more constraint...
+    \item<4->
+      West et al (1997)\cite{west1997a} achieve similar
+      results following Horton's laws.
+    \item<5->
+      So does Turcotte et al. (1998)\cite{turcotte1998a}
+      using Tokunaga (sort of).
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+

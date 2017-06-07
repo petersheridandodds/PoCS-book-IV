@@ -1,0 +1,522 @@
+%% fix up HOT forests---real data section
+
+%% add some of the continuum calculation, preparing for the assignment
+
+%% improve the discrete calculation ...
+
+%% add notes on moritz2005a.pdf
+%% forest fires
+
+
+\section{Robustness}
+
+%% ette's endogenous, exogenous work
+%%   
+%% Add results from a coded version for forest fires
+%% 
+%% Make the lectures about the continuous version (carlson1999a)
+%% 
+%% Give students a problem involving solving the 2-d discrete
+%% model; theory plus simulations.
+%% 
+%% Give students questions for different distributions:
+%% 
+%% \includegraphics[width=0.8\textwidth]{carlson1999a_tab1.pdf}
+%% 
+%% Add data on real forest fires, etc.
+%% 
+%% Add more recent work on HOT networks
+%% 
+%% Add simulations!!!
+%% {HOT\ theory}
+
+
+ess}
+
+  
+  
+   Many complex systems are prone to cascading catastrophic failure: {\alert{exciting!!!}}
+    
+     
+      Blackouts
+     
+      Disease outbreaks
+    
+      Wildfires
+     
+      Earthquakes
+    
+   But complex systems also show persistent \alert{robustness}
+    {(not as exciting but important...)}
+   Robustness and Failure may be a power-law story...
+  
+  
+
+gelecturelogo{.18}{DeathStarIDiagram-EGVV-tp-1.pdf}
+
+cludegraphics[width=\textwidth]{death-star-1200.jpg}
+
+sertvideo{EVekNsgUqn4}{}{}{``That's no moon ...''}
+
+ess}
+    
+  
+    
+     
+      System robustness may result from 
+      
+       
+        \alert{Evolutionary processes}
+       
+        \alert{Engineering/Design}
+      
+      Idea: Explore systems \alertb{optimized to perform}
+      under \alert{uncertain conditions}.
+      
+      The handle:\\
+      `Highly Optimized Tolerance' (HOT)\cite{carlson1999a,carlson2000a,carlson2002a,sornette2003a}
+      
+      The catchphrase: \alertb{Robust yet Fragile}
+      
+      The people: Jean Carlson and \wordwikilink{http://www.cds.caltech.edu/~doyle/}{John Doyle}
+      
+      Great abstracts of the world \#73: ``There aren't any.''\cite{doyle1978a}
+    
+  
+
+{block}{Features of HOT systems:\cite{carlson2000a,carlson2002a}}
+    
+     
+      High performance and robustness
+     
+      Designed/evolved to handle known 
+      stochastic environmental variability
+     
+      \alert{Fragile} in the face of unpredicted environmental signals
+     
+      Highly specialized, low entropy configurations
+     
+      Power-law distributions appear (of course...)
+    
+    
+  
+{block}{HOT combines things we've seen:}
+    
+     
+      Variable transformation
+     
+      Constrained optimization
+    
+  
+
+  
+  
+   
+    Need power law transformation
+    between variables: \alert{($Y = X^{-\alpha}$)}
+   
+    Recall PLIPLO is bad...
+   
+    \alertb{MIWO} is good{: Mild In, Wild Out}
+   
+    $X$ has a characteristic size but $Y$ does not
+  
+  
+
+{block}{Forest fire example:\cite{carlson2000a}}
+    
+     Square $N\times{}N$ grid
+     Sites contain a tree with probability $\rho$ = density
+     Sites are empty with probability $1-\rho$
+     Fires start at location $(i,j)$ according to some distribution $P_{ij}$
+     Fires spread from tree to tree (nearest neighbor only)
+     Connected clusters of trees burn completely
+     Empty sites block fire
+     \alert{Best case scenario:}\\
+      \alertb{Build firebreaks to maximize average \# trees left intact given one spark}
+    
+  
+
+{block}{Forest fire example:\cite{carlson2000a}}
+    
+     Build a forest by adding one tree at a time
+     Test $D$ ways of adding one tree
+     $D$ = \alert{design parameter}
+     Average over $P_{ij}$ = spark probability
+     $D=1$: random addition
+     $D=N^{\, 2}$: test all possibilities
+    
+  
+
+  \textbf{Measure average area of forest left untouched}
+    
+     
+      $f(c)$ = distribution of fire sizes $c$ (= cost)
+     
+      Yield  = $Y = \rho - \tavg{c}$
+    
+  
+
+{block}{Specifics:}
+    
+     
+      $$ P_{ij} = P_{i;a_x,b_x} P_{j;a_y,b_y}$$
+      where
+      $$ P_{i;a,b}
+      \propto
+      e^{-[(i+a)/b]^2}
+      $$
+    
+      In the original work, $b_y > b_x$
+    
+      Distribution has more width in $y$ direction.
+    
+        
+  
+
+{columns} 
+          \includegraphics[width=0.95\textwidth]{carlson2000a_fig1.pdf}\cite{carlson2000a}\\
+              $N=64$\\
+      \mbox{}\\
+      \alert{(a)} $D=1$\\
+      \alert{(b)} $D=2$\\ 
+      \alert{(c)} $D=N$\\
+      \alert{(d)} $D = N^2$\\
+      \mbox{}\\
+      $P_{ij}$ has a Gaussian decay
+      
+  
+  
+    Optimized forests do well on average {\alert{(robustness)}}
+  
+    But rare extreme events occur {\alertb{(fragility)}}
+  
+  
+
+% Sample configurations at peak yield for $N = 64$
+% and varying values of the design parameter $D$, 
+
+
+% FIG. 1. 
+% Sample configurations at peak yield for $N = 64$
+% and varying values of the design parameter $D$, 
+% (a) the random case $D=1$, (b) $D=2$, (c) $D=N$,
+% and $D = N^2$. Black sites are unoccupied.
+
+cludegraphics[width=0.95\textwidth]{carlson2000a_fig2.pdf}\cite{carlson2000a}
+  
+
+{itemize}
+     
+      $Y$ =  `the average density of trees left unburned in a configuration after a single spark hits.'\cite{carlson2000a}
+    
+      \includegraphics[width=0.95\textwidth]{carlson2000a_fig3.pdf}
+  
+
+{Narrative\ causality}
+
+\insertvideo{DOFgFAcGHQc}{120}{242}{Narrative causality: ``One in a million ...''}
+
+dom Forests}
+
+  \textbf{$D=1$: Random forests = Percolation\cite{stauffer1992a}}
+    
+     Randomly add trees
+     Below critical density $\rho_c$, no fires take off
+     Above critical density $\rho_c$, percolating
+      cluster of trees burns
+     Only at $\rho_c$, the critical density,
+      is there a power-law distribution of tree cluster sizes
+     Forest is random and featureless
+    
+  
+
+ optimization
+
+
+utshell:}
+
+  
+    
+     Highly structured
+     Power law distribution of tree cluster sizes 
+      for $\rho > \rho_c$
+     No specialness of $\rho_c$ 
+     Forest states are \alert{tolerant}
+     Uncertainty is okay if well characterized
+     \alertb{If $P_{ij}$ is characterized poorly}, failure
+      becomes \alert{highly likely}
+    
+  
+
+d Robustness,'' Carlson \& Dolye\cite{carlson2002a}}
+          
+      
+      \includegraphics[width=\textwidth]{carlson2002a_fig1}
+      
+      
+       
+        PLR = probability-loss-resource.
+       
+        Minimize cost subject to resource (barrier) constraints: \\
+        %% \left\{
+        $
+        C = \sum_{i} p_i l_i 
+        $\\
+        given\\
+        $
+        l_i = f(r_i)
+        $
+        and
+        $
+        \sum r_i \le R.
+        $
+        %% \right\}
+      
+      
+
+
+  %%   %%   
+  %%   
+  %%   
+  %%   \includegraphics[width=\textwidth]{carlson2002a_fig1}
+  %% 
+g figurative forest fires:}
+    
+     
+      Given some measure of failure size $y_i$ and
+      correlated resource size $x_i$.
+      with relationship $y_i = x_i^{-\alpha}$, $i=1,\ldots,N_{\textrm{sites}}$.
+     
+      Design system to minimize $\avg{y}$\\
+      subject to a constraint on the $x_i$.
+     Minimize cost:
+      $$ 
+      C = \sum_{i=1}^{N_{\textrm{sites}}} Pr(y_i) y_i 
+      $$
+      {
+        Subject to $\sum_{i=1}^{N_{\textrm{sites}}} x_i = \mbox{constant}$.
+      }
+      
+  
+
+ette's argument
+%% (i have seen this in doyle's papers or talks)
+%% for how dimensionality enters
+
+
+%% t continuum version
+%% 
+%%   
+%% 
+%% sions}
+  %% \textbf{HOT Theory---Two costs:}
+  \small
+  
+    
+    
+      \alertg{Cost: Expected size of fire:}
+      $$
+      C_{\textrm{fire}}
+      \propto \sum_{i=1}^{N_{\textrm{sites}}} (p_i a_i) a_i
+      {= \sum_{i=1}^{N_{\textrm{sites}}} p_i a_i^{\, 2}}
+      $$ 
+      
+       
+        $a_i$ = area of $i$th site's region
+      
+        $p_i$ = avg.\ prob.\ of fire at site in $i$th site's region
+      
+    
+      \alertg{Constraint: building and maintaining firewalls}
+      $$
+      C_{\textrm{firewalls}} \propto \sum_{i=1}^{N_{\textrm{sites}}} a_i^{1/2} a_i^{-1}
+      $$
+      
+      
+        We are assuming \alertb{isometry}.
+      
+        In $d$ dimensions, 1/2 is replaced by $(d-1)/d$
+      
+    
+      \insertassignmentquestionsoft{04}{4} to find:\\
+      %% Use Lagrange Multipliers with tongs to find:
+      $$ 
+      \boxed{
+        p_i \propto a_i^{-\gamma} 
+        = a_i^{-(2 + 1/d)}.
+      }
+      $$
+    
+  
+
+straint:}
+%%     
+%%     
+%%       Total area is constrained:
+%%       $$
+%%       \sum_{i=1}^{N_{\textrm{sites}} 1  = N^2.
+%%       $$
+%% 
+%%       $$
+%%       \sum_{i=1}^{N_{\textrm{sites}} \frac{1}{a_i} = N_{\textrm{regions}
+%%       $$
+%%       where
+%%       $N_{\textrm{regions}$ = number of cells.
+%%     
+%%       Can ignore in calculation...
+%%     
+%%   
+%%   
+%%   
+%% 
+%% {itemize}
+%%    Minimize \alertb{$C_{\textrm{fire}$} 
+%%     given \alertb{$C_{\textrm{firewalls} = {\textrm{constant}$}.
+%%   
+%%     $$
+%%     0 =
+%%     \partialdiff{}{a_j} 
+%%     \left(
+%%       C_{\textrm{fire} -\lambda C_{\textrm{firewalls}
+%%     \right)
+%%     $$
+%%     {
+%%     $$
+%%     \propto
+%%     \partialdiff{}{a_j }
+%%     \left(
+%%       \sum_{i=1}^{N} p_i a_i^{\, 2} - \lambda' a_i^{(d-1)/d} a_i^{-1}
+%%     \right)
+%%     $$
+%%     }
+%%    
+%%     $$ 
+%%     p_i \propto a_i^{-\gamma} = a_i^{-(2 + 1/d)} 
+%%     $$
+%%    
+%%     $$ 
+%%     \mbox{For} \  d=2, \gamma = 5/2
+%%     $$
+%%   
+%%   
+%% 
+%% {block}{Summary of designed tolerance\cite{carlson2002a}}
+%%     
+%%      
+%%       Build more firewalls in areas where sparks are likely
+%%      
+%%       Small connected regions in high-danger areas
+%%      
+%%       Large connected regions in low-danger areas
+%%     
+%%       Routinely see many small outbreaks \alert{(robust)}
+%%      
+%%       Rarely see large outbreaks \alert{(fragile)}
+%%      
+%%       Sensitive to changes in the environment ($P_{ij}$)
+%%     
+%%   
+%% 
+%% sertvideo{znWt_512GIo}{}{}{The Emperor's Robust-Yet-Fragileness:}
+
+
+\subsection{Self-Organized\ Criticality}
+
+ches of Sand and Rice...}
+
+  \begin{center}
+    \includegraphics[height=0.8\textheight]{rice-SOC.jpg}
+  \end{center}
+
+ized Criticality}
+    
+     Idea: natural dissipative systems exist at `critical states';
+     Analogy: Ising model with temperature somehow self-tuning;
+     Power-law distributions of sizes and frequencies arise `for free';
+     Introduced in 1987 by Bak, Tang, and Weisenfeld\cite{bak1987a,bak1997a,jensen1998a}:\\
+      ``Self-organized criticality - an explanation of 1/f noise'' (PRL, 1987);
+     \alert{Problem:} Critical state is a very specific point;
+     Self-tuning not always possible;
+     Much criticism and arguing...
+    
+  
+
+book{bak1997a}
+
+{block}{HOT versus SOC}
+
+    
+     Both produce power laws
+     Optimization versus self-tuning
+     HOT systems viable over a wide range of high densities
+     SOC systems have one special density
+     HOT systems produce specialized structures
+     SOC systems produce generic structures
+    
+    
+  
+
+ce\cite{carlson2002a}}
+
+  
+  \begin{center}
+    \includegraphics[height=0.8\textheight]{carlson2002a_tab1}
+  \end{center}
+  
+
+d Robustness'\cite{carlson2002a}}
+      \includegraphics[width=0.48\textwidth,page=1]{carlson2002a}
+      \includegraphics[width=0.48\textwidth,page=2]{carlson2002a}
+  
+{COLD\ theory}
+
+{block}{Avoidance of large-scale failures}
+      
+       Constrained Optimization with Limited Deviations\cite{newman2002f}
+       Weight cost of larges losses more strongly
+       Increases average cluster size of burned trees...
+       ... but reduces chances of catastrophe
+       Power law distribution of fire sizes is truncated
+      
+  
+  
+{itemize}
+    
+      Power law distributions often have an exponential cutoff
+      $$ 
+      P(x) \sim x^{-\gamma} e^{-x/x_c}
+      $$
+      where $x_c$ is the approximate cutoff scale.
+    
+      May be Weibull distributions:
+      $$ 
+      P(x) \sim x^{-\gamma} e^{-a x^{-\gamma+1}}
+      $$
+    
+  
+
+ow for later on:
+\subsection{Network\ robustness}
+
+ess}
+
+  %% link to networks pdf
+
+  \textbf{We'll return to this later on:}
+    
+    
+      \alertb{Network robustness}.
+    
+      Albert et al., Nature, 2000:\\
+      \alertb{``Error and attack tolerance of complex networks''}\cite{albert2000a}
+    
+      General contagion processes acting on complex networks.\cite{watts2002b,watts2007a}
+    
+      Similar robust-yet-fragile stories ...
+      %% 
+      %%   \lecturelink{networks-overview-slides}{Networks Overview}{67ish}
+    
+  
+
+sertvideo{LowVhCfLm68}{}{}{The Emperor's Robust-Yet-Fragileness:}

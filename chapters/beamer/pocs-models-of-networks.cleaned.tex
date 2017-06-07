@@ -1,0 +1,2286 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% models and analyses
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% add more about recent work on small world search
+%% a bit of zombie theory
+
+%% \section{Basic\ models\ of\ complex\ networks}
+
+{block}{Some important models:}
+    
+     
+      Generalized random networks;
+     
+      Small-world networks;
+     
+      Generalized affiliation networks;
+     
+      Scale-free networks;
+     
+      Statistical generative models ($p^\ast$).
+    
+  
+  
+{Generalized\ random\ networks}
+
+{block}{Generalized random networks:}
+    
+     Arbitrary degree distribution $P_k$.
+     Create (unconnected) nodes with degrees sampled from $P_k$.
+     Wire nodes together randomly.
+     Create ensemble to test deviations from randomness.
+    
+  
+  
+dom networks: Stubs}
+
+  \textbf{Phase 1:}
+    
+     \alertg{Idea:} start with a soup of unconnected nodes
+      with \alertb{stubs} (half-edges):
+      \begin{center}
+        \includegraphics[angle=-90,width=0.7\textwidth]{rn_stubs02_examples}
+      \end{center}
+    
+          
+      \includegraphics[angle=-90,width=\textwidth]{rn_stubs03_examples}
+      
+      
+       Randomly select stubs (not nodes!) and connect them.
+       Must have an even number of stubs.
+       Initially allow \alertg{self-} and \alertg{repeat} connections.
+      
+    
+  
+
+dom networks: First rewiring}
+
+  \textbf{Phase 2:}
+    
+     Now find any (A) self-loops and (B) repeat edges 
+      and \alertg{randomly rewire} them.
+      \begin{center}
+        (A)
+        \includegraphics[height=0.125\textheight]{rn_stubs04_examples}
+        \qquad
+        (B)
+        \includegraphics[height=0.1\textheight]{rn_stubs05_examples}
+      \end{center}
+     \alertg{Being careful:} we can't change
+      the degree of any node, so we can't simply move
+      links around.
+     \alertg{Simplest solution:} 
+      randomly rewire \alertb{two edges} at a time.
+    
+  
+
+dom rewiring algorithm}
+
+      
+    \includegraphics[width=\textwidth]{rn_stubs06_examples}
+    
+    
+      
+       Randomly choose \alertg{two edges}.\\
+        (Or choose problem edge and a random edge)
+       Check to make sure edges are \alertb{disjoint}.
+      
+    
+        
+          
+      
+      \includegraphics[width=\textwidth]{rn_stubs08_examples}
+        
+    
+      
+       Rewire one end of each edge.
+       Node degrees \alertg{do not change}.
+       Works if $e_1$ is a self-loop or repeated edge.
+       Same as finding on/off/on/off 4-cycles.
+        and rotating them.
+      
+    
+    
+dom networks}
+
+  \textbf{Phase 2:}
+    
+     Use rewiring algorithm to remove
+      all self and repeat loops.
+    
+    
+
+  \textbf{Phase 3:}
+    
+     \alertg{Randomize network} wiring by applying
+      rewiring algorithm liberally.
+     \alertb{Rule of thumb}:
+      \# Rewirings $\simeq$
+      10 $\times$ \# edges\cite{milo2003a}.
+    
+    
+  
+{Small-world\ networks}
+
+\subsection{Main\ story}
+
+king about people:}
+  
+  \textbf{How are social networks structured?}
+    
+     How do we define and measure connections?
+     Methods/issues of self-report and remote sensing.
+    
+  
+
+  \textbf{What about the dynamics of social networks?}
+    
+     How do social networks/movements begin \& evolve? 
+     How does collective problem solving work? 
+     How does information move through social networks?
+     Which rules give the best `game of society?'
+    
+  
+
+  \textbf{Sociotechnical phenomena and algorithms:}
+    
+    
+      What can people and computers do together? (google)
+    
+      Use \alertb{Play + Crunch} to solve problems.  Which problems?
+    
+  
+
+{itemize}
+     
+      \alertg{Q.} Can people pass messages between distant individuals 
+      using only their existing social connections?
+    
+      \alertg{A.} Apparently yes...
+    
+  
+
+%%   \textbf{Handles:}
+%%     
+%%      
+%%       The Small World Phenomenon
+%%     
+%%       or ``Six Degrees of Separation.''
+%%     
+%%   
+
+{columns}
+    
+    \includegraphics[width=\textwidth]{milgrambook2.jpg}\\
+    \tiny{\url{http://www.stanleymilgram.com}}
+
+    
+    
+      
+       Target person = \\ Boston stockbroker.
+       296 senders from Boston and Omaha.
+       20\% of senders reached target.
+       chain length $\simeq$ 6.5.
+      
+    
+
+     \textbf{Popular terms:}
+       
+        
+         \alertb{The Small World Phenomenon;}
+       
+         \alertb{``Six Degrees of Separation.''}
+       
+     
+
+  
+ Bacon:}
+          
+      
+      \includegraphics[height=0.22\textheight]{kevin-bacon-footloose.jpg}
+      
+      
+      
+        It's a
+        \wordwikilink{http://en.wikipedia.org/wiki/Six\_Degrees\_of\_Kevin\_Bacon}{game}:\\
+        ``Kevin Bacon is the Center of the Universe''
+       
+        \wordwikilink{http://oracleofbacon.org}{The Oracle of Bacon}
+      
+      
+  
+  \textbf{Six Degrees of Paul Erd\"{o}s:}
+          
+      
+      \includegraphics[height=0.22\textheight]{paul-erdos.jpg}
+      
+      
+       
+        Academic papers.
+      
+        \wordwikilink{http://bit.ly/19puO29}{Erd\"{o}s Number}
+      
+        \wordwikilink{http://www.oakland.edu/enp/}{Erd\"{o}s Number Project}
+      
+      
+
+  
+    
+    
+      So naturally we must have the
+      \wordwikilink{http://bit.ly/16TyyLf}{Erd\"{o}s-Bacon Number} ...
+    
+      One computational Story Lab team member has EBN $< \infty$.
+    
+      Natalie Hershlag's (Portman's) EBN\# = 5 + 2 = 7.
+    
+  
+
+ting:}
+  \includegraphics[width=\textwidth]{good_will_hunting_3.jpg}
+
+      
+    
+    \includegraphics[height=.2\textheight]{Daniel_Kleitman.jpg}
+    
+    
+     
+      Boardwork by
+      \wordwikilink{http://en.wikipedia.org/wiki/Daniel\_Kleitman}{Dan
+        Kleitman}, EBN\# = 1 + 2 = 3.
+    
+      See Kleitman's sidebar in \\
+      \wordwikilink{http://www.ams.org/notices/199804/review-saul.pdf}{Mark Saul's Movie Review}\\
+      (Notices of the AMS, Vol. 45, 1998.)
+    
+    
+sa-three-degrees.png}
+
+  
+   
+    \wordwikilink{http://arstechnica.com/information-technology/2013/07/you-may-already-be-a-winner-in-nsas-three-degrees-surveillance-sweepstakes/}{Many people}
+    are within three degrees from a random person ...
+  
+
+ley Milgram et al., late 1960's:}
+%%     
+%%      Target person worked in Boston as a stockbroker.
+%%      296 senders from Boston and Omaha.
+%%      20\% of senders reached target.
+%%      average chain length $\simeq$ 6.5.
+%%     
+%%   
+%% 
+%% s}
+     
+     \textbf{Lengths of successful chains:}
+       \includegraphics[width=\textwidth]{figbasicmilg_noname}
+     
+     
+     From Travers and Milgram (1969) in Sociometry:\cite{travers1969a}\\
+     \alertb{``An Experimental Study of the Small World Problem.''}
+   
+{enumerate}
+     Short paths exist, {\alertb{(= Geometric piece)}}
+    [] and 
+     People are good at finding them. {\alertb{(= Algorithmic piece)}}
+    
+  
+
+t with email:}
+    \begin{center}
+      \includegraphics[width=0.65\textwidth]{window2}
+    \end{center}
+  
+
+{\small
+  
+  \alertg{``An Experimental study of Search in Global Social Networks''}\\
+  P.~S.~Dodds, R.~Muhamad, and D.~J.~Watts,\\ 
+  \textit{Science}, Vol.~301, pp.~827--829, 2003.\cite{dodds2003b}
+  
+}
+{block}{}
+  
+   
+    60,000+ participants in 166 countries
+   
+    18 targets in 13 countries including
+    
+     
+      a professor at an Ivy League university,\\
+     
+      an archival inspector in Estonia,\\
+     
+      a technology consultant in India,\\
+     
+      a policeman in Australia,\\
+    [] 
+      and 
+     
+      a veterinarian in the Norwegian army.
+    
+  
+    24,000+ chains
+  
+  
+
+  \textbf{We were lucky and contagious (more later):}
+    \wordwikilink{http://www.nytimes.com/2001/12/20/technology/circuits/20STUD.html}{``Using E-Mail to Count Connections''}, Sarah Milstein, New York Times, Circuits Section (December, 2001)
+  
+
+cludegraphics[height=0.85\textheight]{dodds2003b_tabS1}
+  
+
+{block}{}
+  
+  
+    Milgram's participation rate was roughly 75\%
+  
+    Email version: Approximately 37\% participation rate.
+  
+    Probability of a chain of length 10 getting through:
+    $$.37^{10} \simeq 5 \times 10^{-5}$$
+  
+  $\Rightarrow$ 384 completed chains (1.6\% of all chains).
+  
+  
+  
+{block}{}
+  
+    
+    Motivation/Incentives/Perception matter.
+    
+    If target \textit{seems} reachable\\
+    $\Rightarrow$ participation more likely.
+    
+    Small changes in attrition rates\\
+    $\Rightarrow$ large changes in completion rates
+    
+    e.g., $\searrow$ 15\% in attrition rate \\
+    $\Rightarrow$ $\nearrow$ 800\% in completion rate
+  
+  
+
+{block}{Comparing successful to unsuccessful chains:}
+    
+     
+      Successful chains used relatively weaker ties:
+    
+    \includegraphics[width=0.8\textwidth]{figcistrength3.pdf}
+  
+
+{block}{Successful chains disproportionately used:}
+    
+     
+      Weak ties, Granovetter\cite{granovetter1973a}
+     
+      Professional ties (34\% vs.\ 13\%)
+     
+      Ties originating at work/college
+     
+      Target's work (65\% vs.\ 40\%)
+    
+  
+  
+  \textbf{\ldots and disproportionately avoided}
+    
+     
+      hubs (8\% vs. 1\%) (+ no evidence of funnels)
+    
+      family/friendship ties (60\% vs. 83\%)
+    
+  
+
+  \textbf{Geography $\rightarrow$ Work}
+    
+
+{block}{}
+  Senders of successful messages showed\\
+  \alertb{little absolute dependency} on
+  
+  
+    age, gender
+  
+    country of residence
+   
+    income
+   
+    religion
+   
+    relationship to recipient
+  
+
+  \bigskip
+
+  {
+    Range of completion rates for subpopulations: \\
+    \mbox{} \hfill 30\% to 40\%
+  }
+  
+
+ 41.9%
+%% % Gender Male 39.6%
+%% % occupation > 20 counts: mass media 47.0%
+%% % position 
+%% % high school student 31.0%
+%% % college student 32.2%
+%% % retired 32.9%
+%% % nreligion christian 36.2%, buddhism 33.5%, islam 32.3%
+%% 
+%% 
+%% % Age 17 or under 32.8%
+%% % Canada 34.7%
+%% % Elementary school 28.3%
+%% % Gender female 37.1%
+%% % occupation > 20 counts: consumer services 29.2%
+%% % position 
+%% % `other' 40%
+%% % specialist/engineer 39.8%
+%% % university student 39.8%
+%% % religion none 40.5%
+%% 
+%% % 69 countries
+%% % Canada, Italy, France, U.S.
+%% % Australia, Germany, Norway, Finland
+%% 
+%% % uber sender
+%% % mass media
+%% % > 100k
+%% % graduate
+%% % male
+%% 
+%% Nevertheless, some weak discrepencies do exist...
+%% 
+%% \textbf{Contrived hypothetical above average connector:}
+%%   Norwegian, secular male, aged 30-39, earning over \$100K, 
+%%   with graduate level education working in mass media or science,
+%%   who uses relatively weak ties to people
+%%   they met in college or at work.
+%% 
+%% 
+%% \textbf{Contrived hypothetical below average connector:}
+%%   Italian, religious female earning less than \$2K,
+%%   with elementary school education and retired,
+%%   who uses strong ties to family members.
+%% 
+%% 
+%% {block}{Mildly bad for continuing chain:}
+    choosing recipients because 
+    \alertg{``they have lots of friends''}
+    or because they will 
+    \alertg{``likely continue the chain.''}
+  
+
+  \textbf{Why:}
+    
+     
+      Specificity important
+     
+      Successful links used relevant information.\\
+      (e.g. connecting to someone who shares same profession as target.)
+    
+  
+
+cludegraphics[height=0.86\textheight]{figsw_2_r_invert_all3_mod_noname}
+%
+%{block}{Basic results:}
+    
+    
+    
+      $\avg{L} = 4.05$ for all completed chains
+    
+      $L_\ast$ = Estimated `true' median chain length (zero attrition)
+    
+      Intra-country chains: $L_\ast = 5$ 
+    
+      Inter-country chains:
+      $L_\ast = 7$ 
+    
+      All chains:
+      $L_\ast = 7$ 
+    
+      Milgram:
+      $L_\ast \simeq$ 9
+    
+  
+
+{block}{Harnessing social search:}
+    
+    
+      Can distributed social search be used for something big/good? 
+    
+      What about something evil?  (Good idea to check.)
+    
+      What about socio-inspired algorithms for information search?  (More later.)
+    
+      For real social search, we have an incentives problem.
+    
+      Which kind of influence mechanisms/algorithms 
+      would help propagate search?
+    
+      Fun, money, prestige, ... ?
+    
+      Must be `non-gameable.'
+    
+  
+
+{block}{A Grand Challenge:}
+    
+    
+      1969: The Internet \wordwikilink{http://en.wikipedia.org/wiki/History_of_the_Internet}{is born}\\
+      (the \wordwikilink{http://en.wikipedia.org/wiki/ARPANET}{ARPANET}---four nodes!).
+    
+      Originally funded by DARPA who created 
+      a grand
+      \wordwikilink{http://en.wikipedia.org/wiki/DARPA_Network_Challenge}{Network Challenge}
+      for the 40th anniversary.
+    
+      Saturday December 5, 2009: DARPA 
+      puts 10 red weather balloons up during the day.
+    
+      Each 8 foot diameter balloon is anchored to the ground
+      \alertb{somewhere in the United States}.
+    
+      Challenge: Find the latitude and longitude of each balloon.
+    
+      Prize: \alertg{\$40,000}.
+    
+  
+
+  {
+    {
+      \small
+      \mbox{}$^\ast$DARPA = \wordwikilink{http://www.darpa.mil/}{Defense Advanced Research Projects Agency}.
+    }
+  }
+
+cludegraphics[width=\textwidth]{BalloonMap.jpg}
+g red balloons:}
+
+  \textbf{The winning team and strategy:}
+    
+     
+      \wordwikilink{http://www.media.mit.edu/}{MIT's Media Lab} 
+      won in less than 9 hours.\cite{pickard2011a}
+     
+      Pickard et al. ``Time-Critical Social Mobilization,''\cite{pickard2011a}
+      Science Magazine, 2011.
+     
+      People were virally recruited online to help out.
+     
+      Idea: Want people to both
+      (1) find the balloons, and
+      (2) involve more people.
+     
+      Recursive incentive structure with exponentially decaying payout: 
+      
+      
+        \$2000 for correctly reporting
+        the coordinates of a balloon.
+       
+        \$1000 for recruiting a person who finds a balloon.
+       
+        \$500 for recruiting a person who recruits the balloon finder, \ldots
+       
+        (Not a Ponzi scheme.)
+      
+    
+      True victory: 
+      \wordwikilink{http://www.colbertnation.com/the-colbert-report-videos/260725/january-05-2010/riley-crane}{Colbert interviews Riley Crane}
+    
+  
+
+%% no longer around:
+%%      
+%%       Sign up: 
+%%       {\small 
+%%         \{http://balloon.media.mit.edu/your\_humorous\_name}
+%%       }
+  
+g balloons:}
+  
+  \textbf{Clever scheme:}
+    
+     
+      Max payout = \$4000 per balloon.
+     
+      Individuals have clear incentives to both 
+      
+       
+        \alertg{involve/source more people} (spread), and
+      
+        \alertg{find balloons} (goal action).
+      
+     Gameable?
+     Limit to how much money a set of bad actors can extract.
+    
+  
+
+  \textbf{Extra notes:}
+    
+     
+      MIT's brand helped greatly.
+     
+      MIT group first heard about the competition a few days before.
+      {\alertg{Ouch.}}
+     
+      A number of other teams 
+      \wordwikilink{https://networkchallenge.darpa.mil/FinalStandings.pdf}{did well}.
+     
+      Worthwhile looking at these competing strategies.\cite{pickard2011a}
+    
+  
+
+{itemize}
+    
+      \wordwikilink{http://www.nytimes.com/2013/06/25/us/a-parallel-search-for-a-missing-panda.html}{Finding an errant panda}
+     
+      Nature News:
+      \wordwikilink{http://www.nature.com/news/crowdsourcing-in-manhunts-can-work-1.12867}
+      {``Crowdsourcing in manhunts can work:
+        Despite mistakes over the Boston bombers, social media can help to find people quickly''}
+      by Philip Ball
+      (April 26, 2013)
+    
+  
+
+derstand the small world property?}
+    
+    
+      Connected \alertb{random networks}
+      have short average path lengths:
+      $$\tavg{d_{AB}} \sim \log(N)$$
+    []
+      $N$ = population size,
+    []
+      $d_{AB}$ = distance between nodes $A$ and $B$.
+    
+      \alertg{But: social networks aren't random...}
+    
+  
+
+ a network:}
+
+      
+    \includegraphics[width=\textwidth]{clustering}
+    
+    Need \alertg{``clustering''} (your friends are likely to know each other):
+  
+domness gives clustering:}
+
+  \begin{center}
+    \includegraphics[height=0.65\textheight]{lattice3}
+  \end{center}
+
+  $d_{AB}=10$ $\rightarrow$ too many long paths.
+
+ess + regularity}
+
+  \begin{center}
+    \includegraphics[height=0.65\textheight]{latticeshortcut3}
+  \end{center}
+
+  \alertg{Now have $d_{AB}=3$}
+  \hfill $\tavg{d}$ decreases overall
+{block}{}
+  Introduced by
+  Watts and Strogatz (Nature, 1998)\cite{watts1998a}\\
+  \alertg{``Collective dynamics of `small-world' networks.''}
+  
+
+  \textbf{Small-world networks were found everywhere:}
+    
+     neural network of C. elegans,
+     semantic networks of languages,
+     actor collaboration graph,
+     food webs,
+     social networks of comic book characters,...
+    
+  
+
+  \textbf{Very weak requirements:}
+    
+     \alertg{local regularity}
+      {+ random \alertb{short cuts}}
+    
+  
+  
+{center}
+        \includegraphics[height=0.6\textheight]{bretvictor-smallworlds.png}
+      \end{center}
+      
+       
+        Bret Victor's \wordwikilink{http://worrydream.com/ScientificCommunicationAsSequentialArt/}{Scientific Communication As Sequential Art}
+       
+        Interactive figures and tables = windows into large data sets
+        (empirical or simulated).
+    
+  
+
+cludegraphics[width=\textwidth]{watts1998a_fig1.pdf}    
+%%   
+%% 
+%% cludegraphics[width=0.9\textwidth]{watts1998a_fig2.pdf}
+
+    \small
+    
+     
+      $L(p)$ = average shortest path length as a function of $p$
+     
+      $C(p)$ = average clustring as a function of $p$
+    
+  
+
+g short paths}
+
+  
+  But are these short cuts findable?
+
+  \bigskip
+
+  {\alertg{Nope.}\cite{kleinberg2000a}}
+
+  \bigskip
+
+  {
+  Nodes \alertb{cannot} find each other quickly\\ 
+  with \alertb{any local search method}.
+  }
+
+  \bigskip
+
+  {Need a more sophisticated model...}
+  
+
+g short paths}
+
+  
+    
+     What can a local search method reasonably use?
+      How to find things without a map?
+     \alertb{Need some measure of distance between friends
+        and the target.}
+    
+  
+  
+  \bigskip
+
+  \textbf{Some possible knowledge:}
+    
+     Target's identity
+     Friends' popularity 
+     Friends' identities 
+     Where message has been 
+    
+  
+
+g short paths}
+
+  
+    Jon Kleinberg (Nature, 2000)\cite{kleinberg2000a}\\
+    ``Navigation in a small world.''
+  
+
+   \bigskip
+   
+   \textbf{Allowed to vary:}
+     
+      local search algorithm
+     [] and
+      network structure.
+     
+   
+
+g short paths}
+
+  \textbf{Kleinberg's Network:}
+    
+    
+      Start with
+      regular d-dimensional cubic lattice.
+     
+      Add local links so 
+      nodes know all nodes within a distance $q$.
+    
+      Add $m$ short cuts per node.
+      
+      Connect $i$ to $j$ with probability 
+      $$ p_{ij} \propto {x_{ij}}^{-\alpha}. $$
+    
+  
+
+  
+    
+     
+      \alertg{$\alpha=0$}: random connections.
+      
+      \alertg{$\alpha$ large}: reinforce local connections.
+     
+      \alertg{$\alpha=d$}: connections grow logarithmically in space.
+    
+  
+
+g short paths}
+
+  \textbf{Theoretical optimal search:}
+    
+     
+      ``Greedy'' algorithm.
+     
+      Number of connections grow logarithmically (slowly)
+      in space: $\alpha=d$.
+     
+      Social golf.
+    
+
+    \bigskip
+    {
+      Search time grows slowly with system size (like $\log^2N$).
+      }
+
+ %  For $\alpha \ne d$, polynomial factor $N^\beta$ appears.
+
+    \bigskip
+    {
+      \alertg{But: social networks aren't lattices plus links.}
+    }
+    
+  
+  
+ces for understanding Kleinberg's model}
+
+    \displaypaper{roberson2006a}{1}
+
+    \displaypaper{carmi2009a}{2}
+
+    %% must fix bracket matching
+    \displaypaper{cartoza2009a}{2}
+    
+  
+
+  %% bagrow
+  %% The tl;dr key takeaways are the 3rd-6th paragraphs of the first paper
+  %% (which all boils down to Eq 1) and Fig 2 in the second paper.
+
+g short paths}
+
+  
+    
+     
+      If networks have \alertb{hubs} can 
+      also search well: Adamic et al. (2001)\cite{adamic2001a}
+      $$ P(k_i) \propto k_i^{-\gamma}$$
+      where $k$ = degree of node $i$ (number of friends).
+    
+      Basic idea: get to hubs first\\
+      (airline networks).
+       
+      \alertg{But: hubs in social networks are limited.}
+    
+  
+  
+{Generalized\ affiliation\ networks}
+
+{block}{}
+  If there are no hubs and no underlying lattice,
+  how can search be efficient?
+
+  \includegraphics[width=0.45\textwidth]{barenetwork}%
+  \raisebox{8ex}{\begin{tabular}{l}
+      \\
+      Which friend of \alertb{a} is closest \\
+      to the target \alertb{b}?\\
+      \\
+      What does `closest' mean?\\
+      \\
+      What is
+      `social distance'?  \\
+      \end{tabular}}
+  
+
+e approach: incorporate \alertb{identity}.
+
+  \bigskip
+
+  {
+    \alertb{Identity is formed from attributes such as:}
+    
+     
+      Geographic location
+     
+      Type of employment
+     
+      Religious beliefs
+     
+      Recreational activities.
+    
+  }
+
+  \bigskip
+
+  {
+    \alertb{Groups} are formed by people with at least one similar attribute.
+  }
+
+  \bigskip
+
+  {
+    Attributes $\Leftrightarrow$ 
+    Contexts $\Leftrightarrow$ 
+    Interactions $\Leftrightarrow$ 
+    Networks.
+    }
+  
+
+ networks}
+
+  
+  \centering
+  \includegraphics[height=0.75\textheight]{bipartite}
+  
+   
+    Bipartite affiliation networks: boards and directors, movies and actors.
+  
+  
+
+  %% boards of directors
+  %% movies
+  %% transportation
+
+text distance}
+
+  
+    \centering
+    \includegraphics[width=\textwidth]{bipartite2}
+  
+
+ce between two individuals $x_{ij}$ 
+    is the height of lowest common ancestor.
+
+    \begin{center}
+      \includegraphics[width=0.8\textwidth]{fig01_hierarchy_againA}
+    \end{center}
+
+    \alertb{$x_{ij}=3$, $x_{ik}=1$, $x_{iv}=4$.}
+  
+
+{itemize}
+     
+      Individuals are more
+      likely to know each other the closer they are
+      within a hierarchy.
+     
+      Construct $z$ connections for each node
+      using
+      \alertb{$$p_{ij} =c\exp\{-\alpha x_{ij}\}.$$}
+     
+      \alertg{$\alpha=0$}: random connections.
+     
+      \alertg{$\alpha$ large}: local connections.
+    
+  
+
+eralized affiliation networks}
+
+    \medskip
+
+    \includegraphics[width=1\textwidth]{generalcontext2}  
+    
+     Blau \& Schwartz\cite{blau1984a}, Simmel\cite{simmel1902a},
+      Breiger\cite{breiger1974a}, Watts \etal\cite{watts2002b}; 
+      see also Google+ Circles.
+    
+  
+
+
+etworks}
+%%     
+%%      Introduced by Watts and Strogatz\cite{watts1998a}
+%%     
+%%     \medskip
+%%     {Two scales:}
+%%     
+%%      \alertg{local regularity} (an individual's friends know each other)
+%%      \alertg{global randomness} (shortcuts).
+%%     
+%% 
+%%     %%       
+%%       
+%%        Shortcuts allow disease to jump
+%%        Number of infectives increases exponentially in time
+%%       
+%%       
+%%       %%         
+%%         
+%%         \includegraphics[height=0.3\textheight]{lattice4}
+%%         
+%%         \includegraphics[height=0.3\textheight]{latticeshortcut4}
+%%       %%     %%   
+%%   
+%% try.
+% % 
+% %   \alertb{Level 3:} Regions: South, North East, Midwest, West coast, South West, Alaska.
+% % 
+% %   \alertb{Level 4:} States within regions\\ (New York, Connecticut, Massachusetts,\ldots).
+% % 
+% %   \alertb{Level 5:} Cities/areas within States\\ (New York city, Boston, the Berkshires).
+% % 
+% %   \alertb{Level 6:} Suburbs/towns/smaller cities\\ (Brooklyn, Cambridge).
+% %   
+% %   \alertb{Level 7:} Neighborhoods\\ (the Village, Harvard Square).
+% % d{frame}
+
+
+{center}
+    \includegraphics[width=\textwidth]{fig01_hierarchy_againD}
+  \end{center}
+
+  \begin{center}
+
+    $\vec{v}_i = [ 1 \  1 \ 1 ]^T$, $\vec{v}_j = [ 8 \ 4 \ 1]^T$ \hfill
+    Social distance:\\
+    \alertb{$x^1_{ij} = 4$, \ $x^2_{ij} = 3$, \ $x^3_{ij} = 1$.}
+    \hfill
+    $ \boxed{y_{ij} = \min_h x^h_{ij}.} $
+
+  \end{center}
+
+imum distance
+%   between two nodes in all hierarchies.
+% 
+%   $$ \boxed{y_{ij} = \min_h x^h_{ij}.} $$
+% 
+% \vfill
+% 
+%   Previous slide:
+%   \begin{center}
+%     
+%     \alertb{$x^1_{ij} = 4$, \ $x^2_{ij} = 3$, \ $x^3_{ij} = 1$.}
+% 
+%     $\Rightarrow  y_{ij} = 1$.
+% 
+%   \end{center}
+% 
+% gle inequality doesn't hold:}
+    \begin{center}
+      \includegraphics[width=1\textwidth]{fig01_hierarchy_againE}
+    \end{center}
+
+    \begin{center}
+      \alertg{$y_{ik} = 4 > y_{ij} + y_{jk} = 1 + 1 = 2.$}
+    \end{center}
+  
+
+{itemize}
+   
+    Individuals know the identity
+    vectors of
+    
+     
+      themselves,
+      
+      their friends,
+    []  
+      and
+      
+      the target.
+    
+  
+    Individuals can estimate the social distance
+    between their friends and the target.
+  
+    Use a greedy algorithm + allow searches to fail randomly.
+  
+  
+  
+tering
+   \includegraphics[height=0.4\textheight]{figHalphavar02ultp_talk2_noname}%
+ \raisebox{12ex}{
+   \begin{tabular}{l}
+   \alertb{$q \ge r$} \\
+   \alertg{$q<r$} \\
+   $r= 0.05$
+ \end{tabular}}
+
+
+  $q$ = probability an arbitrary message
+  chain reaches a target.
+
+  
+   A few dimensions help.\\
+   Searchability decreases as population increases.\\
+   Precise form of hierarchy largely doesn't matter.
+  
+
+
+{columns}
+    
+    \includegraphics[width=\textwidth]{figmilgram_talk_noname}%
+    
+    \textbf{Model parameters:}
+      
+      
+        $N=10^8$, 
+      
+        $z=300$, $g=100$,
+      
+        $b=10$,  
+      
+        $\alpha=1$, $H=2$; 
+      []
+      
+        $\tavg{L_{\textrm{model}}} \simeq 6.7$
+      
+        $L_{\textrm{data}} \simeq 6.5$
+      
+    
+  
+d Adar (2003)}
+    
+    
+      For HP Labs, found probability of connection
+      as function of organization distance
+      well fit by exponential distribution.
+    
+      Probability of connection as function of
+      real distance $\propto 1/r$.
+    
+  
+
+{itemize}
+   
+  Tags create identities for objects
+   
+  Website tagging:
+  \wordwikilink{http://bitly.com}{bitly.com}
+   
+  (e.g., Wikipedia)
+   
+  Photo tagging:
+  \wordwikilink{http://www.flickr.com}{flickr.com}
+   
+  Dynamic creation of metadata
+  plus links between information objects.
+   
+  Folksonomy: collaborative creation of metadata
+  
+  
+  
+der systems:}
+    
+    
+      Amazon uses people's actions to build
+      effective connections between books.  
+    
+      Conflict between `expert judgments' and\\
+      tagging of the hoi polloi.
+    
+  
+
+  %  Q: Does tagging lead to a flat structure or 
+  %  can we identify categories?  (Community detection.)
+
+  % some information scientists decry tagging
+  % as poorly directed
+
+{Nutshell}
+
+{block}{Nutshell for Small-World Networks:}
+    
+    
+      Bare networks are typically unsearchable.
+     
+      Paths are findable if nodes understand how network is formed.
+     
+      Importance of identity (interaction contexts).
+     
+      Improved social network models.
+     
+      Construction of peer-to-peer networks.
+     
+      Construction of searchable information databases.
+    
+  
+
+der Gamme
+\neuralreboot{vC8gJ0_9o4M}{}{}{Food-induced happiness}
+
+\section{Scale-free\ networks}
+
+\subsection{Main\ story}
+
+etworks}
+ 
+ 
+ 
+  
+   Networks with power-law degree distributions
+   have become known as \alertg{scale-free} networks.
+ 
+   Scale-free refers specifically to the \alertg{degree distribution}
+   having a \alertg{power-law decay} in its tail:
+   $$
+   {
+     P_k \sim k^{-\gamma} 
+     \mbox{\ for `large' $k$}
+   }
+   $$
+ 
+   One of the seminal works in complex networks:\\
+   Laszlo Barab\'{a}si and Reka Albert, Science, 1999:\\
+   \alertb{``Emergence of scaling in random networks''}\cite{barabasi1999a}\\
+   \wordwikilink{http://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=vsj2slIAAAAJ\&citation\_for\_view=vsj2slIAAAAJ:u5HHmVD\_uO8C}
+   {Times cited: {\alert{$\sim 20,734$}}}
+   {\tiny(as of September 23, 2014)}
+ 
+   Somewhat misleading nomenclature...
+ 
+ 
+
+{block}{}
+  
+  
+    Scale-free networks are \alertg{not fractal} in any sense.
+  
+    Usually talking about networks whose links are
+    \alertb{abstract}, 
+    \alertg{relational}, 
+    \alertb{informational}, 
+    \ldots (non-physical)
+  
+    Primary example: hyperlink network of the Web
+  
+    Much arguing about whether or networks are `scale-free' or not\ldots
+  
+  
+
+{block}{From Barab\'{a}si and Albert's original paper\cite{barabasi1999a}:}
+   \includegraphics[width=\textwidth]{barabasi1999a_fig1}   
+ 
+ 
+put{nw_powerlaw_graphviz03giants}
+
+etworks}
+
+ \textbf{The big deal:}
+   
+   
+     We move beyond describing networks
+     to finding \alertg{mechanisms} for why
+     certain networks are the way they are.
+   
+ 
+
+ \textbf{A big deal for scale-free networks:}
+   
+   
+     How does the exponent $\gamma$ depend on the mechanism?
+   
+     Do the mechanism details matter?
+   
+ 
+ 
+etworks':}
+%%     
+%%      Introduced by Barabasi and Albert\cite{barabasi1999a}
+%%      Generative model
+%%      Preferential attachment model with growth:
+%%         $P[\textrm{\mbox{attachment to node}\ i] \propto k_{i}^\alpha$.
+%%      Produces \alertg{$P_k \sim k^{-3}$} when $\alpha=1$.
+%%      Trickiness: other models generate skewed degree distributions.
+%%     
+%%   
+%% 
+%% g i completely agree with from socnet (mason porter):
+%%
+
+%% The term 'scale free' is a very unfortunate (and misleading) term that was spread based on the terminology choice of some individuals.  (Some people on this mailing
+%% list who know me are probably laughing their heads off and expecting me to go into one of my usual rants.  I'll spare you this time.)  It is used to refer to networks
+%% with degree distributions given by power laws (or, for real data, have power law tails) because a commonality of these sorts of scaling laws (which is different from
+%% scales, by the way, despite the similar terminology) one finds in fractal structures.  The thing is that networks with those degree distributions _can_ have scales,
+%% as discussed in gory detail by John Doyle and collaborators.  It's better to just state the power law aspect of it when one's network has that feature and not comment
+%% on whether or not there are scales unless one goes beyond the degree distribution.
+
+%% 
+%% One of Doyle's papers that discusses this is here: http://arxiv.org/abs/cond-mat/0501169
+%% 
+%% I hope this helps.
+
+
+%% {block}{Work that presaged scale-free networks}
+%%     
+%%      
+%%       1924: \alertg{G. Udny Yule}\cite{yule1924a}:\\ \# Species per Genus
+%%      
+%%       1926: \alertg{Lotka}\cite{lotka1926a}:\\ \# Scientific papers per author
+%%       
+%%       1953: \alertg{Mandelbrot}\cite{mandelbrot1953a}):\\
+%%       Zipf's law for word frequency through optimization
+%%      
+%%       1955: \alertg{Herbert Simon}\cite{simon1955a,zipf1949a}:\\ Zipf's law, 
+%%       city size, income, publications, and species per genus
+%%      
+%%       1965/1976: \alertg{Derek de Solla Price}\cite{price1965a,price1976a}:\\ Network of Scientific Citations
+%%     
+%%   
+%% 
+%% {Model details}
+
+{block}{}
+    
+     
+      Barab\'{a}si-Albert model = BA model.
+     
+      Key ingredients:\\
+      \alertg{Growth} and \alertb{Preferential Attachment} (PA).
+     
+      \alertg{Step 1}: start with $m_0$ disconnected nodes.
+     
+      \alertg{Step 2}: 
+      
+        
+        \alertb{Growth}---a new node appears at each time step $t=0,1,2, \ldots$.
+       
+        Each new node makes $m$ links to nodes already present.
+       
+        \alertb{Preferential attachment}---Probability 
+        of connecting to $i$th node is $\propto k_i$.
+      
+    
+      In essence, we have a \alertg{rich-gets-richer} scheme.
+    
+      Yes, we've seen this all before in Simon's model.
+    
+  
+
+{Analysis}
+
+{block}{}
+   
+   
+     \alertg{Definition:} $A_k$ is the \alertb{attachment kernel}
+     for a node with degree $k$.
+   
+     For the original model:
+     $$ A_k = k$$
+   
+     \alertg{Definition:} $P_{\textrm{attach}}(k,t)$ 
+     is the attachment probability.
+   
+     For the original model:
+     $$
+     P_{\textrm{attach}}(\mbox{node $i$},t)
+     =
+     \frac{k_i(t)}
+     {
+       \sum_{j=1}^{N(t)} k_j(t)
+     }
+     {
+       =
+       \frac{k_i(t)}
+       {
+         \sum_{k=0}^{k_{\textrm{max}}(t)} k N_k(t)
+       }
+     }
+     $$
+     {
+       where $N(t) = m_0 + t$ is \# nodes at time $t$\\
+     }
+     {
+       \ \ and $N_k(t)$ is \# degree $k$ nodes at time $t$.
+     }
+   
+ 
+
+{block}{}
+ 
+ 
+   When $(N+1)$th node is added, 
+   the expected increase in the degree of node $i$ is 
+   $$
+   E(k_{i,N+1} - k_{i,N}) 
+   \simeq 
+   m
+   \frac{k_{i,N}}
+   {
+     \sum_{j=1}^{N(t)} k_j(t)
+   }.
+   $$
+ 
+   Assumes probability of being connected to is \alertg{small}.
+ 
+   Dispense with Expectation by assuming (hoping)
+   that over longer time frames, degree growth will
+   be smooth and stable.
+ 
+   Approximate 
+   $k_{i,N+1} - k_{i,N}$ with $\diff{}{t} k_{i,t}$:
+   {
+     $$
+     \alertb{
+       \diff{}{t} k_{i,t}
+       =
+       m
+       \frac{k_{i}(t)}
+       {
+         \sum_{j=1}^{N(t)} k_j(t)
+       }
+     }
+   $$
+   where $t = N(t) - m_0$.
+   }
+ 
+ 
+
+
+{block}{}
+ 
+ 
+   Deal with denominator: each added node brings $m$ new edges.
+   $$
+   {
+     \therefore 
+     \sum_{j=1}^{N(t)} k_j(t)
+     =
+     2 t m
+   }
+   $$
+ 
+   The node degree equation now simplifies:
+   $$
+   \diff{}{t} k_{i,t}
+   =
+   m
+   \frac{k_{i}(t)}
+   {
+     \sum_{j=1}^{N(t)} k_j(t)
+   }
+   {
+     =
+     m
+     \frac{k_{i}(t)}
+     {
+       2 m t
+     }
+   }
+   {
+     =
+     \frac{1}
+     {
+       2 t
+     }
+     k_{i}(t)
+   }
+   $$
+ 
+   Rearrange and solve:
+   $$
+   \frac{\dee{k_{i}(t)}}
+   {k_{i}(t)}
+   =
+   \frac{\dee{t}}
+   {2t}
+   {
+     \Rightarrow
+     \boxed{\alertg{k_i(t) = c_i \,  t^{1/2}.}}
+   }
+   $$
+ 
+   Next find $c_i$ \ldots
+ 
+ 
+
+{block}{}
+ 
+ 
+   Know $i$th node appears at time 
+   $$
+   t_{i,\textrm{start}} = \left\{
+     \begin{array}{ll}
+       i-m_0 & \mbox{for $i>m_0$} \\
+       0 & \mbox{for $i \le m_0$}
+     \end{array}
+   \right.
+   $$
+ 
+   So for $i>m_0$ (exclude initial nodes),
+   we must have
+   $$
+   k_i(t) 
+   = 
+   m 
+   \left(
+   \frac{t}{t_{i,\textrm{start}}}
+   \right)^{1/2}
+   \
+   \mbox{for $t \ge t_{i,\textrm{start}}$}.
+   $$
+  
+   All node degrees grow as \alertg{$t^{1/2}$}
+   {but
+   later nodes have larger $t_{i,\textrm{start}}$ which
+   \alertb{flattens out} growth curve.}
+  
+   First-mover advantage: Early nodes do \alertg{best}.
+  
+   Clearly, a \wordwikilink{http://en.wikipedia.org/wiki/Ponzi\_scheme}{Ponzi scheme}.
+ 
+ 
+ 
+{block}{}
+    
+   \includegraphics[width=\textwidth]{figsfn_deggrowth_noname}
+   
+   
+    $m = 3$
+    $t_{i,\textrm{start}} = 1, 2, 5, \mbox{\ and\ } 10$.
+   
+  
+
+{block}{}
+ 
+  
+   So what's the \alertb{degree distribution} at time $t$?
+  
+   Use fact that birth time for added nodes
+   is distributed uniformly between time 0 and t:
+   $$
+   \Prob(t_{i,\textrm{start}}) \dee{t_{i,\textrm{start}}}
+   \simeq
+   \frac{\dee{t_{i,\textrm{start}}}}
+   {t}
+%%   {t+m_0}
+   $$
+ 
+   Also use
+   $$
+   k_i(t) 
+   = 
+   m 
+   \left(
+   \frac{t}{t_{i,\textrm{start}}}
+   \right)^{1/2}
+   \alertg{\Rightarrow}
+   t_{i,\textrm{start}}
+   = \frac{m^2 t}{k_i(t)^2}.
+   $$
+   {
+     Transform variables---Jacobian:
+     $$
+     \diff{t_{i,\textrm{start}}}{k_i}  = -2 \frac{m^2 t}{k_i(t)^3}.
+     $$
+   }
+ 
+ 
+
+{block}{}
+  
+   
+    $$
+    \Prob(k_i) \dee{k_i} =  \Prob(t_{i,\textrm{start}}) \dee{t_{i,\textrm{start}}}
+    $$
+   
+    $$
+    = \Prob(t_{i,\textrm{start}}) \dee{k_i} \left| \diff{t_{i,\textrm{start}}}{k_i} \right|
+    $$
+   
+    $$
+    = \frac{1}{t} \dee{k_i} 2 \frac{m^2 t}{k_i(t)^3}
+    $$
+   
+    $$
+    = 2 \frac{m^2 }{k_i(t)^3}  \dee{k_i}
+    $$
+   
+    $$
+    \alertg{\propto k_i^{-3}} \dee{k_i}.
+    $$
+  
+  
+
+tiate to find $\Prob(k)$:
+%%     $$
+%%     \Prob(k)
+%%     = 
+%%     \diff{}{k} \Prob(k_i < k)
+%%     {
+%%       =
+%%       \frac{2m^2 t }{(t+m_0) k^3}
+%%     }
+%%     $$
+%%     $$
+%%     {
+%%       \sim 
+%%       \alertg{2m^2} \alertb{k^{-3}}
+%%       \mbox{\ as $m\rightarrow \infty$}.
+%%     }
+%%     $$
+%%   
+%% 
+%% {block}{}
+ 
+   
+    We thus have a very specific prediction of 
+    \alertb{$\Prob(k) \sim k^{-\gamma}$} with \alertg{$\gamma=3$}.
+   
+    Typical for real networks: \alertg{$2 < \gamma < 3$}.
+   
+    Range true more generally for events with size
+    distributions that have power-law tails.
+  
+    \alertg{$2 < \gamma < 3$}: finite mean and `infinite' variance
+    {\alertg{(wild)}}
+  
+    In practice, $\gamma < 3$ means variance is governed
+    by upper cutoff.
+  
+    \alertg{$\gamma > 3$}: finite mean and variance 
+    {\alertg{(mild)}}
+ 
+ 
+
+
+
+{block}{From Barab\'{a}si and Albert's original paper\cite{barabasi1999a}:}
+   \includegraphics[width=\textwidth]{barabasi1999a_fig1}   
+ 
+ 
+{center}
+    \begin{tabular}{rl}
+      Web & $\gamma \simeq 2.1$ for in-degree \\
+      Web & $\gamma \simeq 2.45$ for out-degree \\
+      Movie actors & $\gamma \simeq 2.3$ \\
+      Words (synonyms) & $\gamma \simeq 2.8$ \\
+    \end{tabular}
+  \end{center}
+
+  {
+    The Internet\alertg{s} is a different business...
+  }
+ 
+
+d questions}  
+
+ 
+ 
+  Vary attachment kernel.
+  Vary mechanisms:
+   
+    Add edge deletion
+    Add node deletion
+    Add edge rewiring
+   
+  Deal with directed versus undirected networks.
+  \alertg{Important Q.}:
+   Are there distinct universality classes for these networks?  
+ 
+   \alertg{Q.}:
+   How does changing the model affect $\gamma$?
+ 
+   \alertg{Q.}:
+   Do we need preferential attachment and growth?
+ 
+   \alertg{Q.}:
+   Do model details matter?
+   {Maybe \ldots}
+ 
+ 
+
+{A\ more\ plausible\ mechanism}
+
+tial attachment}  
+
+ 
+ 
+  
+   Let's look at preferential attachment \alertg{(PA)}
+   a little more closely.
+  
+   PA implies arriving nodes have \alertg{complete knowledge}
+   of the existing network's degree distribution.
+ 
+   For example: If \alertb{$P_{\textrm{attach}}(k) \propto k$}, we need to determine
+   the constant of proportionality.
+ 
+   We need to know what everyone's degree is...
+ 
+   PA is $\therefore$ an \alertb{outrageous} assumption of
+   node capability.
+ 
+   But a \alertg{very simple mechanism} saves the day\ldots
+ 
+ 
+
+t through randomness}  
+
+ 
+ 
+  Instead of attaching preferentially, allow
+   new nodes to attach randomly.
+  Now add an \alertg{extra step}: new nodes
+   then connect to some of their friends' friends.
+  Can also do this \alertg{at random}.
+  Assuming the existing network is random,
+   we know probability of a \alertg{random friend} having
+   degree \alertb{$k$} is 
+   $$Q_k \propto kP_k$$
+  
+   So \alertg{rich-gets-richer} scheme can
+   now be seen to work in a natural way.
+  
+   Later: we'll see that the nature of $Q_{k}$
+   means your friends have more friends than you.
+   {\alertg{\#disappointing}}
+ 
+ 
+
+{Robustness}
+
+ess}  
+
+ 
+ 
+ 
+   Albert et al., Nature, 2000:\\
+   \alertb{``Error and attack tolerance of complex networks''}\cite{albert2000a}
+  
+   \alertb{Standard random networks} (\erdosrenyi)\\
+   versus \alertb{Scale-free networks}:
+ 
+
+ \includegraphics[width=\textwidth]{albert2000a_fig1-tp-3}\\
+ {\tiny from Albert et al., 2000}
+ 
+
+{block}{}
+    
+   \includegraphics[width=\textwidth]{albert2000a_fig2}\\
+   {\tiny from Albert et al., 2000}
+   
+   
+    
+     Plots of network diameter as a function of fraction of nodes removed
+    
+     \erdosrenyi\ versus scale-free networks
+   
+   \alertb{blue symbols} = \\
+   {random} removal
+   
+   \alertg{red symbols} = \\
+   {targeted} removal \\
+   (most connected first)
+   
+
+  
+
+{block}{}
+  
+  
+    Scale-free networks are thus \alertb{robust to random failures}
+    yet \alertg{fragile to targeted ones}.
+   
+    All very reasonable: \alertb{Hubs} are a big deal.
+   
+    \alertg{But}: next issue is whether hubs are vulnerable or not.
+   
+    Representing all webpages as the same size node is obviously
+    a stretch (e.g., google vs. a random person's webpage)
+   
+    Most connected nodes are either:
+    
+    
+      Physically larger nodes that may be harder to `target'
+    
+      or subnetworks of smaller, normal-sized nodes.
+    
+   
+    Need to explore cost of various targeting schemes.
+  
+  
+  
+'':}
+%% \neuralreboot{NrVCjnRdB_k}{}{}{A different, better way?}
+
+\subsection{Krapivisky\ \&\ Redner's\ model}
+
+%% \subsection{Generalized model}
+
+eralized model}  
+
+  \textbf{Fooling with the mechanism:}
+    
+    
+      2001: Krapivsky \& Redner (KR)\cite{krapivsky2001a}
+      explored the \alertr{general attachment kernel}:
+      {
+      $$
+      \Prob(\mbox{attach to node $i$}) \propto A_k  = k_{i}^\nu
+      $$
+      where $A_k$ is the attachment kernel and $\nu>0$.
+      }
+    
+      KR also looked at changing the details of
+      the attachment kernel.
+    
+      We'll follow KR's approach using
+      \wordwikilink{http://en.wikipedia.org/wiki/Rate_equation}{rate equations}.
+    
+  
+
+{block}{}
+    
+    
+      Here's the set up:
+      $$
+      \diff{N_k}{t}
+      =
+      \frac{1}{A}
+      \left[
+        A_{k-1} N_{k-1} - A_{k} N_{k}
+      \right]
+      + \delta_{k1}
+      $$
+      where $N_k$ is the number of nodes of degree $k$.
+      
+      
+        One node with one link is added per unit time.
+       
+        The \alertb{first term} corresponds to 
+        degree $k-1$ nodes becoming degree $k$ nodes.
+       
+        The \alertb{second term} corresponds to 
+        degree $k$ nodes becoming degree $k-1$ nodes.
+      
+        $A$ is the correct normalization (coming up).
+       
+        Seed with some initial network\\
+        {(e.g., a connected pair)}
+       
+        Detail: $A_0=0$
+      
+    
+  
+
+{Analysis}
+
+eralized model}  
+  
+  
+  
+  
+    In general, probability of attaching to a \alertr{specific node}
+    of degree $k$ at time $t$ is
+    {
+    $$
+    \Prob(\mbox{attach to node $i$}) 
+    = 
+    \frac{A_k}{A(t)}
+    $$
+    }
+    {
+    where
+    $ A(t) = \sum_{k=1}^{\infty} A_k N_k(t).$
+    }
+  
+    E.g., for BA model, $A_k = k$ and $A = \sum_{k=1}^{\infty} k N_k(t)$.
+   For $A_k=k$, we have
+    $$
+    {
+    A(t) 
+    = 
+    \sum_{k'=1}^{\infty}
+    k' N_{k'}(t)
+    }
+    {
+    = 2t     
+    }
+    $$
+    {
+      since one edge is being added per unit time.
+    }
+  
+      Detail: we are ignoring initial seed network's edges.
+  
+  
+
+{block}{}
+  
+  
+    So now
+    $$
+    \diff{N_k}{t}
+    =
+    \frac{1}{A}
+    \left[
+      A_{k-1} N_{k-1} - A_{k} N_{k}
+    \right]
+    + \delta_{k1}
+    $$
+    becomes
+    $$
+    \diff{N_k}{t}
+    =
+    \frac{1}{2t}
+    \left[
+      (k-1) N_{k-1} - k N_{k}
+    \right]
+    + \delta_{k1}
+    $$
+  
+    As for BA method, look for steady-state growing solution:
+    {
+      $
+      \alertr{N_k = n_k t}.
+      $
+    }
+  
+    We replace $\tdiff{N_k}{t}$ with $\tdiff{n_k t}{t} = n_k$.
+  
+    We arrive at a difference equation:
+    $$
+    n_k
+    =
+    \frac{1}{2\cancel{\alertr{t}}}
+    \left[
+      (k-1) n_{k-1}\cancel{\alertr{t}} - k n_{k}\cancel{\alertr{t}}
+    \right]
+    + \delta_{k1}
+    $$
+  
+  
+
+{Universality?}
+
+iversality?}
+
+  
+  
+  
+    \insertassignmentquestionsoft{08}{8}\\
+    As expected, we have the same result as for the BA model:
+    $$
+    N_k(t) = n_k(t) t \propto k^{-3} t \mbox{\ for large $k$}.
+    $$
+  
+    Now: what happens if we start playing around with 
+    the attachment kernel $A_k$?
+  
+    Again, we're asking if the result $\gamma=3$
+    \wordwikilink{http://en.wikipedia.org/w/index.php?title=Universality_\%28dynamical_systems\%29&oldid=204738455}{universal}?
+  
+    KR's natural modification: $A_k = k^\nu$ with $\nu \ne 1$.
+  
+    But we'll first explore a more subtle modification of $A_k$ made by Krapivsky/Redner\cite{krapivsky2001a}
+  
+    Keep $A_k$ \alertb{linear in $k$} but tweak details.
+  
+    \alertr{Idea:} Relax from $A_k = k$ to $A_k \sim k$ as $k \rightarrow \infty$.
+  
+  
+
+{block}{}
+  
+  
+    Recall we used the normalization:
+    $$
+    A(t) 
+    = 
+    \sum_{k'=1}^{\infty}
+    k' N_{k'}(t)
+    \simeq 2t
+    \mbox{\ for large $t$.}
+    $$
+  
+    We now have 
+    $$
+    A(t) 
+    = 
+    \sum_{k'=1}^{\infty}
+    A_{k'} N_{k'}(t)
+    $$
+    {
+    where we only know the asymptotic behavior of $A_k$.
+    }
+  
+    We assume that \alertr{$A = \mu t$}
+  
+    We'll find $\mu$ later and make sure that our
+    assumption is consistent.
+  
+    As before, also assume $N_k(t) = n_k t$.
+  
+  
+
+{block}{}
+  
+  
+    For $A_k = k$ we had 
+    $$
+    n_k
+    =
+    \frac{1}{2}
+    \left[
+      (k-1) n_{k-1} - k n_{k}
+    \right]
+    + \delta_{k1}
+    $$
+  
+    This now becomes
+        $$
+        n_k
+    =
+    \frac{1}{\mu}
+    \left[
+      A_{k-1} n_{k-1} - A_k n_{k}
+    \right]
+    + \delta_{k1}
+    $$
+    {
+      $$
+      \Rightarrow
+      (A_k+\mu)n_k
+      =
+      A_{k-1} n_{k-1} 
+      + \mu \delta_{k1}
+      $$
+    }
+  
+    Again two cases:
+    $$
+    {
+      \alertr{k=1:}
+      n_1 = \frac{\mu}{\mu+A_1};
+    }
+    \qquad
+    {
+      \alertr{k>1:}
+      n_k
+      =
+      n_{k-1}\frac{A_{k-1}}{\mu + A_k}.
+    }
+    $$
+
+  
+  
+
+{block}{}
+  
+  
+    Time for pure excitement: Find \alertr{asymptotic behavior} 
+    of $n_k$ given $A_k \rightarrow k$ as $k \rightarrow \infty$.
+  
+    \insertassignmentquestionsoft{08}{8}\\
+    For large $k$, we find:
+    $$
+    n_k = 
+    \frac{\mu}{A_k}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \propto
+    \alertr{ k^{-\mu-1}}
+    $$
+  
+    Since $\mu$ depends on $A_k$, \alertr{details matter...}
+  
+  
+
+{block}{}
+  
+  
+    Now we need to find $\mu$.
+  
+    Our assumption again:
+    $
+    \alertb{A = \mu t = \sum_{k=1}^{\infty} N_k(t) A_k}
+    $
+  
+    Since $N_k = n_k t$, we have the simplification
+    $
+    \alertb{
+    \mu = \sum_{k=1}^{\infty} n_k A_k}
+    $
+  
+    Now subsitute in our expression for $n_k$:
+          
+    $$
+    \mu = 
+    \sum_{k=1}^{\infty} 
+    \alertr{
+      \frac{\mu}{A_k}
+      \prod_{j=1}^{k}
+      \frac{1}{1 + \frac{\mu}{A_j}}
+    }
+    A_k
+    $$
+    
+    $$
+    \mu = 
+    \sum_{k=1}^{\infty} 
+    \frac{\mu}{\alertr{\cancel{A_k}}}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \alertr{\cancel{A_k}}
+    $$
+          
+    $$
+    \alertb{1 \cancel{\mu}} = 
+    \sum_{k=1}^{\infty} 
+    \frac{\alertb{\cancel{\mu}}}{\alertr{\cancel{A_k}}}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \alertr{\cancel{A_k}}
+    $$
+        
+      Closed form expression for $\mu$.
+    
+      We can solve for $\mu$ in some cases.
+    
+      Our assumption that $A = \mu t$ looks to be not too horrible.
+  
+  
+
+{block}{}
+    
+    
+      Consider tunable $A_{1} = \alpha$ and $A_{k} = k$ for $k \ge 2$.
+     
+      Again, we can find $\gamma = \mu + 1$ by finding $\mu$.
+    
+      \insertassignmentquestionsoft{08}{8}\\
+      Closed form expression for $\mu$: 
+      $$
+      \frac{\mu}{\alpha}
+      =
+      \sum_{k=2}^{\infty} 
+      \frac{\Gamma(k+1)\Gamma(2+\mu)}{\Gamma(k+\mu+1)}
+      $$
+      \alertg{\#mathisfun}
+    
+      $$
+      \mu(\mu-1) = 2\alpha \Rightarrow \mu = \frac{1+\sqrt{1+8\alpha}}{2}.
+      $$
+     
+      Since $\gamma = \mu+1$, we have
+      $$
+      0 \le \alpha < \infty \Rightarrow 2 \le \gamma < \infty
+      $$
+     
+      Craziness...    
+    
+  
+
+{Sublinear attachment kernels}
+
+ear attachment kernels}
+
+  
+  
+   
+    Rich-get-somewhat-richer:
+    $$
+    A_k \sim k^\nu
+    \mbox{\ with $0 < \nu < 1$.}
+    $$
+  
+    General finding by Krapivsky and Redner:\cite{krapivsky2001a}
+    $$
+    n_k 
+    \sim 
+    k^{-\nu}
+    e^{-c_1 k^{1-\nu} + \mbox{\scriptsize correction terms}}.
+    $$
+  
+    Stretched exponentials (truncated power laws).
+  
+    aka Weibull distributions.
+  
+    \alertr{Universality}: now details of kernel \alertb{do not} matter.
+  
+    Distribution of degree is universal providing $\nu<1$.
+  
+  
+
+t kernels}
+
+  \textbf{Details:}
+    
+    
+      For $1/2 < \nu < 1$:
+      $$
+      n_k \sim k^{-\nu} e^{-\mu \left(\frac{k^{1-\nu} - 2^{1-\nu}}{1-\nu} \right)}
+      $$
+    
+      For $1/3 < \nu < 1/2$:
+      $$
+      n_k \sim k^{-\nu} e^{-\mu \frac{k^{1-\nu}}{1-\nu} + \frac{\mu^2}{2}\frac{k^{1-2\nu}}{1-2\nu}}
+      $$
+    
+      And for $1/(r+1) < \nu < 1/r$, we have $r$ pieces in exponential.
+    
+  
+
+{Superlinear attachment kernels}
+
+ear attachment kernels}
+
+  
+  
+  
+    Rich-get-much-richer:
+    $$
+    A_k \sim k^\nu
+    \mbox{\ with $\nu > 1$.}
+    $$
+  
+    Now a \alertr{winner-take-all} mechanism.
+  
+    One single node ends up being connected to
+    almost all other nodes.
+  
+    For $\nu>2$, all but a finite \# of nodes connect
+    to one node.
+  
+  
+  
+ents
+
+%% more exponents
+
+%% history
+
+%% \section{Appendix}
+
+
+\subsection{Nutshell}
+
+
+{block}{Overview Key Points for Models of Networks:}
+    
+    
+      Obvious connections with the vast
+      extant field of graph theory.
+    
+      But focus on dynamics is more of a physics/stat-mech/comp-sci
+      flavor.
+    
+      Two main areas of focus:
+      
+       
+        \alertb{Description:} Characterizing very large networks
+      
+        \alertb{Explanation:} Micro story $\Rightarrow$ Macro features
+      
+    
+      Some essential structural aspects are understood: degree distribution, clustering,
+      assortativity, group structure, overall structure,...
+    
+      Still much work to be done, especially with respect to dynamics...
+      {\alertg{\#excitement}}
+    
+    
+  
+
+d feeding a friendly platypus
+\neuralreboot{a6QHzIJO5a8}{}{}{Monotrematic Love}

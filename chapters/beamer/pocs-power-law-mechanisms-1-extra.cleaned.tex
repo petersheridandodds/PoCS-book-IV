@@ -1,0 +1,229 @@
+  \textbf{First Returns}
+  
+  
+  
+    $
+    N(1,1,2n-2) = \binom{2n-2}{(2n-2)/2} = \binom{2n-2}{n-1} $
+  
+   $ N(-1,1,2n-2) = \binom{2n-2}{(2n-2+2)/2} = \binom{2n-2}{n} $
+  
+  
+
+  \textbf{First Returns}
+
+  {$$N_{\textrm{first\ return}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$$}
+  {$$ = \binom{2n-2}{n-1} - \binom{2n-2}{n} $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} - \frac{(2n-2)!}{n!(n-2)!} $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} - \frac{(2n-2)!}{\alert{(n-1)!(n-1)!}}\alert{\frac{(n-1)}{n}} $$}
+  
+
+
+
+  \textbf{First Returns}
+
+  {$$N_{\textrm{first\ return}(2n) = \frac{(2n-2)!}{(n-1)!(n-1)!} - \frac{(2n-2)!}{{(n-1)!(n-1)!}}{\frac{(n-1)}{n}} $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} \left( 1 - \frac{n-1}{n} \right) $$}
+  {$$ = \frac{(2n-2)!}{(n-1)!(n-1)!} \left( 1 - 1 + \frac{1}{n} \right) $$}
+  {$$ = \frac{1}{n}\frac{(2n-2)!}{(n-1)!(n-1)!} $$}
+
+% ??? Catalan numbers
+
+
+  \textbf{First Returns}
+  
+  \textbf{Time for Stirling's Sterling Approximation:}
+    $$ \boxed{ n! \simeq \sqrt{2\pi} n^{n+1/2}e^{-n}} $$\cite{abramowitz1974a,gradshteyn1965a}
+  
+  $$( \mbox{good for} \  n \ \mbox{is large}) $$
+
+%  {
+%    More generally:
+%    $\Gamma(z) \simeq \frac{\sqrt{\pi}}{e} z^{z-1/2}e^{-z}$
+%  }
+
+
+\begin{frame}[t]
+  \textbf{First Returns}
+  {$$N_{\textrm{first\ return}(2n) = \frac{1}{n}\frac{(2n-2)!}{[(n-1)!]^2} $$}
+  {$$
+    \simeq
+    \frac{1}{n}
+    \frac{
+      \sqrt{2\pi} (2n-2)^{2n-2+1/2} e^{-(2n-2)}
+    }
+    {
+      [\sqrt{2\pi} (n-1)^{n-1+1/2} e^{-(n-1)}]^2
+    }
+    $$}
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \sqrt{2\pi} \alert{2^{2n-2+1/2}} (n-1)^{2n-2+1/2} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^2 (n-1)^{2n-2+1} e^{-(2n-2)}}
+    }
+    $$}%
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} (n-1)^{2n-2+1/2} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} (n-1)^{2n-2+1} e^{-(2n-2)}
+    }
+    $$}%
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} \alert{\cancel{(n-1)^{2n-2+1/2}}} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} \alert{\cancel{(n-1)^{2n-2+1/2}}} (n-1)^{1/2} e^{-(2n-2)}
+    }
+    $$}
+
+\begin{frame}[t]
+  \textbf{First Returns}
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} \alert{\cancel{(n-1)^{2n-2+1/2}}} e^{-(2n-2)}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} \alert{\cancel{(n-1)^{2n-2+1/2}}} (n-1)^{1/2} e^{-(2n-2)}
+    }
+    $$}
+
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      \alert{\cancel{\sqrt{2\pi}}}2^{2n-2+1/2} \alert{\cancel{(n-1)^{2n-2+1/2}}} \alert{\cancel{e^{-(2n-2)}}}
+    }
+    {
+      \alert{\sqrt{2\pi}^{\cancel{2}}} \alert{\cancel{(n-1)^{2n-2+1/2}}} (n-1)^{1/2} \alert{\cancel{e^{-(2n-2)}}}
+    }
+    $$}
+  {$$
+    =
+    \frac{1}{n}
+    \frac{
+      2^{2n-3/2} 
+    }
+    {
+      \sqrt{2\pi} (n-1)^{1/2}
+    }
+    $$}
+  {$$
+    \sim 
+    \alertb{
+      \frac{
+        2^{2n-3/2}
+      }
+      {
+        \sqrt{2 \pi} n^{3/2}
+      }
+    }.
+    $$}
+
+
+\section{Simon's\ model}
+
+  \textbf{Random Competitive Replication}
+
+  
+   
+    $$  \frac{n_k}{n_{k-1}}
+    =
+    \frac{(k-1)(1-\simonalpha)}
+    {1+(1-\simonalpha)k}
+    $$ 
+   
+    Rearrange:
+    $$
+    = \frac{k(1-\simonalpha) - (1-\simonalpha)}
+    {k(1-\simonalpha) + 1}
+    $$
+   
+    Divide through by $k(1-\simonalpha)$:
+    $$
+    {\frac{1 - \frac{1}{k}}
+    {{ 1 + \frac{1}{k(1-\simonalpha)}}}
+    }
+    $$
+
+  
+  
+
+  \textbf{Random Competitive Replication}
+
+  
+    
+    $$
+    \frac{n_k}{n_{k-1}} =
+    \frac{1 - \frac{1}{k}}
+    { 1 + \frac{1}{k(1-\simonalpha)}}
+    $$
+   Use 
+    $$ \frac{1}{1+x} = 1 - x + x^2 -x^3 + \ldots $$
+  
+    $$
+    \frac{n_k}{n_{k-1}} =
+    \left(
+      1 - \frac{1}{k}
+    \right)
+    \left(
+      1 - \frac{1}{k(1-\simonalpha)} + O(k^{-2})
+    \right)
+    $$
+  
+    $$
+    =
+    1 - \frac{1}{k}
+    - \frac{1}{k(1-\simonalpha)} + O(k^{-2})
+    $$
+  
+
+
+  \textbf{Random Competitive Replication}
+  
+  
+   
+    $$ 
+    \frac{n_k}{n_{k-1}}
+    =
+    1 - \frac{1}{k}
+    - \frac{1}{k(1-\simonalpha)} + O(k^{-2})
+    $$
+   
+    $$ 
+    \frac{n_k}{n_{k-1}}
+    =
+    1 
+    - \frac{1}{k}
+    \left(
+      \frac{(1-\simonalpha) + 1}{1-\simonalpha}
+    \right)
+    + O(k^{-2})
+    $$
+  
+    $$
+    = 1 - \frac{1}{k}\frac{(2-\simonalpha)}{(1-\simonalpha)}
+    + O(k^{-2})
+    $$
+  
+    Use
+    $$(1+x)^\theta = 1 + \theta x + O(x^2)$$
+  
+    $$
+    \frac{n_k}{n_{k-1}}
+    = (1 - \frac{1}{k})^{\frac{(2-\simonalpha)}{(1-\simonalpha)}}
+    + O(k^{-2})
+    $$
+  
+

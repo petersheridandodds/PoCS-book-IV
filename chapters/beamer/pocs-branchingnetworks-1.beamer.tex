@@ -1,0 +1,827 @@
+\section{Introduction}
+
+\begin{frame}[label=]
+  \frametitle{Introduction}
+
+  \begin{block}{Branching networks are useful things:}
+    \begin{itemize}
+    \item<1-> Fundamental to material \alert{supply and collection}
+    \item<2-> \alert{Supply:} From one source to many sinks in 2- or 3-d.
+    \item<3-> \alert{Collection:} From many sources to one sink in 2- or 3-d.
+    \item<4-> Typically observe hierarchical, recursive self-similar structure
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<5->{Examples:}
+    \begin{itemize}
+    \item<6-> River networks (our focus)
+    \item<7-> Cardiovascular networks
+    \item<8-> Plants
+    \item<9-> Evolutionary trees
+    \item<10-> Organizations (only in theory...)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Branching networks are everywhere...}
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{hydrosheds_amazon_large-tp-1.pdf}\\
+    {\tiny \wordwikilink{http://hydrosheds.cr.usgs.gov/}{http://hydrosheds.cr.usgs.gov/}}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Branching networks are everywhere...}
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{800px-Applebox.jpg}\\
+    {\tiny \wordwikilink{http://en.wikipedia.org/wiki/Image:Applebox.JPG}{http://en.wikipedia.org/wiki/Image:Applebox.JPG}}
+  \end{center}
+
+\end{frame}
+
+\insertvideo{4DW-Dxzj7xQ}{}{}{Shaw and Magnasco's beautiful erosion simulations}
+
+
+%% \begin{frame}[label=]
+%%   \frametitle{A beautiful simulation of erosion:}
+%% 
+%%   \begin{center}
+%%     \includemovie[
+%%     controls=true,
+%%     toolbar=true,
+%%     poster=videos/2008-09-23erosion-frame.jpg,
+%%     ]{84mm}{63mm}{videos/2008-09-23erosion.mov}\\
+%%     {\tiny Bruce Shaw (LDEO, Columbia) and Marcelo Magnasco (Rockefeller)}
+%%   \end{center}
+%% 
+%% \end{frame}
+
+%%Networks are intrinsic to a broad spectrum of 
+%%complex phenomena in the world around us:
+%%thoughts and memory emerge from 
+%%the interconnection of neurons in the brain,
+%%nutrients and waste
+%%are transported through the cardiovascular system,
+%%and social and business networks link people.
+%%River networks stand as an archetypal example
+%%of branching networks, an important sub-class 
+%%of all network structures.
+%%Of significant physical interest in and of themselves,
+%%river networks thus also provide an opportunity 
+%%to develop results which are 
+%%extendable to branching networks in general.
+%%To this end, this thesis carries out a thorough examination
+%%of river network geometry.  
+%%The work combines
+%%analytic results, numerical simulations of
+%%simple models and measurements of 
+%%real river networks.
+%%We focus on scaling laws which are
+%%central to the description of river networks.
+%%Starting from a few simple assumptions
+%%about network architecture, we derive
+%%all known scaling laws showing that
+%%only two scaling exponents are independent.
+%%Having thus simplified the description
+%%of networks we pursue the precise measurement
+%%of real network structure and
+%%the further refining of our descriptive tools.
+%%We address the key issue of 
+%%universality, the possibility that 
+%%scaling exponents of river
+%%networks take on specific values
+%%independent of region. 
+%%We find that deviations from
+%%scaling are significant enough
+%%to preclude exact, definitive measurements.
+%%Importantly, geology matters as 
+%%the externality of basin shape
+%%is shown to be part of the reason
+%%for these deviations.
+%%This implies that theories that do not 
+%%incorporate boundary conditions
+%%are unable to produce realistic
+%%river network structures.
+%%We also extend a number of scaling
+%%laws to incorporate fluctuations
+%%about simple scaling.
+%%Going further than this,
+%%we find we are able to identify
+%%joint probability distributions
+%%that underlie these scaling laws.
+%%We generalize a well-known
+%%description of the size and
+%%number of network components
+%%as well as a description of
+%%network architecture, how
+%%these network components fit together.
+%%Both of these generalizations
+%%demonstrate that 
+%%the spatial distribution
+%%of network components is random and,
+%%in this sense, we obtain
+%%the most basic level of
+%%network description.
+
+
+\subsection{Definitions}
+
+\begin{frame}[label=]
+  \frametitle{Geomorphological networks}
+
+  \begin{block}{Definitions}
+    \begin{itemize}
+    \item<1-> \alert{Drainage basin} for a point $p$ is the 
+      complete region of land from which overland flow drains through $p$.
+    \item<2-> Definition most sensible for a point in a stream.
+    \item<3-> \alert{Recursive structure:} Basins contain basins and so on.
+    \item<4-> In principle, a drainage basin is defined at every point
+      on a landscape.
+    \item<5-> On flat hillslopes, drainage basins are effectively linear.
+    \item<6-> We treat subsurface and surface flow as following
+      the gradient of the surface.
+    \item<7-> Okay for large-scale networks...
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Basic basin quantities: $a$, $l$, $L_\parallel$, $L_\perp$:}
+
+  \begin{columns}
+    \column<1->{0.6\textwidth}
+    \includegraphics[width=\textwidth]{basin.pdf}
+    \column<2->{0.4\textwidth}
+    \begin{itemize}
+    \item<2-> 
+      \alert{$a$} = drainage basin area
+    \item<3-> 
+      \alert{$\msl$} = length of longest (main) stream 
+      (which may be fractal)
+    \item<4-> 
+      \alert{$L = L_\parallel$} = longitudinal length of basin
+    \item<5-> 
+      \alert{$L = L_\perp$} = width of basin
+    \end{itemize}
+
+  \end{columns}
+\end{frame}
+
+\note{
+Drainage area is fairly well defined.
+
+Different definitions of $L_\parellel$ are possible.
+One would be to draw a straight line from the outlet
+of the basin such that the basin is divided into
+two halves of equal area.  Another would be to
+take the point furthest from the outlet, and connect
+the longitudinal line from that point to the outlet.
+In all cases, the width line would be at right angles
+and the width would be given by the smallest rectangle
+one could draw.  Different reasonable definitions
+should give the same overall results.
+
+Similarly, different definitions of $l$ are also possible.
+One is to take the longest stream as measured from the outlet;
+another is to move up through the network, at each fork
+following the stream belonging to the basin with
+the largest drainage area.
+}
+
+\subsection{Allometry}
+
+\begin{frame}[label=]
+  \frametitle{Allometry}
+
+
+  \bigskip
+
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1->
+      \alertb{Isometry:} 
+      dimensions scale linearly with each other.
+    \end{itemize}
+    \includegraphics[height=0.25\textheight]{iso_tree-tp-5.pdf}
+    \column{0.1\textwidth}
+    \column{0.4\textwidth}
+    \begin{overprint}
+      \onslide<2-| handout:1| trans:1>
+      \begin{itemize}
+      \item<2->
+        \alertb{Allometry:} dimensions scale nonlinearly.
+      \end{itemize}
+      \includegraphics<2->[height=0.25\textheight]{allo_tree-tp-5.pdf}
+    \end{overprint}
+    \column{0.05\textwidth}
+  \end{columns}
+
+
+\end{frame}
+
+%% \begin{frame}[label=]
+%%   \frametitle{Note on notation:}
+%%   
+%%   \begin{itemize}
+%%   \item The $l$ used here is a lower-case ell (and not the letter I for Icicle).
+%%     I'll see what I can do about the font.
+%%   \end{itemize}
+%% \end{frame}
+
+
+
+\begin{frame}[label=]
+  \frametitle{Basin allometry}
+
+  \begin{columns}
+    \column<1->{0.6\textwidth}
+    \includegraphics[width=\textwidth]{basin.pdf}
+    \column<1->{0.4\textwidth}
+    \begin{block}{Allometric relationships:}
+      \begin{itemize}
+      \item<2-> 
+        $$\msl \propto a^h$$
+      \item<3-> 
+        $$\msl \propto L^d$$
+      \item<4-> Combine above:
+        $$ a \propto  L^{d/h} \equiv L^{D}$$
+      \end{itemize}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{`Laws'}
+
+  \begin{itemize}
+  \item<1->   Hack's law (1957)\cite{hack1957a}:  
+    $$ \alert{\boxed{\msl \propto a^h}}$$
+    $$ \mbox{reportedly} \ 0.5 < h < 0.7 $$
+  \item<2->   Scaling of main stream length with basin size:
+    $$ \alert{\boxed{\msl \propto L_\parallel^d}} $$
+    $$ \mbox{reportedly} \ 1.0 < d < 1.1 $$
+  \item<3->   Basin allometry:
+    $$ \alert{\boxed{L_\parallel \propto a^{h/d} \equiv a^{1/D}}}$$
+    $$D < 2 \rightarrow \mbox{basins elongate}.$$
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Laws}
+
+\begin{frame}[label=]
+  \frametitle{There are a few more `laws':\cite{dodds1999a}}
+
+  \rowcolors[]{1}{blue!20}{blue!10} 
+%  \rowcolors[\hline]{3}{green!25}{yellow!50}
+%  \begin{tabular}{!{\vrule}|rl!{\vrule}} 
+  \begin{tabular}{rl}
+    \alert{Relation:} & \alert{Name or description:}  \\
+    & \\
+    $T_{k} = T_1 (R_T)^{k}$ & {Tokunaga's law}  \\
+    $\msl \sim L^{{d}}$ & {self-affinity of single channels}  \\
+    $n_{\om}/n_{\om+1} = R_n$ & Horton's law of stream numbers  \\
+    $\bar{\msl}_{\om+1}/\bar{\msl}_{\om} = R_{\msl}$ & Horton's law 
+    of main stream lengths \\
+    $\bar{a}_{\om+1}/\bar{a}_{\om} = R_a$ & Horton's law of basin areas \\
+    $\bar{\okell}_{\om+1}/\bar{\okell}_{\om} = R_{\okell}$ & Horton's law 
+    of stream segment lengths  \\
+    $L_\perp \sim L^H$ & scaling of basin widths \\
+    $P(a) \sim a^{-\tau}$ & probability of basin areas \\
+    $P(\msl)\sim \msl^{-\gamma}$ & probability of stream lengths \\
+    $\msl \sim a^h$ & Hack's law \\
+    $a \sim L^D$ & scaling of basin areas \\
+    $\Lambda \sim a^\beta$ & Langbein's law \\
+    $\lambda \sim L^\varphi$ & variation of Langbein's law\\
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Reported parameter values:\cite{dodds1999a}}
+
+  \rowcolors[]{1}{blue!20}{blue!10} 
+  \begin{center}
+    \begin{tabular}{rl}
+      \alert{Parameter:}    & \alert{Real networks:}  \\
+      &     \\
+      $R_n$               & 3.0--5.0 \\
+      $R_a$               & 3.0--6.0 \\
+      $R_\msl=R_T$               & 1.5--3.0 \\
+      $T_1$               & 1.0--1.5 \\
+      ${d}$               & $1.1 \pm 0.01$ \\
+      $D$                 & $1.8 \pm 0.1$ \\
+      $h$                 & 0.50--0.70 \\
+      $\tau$              & $1.43 \pm 0.05$ \\
+      $\gamma$            & $1.8 \pm 0.1$ \\
+      $H$                 & 0.75--0.80 \\
+      $\beta$             & 0.50--0.70  \\
+      $\varphi$           & $1.05 \pm 0.05$ \\
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Kind of a mess...}
+
+  \begin{block}{Order of business:}
+    \begin{enumerate}
+    \item<2-> Find out how these relationships are connected.
+    \item<3-> Determine most fundamental description.
+    \item<4-> Explain origins of these parameter values  \\
+      \bigskip
+      \visible<5>{For (3): \alert{Many attempts: not yet sorted out...}}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+\section{Stream\ Ordering}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}
+
+  \begin{block}<1->{Method for describing network architecture:}
+    \begin{itemize}
+    \item<2->
+      Introduced by Horton (1945)\cite{horton1945a}
+    \item<3-> 
+      Modified by Strahler (1957)\cite{strahler1952a}
+    \item<4-> 
+      Term: Horton-Strahler Stream Ordering\cite{rodriguez-iturbe1997a}
+    \item<5->
+      Can be seen as \alert{iterative trimming} of a network.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}
+
+  \begin{block}{Some definitions:}
+    \begin{itemize}
+    \item<1-> A \alert{channel head} is a point in landscape
+      where flow becomes focused enough to form a stream.
+    \item<2-> A \alert{source stream} is defined as the 
+      stream that reaches from a channel head
+      to a junction with another stream.
+    \item<3-> Roughly analogous to capillary vessels.
+    \item<4-> Use symbol $\omega=1, 2, 3, ...$ for stream order.
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}
+
+  \begin{columns}[b]
+    \column{.02\textwidth}
+    \column{.3435\textwidth}
+    \includegraphics<1->[width=\textwidth]{network1}
+    \column{.03\textwidth}
+    \column{.27\textwidth}
+    \includegraphics<3->[width=\textwidth]{network2}
+    \column{.05\textwidth}
+    \column{0.0435\textwidth}
+    \includegraphics<5->[width=\textwidth]{network3}
+    \column{.05\textwidth}
+  \end{columns}
+  \begin{enumerate}
+  \item <2-> Label all \alert{source streams} as \alert{order $\omega=1$} and remove.
+  \item <4-> Label all \alert{new} source streams as \alert{order $\omega=2$} and remove.
+  \item <6-> Repeat until one stream is left (order = $\Omega$)
+  \item <7-> Basin is said to be of the order of the last stream removed.
+  \item <8-> Example above is a basin of order $\Omega=3$.
+  \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering---A large example:}
+
+  \begin{center}
+    \includegraphics[angle=0,width=.8\textwidth]{figorder_paths_mispi10}  
+  \end{center}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}
+  
+  \begin{block}{Another way to define ordering:}
+    \begin{itemize}
+    \item<2-> As before, label all \alert{source streams} as \alert{order $\omega=1$}.
+    \item<3-> Follow all labelled streams downstream
+    \item<4-> Whenever two streams of the same order ($\omega$) meet, the resulting stream
+      has order incremented by 1 ($\omega+1$).
+    \end{itemize}
+    \begin{columns}
+      \column{0.6\textwidth}
+      \begin{itemize}
+      \item<5-> If streams of different orders $\omega_1$ and $\omega_2$ meet,
+        then the resultant stream has order equal to the largest of the two.
+      \item<6-> Simple rule:
+        $$
+        \omega_3 = \max(\omega_1,\omega_2) + \delta_{\omega_1,\omega_2}
+        $$
+       {\small where $\delta$ is the Kronecker delta.}
+      \end{itemize}
+      \column{0.4\textwidth}
+      \includegraphics<1->[angle=0,width=\textwidth]{figorder_paths_mispi10}  
+    \end{columns}
+
+%    \item<6-> Simple rule:
+%      $$
+%      \omega_3 = \max(\omega_1,\omega_2) + \delta_{\omega_1,\omega_2}
+%      $$
+%      where $\delta$ is the Kronecker delta.
+%    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}  
+
+  \begin{block}{One problem:}
+    \begin{itemize}
+    \item<1-> Resolution of data messes with ordering
+    \item<2-> Micro-description changes (e.g., order of a basin may increase) 
+    \item<3-> ... but relationships based on ordering appear to be robust to resolution changes.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}
+
+  \begin{block}<1->{Utility:}
+    \begin{itemize}
+    \item<2-> Stream ordering helpfully discretizes a network.
+    \item<3-> Goal: understand \alert{network architecture}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Stream Ordering:}
+
+
+  \begin{block}<1->{Resultant definitions:}
+    \begin{itemize}
+    \item <1->
+      A basin of order $\Omega$ has 
+      \alert{$n_\omega$} streams (or sub-basins) of order $\omega$.
+      \begin{itemize}
+      \item<2-> $n_\omega > n_{\omega+1}$
+      \end{itemize}
+    \item <3->
+      An order $\omega$ basin has \alert{area $a_\omega$}.
+    \item <4->
+      An order $\omega$ basin has a \alert{main stream length $\msl_\omega$}.
+    \item <5-> 
+      An order $\omega$ basin has a \alert{stream segment length $\okell_\omega$}
+      \begin{enumerate}
+      \item<6-> an order $\omega$ stream segment is only that part of the stream which is actually of order $\omega$
+      \item<7-> an order $\omega$ stream segment runs from the 
+        basin outlet up to the junction of two order $\omega-1$ streams
+      \end{enumerate}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\section{Horton's\ Laws}
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws}
+
+  \begin{block}<1->{Self-similarity of river networks}
+    \begin{itemize}
+    \item<2->
+      First quantified by Horton (1945)\cite{horton1945a}, 
+      expanded by Schumm (1956)\cite{schumm1956a}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<3->{Three laws:}
+    \begin{itemize}
+    \item<4-> Horton's law of stream numbers:
+      $$
+      \alert{\boxed{n_{\om}/n_{\om+1} = R_n > 1 }}
+      $$
+    \item<5-> 
+      Horton's law of stream lengths:
+      $$
+      \alert{\boxed{\bar{\msl}_{\om+1}/\bar{\msl}_{\om} = R_\msl > 1}}
+      $$
+    \item<6-> 
+      Horton's law of basin areas:
+      $$
+      \alert{\boxed{\bar{a}_{\om+1}/\bar{a}_{\om} = R_a > 1}}
+      $$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws}
+
+  \begin{block}{Horton's Ratios:}
+    \begin{itemize}
+    \item<1-> So... Horton's laws are defined by three ratios: 
+      $$R_n, \ R_\msl, \ \mbox{and} \ R_a.$$
+    \item<2-> Horton's laws describe \alert{exponential decay or growth}:
+      \begin{align*}
+        n_\om & = n_{\om-1}/R_n \\
+        \uncover<3->{& = n_{\om-2}/R_n^{\ 2} \\}
+        \uncover<4->{& \vdots \\}
+        \uncover<4->{& = n_{1}/R_n^{\ \om-1} \\}
+        \uncover<5->{& = n_{1} e^{-(\om-1) \ln{R_n}} \\}
+      \end{align*}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws}
+
+  \begin{block}<1->{Similar story for area and length:}
+    \begin{itemize}
+    \item<2->
+      $$
+      \bar{a}_\om = \bar{a}_1 e^{(\om-1)\ln R_a}
+      $$
+    \item<2->
+      $$
+      \bar{\msl}_\om = \bar{\msl}_1 e^{(\om-1)\ln R_\msl}
+      $$
+    \item<3-> As stream order increases, \alert{number drops} and
+      \alert{area and length increase}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+  
+\begin{frame}[label=]
+  \frametitle{Horton's laws}
+
+  \begin{block}<1->{A few more things:}
+    \begin{itemize}
+    \item<2-> Horton's laws are laws of averages.
+    \item<3-> Averaging for number is \alert{across} basins.
+    \item<4-> Averaging for stream lengths and areas is \alert{within} basins.
+    \item<5-> Horton's ratios go a long way to defining a branching network...
+    \item<6-> But we need one other piece of information... 
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws}
+
+  \begin{block}{A bonus law:}
+    \begin{itemize}
+    \item<1-> 
+      Horton's law of stream segment lengths:
+      $$
+      \alert{\boxed{\bar{\okell}_{\om+1}/\bar{\okell}_{\om} = R_\okell > 1}}
+      $$
+    \item<2-> 
+      Can show that $R_\okell = R_\msl$.
+    \item<3->
+      \insertassignmentquestion{02}{2}{3}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws in the real world:}
+
+  \begin{center}
+    \includegraphics[angle=0,width=.35\textwidth]{fignalomega_mispi10_002_noname} 
+%%    \includegraphics[angle=90,width=.45\textwidth]{fignalomega_mispi10}
+    \includegraphics[angle=0,width=.45\textwidth]{fignalomega_nile} \\
+    \includegraphics[angle=0,width=.45\textwidth]{fignalomega_amazon} 
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws-at-large}
+  
+  \begin{block}<1->{Blood networks:}
+    \begin{itemize}
+    \item<2->
+      Horton's laws hold for sections
+      of cardiovascular networks
+    \item<3->
+      Measuring such networks is tricky and messy...
+    \item<4->
+      Vessel diameters obey an analogous Horton's law.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data from real blood networks}
+
+%% ignore vein data
+  {\small
+    \begin{center}
+    \begin{tabular}{c|ccc|cc|c}
+      Network & $R_n$ & $R_r^{-1}$ & $R_\ell^{-1}$ & $-\frac{\ln{R_r}}{\ln{R_n}}$ & 
+      $-\frac{\ln R_\ell}{\ln{R_n}}$  & $\alpha$ \\
+      \hline
+      & & & & & & \\
+      West \etal\      & --   & --   & --   & 1/2  & 1/3  & 3/4   \\
+      & & & & & & \\
+%      Dimensional analysis               & --   & --   & --   & 1/2  & 1/2  & 2/3   \\
+      rat (PAT)           & 2.76 & 1.58 & 1.60 & 0.45 & 0.46 & 0.73  \\
+      & & & & & & \\
+      cat (PAT)           & 3.67 & 1.71 & 1.78 & 0.41 & 0.44 & 0.79  \\
+      {\tiny (Turcotte \etal\cite{turcotte1998a})}
+      & & & & & & \\
+      & & & & & & \\
+      dog (PAT)           & 3.69 & 1.67 & 1.52 & 0.39 & 0.32 & 0.90  \\
+%%      dog (PVT)           & 3.76 & 1.70 & 1.56 & 0.40 & 0.34 & 0.88  \\
+      & & & & & & \\
+      pig (LCX)           & 3.57 & 1.89 & 2.20 & 0.50 & 0.62 & 0.62  \\
+      pig (RCA)           & 3.50 & 1.81 & 2.12 & 0.47 & 0.60 & 0.65  \\
+      pig (LAD)           & 3.51 & 1.84 & 2.02 & 0.49 & 0.56 & 0.65  \\
+%%      pig (TV)            & 3.05 & 1.73 & 1.61 & 0.49 & 0.43 & 0.71  \\
+%%      pig (SV)            & 3.37 & 1.72 & 1.77 & 0.45 & 0.47 & 0.73  \\ 
+      & & & & & & \\
+      human (PAT)         & 3.03 & 1.60 & 1.49 & 0.42 & 0.36 & 0.83  \\
+%%      human (PVT)         & 3.30 & 1.68 & 1.68 & 0.43 & 0.43 & 0.77  \\
+      human (PAT)         & 3.36 & 1.56 & 1.49 & 0.37 & 0.33 & 0.94  \\
+%%      human (PVT)         & 3.33 & 1.58 & 1.50 & 0.38 & 0.34 & 0.91  \\ 
+    \end{tabular}
+    \end{center}
+    }
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws}
+
+  \begin{block}<1->{Observations:}
+    \begin{itemize}
+    \item<1-> Horton's ratios vary:
+      \begin{center}
+        \rowcolors[]{1}{blue!20}{blue!10} 
+        \begin{tabular}{rl}
+          $R_n$               & 3.0--5.0 \\
+          $R_a$               & 3.0--6.0 \\
+          $R_\msl$               & 1.5--3.0 \\
+        \end{tabular}
+      \end{center}
+    \item<2-> No accepted explanation for these values.
+    \item<3-> Horton's laws tell us how quantities vary
+      from level to level ...
+    \item<4-> ... but they don't explain how networks
+      are structured.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\section{Tokunaga's\ Law}
+
+\begin{frame}[label=]
+  \frametitle{Tokunaga's law}
+
+  \begin{block}<1->{Delving deeper into network architecture:}
+    \begin{itemize}
+    \item<2-> Tokunaga (1968) identified a clearer picture of network structure\cite{tokunaga1966a,tokunaga1978a,tokunaga1984a}
+    \item<3-> As per Horton-Strahler, use \alert{stream ordering}.
+    \item<4-> \alert{Focus:} describe how streams of different orders connect to each other.
+    \item<5-> Tokunaga's law is also a law of averages.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% ??? need a picture here
+
+\begin{frame}[label=]
+  \frametitle{Network Architecture}
+
+  \begin{block}<1->{Definition:}
+    \begin{itemize}
+    \item<1-> 
+      $ \alert{\Tmunu} = $
+      the average number of \alert{side streams} of \alert{order $\nu$}
+      that enter as tributaries to 
+      streams of \alert{order $\mu$}
+    \item<2-> $\mu$, $\nu$ = 1, 2, 3, \ldots
+    \item<3-> $\mu \ge \nu+1$
+    \item<4-> Recall each stream segment of order $\mu$ is `generated' by
+      two streams of order $\mu-1$
+    \item<5->These generating streams are not considered side streams.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Network Architecture}
+
+  \begin{block}<1->{Tokunaga's law}
+    \begin{itemize}
+    \item<2->
+      Property 1: Scale independence---depends only on difference between orders:
+      \uncover<3->{
+        $$ \alert{ \Tmunu  = T_{\mu-\nu}} $$
+      }
+    \item<4->
+      Property 2: Number of side streams grows exponentially with difference in orders:
+      \uncover<5->{
+        $$ \alert{\Tmunu= T_1 (R_T)^{\mu-\nu-1}} $$
+      }
+    \item<6->
+      We usually write Tokunaga's law as:
+      $$ \alert{\boxed{T_k = T_1 (R_T)^{k-1}}} \mbox{\ \ where $R_T \simeq 2$} $$
+      .
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Tokunaga's law---an example:}
+
+  \begin{columns}
+    \column{0.3\textwidth}
+    $$ T_1 \simeq 2 $$
+    $$ R_T \simeq 4 $$
+    \column{0.7\textwidth}
+    \includegraphics[width=0.8\textwidth]{network1}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{The Mississippi}
+
+  \begin{block}{A Tokunaga graph:}
+    \includegraphics[width=0.9\textwidth]{figtok_mispi10_3_noname-tp-3}    
+  \end{block}
+
+\end{frame}
+
+\section{Nutshell}
+
+\begin{frame}[label=]
+  \frametitle{Nutshell:}
+
+  \begin{block}{Branching networks I:}
+    \begin{itemize}
+    \item<1->
+      Show remarkable \alert{self-similarity} over many scales.
+    \item<2->
+      There are many interrelated scaling laws.
+    \item<3->
+      Horton-Strahler \alertb{Stream ordering} gives one useful way of 
+      getting at the architecture of branching networks.
+    \item<4->
+      \alert{Horton's laws} reveal self-similarity.
+    \item<5->
+      Horton's laws can be misinterpreted as
+      suggesting a pure hierarchy.
+    \item<6->
+      \alert{Tokunaga's laws} neatly describe network architecture.
+    \item<7->
+      Branching networks exhibit a mixed hierarchical structure.
+    \item<8->
+      Horton and Tokunaga can be connected analytically (next up).
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\insertvideo{teU1nRc0bso}{980}{1100}{Crafting landscapes}
+

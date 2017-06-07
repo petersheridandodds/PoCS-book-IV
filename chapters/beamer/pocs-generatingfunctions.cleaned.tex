@@ -1,0 +1,1340 @@
+
+\section{Generating\ Functions}
+
+\subsection{Definitions}
+
+\begin{frame}[label=]
+  \textbf{Generatingfunctionology\cite{wilf2006a}}
+  
+%   \textbf{The idea:}
+    
+    
+      \alert{Idea:} Given a sequence 
+      \alert{$a_0, a_1, a_2, \ldots,$}
+      \alertb{associate} each element with a 
+      distinct function or other mathematical object.
+    
+      Well-chosen functions allow us 
+      to manipulate sequences and retrieve
+      sequence elements.
+    
+%  
+
+  \textbf{Definition:}
+    
+    
+      The \alert{generating function} \alertb{(g.f.)} for a sequence 
+      $\{a_n\}$
+      is
+      $$
+      \alertb{
+      F(x) = \sum_{n=0}^{\infty} a_n x^n.
+      }
+      $$
+    
+      Roughly: transforms a vector in $R^\infty$
+      into a function defined on $R^{1}$.
+    
+      Related to Fourier, Laplace, Mellin, \ldots
+    
+  
+
+
+\begin{frame}[label=]
+  \textbf{Simple example}
+  
+  \textbf{Rolling dice and flipping coins:}
+    
+     
+      $p_k^{(\Box)} = \Prob(\mbox{throwing a} \ k) = 1/6$ where $k = 1, 2, \ldots, 6$.
+      $$
+      F^{(\Box)}(x) 
+      = 
+      \sum_{k=1}^{6} p_k^{(\Box)} x^k 
+      = 
+      \frac{1}{6} (x + x^2 + x^3 + x^4 + x^5 + x^6).
+      $$
+     
+      $p_0^{\textnormal{(coin)}} = \Prob({\textnormal{head}}) = 1/2$, 
+      $p_1^{\textnormal{(coin)}} = \Prob({\textnormal{tail}}) = 1/2$.
+      $$
+      F^{\textnormal{(coin)}}(x) 
+      = 
+      p_0^{\textnormal{(coin)}} x^0 + p_1^{\textnormal{(coin)}} x^1
+      = 
+      \frac{1}{2} (1 + x).
+      $$
+      
+     A generating function for a probability distribution is
+      called a \alertb{Probability Generating Function (p.g.f.)}.
+     
+      We'll come back to these simple examples
+      as we derive various delicious properties 
+      of generating functions.
+    
+  
+
+
+\begin{frame}[label=]
+  \textbf{Example}
+
+    
+    
+      Take a degree distribution with exponential decay:
+      $$ \alert{P_k = c e^{-\lambda k}} $$
+      where geometricsumfully, we have $c = 1 - e^{-\lambda}$
+    
+      The generating function for this distribution is
+      $$ 
+      F(x)
+      =
+      \sum_{k=0}^\infty
+      P_k x^k
+      {
+      =
+      \sum_{k=0}^\infty
+      c e^{-\lambda k} x^k
+      }
+      {
+      =
+      \frac{c}{1-xe^{-\lambda}}.
+      }
+      $$
+    
+      Notice that $F(1) = c/(1-e^{-\lambda}) = 1$.
+    
+      For probability distributions, we must
+      always have \alert{$F(1)=1$} since
+      $$
+      F(1) 
+      = 
+      \sum_{k=0}^\infty P_k 1^k 
+      {
+        =
+        \sum_{k=0}^\infty P_k
+      }
+      {
+        =
+        1.
+      }
+      $$
+    
+      Check die and coin p.g.f.'s.
+    
+  
+
+\subsection{Basic\ Properties}
+
+\begin{frame}[label=]
+  \textbf{Properties of probability generating functions}
+
+  \small
+
+  
+  
+    Average degree:
+    $$
+    \tavg{k} 
+    = 
+    \sum_{k=0}^\infty k P_k
+    {
+      =
+      \left. 
+        \sum_{k=0}^\infty k P_k x^{k-1} 
+      \right|_{x=1}
+    }
+    $$
+    $$
+    {
+      =
+      \left. 
+        \diff{}{x} F(x)
+      \right|_{x=1}
+    }
+    {
+      \alert{
+        =
+        F'(1)
+      }
+    }
+    $$
+   In general, many calculations become simple, if a little abstract.
+   For our exponential example:
+    $$
+    F'(x) = 
+    \frac{(1-e^{-\lambda}) e^{-\lambda}}
+    {(1-xe^{-\lambda})^2}.
+    $$
+  
+    $$
+    \mbox{So:} \ \
+    \tavg{k} = F'(1) =     
+    \frac{e^{-\lambda}}
+    {(1-e^{-\lambda})}.
+    $$
+    
+      Check for die and coin p.g.f.'s.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Properties of generating functions}
+
+  \small
+  \textbf{Useful pieces for probability distributions:}
+  
+  
+    Normalization:
+    $$ \alert{F(1) = 1} $$
+  
+    First moment:
+    $$ \alertb{\tavg{k} = F'(1)} $$
+  
+    Higher moments:
+    $$ 
+    \alert{
+    \tavg{k^n} = 
+    \left.
+    \left(
+      x \diff{}{x}
+    \right)^n
+    F(x)
+    \right|_{x=1}
+    }
+    $$
+  
+    $k$th element of sequence (general):
+    $$
+    \alertb{
+    \left.
+      P_k
+      =
+      \frac{1}{k!}
+      \diff{^{k}}{x^k} F(x)
+    \right|_{x=0}
+    }
+    $$
+  
+  
+
+
+% up to page R-e
+
+\subsection{Giant\ Component\ Condition}
+
+\begin{frame}[label=]
+  \textbf{Edge-degree distribution}
+
+  
+   Recall our condition for
+    a giant component:
+    $$
+    \alert{
+      \tavg{k}_R = 
+      \frac{\tavg{k^2} - \tavg{k}}
+      {\tavg{k}}
+      > 1.
+    }
+    $$
+   Let's re-express our condition in
+    terms of generating functions.
+   We first need the g.f.\ for \alert{$R_k$}.
+   We'll now use this notation:
+    
+    []  \alert{$F_P (x)$} is the g.f.\ for \alert{$P_k$}.
+    []  \alertb{$F_R (x)$} is the g.f.\ for \alertb{$R_k$}.
+    
+  
+    Giant component condition in terms of g.f. is:
+    $$
+    \alert{\tavg{k}_R = F'_{R}(1) > 1}.
+    $$
+  
+    Now find how $F_R$ is related to $F_P$\ldots
+  
+
+\begin{frame}[label=]
+  \textbf{Edge-degree distribution}
+
+  
+  
+    We have 
+    $$
+    F_R(x)
+    =
+    \sum_{k=0}^{\infty}
+    \alert{R_k}
+    x^k
+    {
+      =
+      \sum_{k=0}^{\infty}
+      \alert{
+      \frac{(k+1)P_{k+1}}
+      {\tavg{k}}
+      }
+      x^k.
+    }
+    $$
+    {
+      Shift index to $j=k+1$ and pull out $\frac{1}{\tavg{k}}$:
+    }
+    $$
+    {
+      F_R(x)
+      =
+      \frac{1}{\tavg{k}}
+      \sum_{j=1}^{\infty}
+      j P_{j} x^{j-1}
+    }
+    {
+      =
+      \frac{1}{\tavg{k}}
+      \sum_{j=1}^{\infty}
+      P_{j} 
+      \alertb{\diff{}{x}}
+      \alertb{x^{j}}
+    }
+    $$
+    $$
+    {
+      = 
+    \frac{1}{\tavg{k}}
+    \alertb{\diff{}{x}}
+    \sum_{j=1}^{\infty}
+    P_{j} \alertb{x^{j}}
+    }
+    {
+      = 
+    \frac{1}{\tavg{k}}
+    \alertb{\diff{}{x}}
+    \left(
+    \alertb{F_P}(x) - \alert{P_0}
+    \right)
+      }
+    {
+      = 
+    \frac{1}{\tavg{k}}
+    \alertb{F'_P}(x).
+      }
+    $$
+    {
+    Finally, since $\tavg{k} = F'_P(1)$,
+    $$
+    \boxed{
+      \alert{
+        F_R(x) = \frac{F'_P(x)}{F'_P(1)}
+      }
+    }
+    $$
+    }
+  
+
+
+
+%% \begin{frame}[label=]
+%%   \textbf{Edge-degree distribution}
+%% 
+%%   
+%%   
+%%     We have 
+%%     $$
+%%     F_R(x)
+%%     =
+%%     \sum_{k=0}^{\infty}
+%%     \alert{R_k}
+%%     x^k
+%%     {
+%%       =
+%%       \sum_{k=0}^{\infty}
+%%       \alert{
+%%       \frac{(k+1)P_{k+1}}
+%%       {\tavg{k}}
+%%       }
+%%       x^k.
+%%     }
+%%     $$
+%%     {
+%%       Shift index to $j=k+1$ and pull out $\frac{1}{\tavg{k}}$:
+%%     }
+%%     $$
+%%     {
+%%       F_R(x)
+%%       =
+%%       \frac{1}{\tavg{k}}
+%%       \sum_{j=1}^{\infty}
+%%       j P_{j} x^{j-1}
+%%     }
+%%     {
+%%       =
+%%       \frac{1}{\tavg{k}}
+%%       \sum_{\alert{j=0}}^{\infty}
+%%       P_{j} \alertb{\, j \, x^{j-1}}
+%%     }
+%%     $$
+%%     $$
+%%     {
+%%     =
+%%     \frac{1}{\tavg{k}}
+%%     \sum_{j=0}^{\infty}
+%%     \alertb{\diff{}{x}}
+%%     P_{j} \alertb{x^{j}}
+%%   }
+%%     {
+%%       = 
+%%     \frac{1}{\tavg{k}}
+%%     \alertb{\diff{}{x}}
+%%     \sum_{j=0}^{\infty}
+%%     P_{j} \alertb{x^{j}}
+%%     }
+%%     {
+%%       = 
+%%     \frac{1}{\tavg{k}}
+%%     \alertb{F'_P}(x).
+%%       }
+%%     $$
+%%     {
+%%     Finally, since $\tavg{k} = F'_P(1)$,
+%%     $$
+%%     \boxed{
+%%       \alert{
+%%         F_R(x) = \frac{F'_P(x)}{F'_P(1)}
+%%       }
+%%     }
+%%     $$
+%%     }
+%% %    %% %      
+%%  %   F_R(x)
+%% %    =
+%% %    \frac{1}{\tavg{k}}
+%% %%    \sum_{j=1}^{\infty}
+%% %    \sum_{\alert{j=}\alertb{\cancel{1}} \raisebox{-2pt}{\scriptsize\alert{0}}}^{\infty}
+%% %    j P_{j}
+%% %    $$
+%% %    %%   
+%% 
+%% 
+\begin{frame}[label=]
+  \textbf{Edge-degree distribution}
+
+  
+   Recall giant component condition is
+    $\tavg{k}_R = F'_R(1) > 1$.
+  
+    Since we have $F_R(x) = F'_P(x)/F'_P(1)$,
+    {
+    $$
+    F'_R(x)
+    =
+    \frac{
+      F''_P(x)
+    }
+    {
+      F'_P(1).
+    }
+    $$
+  }
+  
+    Setting $x=1$, our condition becomes
+    $$
+    \boxed{
+      \alert{
+        \frac{
+          F''_P(1)
+        }
+        {
+          F'_P(1)
+        }
+        > 1
+      }}
+    $$
+  
+
+
+\subsection{Component\ sizes}
+
+\begin{frame}[label=]
+  \textbf{Size distributions}
+  
+    To figure out the \alert{size of the largest component}
+    ($S_1$), we need
+    more resolution on component sizes.
+
+    \textbf{Definitions:}
+      
+       
+        \alert{$\pi_n$} = probability that a random node
+        belongs to a finite component of size $n < \infty$.
+       
+        \alert{$\rho_n$} = probability 
+        that a random end of a random link leads to 
+        a finite subcomponent of size $n < \infty$.
+      
+    
+    \textbf{Local-global connection:}
+      \alert{
+        $$
+        P_k, R_k \Leftrightarrow \pi_n, \rho_n
+        $$
+        $$
+        \mbox{neighbors}
+        \Leftrightarrow
+        \mbox{components}
+        $$
+      }
+    
+  
+
+\begin{frame}[label=]
+  \textbf{Connecting probabilities:}
+
+  \includegraphics[width=\textwidth]{randomnetworks-pi-rho-P-tp-5.pdf}
+
+  
+   
+    Markov property of random networks connects 
+    $\pi_n$, $\rho_n$, and $P_k$.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Connecting probabilities:}
+
+  \includegraphics[width=\textwidth]{randomnetworks-rho-R-tp-5.pdf}
+
+  
+   
+    Markov property of random networks connects $\rho_n$ and $R_k$.
+  
+
+
+  \textbf{Size distributions}
+  
+  \textbf{G.f.'s for component size distributions:}
+    
+    
+      $$ 
+      F_{\pi}(x) = \sum_{n=0}^{\infty} \pi_n x^n 
+      \mbox{\ and \ }
+      F_{\rho}(x) = \sum_{n=0}^{\infty} \rho_n x^n $$
+    
+  
+
+  \textbf{The largest component:}
+    
+    
+      \alertb{Subtle key:} $F_\pi(1)$ is the probability
+      that a node belongs to a \alert{finite} component.
+    
+      Therefore: $S_1 = 1 - F_\pi(1)$.
+    
+  
+  \textbf{Our mission, which we accept:}
+    
+    
+      Determine and connect the four generating functions
+      $$
+      F_P,
+      F_R,
+      F_\pi,
+      \mbox{\, and\, }
+      F_\rho.
+      $$
+    
+  
+
+\subsection{Useful\ results}
+
+\begin{frame}[label=rn-sneakyresult1]
+  \textbf{Useful results we'll need for g.f.'s}
+  
+  \textbf{Sneaky Result 1:}
+    
+     
+      Consider two random variables 
+      \alert{$U$} and \alert{$V$} whose
+      values may be $0,1,2,\ldots$
+     
+      Write probability
+      distributions as \alert{$U_k$ and $V_k$}
+      and g.f.'s as \alertb{$F_{U}$ and $F_{V}$}.
+    
+      \alertb{SR1}: If a third random variable is defined as
+      $$
+      \alert{W = \sum_{i=1}^{U} V^{(i)}}
+      \
+      \mbox{with each}
+      \
+      V^{(i)}
+      \stackrel{d}{=}
+      V
+      $$
+      {
+      then
+      $$
+      \alertb{
+        \boxed{
+          F_{W}(x) 
+          = 
+          F_{U} 
+          \left(
+            F_{V}(x)
+          \right)
+        }
+      }
+      $$
+    }
+    
+    
+  
+
+\begin{frame}[label=]
+  \textbf{Proof of SR1:}
+
+  {
+  Write probability that variable $W$ has value $k$ as \alert{$W_k$}.
+}
+  {
+  $$
+  W_k
+  =
+  \sum_{j=0}^{\infty} U_j \times%
+  \mbox{Pr(sum of $j$ draws of variable $V$ = $k$)}
+  $$
+  }
+  {
+    $$
+    =\sum_{j=0}^{\infty} U_j 
+    \sum_{\stackrel{\{i_1, i_2, \ldots, i_j \} |\ }{\alert{i_1+i_2+\ldots+i_j = k}}} 
+    V_{i_1} V_{i_2} \cdots V_{i_j}
+    $$
+  }
+  $$
+  {
+    \therefore
+    F_W(x) = \sum_{k=0}^\infty W_k x^k
+  }
+  {
+    =
+    \sum_{k=0}^\infty
+    \sum_{j=0}^{\infty} U_j 
+    \sum_{\stackrel{\{i_1, i_2, \ldots, i_j \} |\ }{{i_1+i_2+\ldots+i_j = k}}} 
+    V_{i_1} V_{i_2} \cdots V_{i_j}
+    x^k
+  }
+  $$  
+  $$
+  {
+    =
+    \sum_{\alert{j}=0}^{\infty} 
+    \alert{U_j}
+    \sum_{\alert{k}=0}^\infty
+  }
+  {
+    \sum_{\stackrel{\{i_1, i_2, \ldots, i_j \} |\ }{{i_1+i_2+\ldots+i_j = k}}} 
+    V_{i_1} \alertb{x^{i_1}}
+    V_{i_2} \alertb{x^{i_2}}
+    \cdots 
+    V_{i_j} \alertb{x^{i_j}}
+  }
+  $$  
+
+%% insert piece to help with understanding next step
+
+\begin{frame}[label=]
+  \textbf{Proof of SR1:}
+
+  With some concentration, observe:
+    
+  $$
+  F_W(x) = 
+  \sum_{\alert{j}=0}^{\infty} 
+  \alert{U_j}
+    \sum_{\alert{k}=0}^\infty
+    \underbrace{
+    \sum_{\stackrel{\{i_1, i_2, \ldots, i_j \} |\ }{{i_1+i_2+\ldots+i_j = k}}} 
+    V_{i_1} \alertb{x^{i_1}}
+    V_{i_2} \alertb{x^{i_2}}
+    \cdots 
+    V_{i_j} \alertb{x^{i_j}}
+  }_{
+    \mbox{$x^k$ piece of $\left( \sum_{i'=0}^\infty V_{i'}x^{i'}\right)^j$}
+  }
+  $$
+  
+  $$
+  F_W(x) = 
+  \sum_{\alert{j}=0}^{\infty} 
+  \alert{U_j}
+  \underbrace{
+    \sum_{\alert{k}=0}^\infty
+    \underbrace{
+      \sum_{\stackrel{\{i_1, i_2, \ldots, i_j \} |\ }{{i_1+i_2+\ldots+i_j = k}}} 
+      V_{i_1} \alertb{x^{i_1}}
+      V_{i_2} \alertb{x^{i_2}}
+      \cdots 
+      V_{i_j} \alertb{x^{i_j}}
+    }_{ % first underbrace
+      \mbox{$x^k$ piece of $\left( \sum_{i'=0}^\infty V_{i'}x^{i'}\right)^j$}
+    }
+  }_{ % second underbrace
+    \mbox{$\left( \sum_{i'=0}^{\infty} V_{i'}x^{i'}\right)^j = \left(F_V(x) \right)^j$ }
+  } 
+  $$
+    {
+    $$
+    =
+  \sum_{\alert{j}=0}^{\infty} 
+  \alert{U_j}
+  \left( F_V(x) \right)^j
+    $$
+  }
+  $$
+  {
+    =
+    F_U \left( F_V(x) \right)
+  }
+  {
+  \alert{\faCheck}
+  }
+  $$
+
+
+\begin{frame}[label=rn-sneakyresult2]
+  \textbf{Useful results we'll need for g.f.'s}
+
+  \textbf{Sneaky Result 2:}
+    
+    
+      Start with a random variable $\alert{U}$ with
+      distribution $\alert{U_k}$ ($k=0,1,2,\dots$)
+     
+      \alertb{SR2}: If a second random variable
+      is defined as 
+      $$
+      \alert{ V = U + 1}
+      {
+        \mbox{\ \ then \ }
+        \alertb{
+        \boxed{F_{V}(x) = xF_{U}(x)}
+        }
+      }
+      $$
+    
+      \alert{Reason:} $V_{k} = U_{k-1}$ for $k \ge 1$ and $V_{0}=0$.
+    
+      $$
+      \therefore 
+      F_{V}(x)
+      = 
+      \sum_{k=0}^{\infty} V_k x^k
+      {
+        =
+        \sum_{\alert{k=1}}^{\infty} \alert{U_{k-1}} x^k
+      }
+      $$
+      $$
+      {
+        =
+        x \sum_{\alert{j=0}}^{\infty} \alert{U_{j}} x^j
+      }
+      {
+        =
+        x F_U(x).
+      }
+      {
+        \alert{\faCheck}
+      }
+      $$
+    
+  
+
+
+  \textbf{Useful results we'll need for g.f.'s}
+
+  \textbf{Generalization of SR2:}
+    
+    
+    (1) If $V=U+i$ then
+    $$
+    \alert{F_V(x) = x^i F_U(x).}
+    $$
+    
+    (2) If $V=U-i$ then
+     $$
+%%     \alert{
+%%       F_V(x) = x^{-i} 
+%%       \left(
+%%         F_U(x) 
+%%         - U_0 - U_1 x - \ldots - U_{i-1} x^{i-1}
+%%       \right)
+%%     }
+     \alert{
+       F_V(x) = x^{-i} F_U(x)
+     }
+     $$
+    {
+      $$
+      =
+      x^{-i} 
+      \sum_{{k=0}}^{\infty} {U_{k}} x^k
+      $$
+     }
+    
+  
+
+
+\subsection{Size\ of\ the\ Giant\ Component}
+
+\begin{frame}[label=]
+  \textbf{Connecting generating functions:}
+
+  
+  
+    \alert{Goal:} figure out forms of 
+    the component generating functions, $F_\pi$ and $F_\rho$.
+  
+
+  \includegraphics[width=.9\textwidth]{randomnetworks-pi-rho-P-tp-5.pdf}
+
+  
+   
+    Relate $\pi_n$ to $P_k$ and $\rho_n$ through
+    one step of recursion.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Connecting generating functions:}
+
+  
+  
+    \alert{$\pi_n$} = probability that a random node
+    belongs to a finite component of size $n$
+    {
+      $$
+      = \sum_{k=0}^{\infty}
+      P_k \times
+      \mbox{Pr}
+      \left(
+        \begin{array}{l}
+          \mbox{sum of sizes of subcomponents} \\
+          \mbox{at end of $k$ random links} = n-1 \\
+        \end{array}
+      \right)
+      $$
+    }
+  
+    $$
+    \mbox{Therefore: \ \ }
+    \boxed{
+      F_{\pi}(x)
+      =
+      {
+        \underbrace{x}_{
+          %%          \hyperlink{rn-sneakyresult2\ifslides{}}{\beamerbutton{SR2}}
+          \ifthenelse{\boolean{flatswitch}}
+          {\protect\hyperlink{rn-sneakyresult2}{\beamerbutton{SR2}}} %% flat slides
+          {\protect\hyperlink{rn-sneakyresult2}{\beamerbutton{SR2}}} %% normal slides
+        }
+      }
+      {
+        \underbrace{
+          F_{P}
+          \left(
+            F_{\rho} (x)
+          \right)
+        }_{
+          %%          \hyperlink{rn-sneakyresult1\ifslides{}}{\beamerbutton{SR1}}
+          \ifthenelse{\boolean{flatswitch}}
+          {\protect\hyperlink{rn-sneakyresult1}{\beamerbutton{SR1}}} %% flat slides
+          {\protect\hyperlink{rn-sneakyresult1}{\beamerbutton{SR1}}} %% normal slides
+        }
+      }
+    }
+    $$
+  
+    Extra factor of $x$ accounts for random node itself.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Connecting generating functions:}
+
+  \includegraphics[width=\textwidth]{randomnetworks-rho-R-tp-5.pdf}
+
+  
+   
+    Relate $\rho_n$ to $R_k$ and $\rho_n$ through
+    one step of recursion.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Connecting generating functions:}
+  
+  
+   \alert{$\rho_n$}
+    = probability that 
+    a random link leads to 
+    a finite subcomponent of size $n$.
+   Invoke one step of recursion: \\
+    \alert{$\rho_n$}
+    = probability that in following
+    a random edge, the outgoing
+    edges of the node reached
+    lead to finite subcomponents of combined size $n-1$,
+    {
+      $$
+      =
+      \sum_{k=0}^\infty R_k \times
+      \mbox{Pr}
+      \left(
+        \begin{array}{l}
+          \mbox{sum of sizes of subcomponents} \\
+          \mbox{at end of $k$ random links} = n-1 \\
+        \end{array}
+      \right)
+      $$
+    }
+  
+    $$
+    \mbox{Therefore: \ \ }
+    \boxed{
+      F_{\rho}(x)
+      =
+      {
+        \underbrace{x}_{
+%%          \hyperlink{rn-sneakyresult2\ifslides{}}{\beamerbutton{SR2}}
+          \ifthenelse{\boolean{flatswitch}}
+          {\protect\hyperlink{rn-sneakyresult2}{\beamerbutton{SR2}}} %% flat slides
+          {\protect\hyperlink{rn-sneakyresult2}{\beamerbutton{SR2}}} %% normal slides
+        }
+        }
+      {
+        \underbrace{
+          F_{R}
+          \left(
+            F_{\rho} (x)
+          \right)
+        }_{
+%%          \hyperlink{rn-sneakyresult1\ifslides{}}{\beamerbutton{SR1}}
+          \ifthenelse{\boolean{flatswitch}}
+          {\protect\hyperlink{rn-sneakyresult1}{\beamerbutton{SR1}}} %% flat slides
+          {\protect\hyperlink{rn-sneakyresult1}{\beamerbutton{SR1}}} %% normal slides
+        }
+      }
+    }
+    $$
+  
+    Again, extra factor of $x$ accounts for random node itself.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Connecting generating functions:}
+
+  
+   We now have two functional equations
+    connecting our generating functions:
+    $$
+    \alertb{
+      F_{\pi}(x)
+      =
+      x F_{P}
+      \left(
+        F_{\rho} (x)
+      \right)
+    }
+    \mbox{\ \  and \ \ }
+    \alertb{
+    F_{\rho}(x)
+    =
+    x F_{R}
+    \left(
+      F_{\rho} (x)
+    \right)
+    }
+    $$
+  
+    Taking stock: We know $F_P(x)$ and $F_R(x)=F'_P(x)/F'_P(1)$.
+  
+    We first untangle the \alertb{second equation} to find $F_\rho$
+  
+    We can do this because it \alert{only involves} $F_\rho$ and $F_R$.
+  
+    The first equation then immediately gives us $F_\pi$ in
+    terms of $F_\rho$ and $F_R$.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Component sizes}
+  
+  
+   
+    Remembering vaguely what we are doing:\\
+    \medskip
+    {
+    Finding $F_\pi$ to obtain the \alert{fractional size of the largest component} $S_1 = 1 - F_\pi(1)$.
+    }
+   Set $x=1$ in our two equations:
+    {
+    $$
+    \alertb{
+      F_{\pi}(1)
+      =
+      F_{P}
+      \left(
+        F_{\rho} (1)
+      \right)
+    }
+    \mbox{\ \  and \ \ }
+    \alertb{
+    F_{\rho}(1)
+    =
+    F_{R}
+    \left(
+      F_{\rho} (1)
+    \right)
+    }
+    $$
+    }
+  
+    Solve second equation numerically for $F_{\rho}(1)$.
+  
+    Plug $F_{\rho}(1)$ into first equation to
+    obtain $F_{\pi}(1)$.
+  
+
+
+\begin{frame}[label=]
+  \textbf{Component sizes}
+
+  \alert{Example}: \alertb{Standard random graphs}.
+  
+  
+    $
+    \mbox{We can show \ }
+    F_P(x) = e^{-\avg{k}(1-x)}
+    $
+        {
+    $$
+    \therefore
+    F_R(x) = F'_P(x)/F'_P(1) 
+    {
+      = e^{-\tavg{k}(1-x)}/e^{-\tavg{k}(1-x')}|_{x'=1}
+    }
+    $$
+    }
+    $$
+    {
+      = e^{-\tavg{k}(1-x)}
+    }
+    {
+      \alert{= F_P(x)} \qquad \alertb{\mbox{...aha!}}
+    }
+    $$
+    
+      RHS's of our two equations are the same.
+     
+      So $\alert{F_\pi(x) = F_\rho(x)} = x F_R(F_\rho(x)) = x F_R(F_\pi(x))$
+    
+      Consistent with how our dirty (but wrong) trick worked earlier...
+    
+      $\pi_n = \rho_n$ just as $P_k = R_k$.
+  
+
+
+
+\begin{frame}[label=]
+  \textbf{Component sizes}
+
+  
+   
+    We are down to\\
+    $
+    F_\pi(x) = x F_R(F_\pi(x))
+    $
+    and
+    $
+    F_R(x) = e^{-\avg{k}(1-x)}
+    $.
+  
+    $$
+    \therefore
+    F_\pi(x) = x e^{-\avg{k}(1-F_\pi(x))}
+    $$
+   We're first after $S_1 = 1 - F_\pi(1)$ so set $x=1$
+    and replace $F_\pi(1)$ by $1-S_1$:
+          
+      {
+        $$ 1 - S_1  = e^{-\avg{k}S_1} $$
+      }
+      {
+        $$ \mbox{Or:\ } \tavg{k} = \frac{1}{S_1} \ln \frac{1}{1-S_1} $$
+      }
+      
+              
+        
+        \includegraphics[width=\textwidth,angle=-90]{figphastrans3}
+            
+       Just as we found with our dirty trick \ldots
+   Again, we (usually) have to resort to numerics \ldots
+  
+
+
+\subsection{Average\ Component\ Size}
+
+\begin{frame}[label=]
+  \textbf{Average component size}
+
+  
+   Next: find \alert{average size} of finite components $\tavg{n}$.
+   
+    Using standard G.F. result:
+    $
+    \alertb{\tavg{n} = F'_\pi(1)}.
+    $
+   
+    Try to avoid finding $F_\pi(x)$...
+   
+    Starting from 
+    $
+    F_{\pi}(x)
+    =
+    x
+    F_{P}
+    \left(
+      F_{\rho} (x)
+    \right)
+    $, 
+    we differentiate:
+    $$
+    F'_{\pi}(x)
+    =
+    F_{P}
+    \left(
+      F_{\rho} (x)
+    \right)
+    +    
+    x
+    F'_{\rho} (x)
+    F'_{P}
+    \left(
+      F_{\rho} (x)
+    \right)
+    $$
+   
+    While
+    $
+    F_{\rho}(x)
+    =
+    x
+    F_{R}
+    \left(
+      F_{\rho} (x)
+    \right)
+    $
+    gives
+    $$
+    F'_{\rho}(x)
+    =
+    F_{R}
+    \left(
+      F_{\rho} (x)
+    \right)
+    +   
+    x
+    F'_{\rho} (x)
+    F'_{R}
+    \left(
+      F_{\rho} (x)
+    \right)
+    $$
+  
+    Now set $x=1$ in both equations.
+  
+    We solve the second equation for $F'_\rho(1)$
+    (we must already have $F_\rho(1)$).
+  
+    Plug $F'_\rho(1)$ and $F_\rho(1)$ into first equation to find $F'_\pi(1)$.
+  
+
+  
+\begin{frame}[label=]
+  \textbf{Average component size}
+
+    \alert{Example}: \alertb{Standard random graphs}.
+    
+    
+      Use fact that $F_P=F_R$ and $F_\pi=F_\rho$.
+    
+      Two differentiated equations reduce to only one:
+    $$
+    F'_{\pi}(x)
+    =
+    F_{P}
+    \left(
+      F_{\pi} (x)
+    \right)
+    +
+    x
+    F'_{\pi} (x)
+    F'_{P}
+    \left(
+      F_{\pi} (x)
+    \right)
+    $$
+  {
+    $$
+    \mbox{Rearrange: \ \ }
+    F'_{\pi}(x)
+    =
+    \frac{
+      F_{P}
+      \left(
+        F_{\pi} (x)
+      \right)
+    }
+    {
+      1 -
+      x
+      F'_{P}
+      \left(
+        F_{\pi} (x)
+      \right)
+    }
+    $$
+    }
+    
+      Simplify denominator using $F'_P(x) = \tavg{k} F_P(x)$
+    
+      Replace $F_P(F_\pi(x))$ using $F_\pi(x) = x F_P(F_\pi(x))$.
+    
+      Set $x=1$ and replace $F_\pi(1)$ with $1-S_1$.
+    {
+      $$
+      \mbox{End result:\ \ }
+      \tavg{n} 
+      = 
+      F'_{\pi}(1)
+      =
+      \frac{
+        \left(
+          1-S_1
+        \right)
+      }
+      {
+        1 -
+        \tavg{k}(1-S_1)
+      }
+      $$
+    }
+    
+    
+  
+\begin{frame}[label=]
+  \textbf{Average component size}
+
+  
+  
+    Our result for standard random networks:
+    $$
+    \tavg{n} 
+    = 
+    F'_{\pi}(1)
+    =
+    \frac{
+      \left(
+        1-S_1
+      \right)
+    }
+    {
+      1 -
+      \tavg{k}(1-S_1)
+    }
+    $$
+  
+    Recall that $\tavg{k}=1$ is the critical value 
+    of average degree for standard random networks.
+  
+    Look at what happens when we increase $\tavg{k}$ 
+    to 1 from below.
+  
+    We have $S_1=0$ for all $\tavg{k}<1$ 
+    {
+      so
+      $$
+      \avg{n} =
+      \frac{
+          1
+      }
+      {
+        1 -
+        \tavg{k}
+      }
+      $$
+    }
+  
+    This blows up as $\tavg{k} \rightarrow 1$.
+   
+    \alert{Reason:} we have a power law distribution of component
+    sizes at $\tavg{k}=1$.
+  
+    Typical critical point behavior....
+  
+
+%%%
+%%%
+% fix up (1-S_1) factor discussion
+%%%
+%%% add a graph
+
+\begin{frame}[label=]
+  \textbf{Average component size}
+  
+  
+    Limits of $\tavg{k}=0$ and $\infty$ make sense for
+    $$
+    \tavg{n} 
+    = 
+    F'_{\pi}(1)
+    =
+    \frac{
+      \left(
+        1-S_1
+      \right)
+    }
+    {
+      1 -
+      \tavg{k}(1-S_1)
+    }
+    $$
+  
+    As $\tavg{k} \rightarrow 0$, $S_1=0$, and $\tavg{n} \rightarrow 1$.
+  
+    All nodes are isolated.
+  
+    As $\tavg{k} \rightarrow \infty$, $S_1\rightarrow 1$
+    and $\tavg{n} \rightarrow 0$.
+  
+    No nodes are outside of the giant component.
+  
+
+  \textbf{Extra on largest component size:}
+    
+    
+      For $\tavg{k}=1$, $S_1 \sim N^{2/3}/N$.
+    
+      For $\tavg{k}< 1$, $S_1 \sim (\log N)/N$.
+    
+  
+  
+
+% TODO
+%\begin{frame}[label=]
+%  
+%
+% finding higher moments
+%
+%

@@ -1,0 +1,258 @@
+\section{Analysis\ of\ real\ networks}
+
+\begin{frame}[label=]
+  \frametitle{More on building random networks}
+
+  \begin{itemize}
+  \item<1-> 
+    \alert{Problem:} 
+    How much of a real network's structure is non-random?
+  \item<2-> 
+    Key elephant in the room: the \alert{degree distribution} $P_k$.
+  \item<3-> 
+    First observe \alert{departure} of $P_k$ from a Poisson distribution.
+  \item<4->
+    \alertb{Next:}
+    measure the departure of a real network 
+    with a \alertb{degree frequency $N_k$}
+    from a random
+    network with the same degree frequency.
+  \item<5->
+    Degree frequency $N_k$ = observed frequency of degrees for a real network.
+  \item<6-> 
+    \alert{What we now need to do}: 
+    Create an ensemble of random networks
+    with degree frequency $N_k$ and then compare.
+  \end{itemize}
+
+\end{frame}
+
+\subsection{How\ to\ build\ revisited}
+
+\begin{frame}[label=]
+  \frametitle{Building random networks: Stubs}
+
+  \begin{block}{Phase 1:}
+    \begin{itemize}
+    \item<1-> \alert{Idea:} start with a soup of unconnected nodes
+      with \alertb{stubs} (half-edges):
+      \begin{center}
+        \includegraphics[angle=-90,width=0.7\textwidth]{rn_stubs02_examples}
+      \end{center}
+    \end{itemize}
+    \begin{columns}<2->
+      \column{0.5\textwidth}
+      \includegraphics[angle=-90,width=\textwidth]{rn_stubs03_examples}
+      \column{0.5\textwidth}
+      \begin{itemize}
+      \item<3-> Randomly select stubs (not nodes!) and connect them.
+      \item<4-> Must have an even number of stubs.
+      \item<5-> Initially allow \alert{self-} and \alert{repeat} connections.
+      \end{itemize}
+    \end{columns}
+
+  \end{block}
+
+\end{frame}
+
+
+
+\begin{frame}[label=]
+  \frametitle{Building random networks: First rewiring}
+
+  \begin{block}{Phase 2:}
+    \begin{itemize}
+    \item<1-> Now find any (A) self-loops and (B) repeat edges 
+      and \alert{randomly rewire} them.
+      \begin{center}
+        (A)
+        \includegraphics[height=0.125\textheight]{rn_stubs04_examples}
+        \qquad
+        (B)
+        \includegraphics[height=0.1\textheight]{rn_stubs05_examples}
+      \end{center}
+    \item<2-> \alert{Being careful:} we can't change
+      the degree of any node, so we can't simply move
+      links around.
+    \item<3-> \alert{Simplest solution:} 
+      randomly rewire \alertb{two edges} at a time.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{General random rewiring algorithm}
+
+  \begin{columns}<1->
+    \column{0.4\textwidth}
+    \includegraphics[width=\textwidth]{rn_stubs06_examples}
+    \column{0.6\textwidth}
+    \begin{itemize}
+    \item<1-> Randomly choose \alert{two edges}.\\
+      (Or choose problem edge and a random edge)
+    \item<2-> Check to make sure edges are \alertb{disjoint}.
+    \end{itemize}
+  \end{columns}
+  \begin{columns}<3->
+    \column{0.4\textwidth}
+    \begin{overprint}
+      \onslide<1-3 | handout: 0 | trans:0>
+      \onslide<4->
+      \includegraphics[width=\textwidth]{rn_stubs08_examples}
+    \end{overprint}
+    \column{0.6\textwidth}
+    \begin{itemize}
+    \item<3-> Rewire one end of each edge.
+    \item<4-> Node degrees \alert{do not change}.
+    \item<5-> Works if $e_1$ is a self-loop or repeated edge.
+    \item<6-> Same as finding on/off/on/off 4-cycles.
+      and rotating them.
+    \end{itemize}
+  \end{columns}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Sampling random networks}
+
+  \begin{block}<1->{Phase 2:}
+    \begin{itemize}
+    \item<1-> Use rewiring algorithm to remove
+      all self and repeat loops.
+    \end{itemize}
+  \end{block}  
+
+  \begin{block}<2->{Phase 3:}
+    \begin{itemize}
+    \item<2-> \alert{Randomize network} wiring by applying
+      rewiring algorithm liberally.
+    \item<3-> \alertb{Rule of thumb}:
+      \# Rewirings $\simeq$
+      10 $\times$ \# edges\cite{milo2003a}.
+    \end{itemize}
+  \end{block}  
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Random sampling}
+
+  \begin{itemize}
+  \item<1-> \alertb{Problem} with only joining up stubs
+    is \alert{failure} to randomly sample from all possible networks.
+  \item<2-> Example from Milo et al. (2003)\cite{milo2003a}:
+    \begin{overprint}
+      \onslide<1 | handout: 0 | trans:0>
+      \onslide<2>
+      \includegraphics[width=0.6\textwidth]{milo2003a_fig2panel1}
+      \includegraphics[width=0.3\textwidth]{milo2003a_fig2panel2}
+    \end{overprint}
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Sampling random networks}
+  \begin{itemize}
+  \item<1->
+    What if we have \alert{$P_k$} instead of \alertb{$N_k$}?
+  \item<2->
+    Must now create nodes before start of the construction algorithm.
+  \item<3->
+    Generate $N$ nodes by sampling from degree distribution $P_k$.
+  \item<4-> 
+    Easy to do exactly numerically since $k$ is discrete.
+  \item<5-> 
+    \alert{Note:} not all $P_k$ will always give nodes
+    that can be wired together.
+  \end{itemize}
+\end{frame}
+
+% an example?
+
+\subsection{Motifs}
+
+\begin{frame}[label=]
+  \frametitle{Network motifs}
+
+  \begin{itemize}
+  \item<1-> 
+    Idea of \alert{motifs}\cite{shen-orr2002a} 
+    introduced by Shen-Orr, Alon et al. in 2002.
+  \item<2-> 
+    Looked at gene expression within full context of
+    \alertb{transcriptional regulation networks}.
+  \item<3-> 
+    Specific example of Escherichia coli.
+  \item<4-> 
+    Directed network with 577 interactions (edges) and 424 operons (nodes).
+  \item<5-> 
+    Used network randomization to produce ensemble of alternate networks
+    with same degree frequency $N_k$.
+  \item<6-> 
+    Looked for \alert{certain subnetworks} (\alertb{motifs}) that appeared more or less often than expected
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Network motifs}
+
+    \begin{columns}
+      \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{shen-orr2002a_fig1ab}
+      \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{shen-orr2002a_fig2a}
+    \end{columns}
+
+    \begin{itemize}
+    \item<1-> $Z$ only turns on in response to sustained activity in $X$.
+    \item<2-> Turning off $X$ rapidly turns off $Z$.
+    \item<3-> Analogy to elevator doors.
+    \end{itemize}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Network motifs}
+
+  \includegraphics[width=0.7\textwidth]{shen-orr2002a_fig1cd}
+
+  \begin{itemize}
+  \item Master switch.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Network motifs}
+
+  \includegraphics[width=0.7\textwidth]{shen-orr2002a_fig1ef}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Network motifs}
+
+  \begin{itemize}
+  \item<1-> Note: selection of motifs to test is reasonable
+    but nevertheless ad-hoc.
+  \item<2-> For more, see work carried out
+    by Wiggins et al. at Columbia.
+  \end{itemize}
+ 
+\end{frame}
+
+
+%% \begin{frame}[label=]
+%%   \frametitle{}
+%% 
+%%   Random walks on networks.
+%% 
+%%   More on random walks \wordwikilink{http://en.wikipedia.org/wiki/Random_walk}{here}.
+%% 
+%% \end{frame}
+
+

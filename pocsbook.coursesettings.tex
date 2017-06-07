@@ -1,0 +1,174 @@
+\newcommand{\coursename}{Principles of Complex Systems}
+\newcommand{\courseacronym}{PoCS}
+\newcommand{\courseacronymlc}{pocs}
+\newcommand{\fullcoursenumber}{CSYS/MATH 300}
+\newcommand{\coursenumber}{300}
+\newcommand{\coursesection}{A}
+\newcommand{\computernumber}{92797/92968}
+\newcommand{\courseseason}{8}
+
+\newcommand{\courseyear}{2014}
+\newcommand{\coursemonth}{08}
+\newcommand{\season}{Fall}
+
+\newcommand{\logosuffix}{logo.pdf}
+\newcommand{\courselogo}{\courseacronymlc\logosuffix}
+
+\newcommand{\lectureroom}{300 Perkins}
+\newcommand{\meetingtimes}{Tuesday and Thursday, 1:00 pm to 2:15 pm}
+\newcommand{\lecturestarttime}{1:00 pm}
+
+\newcommand{\fullinstitution}{University of Vermont}
+\newcommand{\institution}{UVM}
+
+\newcommand{\coursehandle}{@pocsvox}
+\newcommand{\coursehashtag}{\#\season\courseacronym\courseyear}
+
+\newcommand{\courseprefix}{\courseyear-\coursemonth\institution-\coursenumber}
+
+
+%% websites
+\newcommand{\institutionwebsite}{http://www.uvm.edu}
+\newcommand{\mywebsitehomedir}{~pdodds}
+%% \newcommand{\visitinginstitutionwebsite}{http://www.santafe.edu}
+
+\newcommand{\mywebsitehomedirtext}{$\sim$pdodds}
+\newcommand{\mywebsite}{\institutionwebsite/\mywebsitehomedir}
+\newcommand{\mywebsiteresearch}{\institutionwebsite/\mywebsitehomedir/research}
+\newcommand{\myemailaddress}{pdodds@uvm.edu}
+\newcommand{\mytwitterhandle}{@peterdodds}
+
+\newcommand{\teachingsite}{\institutionwebsite/\mywebsitehomedir/teaching}
+\newcommand{\coursewebsite}{\teachingsite/courses/\courseprefix}
+\newcommand{\coursewebsitetext}{\institutionwebsite/\mywebsitehomedirtext/teaching/courses/\courseprefix}
+
+%% figures
+
+\newcommand{\papersdir}{\institutionwebsite/\mywebsitehomedir/research/papers/others}
+
+%% syllabus and poster
+
+\perlnewcommand{\syllabuslink}[1]{
+  $link = "\\wordwikilink{$_[0]syllabus.pdf}{Syllabus}";
+  return $link;
+}
+\perlnewcommand{\posterlink}[1]{
+  $link = "\\wordwikilink{$_[0]poster.pdf}{Poster}";
+  return $link;
+}
+
+%% header
+\newcommand{\courseheader}{\raisebox{-35pt}{\includegraphics[width=0.32\textwidth]{pocslogo002.pdf}}%
+\normalsize%
+\begin{tabular}{c}
+  \textbf{\large \coursename} \\
+  \\
+  \fullcoursenumber; Deliverator: \myname\\
+  \meetingtimes\ in \lectureroom\\
+  Level: Graduate/Advanced Undergraduate\\
+  \coursehandle\ \  \coursehashtag \\
+\end{tabular}
+
+\hrule
+}
+%% text
+
+\newcommand{\sourcematerial}{Journal papers and book excerpts}
+\newcommand{\textbook}{No official textbook}
+
+%%\newcommand{\textbook}{``Critical Phenomena in Natural Sciences: Chaos, Fractals, Selforganization and Disorder: Concepts and Tools'' by Didier Sornette\\
+%% ``Critical Mass: How one thing leads to another'' by Philip Ball}
+
+\newcommand{\officelocation}{Farrell Hall, second floor, Trinity Campus}
+\newcommand{\officehours}{1:00 pm to 3:00 pm, Wednesday}
+
+\newcommand{\finalexamdatelocation}{
+  Friday, December 5, 10:30 am to 1:15 pm, \lectureroom.
+}
+
+\newcommand{\myname}{\href{\mywebsite}{Prof. Peter Dodds}}
+\newcommand{\myemail}{peter.dodds@uvm.edu}
+
+\newcommand{\lectureschedule}{
+  \begin{tabular}{|p{.22\textwidth}|p{.4\textwidth}|p{.4\textwidth}|}
+    \hline
+    \textbf{Week \# (dates)}& \textbf{Tuesday} & \textbf{Thursday} \\
+    \hline
+    1 (8/26 and 8/28)       & Overview; Fundamentals: \newline The Complexity Manifesto &  Power-law size distributions \\
+    \hline
+    2 (9/2 and 9/4)         & Zipf's law; Fundamentals: Data, Emergence, Limits to Understanding & Projects; Power-law mechanisms: Randomness \\
+    \hline
+    3 (9/9 and 9/11)       & Power-law mechanisms: \newline Variable Transformation  & Power-law mechanisms: \newline The Rich-Get-Richer \\
+    \hline
+    4 (9/16 and 9/18)       & Power-law mechanisms: Optimization & Robustness and Fragility \\
+    \hline
+    5 (9/23 and 9/25)       & Fundamentals: Statistical  Mechanics\newline Language evolution &  Robustness vs.\ SOC \\
+    \hline                                                                        
+    6 (9/30 and 10/2)       & Complex networks: Introduction\newline Basics and Examples & Complex networks: Key Properties\newline Generalized random networks\newline Small-world networks \\
+    \hline
+    7 (10/7 and 10/9)      & Complex networks:\newline Small-world networks  & Complex networks:\newline Scale-free networks \\
+    \hline                                                                        
+    8 (10/14 and 10/16)     & Project presentations$^{\dagger}$ & Project presentations$^{\dagger}$ \\
+    \hline                                                                        
+    9 (10/21 and 10/23)     & Complex networks:\newline Scale-free networks & Complex networks:\newline Scale-free networks \\
+    \hline
+    10 (10/28 and 10/30)    & Contagion: Introduction & Biological Contagion \\
+    \hline
+    11 (11/4 and 11/6)      & Social Contagion &  Interesting Scaling \\
+    \hline
+    12 (11/11 and 11/13)    & Interesting Scaling & Interesting Scaling \\
+    \hline                                                                        
+    13 (11/18 and 11/20)    & Voting and Success & The Sociotechnocene \\
+    \hline
+    14 (11/25 and 11/27)    & Thanksgiving  & Thanksgiving \\
+    \hline
+    15 (12/2)               & The Big Story & --- \\
+    \hline
+  \end{tabular}\\
+  \smallskip
+  $\dagger$: 3-4 minutes each + 1 or 2 questions;
+
+  %% $^\ddagger$: 3-4 minutes each + 1 or 2 questions.
+  %% Guest lecture: Jake Williams, Zipf's law and Simon's model for phrases \\               
+
+
+}
+
+\newcommand{\importantdates}{
+  \begin{enumerate}
+  \item Classes run from Tuesday, August 27 to Tuesday, December 3.
+  \item Add/Drop, Audit, Pass/No Pass deadline---Monday, September 9.
+  \item Last day to withdraw---Monday, October 28 (Sadness!).
+  \item Reading and Exam period---Thursday, December 5 to Friday, December 13.
+  \end{enumerate}
+}
+
+\newcommand{\standardpolicies}{
+\textbf{Do} check the course Twitter account, \coursehandle, for updates regarding the course.
+
+\textbf{Academic assistance:} Anyone who requires assistance in any way (as per the ACCESS program
+or due to athletic endeavors), please see or contact me as soon as possible.
+
+\textbf{Being good people:} 
+First, in class there will be no electronic gadgetry, no cell phones, no beeping, no text messaging, etc.  
+You really just need your brain, some paper, and a writing implement here (okay, and maybe Matlab).
+Those who beep in an annoying fashion will be fined one organic banana by the lecturer.
+Second, I encourage you to email me questions, ideas, comments, etc., about the class
+but request that you please do so in a respectful fashion.  Finally, as in all UVM classes,
+\textbf{Academic honesty} will be expected and departures will 
+be dealt with appropriately.  See \url{http://www.uvm.edu/cses/} for guidelines.
+
+\textbf{Late policy:} Unless in the case of an emergency (a real one) or if
+an absence has been predeclared and a make-up version
+sorted out, assignments that are not turned in on time or tests that are not 
+attended will be given 0\%.
+
+\textbf{Grades:}
+\begin{tabular}{|ll|ll|ll|ll|}
+  \hline
+  A+ & 97--100 & B+ & 87--89 & C+ & 77--79 & D+ & 67--69 \\
+  A  & 93--96  & B  & 83--86 & C  & 73--76 & D  & 63--66 \\
+  A- & 90--92  & B- & 80--82 & C- & 70--72 & D- & 60--62 \\
+  \hline
+\end{tabular}
+}

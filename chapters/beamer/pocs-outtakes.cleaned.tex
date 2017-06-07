@@ -1,0 +1,39 @@
+
+  \textbf{What's the probability $P(x_{t})$?}
+    
+    
+      Take time $t=2n$ to help ourselves.
+    
+      $x_{2n}$ is then even.
+    
+      $x_{2n} \in \{0, \pm 2, \pm 4, \ldots, \pm 2n\}$
+    
+      Let us count the ways: \newline
+      $
+      \mathbf{Pr}(x_{2n} \equiv 2k) 
+      \propto 
+      $
+      Number of random walks with $2k$ positive
+      steps and $2n - 2k$ negative steps.
+    
+      So:
+      $$
+      \mathbf{Pr}(x_{2n} \equiv 2k) 
+      \propto 
+      \binom{2n}{2k}
+      $$
+    
+      For large $n$, the binomial
+      deliciously approaches the Normal Distribution of Snoredom:
+      $$
+      \mathbf{Pr}(x_{t} \equiv k) 
+      \simeq
+      \frac{1}{\sqrt{2\pi t}}
+      e^{-\frac{k^2}{2t}}.
+      $$
+      \insertassignmentquestionsoft{02}{2}
+     
+      See also: \wordwikilink{http://en.wikipedia.org/wiki/Stable_distribution}{Stable Distributions}
+    
+  
+

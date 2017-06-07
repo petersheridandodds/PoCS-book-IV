@@ -1,0 +1,1184 @@
+%% change drunkard to zombie?
+
+%% \changelogo{.18}{Tardis-tp-3.pdf}
+
+%%%%%%%%%%%%%%%%%%%
+% gaussians
+% proof of central limit theorem?
+% renormalization group approach
+% random walks
+%%%%%%%%%%%%%%%%%%%
+
+%%% 
+%%% really fix up this slides
+%%% 
+%%% next time:
+%%%
+%%% check on holtsbrook (any data?)
+%%%
+%%% roughness and hurst exponents
+%%% add sub and super diffusion
+%%%
+%%% more on recurrence
+%%% show that probability of return = 1
+
+%% Add plinko video!
+%% 
+%% /Users/dodds/flow/2007/2007-10-11plinko.mov
+%% 
+%% add gaussian!
+%% Limit of Gaussian from a binomial
+%% good problem for problem set
+%% 
+%% talk about stable distributions
+%% 
+%% prove central limit theorem
+%% problem set?
+
+\changelogo{.18}{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard0_polaroid.png}
+
+  \includegraphics[width=\textwidth]{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard0_polaroid.png}
+
+  \includegraphics[width=\textwidth]{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard1_polaroid.png}
+
+\section{Random\ Walks}
+
+  \textbf{Mechanisms:}
+
+  \textbf{A powerful story in the rise of complexity:}
+    
+    
+      \alertg{structure arises out of randomness.}
+    
+      \alertg{Exhibit A:} 
+      \wordwikilink{http://en.wikipedia.org/wiki/Random_walk}{Random walks.}
+    
+  
+
+  \textbf{The essential random walk:}
+    
+    
+      One spatial dimension.
+    
+      Time and space are discrete
+    
+      Random walker (e.g., a drunk) starts at origin $x=0$.
+    
+      Step at time $t$ is $\epsilon_t$:
+      $$
+      \epsilon_t = 
+      \left\{
+        \begin{array}{ll}
+          +1 & \mbox{with probability 1/2} \\
+          -1 & \mbox{with probability 1/2} \\
+        \end{array}
+      \right.
+      $$
+    
+  
+
+
+  \textbf{A few random random walks:}
+
+  
+    \includegraphics[width=\textwidth]{figrandwalk1_noname.pdf}\\
+    \includegraphics[width=\textwidth]{figrandwalk2_noname.pdf}\\
+    \includegraphics[width=\textwidth]{figrandwalk3_noname.pdf}\\
+    \includegraphics[width=\textwidth]{figrandwalk5_noname.pdf}
+  
+
+
+  \textbf{Random walks:}
+
+  \textbf{Displacement after $t$ steps:}
+    $$x_t = \sum_{i=1}^{t} \epsilon_i$$  
+  
+
+  \medskip
+
+  \textbf{Expected displacement:}
+    $$
+    \avg{x_t} = \avg{\sum_{i=1}^{t} \epsilon_i}
+    {= \sum_{i=1}^{t} \avg{\epsilon_i}}
+    {= 0}
+    $$
+    
+    
+      At any time step, we `expect' our drunkard to be back at the pub.
+    
+      Obviously fails for odd number of steps...
+    
+      But as time goes on, the chance of our drunkard lurching back
+      to the pub must diminish, right?
+    
+  
+
+
+%%  \textbf{Random walks}
+
+  \textbf{\wordwikilink{http://en.wikipedia.org/wiki/Variance\#Variance\_of\_the\_sum\_of\_uncorrelated\_variables}{Variances sum:}$^*$}
+    \alertb{$$ \var(x_t) = \var\left( \sum_{i=1}^{t} \epsilon_i \right) $$}
+    $$
+    {= \sum_{i=1}^{t} \var\left(  \epsilon_i \right) }
+    {= \sum_{i=1}^{t} 1}
+    {= t }
+    $$
+    {\small $^*$ Sum rule = a good reason for using the variance to measure spread; 
+      only works for independent distributions.}
+  
+
+  \textbf{So typical displacement from the origin scales as:}
+    $$\boxed{\sigma = t^{1/2}}$$
+    
+     
+      A non-trivial scaling law arises out of\\
+      \qquad \alertb{additive aggregation} or \alertb{accumulation}.
+    
+  
+  
+
+
+%%%%%%%%%%%%%%%%%%%
+  %% gaussians
+  %% proof of central limit theorem?
+  %% renormalization group approach
+  %% random walks
+%%%%%%%%%%%%%%%%%%%
+
+
+  Stock Market randomness:
+
+
+%%     \includemedia[
+%%     label=vid.stockmarket,
+%%     %% width=1\linewidth,height=0.75\linewidth,
+%%     width=1\linewidth,height=0.5625\linewidth,
+%%     activate=pageopen,
+%%     flashvars={
+%%       modestbranding=1 % no YT logo in control bar
+%%       &autoplay=0 % 
+%%       &autohide=1 % controlbar autohide
+%%       &showinfo=0 % no title and other info before start
+%%       &end=120 % finish here
+%%       &rel=0 % no related videos after end, must be included in URL
+%%       %% as ?rel
+%%     }
+%%     ]
+%%     {}
+%%     {http://www.youtube.com/v/AUSKTk9ENzg?rel=0}
+
+    Also known as the \wordwikilink{http://en.wikipedia.org/wiki/Bean_machine}{bean machine},
+    the
+    \wordwikilink{http://www.mathsisfun.com/data/quincunx.html}{quincunx
+    (simulation)},
+    and the Galton box.
+
+
+  
+  
+  \textbf{Great moments in Televised Random Walks:}
+    \youtubevideo{05gqx6eSyO0}{}{}
+
+    \wordwikilink{http://en.wikipedia.org/wiki/Plinko}{Plinko!}
+    from the Price is Right.
+  
+
+
+
+  \textbf{Random walk basics:}
+
+  \textbf{Counting random walks:}
+    
+    
+      Each \alertr{specific} random walk of
+      length $t$ appears with a chance $1/2^{t}$.
+    
+      We'll be more interested in how many random walks
+      end up at the same place.
+     
+      Define
+      $
+      N(i,j,t)
+      $
+      as \# distinct walks that start at $x=i$
+      and end at $x=j$ after $t$ time steps.
+     
+      Random walk must displace by $+(j-i)$ after $t$ steps.
+    
+      \insertassignmentquestionsoft{02}{2}
+      $$ 
+      N(i,j,t) = \binom{t}{(t+j-i)/2} 
+      $$
+    
+  
+
+
+
+  \textbf{How does $P(x_{t})$ behave for large $t$?}
+    
+    
+      Take time $t=2n$ to help ourselves.
+    
+      $x_{2n} \in \{0, \pm 2, \pm 4, \ldots, \pm 2n\}$
+    
+      $x_{2n}$ is even so set $x_{2n} = 2k$.
+    
+      Using our expression $N(i,j,t)$ with
+      $i=0$, $j=2k$, and $t=2n$, we have
+      $$
+      \mathbf{Pr}(x_{2n} \equiv 2k) 
+      \propto 
+      \binom{2n}{n+k}
+      $$
+    
+      For large $n$, the binomial
+      deliciously approaches the Normal Distribution of Snoredom:
+      $$
+      \mathbf{Pr}(x_{t} \equiv x) 
+      \simeq
+      \frac{1}{\sqrt{2\pi t}}
+      e^{-\frac{x^2}{2t}}.
+      $$
+      \insertassignmentquestionsoft{02}{2}
+     
+      The whole is different from the parts. \hfill \alertg{\#nutritious}
+     
+      See also: \wordwikilink{http://en.wikipedia.org/wiki/Stable_distribution}{Stable Distributions}
+    
+  
+
+
+
+  \textbf{\wordwikilink{http://en.wikipedia.org/wiki/Universality\_(dynamical\_systems)}{Universality} is also not left-handed:}
+
+  
+    \includegraphics[width=0.75\textwidth]{2013-01-24random-walk-normal-distribution-crop-tp-3.pdf}
+    
+     
+      This is \wordwikilink{http://en.wikipedia.org/wiki/Diffusion}{Diffusion}: 
+      the most essential kind of spreading (more later).
+     
+    View as Random Additive Growth Mechanism.
+  
+  
+
+
+  \includegraphics[width=\textwidth]{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard0_polaroid.png}
+
+  \includegraphics[width=\textwidth]{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard2_polaroid.png}
+
+\changelogo{.18}{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard2_polaroid.png}
+
+%%  \textbf{Random walks}
+
+  \textbf{Random walks are even weirder than you might think...}
+    
+    
+      $\xi_{r,t}$ = the probability that by time step $t$,
+      a random walk has crossed the origin $r$ times.
+    
+      Think of a coin flip game with ten thousand tosses.
+    
+      If you are behind early on, what are the chances you
+      will make a comeback?
+    
+      The most likely number of lead changes is...  
+      {\alertb{0.}}
+    
+      In fact:
+      $\xi_{0,t} > \xi_{1,t} > \xi_{2,t} > \cdots $
+    
+      \alertb{Even crazier:\\ 
+        The expected time between tied scores = $\infty$}
+    
+    {\small See Feller, Intro to Probability Theory, Volume I\cite{feller1968a}} 
+  
+
+
+
+%% %%   \textbf{Random walks---some examples}
+%% 
+%%   \includegraphics[width=\textwidth]{figrandwalk4_noname.pdf}\\
+%%   \includegraphics[width=\textwidth]{figrandwalk6_noname.pdf}
+%% 
+%% 
+
+\subsection{The\ First\ Return\ Problem}
+
+  \textbf{Random walks \hfill \alertg{\#crazytownbananapants}}
+
+  \textbf{The problem of first return:}
+    
+     
+      What is the probability that a random walker
+      in one dimension returns to the origin
+      for the first time after $t$ steps?
+     
+      Will our drunkard always return to the origin?
+     
+      What about higher dimensions?
+    
+  
+
+  \textbf{Reasons for caring:}
+    
+     
+      We will find a power-law size distribution
+      with an \alertb{interesting} exponent.
+     
+      Some physical structures may result from random walks.
+     
+      We'll start to see how different scalings relate to each other.
+    
+  
+
+
+
+%% %%   \textbf{Random Walks}
+%% 
+%%   \includegraphics[width=\textwidth]{figrandwalk2_noname.pdf}
+%% 
+%%   \includegraphics[width=\textwidth]{figrandwalk5_noname.pdf}
+%% 
+%%   {
+%%   Again: expected time between ties = $\infty$...
+%% 
+%%   Let's find out why...\cite{feller1968a}}
+%% 
+%% 
+
+%%%%%%%%%%%%%%%%%%%
+% gaussians
+% proof of central limit theorem?
+% renormalization group approach
+% random walks
+%%%%%%%%%%%%%%%%%%%
+
+  %% \textbf{First Returns}
+
+  \textbf{For random walks in 1-$d$:}
+    \includegraphics[width=\textwidth]{figrandomwalk_firstreturn_noname.pdf}
+    
+    
+      A \alertg{return} to origin can only happen when $t = 2n$.
+    
+      In example above, returns occur at $t=8$, 10, and 14.
+    
+      Call $P_{\textrm{fr}(2n)}$ the probability of \alertg{first return} at $t=2n$.
+     
+      Probability calculation $\equiv$ Counting problem \\
+      (combinatorics/statistical mechanics).
+    
+      \alertb{Idea:} Transform first return problem into an easier return problem.
+      %% $$P_{\textrm{fr}(2n) = 2 Pr(x_{t} \ge 1, t=1,\ldots,2n-1, \ \mbox{and} \  x_{2n} =0). $$
+    
+  
+
+
+
+  %% \textbf{First Returns}
+  \small
+
+  
+          
+      \includegraphics[width=.95\textwidth]{figrandomwalk_firstreturn2_noname.pdf}%
+      
+      \includegraphics[width=.95\textwidth]{figrandomwalk_firstreturn3_noname.pdf}
+        %% \includegraphics[width=\textwidth]{figrandomwalk_firstreturn4_noname.pdf}
+    
+    
+      Can assume drunkard first lurches to $x=1$.
+     
+      Observe walk first returning at $t=16$ stays at or above $x=1$ for $1 \le t \le 15$
+      (dashed \alertb{red} line).
+     
+      Now want walks that can return many times to $x=1$.
+     
+      $P_{\textrm{fr}}(2n) = $ \\
+      $2\cdot\frac{1}{2}Pr(x_{t} \ge 1, 1 \le t \le 2n-1, \ \mbox{and} \  x_1 = x_{2n-1} = 1) $
+     
+      The $\frac{1}{2}$ accounts for $x_{2n}=2$ instead of 0.
+     
+      The $2$ accounts for drunkards that first lurch to $x=-1$.
+    
+  
+
+
+  \textbf{Counting first returns:}
+
+  \textbf{Approach:}
+    
+    
+      Move to counting numbers of walks.
+    
+      Return to probability at end.
+    
+      Again,
+      $N(i,j,t)$ is the \# of possible walks between $x=i$ and $x=j$ taking $t$ steps.
+     
+      Consider \alertb{all paths} starting at $x=1$ and ending at $x=1$ after $t=2n-2$ steps.
+     
+      \alertb{Idea:} If we can compute the number of walks that hit $x=0$ at least once, then we can
+      subtract this from the total number to find the ones that maintain $x \ge 1$.
+     
+      Call walks that drop below $x=1$ \alertb{excluded walks}.
+     
+      We'll use a method of images to identify these excluded walks.
+    
+  
+
+
+%%  \textbf{First Returns:}
+
+  \textbf{Examples of excluded walks:}
+    \begin{center}
+      \includegraphics[width=.4\textwidth]{figrandomwalk_firstreturn5_noname.pdf}
+      \includegraphics[width=.4\textwidth]{figrandomwalk_firstreturn6_noname.pdf}
+    \end{center}
+  
+
+    \textbf{Key observation for excluded walks:}
+      
+        
+        For any path starting at $x$$=$$1$ that hits 0,
+        there is a unique matching path starting at $x$$=$$-1$.
+         
+        Matching path first mirrors and then tracks after first reaching $x$$=$$0$.
+      
+        \# of $t$-step paths starting and ending at $x$$=$$1$
+        and hitting $x$$=$$0$ at least once\\
+        {= \# of $t$-step paths starting at $x$$=$$-$1 and ending at $x$$=$$1$}
+        {= $N(-1,1,t)$\\}
+      
+        So \alertb{$N_{\textrm{first\ return}}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$}
+      
+    
+
+
+
+%% %%   \textbf{First Returns}
+%% 
+%%   Probability of first return at time $t=2n$ \\
+%%   is \alertb{the same} as\\
+%%   the probability of a walk returning at time $t=2n-2$
+%%   such that $x_{t} \ge 0$ until then.
+%%   
+%%   $$P_{\textrm{first\ return}}(2n) = \frac{1}{2} P_{\textrm{return}}(2n-2)$$
+%% 
+%% 
+
+  \textbf{Probability of first return:}
+
+  \textbf{\insertassignmentquestionsoft{02}{2}:}
+    
+     
+      Find 
+      $$
+      \boxed{
+        N_{\textrm{fr}}(2n) \sim 
+        \frac{
+          2^{2n-3/2}
+        }
+        {
+          \sqrt{2 \pi} n^{3/2}
+        }.
+      }
+      $$
+     
+      Normalized number of paths gives probability.
+     
+      Total number of possible paths = $2^{2n}$.
+    
+      $$ 
+      P_{\textrm{fr}}(2n) = \frac{1}{2^{2n}} N_{\textrm{fr}}(2n)
+      $$
+      {
+        $$ 
+        \simeq
+        \frac{1}{2^{2n}}
+        \frac{
+          2^{2n-3/2}
+        }
+        {
+          \sqrt{2 \pi} n^{3/2}
+        }
+        $$}
+      $$
+      {
+        =  \frac{1}{\sqrt{2 \pi}}
+        (2n)^{-3/2}
+      }
+      {
+        \propto t^{-3/2}.
+      }
+      $$
+    
+    
+  
+
+  \small
+%%  \textbf{First Returns}
+
+  
+  
+  We have 
+     $P(t) \propto t^{-3/2},\  \gamma = 3/2.$
+   
+    Same scaling holds for continuous space/time walks.
+   
+    $P(t)$ is normalizable.
+   
+    \alertb{Recurrence:} Random walker always returns to origin 
+   
+    But mean, variance, and all higher moments are infinite.
+    \hfill \alertg{\#totalmadness}
+   
+    Even though walker must return, expect a long wait...
+   
+    \alertg{One moral}: 
+    Repeated gambling against an infinitely wealthy opponent
+    must lead to ruin.
+  
+
+
+\textbf{\wordwikilink{http://en.wikipedia.org/wiki/Random\_walk\#Higher\_dimensions}{Higher dimensions}:}
+  
+   
+    Walker in $d=2$ dimensions must also return
+   
+    Walker may not return in $d \ge 3$ dimensions
+  
+  
+
+
+
+  \textbf{Random walks}
+  
+  \textbf{On finite spaces:}
+    
+     In any finite homogeneous space, a random walker will visit every
+      site with equal probability
+%%     Random walking $\equiv$ Diffusion
+     Call this probability the \alertb{Invariant Density} of
+      a dynamical system
+     Non-trivial Invariant Densities arise in chaotic systems.
+    
+  
+
+  \textbf{On networks:}
+    
+    
+      On networks, a random walker visits each node
+      with frequency $\propto$ node degree
+      \hfill \alertg{\#groovy}
+    
+      Equal probability still present:\\
+      walkers traverse
+      \alertb{edges} with equal frequency. \\
+      \mbox{} \hfill \alertg{\#totallygroovy}
+    
+  
+
+
+
+% ???
+
+
+% %   \textbf{Random walks on networks}
+%   
+%   Some slides explaining diffusion
+%
+% 
+% add section on
+% linear algebra
+
+
+% \subsection{Random\ River\ Networks}
+
+\subsection{Examples}
+
+  \textbf{Scheidegger Networks\cite{scheidegger1967b,dodds2000a}}
+
+  
+    \includegraphics[width=\textwidth]{scheidmodel.pdf}
+    
+     
+      Random directed network on triangular lattice.
+     
+      Toy model of real networks.
+     
+      `Flow' is southeast or southwest with equal probability.
+    
+  
+
+
+\changelogo{.18}{scheidmodel.pdf}
+
+  \textbf{Scheidegger networks}
+
+  
+  
+   
+    Creates basins with random walk boundaries.
+   
+    \alertg{Observe} that subtracting one random walk from another
+    gives random walk with increments:
+    $$
+    \epsilon_t = 
+    \left\{
+      \begin{array}{cl}
+        +1 & \mbox{with probability $1/4$} \\
+        0 & \mbox{with probability $1/2$} \\
+        -1 & \mbox{with probability $1/4$} \\
+      \end{array}
+    \right.
+    $$
+   
+    Random walk with probabilistic pauses.
+   
+    Basin termination = first return random walk problem.
+   
+    Basin length $\msl$ distribution: $P(\msl) \propto \msl^{-3/2}$
+   
+    For real river networks, generalize 
+    to $P(\msl) \propto \msl^{-\gamma}$.
+  
+  
+  
+
+% \subsection{Scaling\ Relations}
+
+  \textbf{Connections between exponents:}
+
+  
+  
+     
+    For a basin of length $\msl$, width $\propto \msl^{1/2}$
+     
+    Basin area $a \propto \msl\cdot \msl^{1/2} = \msl^{3/2}$
+     
+    Invert: $ \msl \propto a^{\, 2/3} $
+     
+    $ \dee{\msl} \propto \dee{(a^{2/3})} = 2/3 a^{-1/3} \dee{a} $
+    
+    \alertb{$
+    \mathbf{Pr}(\mbox{basin area} = a) \dee{a}
+    $}\\
+    $
+    =
+    \mathbf{Pr}(\mbox{basin length} = \msl) \dee{\msl}
+    $\\
+    {
+      $
+      \propto
+      \msl^{-3/2} \dee{\msl} 
+      $\\}
+    {
+      $
+      \propto
+      (a^{2/3})^{-3/2} a^{-1/3} \dee{a} 
+      $\\}
+    {
+      $
+      =
+      a^{-4/3} \dee{a} 
+      $\\}
+    {
+      \alertb{$
+      =
+      a^{-\tau} \dee{a}
+      $}\\}
+  
+  
+
+
+  \textbf{Connections between exponents:}
+
+  
+  
+   
+    Both basin area and length obey power law distributions
+   
+    Observed for real river networks
+   
+    Reportedly: $1.3 < \tau < 1.5$ and $1.5 < \gamma < 2$
+  
+  
+
+  \textbf{Generalize relationship between area and length:}
+  
+   
+    Hack's law\cite{hack1957a}:
+    $$\msl \propto a^h.$$
+   
+    For real, large networks $h \simeq 0.5$
+   
+    Smaller basins possibly $h>1/2$ (later: allometry).
+   
+    Models exist with interesting values of $h$.
+   
+    \alertb{Plan:} Redo calc with $\gamma$, $\tau$, and $h$.
+  
+  
+  
+
+  \textbf{Connections between exponents:}
+
+  
+  
+      
+    Given $$ \msl \propto a^{h}, \ P(a) \propto a^{-\tau},\ \mbox{and} \  P(\msl) \propto \msl^{-\gamma}$$
+      
+    $ \dee{\msl} \propto \dee{(a^{h})} = h a^{h-1} \dee{a} $    
+     
+    Find $\tau$ in terms of $\gamma$ and $h$.
+     
+    $
+    \mathbf{Pr}(\mbox{basin area} = a) \dee{a}
+    $\\
+    $
+    =
+    \mathbf{Pr}(\mbox{basin length} = \msl) \dee{\msl}
+    $\\
+    {
+    $
+    \propto
+    \msl^{-\gamma} \dee{\msl} 
+    $\\}
+    {
+    $
+    \propto
+    (a^{h})^{-\gamma} a^{h-1} \dee{a} 
+    $\\}
+    {
+    $
+    =
+    a^{-(1+h\, (\gamma-1))} \dee{a} 
+    $\\}
+    
+      $$\boxed{\tau = 1 + h(\gamma-1)} $$
+    
+      Excellent example of the \alert{Scaling Relations}
+      found between exponents describing power laws
+      for many systems.
+  
+  
+
+
+
+  \textbf{Connections between exponents:}
+
+  \textbf{With more detailed description of network structure,
+      $\tau = 1 + h(\gamma-1)$ simplifies to:\cite{dodds1999a}}
+    $$\boxed{\tau = 2 - h}$$
+    and
+    $$\boxed{\gamma = 1/h}$$
+  
+
+  
+    
+     
+      Only one exponent is independent (take $h$).
+     
+      Simplifies system description.
+     
+      Expect Scaling Relations where power laws are found.
+    
+      Need only characterize 
+      \wordwikilink{http://en.wikipedia.org/wiki/Universality\_(dynamical\_systems)}{Universality}
+      class with independent exponents.
+  
+  
+
+
+%% ??? 
+% make connection
+
+  \includegraphics[width=\textwidth]{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard1_polaroid.png}
+
+\changelogo{.18}{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard1_polaroid.png}
+
+  \textbf{Other First Returns or First Passage Times:}
+
+  \textbf{Failure:}
+    
+     A very simple model of failure/death:\cite{weitz2001a}
+     $x_t$ = entity's `health' at time $t$
+     Start with $x_0 > 0$.
+     Entity fails when $x$ hits 0.
+    
+  
+
+  \bigskip
+
+  \textbf{Streams}
+    
+    
+      Dispersion of suspended sediments in streams.
+     
+      Long times for clearing.
+    
+  
+
+
+
+%% ???  Inverse Gaussian
+
+% \end{comment}
+
+  \includegraphics[width=\textwidth]{2013-11-26pocsmap-distributions-mountains-roads-sketches_postcard3_polaroid.png}
+
+  \textbf{More than randomness}
+  
+  
+    
+    
+      Can generalize to Fractional Random Walks\cite{montroll1982a,montroll1983a,montroll1984a}
+     
+      Levy flights, Fractional Brownian Motion
+    
+      See Montroll and Shlesinger for example:\cite{montroll1984a}\\
+      ``On $1/f$ noise and other distributions with long tails.''\\
+      Proc. Natl. Acad. Sci., 1982.
+     
+      In 1-d, standard deviation $\sigma$ scales as
+      $$
+      \sigma \sim t^{\, \alpha}
+      $$
+      \\
+      {
+        $\alpha = 1/2$ --- \alertb{diffusive}
+      }
+      \\
+      {
+        $\alpha > 1/2$ --- \alertb{superdiffusive}
+      }
+      \\
+      {
+        $\alpha < 1/2$ --- \alertb{subdiffusive}
+      }
+     Extensive memory of path now matters...
+    
+  
+
+
+% how to measure exponents
+% roughness
+
+% ???
+% %    \textbf{Random walks in nature}
+%
+% 
+
+
+\section{Variable\ transformation}
+
+\subsection{Basics}
+
+%% ??? add a figure explaining transformation
+
+  \textbf{Variable Transformation}
+
+  \textbf{Understand power laws as arising from}
+    
+    
+      Elementary distributions (e.g., exponentials).
+    
+      Variables connected by power relationships.
+    
+  
+
+  
+  
+   
+    Random variable $X$ with known distribution $P_x$
+   
+    Second random variable $Y$ with $y=f(x)$.
+  
+      
+    
+     
+      $ P_Y(y) \dee{y} = = \sum_{x | f(x) = y} P_X(x) \dee{x} $ \\
+      $ = \sum_{y | f(x) = y}
+      P_X( f^{-1}(y) )
+      \frac{\dee{y}}
+      {
+        \left|
+          f'(f^{-1}(y))
+        \right|
+      }
+      $
+     Often easier to do by hand...
+    
+    
+%%    Figure...
+    
+
+
+
+
+  \textbf{General Example}
+    
+    
+      Assume relationship between $x$ and $y$ is 1-1.
+     Power-law relationship between variables: \\
+      $y = c x^{-\alpha}$, $\alpha > 0$
+     Look at \alertb{$y$ large} and \alertb{$x$ small}
+     $$ \dee{y} = \dee{\left(cx^{-\alpha }\right)}  $$
+      {$$  = c(-\alpha)x^{-\alpha-1} \dee{x}  $$}
+      {
+        $$ \mbox{\alertb{invert:}} \ \dee{x} = \frac{-1}{c\alpha}
+        x^{\alpha+1} \dee{y}
+        $$
+      }
+      {
+        $$ \dee{x} = \frac{-1}{c\alpha}
+        \left(\frac{y}{c}\right)^{-(\alpha+1)/\alpha} \dee{y}
+        $$
+      }
+      {
+        $$ \dee{x} = \frac{-c^{1/\alpha}}{\alpha}
+        y^{-1-1/\alpha} \dee{y}
+        $$
+      }
+    
+  
+
+
+
+  \textbf{Now make transformation:}  
+      $$
+      P_y(y) \dee{y}
+      = P_x(x) \dee{x}
+      $$
+      {$$
+      P_y(y) \dee{y}
+      = P_x
+      \overbrace{
+      \left(
+        \alertb{
+          \left(
+            \frac{y}{c}
+          \right)^{-1/\alpha}}
+      \right)
+        }^{(x)}
+      \overbrace{
+      \frac{c^{1/\alpha}}{\alpha}
+      \tc{red}{y^{-1 - 1/\alpha}} \dee{y}}^{\dee{x}}
+      $$}
+
+      \bigskip
+
+      
+        
+        If $P_x(x) \rightarrow$ non-zero constant
+        as $x \rightarrow 0$ then
+        $$
+        P_x(y) 
+        \propto 
+        \tc{red}{y^{-1 -1/\alpha}} 
+        \mbox{\ as \ } 
+        y \rightarrow \infty. 
+        $$
+      
+        If $P_x(x) \rightarrow x^{\beta}$ as $x \rightarrow 0$ then
+        $$ 
+        P_y(y) 
+        \propto 
+        \tc{red}{y^{-1 -1/\alpha - \beta/\alpha}} 
+        \mbox{\ as \ } 
+        y \rightarrow \infty.
+        $$
+      
+  
+
+
+%% %%   \textbf{General Example}
+%% 
+%%   $$
+%%   P_y(y) \dee{y}
+%%   = P_x
+%%   \left(
+%%     \alertb{
+%%       \left(
+%%         \frac{y}{c}
+%%       \right)^{-1/\alpha}}
+%%   \right)
+%%   \frac{c^{1/\alpha}}{\alpha}
+%%   \tc{red}{y^{-1 - 1/\alpha}} \dee{y}
+%%   $$
+%%   
+%%   
+%%   
+%%     If $P_x(x) \rightarrow x^{\beta}$ as $x \rightarrow 0$ then
+%% 
+%%     $$ P_y(y) \propto \tc{red}{y^{-1 -1/\alpha - \beta/\alpha}} 
+%%     \mbox{\ as \ } y \rightarrow \infty $$
+%%   
+%% 
+%% 
+  \textbf{Example}
+
+  \textbf{Exponential distribution}
+    Given \alertb{$P_x(x) = \frac{1}{\lambda} e^{-x/\lambda}$} 
+    and \alertb{$y = c x^{-\alpha}$}, then
+    $$ P(y) \propto y^{\tc{red}{-1-1/\alpha}} + O\left(y^{-1-2/\alpha}\right)$$
+    
+    
+      Exponentials arise from randomness (easy)...
+    
+      More later when we cover robustness.
+    
+  
+
+
+
+% %   \textbf{Real example}
+% 
+% %  ???
+% 
+% 
+\insertvideo{XZ1kRxgKft4}{225}{260}{}
+
+\subsection{Holtsmark's\ Distribution}
+
+\changelogo{.18}{pocslogo100.pdf}
+
+  \textbf{Gravity}
+  
+      
+    
+    
+     
+      Select a random point in the universe $\vec{x}$
+     
+      Measure the force of gravity $F(\vec{x})$
+     
+      Observe that $P_F(F) \sim F^{-5/2}$.
+    
+    
+    
+    \includegraphics[width=\textwidth]{Tardis-tp-3.pdf}
+  
+
+\changelogo{.18}{Tardis-tp-3.pdf}
+
+%%  
+
+  \textbf{Matter is concentrated in stars:\cite{sornette2003a}}
+    
+     
+      $F$ is distributed unevenly
+     
+      Probability of being a distance $r$ from a
+      single star at $\vec{x} = \vec{0}$:
+      $$ P_r(r) \dee{r} \propto r^{2} \dee{r} $$
+     
+      Assume stars are distributed randomly in space (oops?)
+     
+      Assume only one star has significant effect at $\vec{x}$.
+     
+      Law of gravity: $$ F \propto r^{-2} $$
+     
+      \alertb{invert}: $$ r \propto F^{-1/2} $$
+    
+      Also invert:\\
+      $ \dee{F} \propto \dee{(r^{-2})} \propto r^{-3} \dee{r} $
+      $\rightarrow $
+      $ \dee{r} \propto r^3 \dee{F} \propto F^{-3/2} \dee{F}.$
+    
+  
+
+
+%% %%   \textbf{Transformation:}
+%% 
+%%   
+%%     {
+%%       $$ \dee{F} \propto \dee{(r^{-2})} $$
+%%     }
+%%     {
+%%       $$ \propto r^{-3} \dee{r} $$
+%%     }
+%%     {
+%%       \alertb{invert:} 
+%%       $$ \dee{r} \propto r^3 \dee{F} $$ 
+%%     }
+%%     { 
+%%       $$ \propto F^{-3/2} \dee{F} $$
+%%     }
+%%   
+%%   
+%% 
+  \textbf{Transformation:}
+
+  
+    Using
+    $\boxed{r \propto F^{-1/2}}$\ ,
+    $\boxed{\dee{r} \propto F^{-3/2} \dee{F}}$\ ,
+    and
+    $\boxed{P_r(r) \propto r^{2}}$
+    
+     
+      $$ P_F(F)\dee{F} = P_r(r) \dee{r} $$
+     
+      $$  \propto P_r(\mbox{const} \times F^{-1/2}) F^{-3/2} \dee{F} $$
+     
+      $$ \propto \left(F^{-1/2}\right)^{2}  F^{-3/2} \dee{F} $$
+     
+      $$ = F^{-1 -3/2} \dee{F} $$
+     
+      $$ = \tc{red}{F^{-5/2}} \dee{F}. $$
+    
+  
+
+
+  \textbf{Gravity:}
+
+  \textbf{$$ P_F(F) = \tc{red}{F^{-5/2}} \dee{F} $$}
+  
+     
+    $$ \gamma = 5/2 $$
+   
+    Mean is finite.
+   
+    Variance = $\infty$.
+   
+    A \alertb{wild} distribution.
+   
+    \alertb{Upshot:} Random sampling of space usually safe\\
+    but can end badly...
+  
+  
+
+
+%% \insertvideo{Adk1ujjmguo}{}{}{Doctorin' the Tardis}
+
+\textbf{$\Box$ Todo: Build Dalek army.}
+  
+\includegraphics[height=0.9\textheight]{dalek-blueprints-1024x768-wallpaper-911351.jpg}
+
+
+\changelogo{.18}{2011-02-07no-mouse-click-tp-10}
+
+\subsection{PLIPLO}
+
+  \textbf{Extreme Caution!}
+
+  
+    
+     
+      \alertb{PLIPLO} = \alertg{Power law in, power law out}
+     
+      Explain a power law as resulting 
+      from another unexplained power law.
+    
+      Yet another \wordwikilink{http://en.wikipedia.org/wiki/Homunculus_argument}{homunculus argument}...
+    
+      \alertb{Don't do this!!!}  (slap, slap)
+    
+      We need mechanisms!
+    
+  
+  
+
+

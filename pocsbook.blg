@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: pocsbook.aux
+The style file: plain.bst
+Database file #1: everything.bib
+I was expecting a `,' or a `}'---line 103 of file everything.bib
+ : 
+ : @Book{fforde2001a,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 116 of file everything.bib
+ :   
+ :   year =   {2007},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 9720 of file everything.bib
+ : @book{barenblatt1996a
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 19319 of file everything.bib
+ : @book{mandelbrot1977a
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 19347 of file everything.bib
+ : @book{mandelbrot1983a
+ :                      ,
+I'm skipping whatever remains of this entry
+You've used 56 entries,
+            2118 wiz_defined-function locations,
+            843 strings with 11219 characters,
+and the built_in function-call counts, 16818 in all, are:
+= -- 1682
+> -- 645
+< -- 7
++ -- 272
+- -- 204
+* -- 1069
+:= -- 2854
+add.period$ -- 174
+call.type$ -- 56
+change.case$ -- 250
+chr.to.int$ -- 0
+cite$ -- 56
+duplicate$ -- 685
+empty$ -- 1421
+format.name$ -- 204
+if$ -- 3500
+int.to.chr$ -- 0
+int.to.str$ -- 56
+missing$ -- 77
+newline$ -- 286
+num.names$ -- 118
+pop$ -- 278
+preamble$ -- 1
+purify$ -- 212
+quote$ -- 0
+skip$ -- 426
+stack$ -- 0
+substring$ -- 1135
+swap$ -- 96
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 182
+warning$ -- 0
+while$ -- 181
+width$ -- 58
+write$ -- 626
+(There were 5 error messages)

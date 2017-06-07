@@ -1,0 +1,889 @@
+
+\begin{frame}
+  \showtarotcards{0.20}{
+    overview,
+    golden-age-of-reductionism,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    variable-transformation,
+    random-walks,
+    rich-get-richer,
+    efficient-language,
+    law-of-first-digits,
+    surprise-of-being-robust-yet-fragile,
+    misreading-of-the-book-of-sand,
+    tales-of-tails,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+    emergence-of-stories,
+    mechanics-statistical,
+    thresholds-of-percolation,
+    complex-networks,
+    web-elements,
+    random-networks,
+    strangeness-of-friends,
+    small-world-networks,
+    theory-six-degrees,
+    scale-free-networks,
+    confusion-of-contagions,
+    disease-of-random-mixing,
+    unending-pandemics,
+    thresholds-of-the-mind,
+    social-wild,
+    social-contagion,
+    fame,
+    contagious-stories,
+    paths-of-universality,
+%    dependent-paths,
+%    end,
+}                                                
+\end{frame}                                      
+
+\section{Universality}
+
+\begin{frame}
+  \small
+
+  \frametitle{Limits to what's possible:}
+
+  \begin{block}{\wordwikilink{http://en.wikipedia.org/wiki/Universality\_(dynamical\_systems)}{Universality}:}
+    \begin{itemize}
+    \item<+->
+      The property that the macroscopic aspects of a system do not depend
+      sensitively on the system's details.
+    \item<+->
+      Key figure:
+      \wordwikilink{http://en.wikipedia.org/wiki/Leo\_Kadanoff}{Leo Kadanoff}
+    \item<+->
+      Kadanoff's retrospective: ``Innovations in Statistics Physics''~\cite{kadanoff2014a}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<+->{Examples:}
+    \begin{itemize}
+    \item<+-> 
+      The Central Limit Theorem:
+      $$
+      P(x; \mu, \sigma) \dee{x} = 
+      \frac{1}{\sqrt{2\pi}\sigma}
+      e^{-(x-\mu)^2/2\sigma^2} \dee{x}.
+      $$
+    \item<+-> 
+      Navier Stokes equation for fluids.
+    \item<+-> 
+      Nature of phase transitions in statistical mechanics.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<+-> 
+      Sometimes \alert{details don't matter too much}.
+    \item<+-> 
+      \alertb{Many-to-one mapping} from micro to macro
+    \item<+-> 
+      Suggests not all possible behaviors are available 
+      \qquad at higher levels of complexity.
+    \item<+-> 
+      Universality means some things are fated.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<4->{Large questions:}
+    \begin{itemize}
+    \item<5->
+      How universal is universality?
+    \item<6->
+      What are the possible long-time states (attractors) for a universe?
+    \end{itemize}
+  \end{block}
+    
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fluid mechanics}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+-> 
+    Fluid mechanics = One of the great successes of 
+    understanding complex systems.
+  \item<+-> 
+    Navier-Stokes equations: micro-macro system evolution.
+  \item<+-> 
+    The big three: Experiment + Theory + Simulations.
+  \item<+-> 
+    Works for many very different `fluids':
+    \begin{itemize}
+    \item 
+      the atmosphere,
+    \item 
+      oceans,
+    \item 
+      blood,
+    \item 
+      galaxies,
+    \item 
+      the earth's mantle \ldots
+    \item<+->
+      \alert{and ball bearings on lattices \ldots ?}
+    \end{itemize}
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Lattice gas models}
+
+  \begin{block}{Collision rules in 2-d on a hexagonal lattice:}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{lattice_gas_rules_example.jpg}
+  \end{center}
+  \end{block}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<2->
+    Lattice matters \ldots
+  \item<3-> 
+    No `good' lattice in 3-d.
+  \item<4->
+    Upshot: play with `particles' of a system to obtain new or specific macro behaviours.
+  \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hexagons---\wordwikilink{http://en.wikipedia.org/wiki/Honeycomb}{Honeycomb:}}
+
+  \begin{center}
+    \includegraphics[height=0.65\textheight]{Honey_comb.jpg}
+  \end{center}
+
+  \begin{itemize}
+  \item<1->
+    Orchestrated?  Or an accident of bees working hard?
+  \item<2-> 
+    See ``On Growth and Form'' by 
+    \wordwikilink{http://en.wikipedia.org/wiki/D'Arcy\_Wentworth\_Thompson}{D'Arcy Wentworth Thompson}.\cite{thompson1952a,thompson1961a}
+  \end{itemize}
+  
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Hexagons---\wordwikilink{http://en.wikipedia.org/wiki/Giant's\_Causeway}{Giant's Causeway:}}
+
+  \includegraphics[width=\textwidth]{giantscauseway_mist_medium.jpg}
+
+  {\tiny \url{http://newdesktopwallpapers.info}}
+
+%% from http://newdesktopwallpapers.info/Ireland%20Wallpapers/slides/Giant's%20Causeway,%20County%20Antrim,%20Ireland.html
+
+\end{frame}
+
+
+\begin{frame}
+
+  \frametitle{Hexagons---\wordwikilink{http://en.wikipedia.org/wiki/Giant's\_Causeway}{Giant's Causeway:}}
+
+  \includegraphics[width=\textwidth]{giantscauseway_hex_medium.jpg}
+
+  {\tiny \url{http://www.physics.utoronto.ca/}}
+
+%% from http://www.physics.utoronto.ca/news_repository/u-of-t-scientists-solve-mystery-of-giants-causeway-with-kitchen-materials/image/image_view_fullscreen
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Saturn has a hexagon:}
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{Saturn_N_polar_hexagon_W00077335.jpg}
+  %% source: http://en.wikipedia.org/wiki/Saturn's_hexagon
+  \end{center}
+
+  \begin{itemize}
+  \item 
+    \wordwikilink{http://en.wikipedia.org/wiki/Saturn's\_hexagon}{One side is longer than Earth's diameter}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+  \frametitle{Hexagons run amok:}
+
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[width=\textwidth]{340px-Graphen.jpg}\\
+    \bigskip
+    \includegraphics[width=\textwidth]{screenie-bluesbrothers-fence.jpg}
+    \column{0.7\textwidth}
+    \begin{block}{}
+      \begin{itemize}
+      \item 
+        \wordwikilink{http://en.wikipedia.org/wiki/Graphene}{Graphene}:
+        single layer of carbon molecules
+        in a perfect hexagonal lattice (super strong).
+      \item 
+        \wordwikilink{http://en.wikipedia.org/wiki/Chicken\_wire}{Chicken wire} \ldots
+      \end{itemize}
+    \end{block}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Triumph of the Hexagon}
+    \youtubevideo{xyY0ymMYXPo}{}{}
+    
+    From the remarkable 
+    \wordwikilink{http://hexnet.org}{Hexnet.org}, 
+    the Global Hexagonal Awareness Resource Center.
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \showtarotcards{0.20}{
+    overview,
+    golden-age-of-reductionism,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    variable-transformation,
+    random-walks,
+    rich-get-richer,
+    efficient-language,
+    law-of-first-digits,
+    surprise-of-being-robust-yet-fragile,
+    misreading-of-the-book-of-sand,
+    tales-of-tails,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+    emergence-of-stories,
+    mechanics-statistical,
+    thresholds-of-percolation,
+    complex-networks,
+    web-elements,
+    random-networks,
+    strangeness-of-friends,
+    small-world-networks,
+    theory-six-degrees,
+    scale-free-networks,
+    confusion-of-contagions,
+    disease-of-random-mixing,
+    unending-pandemics,
+    thresholds-of-the-mind,
+    social-wild,
+    social-contagion,
+    fame,
+    contagious-stories,
+    paths-of-universality,
+    dependent-paths,
+%    end,
+}                                                
+\end{frame}                                      
+
+\section{Symmetry\ Breaking}
+
+\begin{frame}
+  \frametitle{Symmetry Breaking}
+
+  \begin{block}{}
+    \displaypaper{anderson1972a}{2}
+    
+    \bigskip
+    
+    \begin{columns}
+      \column{0.02\textwidth}
+      \column{0.33\textwidth}
+      \includegraphics[width=\textwidth]{501px-Andersonphoto.jpg}
+      \column{0.65\textwidth}
+      \begin{itemize}
+      \item<2-> 
+        \wordwikilink{http://en.wikipedia.org/wiki/Philip_Warren_Anderson}{Anderson}
+        argues against idea that the only real scientists are
+        those working on the fundamental laws.
+      \item<3->
+        Symmetry breaking $\rightarrow$ different laws/rules at
+        different scales \ldots
+      \end{itemize}
+    \end{columns}
+
+    \bigskip
+
+    \visible<4->{2006 study: \wordwikilink{http://physicsworld.com/cws/article/news/25623}{``most creative physicist in the world''}}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Symmetry Breaking}
+
+  \begin{block}{\alertg{``Elementary entities of science X obey the laws of science Y''}}
+    \begin{columns}[t] 
+      \begin{column}{0.45\textwidth} 
+        \begin{itemize}
+        \item X 
+        \item solid state or many-body physics 
+        \item chemistry \\ \mbox{}
+        \item molecular biology 
+        \item cell biology
+        \item[$\vdots$]
+        \item psychology
+        \item social sciences
+        \end{itemize}
+      \end{column} 
+      \begin{column}{0.45\textwidth} 
+        \begin{itemize}
+        \item Y
+        \item elementary particle physics 
+        \item solid state many-body physics
+        \item chemistry 
+        \item molecular biology 
+        \item[$\vdots$]
+        \item physiology 
+        \item psychology
+        \end{itemize}
+      \end{column} 
+    \end{columns} 
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Symmetry Breaking}
+
+  \begin{block}{Anderson:}
+    \begin{itemize}
+    \item<+->
+      \ [the more we know about] ``fundamental laws, the less
+      relevance they seem to have to the very real problems
+      of the rest of science.''
+    \item<+->
+      \alertb{Scale} and \alertb{complexity}
+      thwart the constructionist hypothesis.
+    \item<+->
+      Accidents of history 
+      and \wordwikilink{http://en.wikipedia.org/wiki/Path_dependence}{path dependence}
+      matter.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Symmetry Breaking}
+
+  \begin{block}{}
+    \displayamazonbook{sornette2006a}
+    \begin{itemize}
+    \item<1-> 
+      Page 291--292 of Sornette\cite{sornette2003a}:\\
+      Renormalization $\equiv$ Anderson's hierarchy.
+    \item<2->
+      But Anderson's hierarchy is not a simple one: the rules change.
+    \item<3->
+      Crucial dichotomy between evolving systems
+      following stochastic paths that lead
+      to \\
+      (a) \alertb{inevitable} 
+      \alertb{or} 
+      (b) \alertb{particular}
+      destinations (states).
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+
+%% more ????
+\begin{frame}
+  \frametitle{More is different:}
+
+  \includegraphics[width=\textwidth]{xkcd435-complexity.png}\\
+  \wordwikilink{http://xkcd.com/435/}{http://xkcd.com/435/}
+
+\end{frame}
+
+\section{The\ Big\ Theory}
+
+\begin{frame}
+
+  \frametitle{A real science of complexity:}
+
+  \begin{block}<1->{A real theory of \sout{everything} anything:}
+    \begin{enumerate}
+    \item<2->
+      Is not just about the ridiculously small stuff \ldots
+    \item<3->
+      It's about the increase of complexity
+    \end{enumerate}
+  \end{block}
+
+  \medskip
+
+  \begin{block}{}
+  \uncover<4->{
+    \begin{columns}
+      \column{0.1\textwidth}
+      \column{0.4\textwidth}
+      Symmetry breaking/
+      Accidents of history
+      \column{0.05\textwidth}
+      vs.
+      \column{0.05\textwidth}
+      \column{0.4\textwidth}
+      Universality
+    \end{columns}
+  }
+  \end{block}
+
+  \medskip
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<5-> 
+    Second law of thermodynamics: \alertb{we're toast in the long run}.
+  \item<6-> 
+    So how likely is the local complexification of structure we enjoy?
+  \item<7-> 
+    How likely are the Big Transitions?
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Why complexify?}
+
+  \begin{block}{}
+    \displaypaper{arthur1993b}{1}
+    \begin{itemize}
+    \item<+-> 
+      Argues that evolution toward increased performance brings a
+      ratcheting cycle
+      of complexification and simplification.
+    \item<+-> 
+      Jet engine replaced the complex piston engine and then itself
+      became more complex.
+    \item<+-> 
+      Complexification $\equiv$ evolution of algorithms?
+    \item<+->  
+      Differential equations and stories $\subset$ Algorithms.
+    \item<+->  
+      Life is a loaded word: The Search for Extraterrestrial Algorithms (SETA)?
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Why complexify?}
+
+  \begin{block}{Driving complexity's trajectory:}
+    \begin{itemize}
+    \item 
+      Big Bang
+    \item 
+      Randomness leads to replicating structures;
+    \item 
+      Biological evolution;
+    \item 
+      Sociocultural evolution;
+    \item 
+      Technological evolution;
+    \item 
+      Sociotechnological evolution.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Complexification---the Big Transitions:}
+
+  \begin{block}{}
+  \begin{columns}
+    \column{0.32\textwidth}
+    \begin{itemize}
+    \item<+->
+      Big Bang.
+    \item<+-> 
+      Big Randomness.
+    \item<+-> 
+      %% galactic networks
+      %% stars and planets
+      Big Structure.
+    \item<+-> 
+      Big Replicate.
+    \item<+-> 
+      Big Life.
+    \item<+-> 
+      Big Evolve.
+    \end{itemize}
+    \column{0.29\textwidth}
+    \begin{itemize}
+    \item<+-> 
+      Big Word.
+    \item<+-> 
+      Big Story.
+    \item<+-> 
+      Big Number.
+    \item<+-> 
+      Big Farm.
+    \item<+-> 
+      Big God.
+    \item<+-> 
+      Big Make.
+    \item<+-> 
+      Big City.
+    \item<+-> 
+      Big Culture.
+    \end{itemize}
+    \column{0.41\textwidth}
+    \begin{itemize}
+    \item<+->
+      Big Science.
+    \item<+-> 
+      Big Data.
+    \item<+-> 
+      Big Information.
+    \item<+-> 
+      Big Algorithm.
+    \item<+-> 
+      Big Connection.
+    \item<+-> 
+      Big Social.
+    \item<+-> 
+      Big Awareness.
+    \item<+-> 
+      Big Spread.
+    \item<+->
+      Big \ldots ?
+    \end{itemize}
+  \end{columns}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+%% three levels of complexity
+%%  \frametitle{}
+
+%%  \includegraphics[width=\textwidth]{2011-07-15complexity-framing-cropped.jpg}
+  \includegraphics[width=\textwidth]{2011-07-15complexity-framing-cropped-sharp-tp-3.pdf}
+%%  \includegraphics[width=\textwidth]{2011-01-18complexity-framing-sketch-tp-cropped.pdf}
+
+\end{frame}
+
+\begin{frame}
+  \small
+ 
+  \begin{block}<1->{}
+    \begin{columns}
+      \column{0.03\textwidth}
+      \column{0.2\textwidth}
+      \includegraphics[width=\textwidth]{xkcd-904-sports.png}\\
+      {\tiny
+      \wordwikilink{http://xkcd.com/904/}{http://xkcd.com/904/}}
+      \includegraphics[width=\textwidth]{2014-11-15narrative-hierarchy-sketches-stories_001_base_1200px-tp-5.png}\\
+      \includegraphics[width=\textwidth]{2014-11-15narrative-hierarchy-sketches-stories_001_broken-story_1200px-tp-5.png}\\
+      \includegraphics[width=\textwidth]{2014-11-15narrative-hierarchy-sketches-stories_001_broken_1200px-tp-5.png}\\
+      \column{0.8\textwidth}
+      \begin{itemize}
+%%      \item<1-> 
+%%        Sociotechnical algorithms for measuring/predicting decisions, contagion, demographics, weather, \ldots
+      \item<1->
+        \wordwikilink{http://nautil.us/issue/5/fame/homo-narrativus-and-the-trouble-with-fame}{Homo narrativus}---we run on stories.
+      \item<1->
+        Extraction of metaphors, frames, narratives, and stories from large-scale text.
+      \item<1-> 
+        \wordwikilink{http://www.uvm.edu/~pdodds/fama/2015/06/04/the-narrative-hierarchystories-and-storytelling-on-all-scales/}{The narrative hierarchy: Scalability of stories}.
+      \item<1-> 
+        Adjacent narratives, mistruths, and conspiracy theories.
+      \item<1-> 
+        The taxonomy of human stories.
+      \end{itemize}
+      \centering
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories001-tp-5.png}
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories003-tp-5.png}
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories004-tp-5.png}
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories002-tp-5.png}\\
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories006-tp-5.png}
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories008-tp-5.png}
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories010-tp-5.png}
+      \includegraphics[width=0.2\textwidth]{2015-09-28adjacent-stories011-tp-5.png}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \small
+  %% \frametitle{\wordwikilink{http://en.wikipedia.org/wiki/Terry\_Pratchett}{Pratchett} on stories:}
+  \frametitle{\wordwikilink{http://en.wikipedia.org/wiki/Terry\_Pratchett}{(Sir Terry) Pratchett's}
+    \wordwikilink{http://wiki.lspace.org/wiki/Narrativium}{Narrativium}:
+    %% and 
+    %% \wordwikilink{http://wiki.lspace.org/wiki/Narrative\_Causality}{Narrative Causality}:
+  }
+
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[width=\textwidth]{4463841109_f3dbc05754_pratchett.jpg}
+    \column{0.7\textwidth}
+    \begin{block}<+->{}
+      \begin{itemize}
+      \item<+-> 
+        ``The most common element on the disc, although not
+        included in the list of the standard five: earth, fire, air,
+        water and surprise. It ensures that everything runs properly
+        as a story.''
+      \item<+->
+        ``A little narrativium goes a long way: the simpler the story,
+        the better you understand it. Storytelling is the opposite of
+        reductionism: 26 letters and some rules of grammar are no story
+        at all.''
+      \end{itemize}
+    \end{block}
+  \end{columns}
+
+  \begin{block}<+->{}
+    \begin{itemize}
+    \item
+      ``Heroes only win when outnumbered, and things which have a
+      one-in-a-million chance of succeeding often do so.''
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{\wordwikilink{http://exp.lore.com/post/40411963108/kurt-vonneguts-classic-lecture-on-the-shapes-of-stories}{Kurt Vonnegut on the shapes of stories:}}
+
+  \includegraphics[height=0.9\textheight]{tumblr_mft5lpRiy01r2qa6go1_1280_1.jpg}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{\wordwikilink{http://exp.lore.com/post/40411963108/kurt-vonneguts-classic-lecture-on-the-shapes-of-stories}{Kurt Vonnegut on the shapes of stories:}}
+
+  \includegraphics[height=0.9\textheight]{tumblr_mft5lpRiy01r2qa6go1_1280_2.jpg}
+  
+\end{frame}
+
+\insertvideo{oP3c1h8v2ZQ}{}{}{Kurt Vonnegut on the shapes of stories:}
+
+\begin{frame}
+
+  \begin{block}{
+      \wordwikilink{http://hedonometer.org/books.html}{Online, interactive
+        Emotional Shapes of Stories} for 10,000+ books:
+    }
+    \centering
+    \includegraphics[width=\textwidth]{2014-09-15frankenstein.png}
+  \end{block}
+  
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Ian Stewart and Jack Cohen:}
+%% 
+%%   \begin{block}{}
+%%     Ian Stewart and Jack Cohen are the source of the coinage Pan
+%%     narrans, of which they say We are not Homo sapiens, Wise Man. We are
+%%     the third chimpanzee. What distinguishes us from the ordinary
+%%     chimpanzee Pan troglodytes and the bonobo chimpanzee Pan paniscus, is
+%%     something far more subtle than our enormous brain, three times as
+%%     large as theirs in proportion to body weight. It is what that brain
+%%     makes possible. And the most significant contribution that our large
+%%     brain made to our approach to the universe was to endow us with the
+%%     power of story. 
+%%     \visible<2->{We are \alertb{Pan narrans}, the storytelling ape.}
+%%   \end{block}
+%%   
+%% \end{frame}
+
+
+\begin{frame}
+  \showtarotcards{0.20}{
+    overview,
+    golden-age-of-reductionism,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    variable-transformation,
+    random-walks,
+    rich-get-richer,
+    efficient-language,
+    law-of-first-digits,
+    surprise-of-being-robust-yet-fragile,
+    misreading-of-the-book-of-sand,
+    tales-of-tails,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+    emergence-of-stories,
+    mechanics-statistical,
+    thresholds-of-percolation,
+    complex-networks,
+    web-elements,
+    random-networks,
+    strangeness-of-friends,
+    small-world-networks,
+    theory-six-degrees,
+    scale-free-networks,
+    confusion-of-contagions,
+    disease-of-random-mixing,
+    unending-pandemics,
+    thresholds-of-the-mind,
+    social-wild,
+    social-contagion,
+    fame,
+    contagious-stories,
+    paths-of-universality,
+    dependent-paths,
+    end,
+}                                                
+\end{frame}                                      
+
+
+\section{Final\ words}
+
+\begin{frame}
+  \small
+
+  \frametitle{The absolute basics:}
+
+  \begin{block}<+->{Modern basic science in three steps:}
+    \begin{enumerate}
+    \item<+->
+      Find interesting/meaningful/important phenomena,
+      optionally involving spectacular amounts of data.
+    \item<+->
+      Describe what you see.
+    \item<+->
+      Explain it.
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}<+->{}
+    \alertg{Unlocks our (limited) ability to:}
+    Create, predict, and control.
+    \end{block}
+
+  \begin{block}<+->{}
+    And be good people: \alertg{Share.}
+  \end{block}
+
+  \begin{block}<+->{}
+    \alertg{Beware your assumptions:}
+    Don't use tools/models because they're there,
+    or because everyone else does \ldots
+  \end{block}
+
+\end{frame}
+
+
+\section{For\ your\ consideration}
+
+\begin{frame}
+  \small
+  \frametitle{This is a thing that could be next:}
+
+  \begin{block}{}
+    \begin{columns}
+      \column{0.02\textwidth}
+      \column{0.28\textwidth}
+      CoNKs: The PoCS\\ strikes back:
+      \smallskip
+      \includegraphics[width=\textwidth]{networksvox-icon.png}\\
+      \smallskip
+      CSYS/MATH 303: \\
+      \wordwikilink{http://www.uvm.edu/~pdodds/teaching/courses/303/}{Complex
+        Networks}\\
+      \wordwikilink{https://twitter.com/@networksvox)}{@networksvox}
+      \column{0.70\textwidth}
+      \begin{itemize}
+      \item<2-> 
+        Branching networks (rivers, cardiovascular systems).
+      \item<2-> 
+        Optimal (re)distribution networks (hospitals, coffee shops, airlines, post, Internet).
+      \item<2-> 
+        Structure detection for complex systems.
+      \item<2-> 
+        Moar Contagion.
+      \item<2-> 
+        Random networks-arama.
+      \item<2-> 
+        Distributed Search.
+      \item<2-> 
+        Organizational networks.
+      \item<2-> 
+        Deeper investigations of scale-free networks.
+      \item<3-> 
+        and more \ldots
+      \end{itemize}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+\begin{comment}
+  
+\section{Flotsam}
+
+\begin{frame}
+
+  \frametitle{Homo narrativus---What's the Story?:}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{xkcd-904-sports.png}\\
+    \wordwikilink{http://xkcd.com/904/}{http://xkcd.com/904/}
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item<+->
+      Mechanisms = 
+      Evolution equations, 
+      algorithms,
+      stories, \ldots
+    \item<+->
+      Rollover zing:
+      ``Also, all financial analysis.
+      And, more directly, D\&D.''
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\end{comment}

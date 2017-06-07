@@ -1,0 +1,754 @@
+\changelecturelogo{.18}{gastner2006c_fig6b-tp-1}
+
+\section{Distributed\ Sources}
+
+%% \subsection{Facility location}
+
+\begin{frame}
+  \frametitle{Many sources, many sinks}
+  
+  \begin{block}<1->{How do we distribute sources?}
+    \begin{itemize}
+    \item<2-> Focus on 2-d (results generalize to higher dimensions).
+    \item<3-> Sources = hospitals, post offices, pubs, ...
+    \item<4-> \alert{Key problem:} How do we cope with uneven population densities?
+    \item<5-> Obvious: if density is uniform then sources are best distributed
+      \alert{uniformly}.
+    \item<6-> Which lattice is optimal? \uncover<7->{The \alert{hexagonal lattice}}
+    \item<8-> \alert{Q2:} Given population density is uneven, what do we do?
+    \item<9-> We'll follow work by Stephan (1977, 1984)\cite{stephan1977a,stephan1984a},
+      Gastner and Newman (2006)\cite{gastner2006c}, 
+      Um \etal (2009)\cite{um2009a} and work cited by them.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{block}<1->{Solidifying the basic problem}
+    \begin{itemize}
+    \item<1-> Given a region with some population distribution $\rho$, most likely uneven.
+    \item<2-> Given resources to build and maintain $N$ facilities.
+    \item<3-> \alert{Q:} How do we locate these $N$ facilities so as to
+      \alert{minimize the average distance} between an \alertb{individual's residence} and 
+      the \alertb{nearest facility}?
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  {\centering
+    \includegraphics[width=0.9\textwidth]{gastner2006c_fig1}
+  }
+
+  {\small 
+    From Gastner and Newman (2006)\cite{gastner2006c}\\
+    \begin{itemize}
+    \item<1-> Approximately optimal location of 5000 facilities.
+    \item<1-> Based on 2000 Census data.
+    \item<1-> Simulated annealing + Voronoi tessellation.
+    \end{itemize}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{gastner2006c_fig2}
+  \end{center}
+  {\small
+    From Gastner and Newman (2006)\cite{gastner2006c}
+  }
+  \begin{itemize}
+  \item<1-> Optimal facility density $\rhofac$ vs.\ population density $\rhopop$.
+  \item<2-> Fit is $\rhofac \propto \rhopop^{0.66}$ with $r^2 = 0.94$.
+  \item<3-> Looking good for a 2/3 power...
+  \end{itemize}
+  
+\end{frame}
+
+
+\subsection{Size-density\ law}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{block}<1->{Size-density law:}
+    \begin{itemize}
+    \item<1->
+    $$
+    \boxed{\alert{\rhofac \propto \rhopop^{2/3}}}
+    $$
+    \item<2->
+      Why?
+    \item<3->
+      Again: Different story to branching networks where
+      there was either one source or one sink.
+    \item<4->
+      Now sources \& sinks are distributed 
+      throughout region...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+    \begin{itemize}
+    \item<+-> 
+      We first examine Stephan's treatment (1977)\cite{stephan1977a,stephan1984a}
+    \item<+->
+      \alertb{``Territorial Division: The Least-Time Constraint
+        Behind the Formation of Subnational Boundaries''} (Science, 1977)
+    \item<+->
+      Zipf-like approach: invokes \alert{principle of minimal effort}.
+    \item<+->
+      Also known as the Homer principle.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item<1-> 
+    Consider a region of area $A$ and population $P$ with
+    a single functional center that everyone needs to access
+    every day.
+  \item<2->
+    Build up a general cost function based on time expended
+    to \alert{access and maintain center}.
+  \item<3->
+    Write \alert{average travel distance} to center as $\bar{d}$ and 
+    assume \alert{average speed of travel} is $\bar{v}$.
+  \item<4->
+    Assume \alertb{isometry}: average travel distance $\bar{d}$ will be on the length
+    scale of the region which is $\sim$ \alertb{$A^{1/2}$}
+  \item<5->
+    Average time expended per person in accessing facility
+    is therefore
+    \alertb{
+      $$
+      \bar{d}/\bar{v} = c A^{1/2} / \bar{v}
+      $$
+    }
+    where $c$ is an unimportant shape factor.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item<1-> Next assume facility requires regular maintenance (person-hours per day)
+  \item<2-> Call this quantity $\tau$
+  \item<3-> If burden of mainenance is shared then average cost per person
+    is \alert{$\tau/P$} where $P$ = population.
+  \item<4-> Replace $P$ by $\rhopop A$ where $\rhopop$ is density.
+  \item<5-> Total average time cost per person:
+    $$
+    T = \bar{d}/\bar{v} + \tau/(\rhopop A) 
+    \uncover<6->{= c \alert{A^{1/2}}/\bar{v} + \tau/(\rhopop \alert{A}).}
+    $$
+  \item<7-> Now Minimize with respect to $A$...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item<1-> Differentiating...
+    $$
+    \partialdiff{T}{A} = 
+    \partialdiff{}{A} \left( c A^{1/2}/\bar{v} + \tau/(\rhopop A) \right)
+    $$
+    $$
+    \uncover<2->{
+      =
+      \frac{c}{2\bar{v} A^{1/2}}
+      -\frac{\tau}{\rhopop A^2}
+    }
+    \uncover<3->{
+      \alert{ = 0 }
+    }
+    $$
+  \item<4-> Rearrange:
+    $$
+    A = 
+    \left(
+      \frac{2 \bar{v} \tau}
+      {c \rhopop}
+    \right)^{2/3}
+    \uncover<5->{
+      \propto \rhopop^{-2/3}
+    }
+    $$
+  \item<6-> \# facilities per unit area $\rhofac$:
+    $$ 
+    \rhofac
+    \propto
+    \alert{A^{-1}  \propto \rhopop^{2/3}}
+    $$
+  \item<7-> Groovy...
+    
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{block}{An issue:}
+    \begin{itemize}
+    \item<1-> Maintenance ($\tau$) is assumed to be 
+      \alert{independent} of population
+      and area ($P$ and $A$)
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item 
+    Stephan's online book\\
+    \alert{``The Division of Territory in Society''}
+    is
+    \wordwikilink{http://www.edstephan.org/Book/contents.html}{here}.
+  \item 
+    (It used to be
+    \wordwikilink{http://www.ac.wwu.edu/~stephan/Book/contents.html}{here}.)
+  \item 
+    The 
+    \wordwikilink{http://www.edstephan.org/Book/chap0/0.html}{Readme} 
+    is well worth reading (1995).
+  \end{itemize}
+
+  %% winner of the first Zipf award!
+  %% George Kingsley Zipf 
+  %% Memorial Award
+  %% 1984 Population Association of America
+\end{frame}
+
+\subsection{Cartograms}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Standard world map:
+  \includegraphics[width=\textwidth]{newman_world1024x512.png}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Cartogram of countries `rescaled' by population:
+  \includegraphics[width=\textwidth]{newman_population1024x512.png}\\
+  \includegraphics[width=0.25\textwidth]{newman_world1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  \begin{block}<1->{Diffusion-based cartograms:}
+    \begin{itemize}
+    \item<2-> Idea of cartograms is to \alert{distort areas} to 
+      more accurately represent
+      some local density $\rhopop$ (e.g. population).
+    \item<3-> Many methods put forward---typically involve
+      some kind of physical analogy to \alert{spreading or repulsion}.
+    \item<4-> Algorithm due to Gastner and Newman (2004)\cite{gastner2004a}
+      is based on \alertb{standard diffusion}:
+      $$ 
+      \nabla^2 \rhopop - \partialdiff{\rhopop}{t} = 0. 
+      $$
+    \item<5-> Allow density to diffuse and trace the 
+      movement of individual elements and boundaries.
+    \item<6-> Diffusion is constrained by boundary condition
+      of surrounding area having density $\bar{\rhopop}$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Child mortality:
+  \includegraphics[width=\textwidth]{newman_childmort1024x512.png}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Energy consumption:
+  \includegraphics[width=\textwidth]{newman_energyconsump1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Gross domestic product:
+  \includegraphics[width=\textwidth]{newman_gdp1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Greenhouse gas emissions:
+  \includegraphics[width=\textwidth]{newman_greenhouse1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Spending on healthcare:
+  \includegraphics[width=\textwidth]{newman_healthcare1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+  
+  People living with HIV:
+  \includegraphics[width=\textwidth]{newman_hiv1024x512.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  \begin{itemize}
+  \item<1-> The preceding sampling of Gastner \& Newman's cartograms
+    lives \wordwikilink{http://www-personal.umich.edu/~mejn/cartograms/}{here}.
+  \item<1->
+    A larger collection can be found
+    at \wordwikilink{http://www.worldmapper.org/}{worldmapper.org}.
+
+    \bigskip
+
+    \includegraphics[width=0.5\textwidth]{worldmapper.png}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \includegraphics[width=\textwidth]{gastner2006c_fig3}
+
+  \begin{itemize}
+  \item <1-> \alert{Left:} population density-equalized cartogram.
+  \item <2-> \alert{Right:} (population density)$^{2/3}$-equalized cartogram.
+  \item <3-> Facility density is uniform for $\rhopop^{2/3}$ cartogram.
+  \end{itemize}
+  {\small
+    From Gastner and Newman (2006)\cite{gastner2006c}
+  }
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{}
+%% 
+%%   \includegraphics[width=\textwidth]{gastner2006c_fig4}
+%% 
+%%   From Gastner and Newman (2006)\cite{gastner2006c}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \includegraphics[width=\textwidth]{gastner2006c_fig5}
+
+  {\small
+    From Gastner and Newman (2006)\cite{gastner2006c}
+  }
+  \begin{itemize}
+  \item Cartogram's Voronoi cells are somewhat hexagonal.
+  \end{itemize}
+  
+\end{frame}
+
+\subsection{A\ reasonable\ derivation}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}<1->{Deriving the optimal source distribution:}
+    \begin{itemize}
+    \item<2-> \alert{Basic idea:} Minimize the average distance
+      from a random individual to the nearest facility.\cite{gastner2006c}
+    \item<3-> Assume given a fixed population density $\rhopop$ defined
+      on a spatial region $\Om$.
+    \item<4-> Formally, we want to find the locations of 
+      \alert{$n$ sources} $\{\vec{x}_1,\ldots,\vec{x}_n\}$
+      that minimizes the \alert{cost function}
+      $$
+      F(\{\vec{x}_1,\ldots,\vec{x}_n\})
+      =
+      \int_{\Om}
+      \alert{\rhopop(\vec{x})}
+      \,
+      \alertb{\min_{i}
+      || \vec{x} - \vec{x}_i ||}
+      \dee{\vec{x}}.
+      $$
+    \item<5-> Also known as the p-median problem.
+    \item<6-> Not easy...  \uncover<6->{in fact this one is an NP-hard problem.\cite{gastner2006c}}
+    \item<7-> Approximate solution originally due to
+      Gusein-Zade\cite{gusein-zade1982a}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Approximations:}
+    \begin{itemize}
+    \item<1-> For a given set of source placements $\{\vec{x}_1,\ldots,\vec{x}_n\}$,
+      the region $\Om$ is divided up into 
+      \wordwikilink{http://en.wikipedia.org/wiki/Voronoi_diagram}{Voronoi cells},
+      one per source.
+    \item<2->
+      Define \alert{$A(\vec{x})$} as the \alert{area} of the 
+      Voronoi cell containing $\vec{x}$.
+    \item<3-> As per Stephan's calculation, estimate
+      typical distance from $\vec{x}$ to the nearest source (say $i$)
+      as 
+      $$
+      \alertb{c_i A(\vec{x})^{1/2}}
+      $$
+      where $c_i$ is a shape factor for the $i$th Voronoi cell.
+    \item<4-> 
+      Approximate $c_i$ as a constant $c$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Carrying on:}
+    \begin{itemize}
+    \item<1-> The cost function is now
+      $$
+      F
+      =
+      c \int_{\Om}
+      \alertb{\rhopop(\vec{x})}
+      \alertb{ A(\vec{x})^{1/2}}
+      \dee{\vec{x}}.
+      $$
+    \item<2-> We also have that the \alert{constraint} that
+      Voronoi cells divide up the overall area
+      of $\Om$:
+      $
+      \sum_{i=1}^{n} A(\vec{x}_i) = A_\Om.
+      $
+    \item<3-> Sneakily turn this into an integral constraint:
+      $$
+      \int_\Om
+      \frac{\dee{\vec{x}}}
+      {A(\vec{x})}
+      = n.
+      $$
+    \item<4->
+      Within each cell, $A(\vec{x})$ is constant.
+    \item<5->
+      So... integral over each of the $n$ cells equals 1.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Now a Lagrange multiplier story:}
+    \begin{itemize}
+    \item<1-> By varying $\{\vec{x}_1,...,\vec{x}_n\}$, minimize
+      $$
+      G(A) = 
+      c \int_{\Om}
+      \alertb{\rhopop(\vec{x})}
+      \alertb{ A(\vec{x})^{1/2}}
+      \dee{\vec{x}}
+      -
+      \lambda
+      \left(n -
+        \int_\Om
+        \left[A(\vec{x})\right]^{-1}
+        \dee{\vec{x}}
+      \right)
+      $$
+    \item<2->
+      I Can Haz
+      \wordwikilink{http://en.wikipedia.org/wiki/Calculus\_of\_variations}{Calculus of Variations}?
+    \item<3->
+      Compute
+      $\delta G / \delta A$,
+      the \wordwikilink{http://en.wikipedia.org/wiki/Functional_derivative}{functional derivative}
+      of the functional $G(A)$.
+    \item<4-> This gives
+      $$
+      \int_{\Om}
+      \left[
+        \frac{c}{2} \alertb{\rhopop(\vec{x})}
+        \alertb{ A(\vec{x})^{-1/2}}
+        -
+        \lambda
+        \left[A(\vec{x})\right]^{-2}
+      \right]
+      \dee{\vec{x}} = 0.
+      $$
+    \item<5-> Setting the integrand to be zilch, we have:
+      $$
+      \rhopop(\vec{x})
+      =
+      2\lambda
+      c^{-1}
+      A(\vec{x})^{-3/2}.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Now a Lagrange multiplier story:}
+    \begin{itemize}
+    \item<1-> Rearranging, we have
+      $$
+      A(\vec{x}) = (2{\lambda} c^{-1})^{2/3} \rhopop^{-2/3}.
+      $$
+    \item<2->
+      Finally, we indentify $1/A(\vec{x})$ as $\rhofac(\vec{x})$,
+      an approximation of the local source density.
+    \item<3-> Substituting $\rhofac=1/A$, we have
+      $$
+      \alert{\rhofac(\vec{x})
+      = \left( 
+        \frac{c}{2{\lambda}}
+        \rhopop
+    \right)^{2/3}}.
+      $$
+    \item<4-> Normalizing (or solving for $\lambda$):
+      $$
+      \alert{\rhofac(\vec{x})}
+      =  n 
+      \frac{[\rhopop(\vec{x})]^{2/3}}
+      {\int_{\Om} [\rhopop(\vec{x})]^{2/3} \dee{\vec{x}}}
+      \alert{\propto [\rhopop(\vec{x})]^{2/3}}.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Global\ redistribution}
+
+\begin{frame}
+  \frametitle{Global redistribution networks}
+
+  \begin{block}<1->{One more thing:}
+    \begin{itemize}
+    \item<1-> How do we supply these facilities?
+    \item<2-> How do we best redistribute mail?  People?
+    \item<3-> How do we get beer to the pubs?
+    \item<4-> Gaster and Newman model: cost is 
+      a function of basic maintenance and travel time:
+      $$
+      C_{\textnormal{maint}} + \gamma C_{\textnormal{travel}}.
+      $$
+    \item<5-> Travel time is more complicated:
+      Take `distance' between nodes to be a composite
+      of shortest path distance $\ell_{ij}$ and 
+      number of legs to journey:
+      $$
+      (1-\delta) \ell_{ij} + \delta (\# \mbox{hops}).
+      $$
+    \item<6-> When $\delta=1$, only number of hops matters.
+      
+      
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Global redistribution networks}
+
+  \includegraphics[width=\textwidth]{gastner2006c_fig6}
+
+  From Gastner and Newman (2006)\cite{gastner2006c}
+\end{frame}
+
+\subsection{Public\ versus\ Private}
+
+\begin{frame}
+  \frametitle{Public versus private facilities}
+
+  \begin{block}<1->{Beyond minimizing distances:}
+    \begin{itemize}
+    \item<2->
+      ``Scaling laws between population and facility densities'' by
+      Um et al., Proc. Natl. Acad. Sci., 2009.\cite{um2009a}
+    \item<3->
+      Um et al.\ find empirically and argue theoretically that the connection
+      between facility and population density
+      $$
+      \rhofac \propto \rhopop^{\alpha}
+      $$
+      \alertb{does not universally hold} with $\alpha=2/3$.
+    \item<4->
+      \alert{Two idealized limiting classes}:
+      \begin{enumerate}
+      \item<4->
+        For-profit, commercial facilities: \alertb{$\alpha = 1$};
+      \item<5->
+        Pro-social, public facilities: \alertb{$\alpha = 2/3$}.
+      \end{enumerate}
+    \item<5->
+      Um et al.\ investigate facility locations in the United States
+      and South Korea.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Public versus private facilities: evidence}
+
+  \includegraphics[width=0.49\textwidth]{um2009a_fig1A.pdf}
+  \includegraphics[width=0.49\textwidth]{um2009a_fig1B.pdf}
+
+  \begin{itemize}
+  \item<1->
+    \alert{Left plot:} ambulatory hospitals in the U.S.
+  \item<1-> 
+    \alert{Right plot:} public schools in the U.S.
+  \item<2->
+    Note: break in scaling for public schools.
+    Transition from $\alpha \simeq 2/3$ to 
+    $\alpha = 1$ around $\rhopop \simeq 100$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: evidence}
+
+  \begin{columns}
+    \column{0.7\textwidth}
+    \includegraphics[width=\textwidth]{um2009a_tab1A.pdf}\\
+    \includegraphics[width=\textwidth]{um2009a_tab1B.pdf}
+    \column{0.3\textwidth}
+      {\small
+        Rough \alertb{transition} between public and private at $\alpha \simeq 0.8$.
+
+        \medskip
+
+        Note: * indicates analysis is at state/province level; otherwise county level.}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: evidence}
+
+  \includegraphics[width=\textwidth]{um2009a_fig2.pdf}
+
+  \alert{A, C:} ambulatory hospitals in the U.S.;
+  \alert{B, D:} public schools in the U.S.;
+  \alert{A, B:} data; 
+  \alert{C, D:} Voronoi diagram from model simulation.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: the story}
+
+  \begin{block}<1->{So what's going on?}
+    \begin{itemize}
+    \item<1->
+      Social institutions seek to \alertb{minimize distance of travel}.
+    \item<2->
+      Commercial institutions seek to \alertb{maximize the
+      number of visitors}.
+    \item<3->
+      \alertb{Defns:} For the $i$th facility and its Voronoi cell $V_i$, define
+      \begin{itemize}
+      \item
+        $n_i$ = population of the $i$th cell;
+      \item
+        $\tavg{r_i}$ = the average travel distance
+        to the $i$th facility.
+      \item
+        $s_i$ = area of $i$th cell.
+      \end{itemize}
+    \item<4->
+      Objective function to maximize for a facility (highly constructed):
+      $$ 
+      \alertb{v_i = n_i \tavg{r_i}^\beta}
+      \
+      \mbox{with}
+      \
+      0 \le \beta \le 1.
+      $$
+    \item<5->
+      Limits:
+      \begin{itemize}
+      \item $\beta = 0$: purely commercial.
+      \item $\beta = 1$: purely social.
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: the story}
+
+  \begin{itemize}
+  \item<1-> 
+    Proceeding as per the Gastner-Newman-Gusein-Zade calculation,
+    Um et al.\ obtain:
+    $$
+    \alert{\rhofac(\vec{x})}
+    =  n
+    \frac{[\rhopop(\vec{x})]^{2/(\beta+2)}}
+    {\int_{\Om} [\rhopop(\vec{x})]^{2/(\beta+2)} \dee{\vec{x}}}
+    \alert{\propto [\rhopop(\vec{x})]^{2/(\beta+2)}}.
+    $$
+  \item<2-> 
+    For $\beta=0$, $\alpha=1$: commercial scaling is linear.
+  \item<3-> 
+    For $\beta=1$, $\alpha=2/3$: social scaling is sublinear.
+  \item<3-> 
+    You can try this too: \insertassignmentquestion{04}{4}{3}.
+  \end{itemize}
+
+\end{frame}
+

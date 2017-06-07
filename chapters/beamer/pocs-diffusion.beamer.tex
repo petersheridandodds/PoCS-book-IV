@@ -1,0 +1,221 @@
+\section{Random\ walks\ on\ networks}
+
+%% \begin{frame}
+%% 
+%% Next time: add in time to equilibrium, max lambda, noh2006a.pdf.
+%% 
+%% Also:
+%% 
+%% Laplacian matrix
+%% 
+%% Admittance matrix
+%% 
+%% Similar to a shifted version of the Laplacian
+%% 
+%% Kirchoff's laws
+%% 
+%% Connection to transportation problems
+%% 
+%% Electricity
+%%   
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Random walks on networks---basics:}
+
+  \begin{itemize}
+  \item<1->
+    Imagine a single random walker moving
+    around on a network.
+  \item<2-> 
+    At $t=0$, start walker at node $j$ and 
+    take time to be discrete.
+  \item<3-> 
+    \alert{Q:} What's the long term probability distribution
+    for where the walker will be?
+  \item<4-> 
+
+    Define \alertb{$p_i(t)$} as the probability
+    that at time step $t$, our walker is at node $i$.
+  \item<5-> 
+    We want to characterize the evolution
+    of $\vec{p}(t)$.
+  \item<6-> 
+    First task: connect $\vec{p}(t+1)$ to $\vec{p}(t)$.
+  \item<7-> 
+    \visible<7->{Let's call our walker \alert{Barry}.}
+  \item<8-> 
+    \visible<8->{Unfortunately for Barry,
+      he lives on a high dimensional graph and is far from home.}
+  \item<9->
+    \visible<9->{Worse still: Barry is \alertb{hopelessly drunk}.}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Where is Barry?}
+
+  \begin{itemize}
+  \item<1->
+    Consider simple undirected, ergodic (strongly connected) networks.
+  \item<2->
+    As usual, represent network by \alert{adjacency matrix $A$}
+    where
+    $$
+    \begin{array}{l}
+      a_{ij}=1 \ \mbox{if $i$ has an edge leading to $j$}, \\
+      a_{ij}=0 \ \mbox{otherwise.}
+    \end{array}
+    $$
+  \item<3->
+    Barry is at node $j$ at time $t$ with probability $p_j(t)$.
+  \item<4->
+    In the next time step, 
+    he 
+    \alertb{randomly lurches} toward one of $j$'s neighbors.
+  \item<5->
+    Barry arrives at node $i$ from node $j$ with probability
+    $\frac{1}{k_j}$ if an edge connects $j$ to $i$.
+  \item<6->
+    Equation-wise:
+    $$
+      p_i(t+1) = \sum_{j=1}^{n} \frac{1}{k_j}  a_{ji} p_j(t).
+    $$
+    where $k_j$ is $j$'s degree.
+    \visible<7->{Note: $k_i = \sum_{j=1}^{n} a_{ij}$.}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Inebriation and diffusion:}
+  
+  \begin{itemize}
+  \item<1->
+    \alertb{Excellent observation:} The same equation
+    applies for stuff moving around a network, such that
+    at each time step all material at node $i$ is sent
+    to its neighbors.  
+  \item<2->
+    $x_i(t)$ = amount of stuff at node $i$ at time $t$.
+  \item<3->
+    $$
+      x_i(t+1) = \sum_{j=1}^{n} \frac{1}{k_j}  a_{ji} x_j(t).
+    $$
+  \item<4->
+    Random walking is equivalent to
+    \wordwikilink{http://en.wikipedia.org/wiki/Diffusion}{diffusion}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Where is Barry?}
+
+  \begin{itemize}
+  \item<1->
+    Linear algebra-based excitement:
+    $
+    p_i(t+1) = \sum_{j=1}^{n} a_{ji} \frac{1}{k_j} p_j(t)
+    $
+    is more usefully viewed as
+    $$
+    \vec{p}(t+1) 
+    = 
+    A^{\textnormal{T}} K^{-1}
+    \vec{p}(t) 
+    $$
+    where $[K_{ij}] = [\delta_{ij} k_i]$ 
+    has node degrees on the main diagonal
+    and zeros everywhere else.
+  \item<2->
+    So... we need to find the \alert{dominant eigenvalue} 
+    of $A^{\textnormal{T}} K^{-1}$.
+  \item<3->
+    Expect this eigenvalue will be 1 (doesn't make sense
+    for total probability to change).
+  \item<4->
+    The corresponding eigenvector will be the limiting
+    probability distribution (or invariant measure).
+  \item<5->
+    Extra concerns: multiplicity of eigenvalue = 1,
+    and network connectedness.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Where is Barry?}
+
+  \begin{itemize}
+  \item<1->
+    By inspection, we see that
+    $$
+    \vec{p}(\infty) = \frac{1}{\sum_{i=1}^{n} k_i} \vec{k}
+    $$
+    satisfies
+    $
+    \vec{p}(\infty)
+    = 
+    A^{\textnormal{T}} K^{-1}
+    \vec{p}(\infty)
+    $
+    with eigenvalue 1.
+  \item<2->
+    We will find Barry at node $i$ with probability
+    proportional to its degree $k_i$.
+  \item<3->
+    Nice implication: probability of finding Barry travelling along
+    any edge is \alert{uniform}.
+  \item<4->
+    Diffusion in real space smooths things out.
+  \item<5->
+    On networks, uniformity occurs on edges.
+  \item<6->
+    So in fact, diffusion in real space is \alertb{about the edges too}
+    but we just don't see that.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other pieces:}
+
+  \begin{itemize}
+  \item<1->
+    Goodness: $A^{\textnormal{T}} K^{-1}$ is similar to a real symmetric matrix
+    if $A = A^{\textnormal{T}}$.
+  \item<2->
+    Consider the transformation $M = \alertb{K^{-1/2}}$:
+    $$
+    \alertb{K^{-1/2}}
+    \alert{A^{\textnormal{T}} K^{-1}}
+    \alertb{K^{1/2}}
+    =
+    \alertb{K^{-1/2}}
+    \alert{A^{\textnormal{T}}}
+    \alertb{K^{-1/2}}.
+    $$
+  \item<3->
+    Since $A^{\textnormal{T}} = A$, we 
+    have 
+    $$
+    ({K^{-1/2}}
+    {A}
+    {K^{-1/2}})^{\textnormal{T}}
+    =
+    {K^{-1/2}}
+    {A}
+    {K^{-1/2}}.
+    $$
+  \item<4->
+    Upshot: $A^{\textnormal{T}} K^{-1} = A K^{-1}$ has real eigenvalues and a complete
+    set of orthogonal eigenvectors.
+  \item<5->
+    Can also show that maximum eigenvalue magnitude is indeed 1.
+%%  \item<6->
+%%    Other goodies: next time round.
+  \end{itemize}
+
+\end{frame}
+

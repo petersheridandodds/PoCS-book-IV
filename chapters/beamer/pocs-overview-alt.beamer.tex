@@ -1,0 +1,1172 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% very clear summary slide 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Plan}
+
+\begin{frame}
+  \frametitle{Something of a plan:}
+
+  \begin{itemize}
+  \item<1-> \alert{Lecture 1:} Overview; Background
+  \item<2-> \alert{Lecture 2:} Random, Scale-free, \\
+    \qquad \qquad and Small-World networks
+  \item<3-> \alert{Lecture 3:} Models of Contagion
+  \item<4-> \alert{Lecture 4:} Transportation networks; \\
+    \qquad \qquad Discovering structure
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exciting details regarding these slides:}
+
+  \begin{itemize}
+  \item<1->
+    Three versions (all in pdf): 
+    \begin{enumerate}
+    \item 
+      Presentation,
+    \item
+      Flat Presentation,
+    \item
+      Handout (2x2).
+    \end{enumerate}
+  \item<2->
+    Presentation versions are \alertb{navigable} 
+    and hyperlinks are \alertb{clickable}.
+  \item<3->
+    Web links look 
+    \wordwikilink{http://www.google.com}{like this}. 
+  \item<4->
+    References in slides link to full citation at end.\cite{anderson1972a}
+  \item<5->
+    Citations contain links to papers in pdf (if available).
+  \item<6->
+    50 hours of lectures $\rightarrow$ 5 hours.
+  \item<7->
+    Brought to you by a concoction of \LaTeX, Beamer, and perl.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% basic definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Basic definitions}
+
+\begin{frame}
+  \frametitle{Basic definitions}
+
+  \begin{block}{Complex System---Some ingredients:}
+    \begin{itemize}
+    \item<2->
+      Distributed system of many interrelated parts
+    \item<3->
+      No centralized control 
+    \item<4->
+      Nonlinear relationships
+    \item<5->
+      Existence of feedback loops
+    \item<6->
+      Complex systems are open (out of equilibrium)
+    \item<7->
+      Presence of Memory
+    \item<8->
+      Modular (nested)/multiscale structure
+    \item<9->
+      Opaque boundaries
+    \item<10->
+      Emergence---`More is Different'\cite{anderson1972a}
+    \end{itemize}
+  \end{block}
+  \mbox{}
+  \hfill
+  \includegraphics[width=.07\textwidth]{wikipedia.jpg}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Basic definitions}
+
+% dictionary definition
+
+  \begin{block}{{Complex:} (Latin = with + fold/weave (com + plex))}
+    \alert{Adjective}
+    \begin{itemize}
+    \item Made up of multiple parts; intricate or detailed.
+    \item Not simple or straightforward.
+    \end{itemize}
+  \end{block}
+\mbox{} \hfill \includegraphics[width=.07\textwidth]{wikipedia.jpg}
+
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{network_dictionary_cut.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thesaurus deliciousness:}
+
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{network_thesaurus_cut.pdf}
+  \end{center}
+
+\end{frame}
+
+
+
+
+%% \begin{frame}
+%%   \frametitle{Basic definitions}
+%% 
+%%   \alert{Network:} (net + work, 1500's)
+%%   \hfill
+%%   \includegraphics[width=.07\textwidth]{wikipedia.jpg}
+%% 
+%%   \begin{block}<2->{\alert{Noun:}}
+%%     \begin{enumerate}
+%%     \item<2-> Any interconnected group or system
+%%     \item<3-> Multiple computers and other devices connected together to share information
+%%     \end{enumerate}
+%%   \end{block}
+%% 
+%%   \begin{block}<4->{\alert{Verb:}}
+%%     \begin{enumerate}
+%%     \item<4-> To interact socially for the purpose of getting connections or personal advancement
+%%     \item<5-> To connect two or more computers or other computerized devices
+%%     \end{enumerate}
+%%   \end{block}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Ancestry:}
+
+  From Keith Briggs's excellent
+  \wordwikilink{http://keithbriggs.info/network.html}{etymological investigation:}
+
+  \medskip
+
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1-> 
+      Opus reticulatum:
+    \item<1-> 
+      A Latin origin?
+    \end{itemize}
+    \column{0.55\textwidth}
+    \includegraphics[width=\textwidth]{opus_reticulatum.jpg}\\
+    {\tiny [http://serialconsign.com/2007/11/we-put-net-network]}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ancestry:}
+
+  \begin{block}<1->{First known use: Geneva Bible, 1560}
+    `And thou shalt make unto it a grate like networke of brass (Exodus xxvii 4).'
+  \end{block}
+
+  \begin{block}<2->{From the OED via Briggs:}
+    \begin{itemize}
+    \item<2-> 
+      1658--: reticulate structures in animals
+    \item<3-> 
+      1839--: rivers and canals
+    \item<4-> 
+      1869--: railways
+    \item<5-> 
+      1883--: distribution network of electrical cables
+    \item<6-> 
+      1914--: wireless broadcasting networks
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Ancestry:}
+
+  \begin{block}{Net and Work are venerable old words:}
+    \begin{itemize}
+    \item
+      \alert{`Net'} first used to mean spider web 
+      {\small (King {\AE}lfr\'{e}d, 888)}.
+    \item
+      \alert{`Work'} appear to have long meant purposeful action.
+    \end{itemize}
+  \end{block}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{briggs2005a_fig1}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{briggs2005a_fig2}
+  \end{columns}
+
+  \begin{itemize}
+  \item<2->
+    `Network' = something built
+    based on the idea of natural, flexible lattice or web.
+  \item<3-> 
+    c.f., ironwork, stonework, fretwork.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Key Observation:}
+
+  \begin{itemize}
+  \item <1->
+    Many \alert{complex systems}\\ 
+    can be viewed as \alert{complex networks}\\
+    of physical or abstract interactions.
+  \item <2->
+    Opens door to mathematical and numerical analysis.
+  \item <3-> 
+    Dominant approach of last decade of 
+    a \alertb{theoretical-physics/stat-mechish} flavor.
+  \item <4-> 
+    Mindboggling amount of work published 
+    on complex networks since 1998...
+  \item <5-> 
+    ... largely due to your typical theoretical physicist:
+    \begin{overprint}
+      \onslide<1-5 | handout:0 | trans: 0>
+      \onslide<6- | handout:1 | trans: 1>
+      \smallskip
+      \begin{columns}
+        \column{0.3\textwidth}
+        \includegraphics[width=\textwidth]{piranha3.jpg}
+        \column{0.7\textwidth}
+        \begin{itemize}
+        \item \textit{Piranha physicus}
+        \item<7-> Hunt in packs.
+        \item<8-> Feast on new and interesting ideas \\
+          {\small (see chaos, cellular automata, ...)}
+        \end{itemize}
+      \end{columns}
+    \end{overprint}
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% popularity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Popularity (according to ISI)}
+
+  \begin{block}<1->{``Collective dynamics of `small-world' networks''\cite{watts1998a}}
+    \begin{itemize}
+    \item 
+      Watts and Strogatz\\
+      Nature, 1998
+    \item 
+      \alert{$\approx 3752$} citations {\tiny(as of June 5, 2009)}\\
+    \item 
+      Over 1100 citations in 2008 alone.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<1->{``Emergence of scaling in random networks''\cite{barabasi1999a}}
+    \begin{itemize}
+    \item 
+      Barab\'{a}si and Albert\\
+      Science, 1999
+    \item 
+      \alert{$\approx 3860$} citations {\tiny(as of June 5, 2009)}
+    \item 
+      Over 1100 citations in 2008 alone.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{Popularity according to books}
+
+\begin{frame}
+  \frametitle{Popularity according to books:}
+
+  \showbook{tippingpoint.jpg}
+  {The Tipping Point: How Little Things can make a Big Difference}
+  {Malcolm Gladwell\cite{gladwell2000a}}
+
+  \bigskip
+
+  \showbook{nexus.jpg}
+  {Nexus: Small Worlds and the Groundbreaking Science of Networks}
+  {Mark Buchanan}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Popularity according to books:}
+
+  \showbook{linked.jpg}
+  {Linked: How Everything Is Connected to Everything Else and What It Means}
+  {Albert-Laszlo Barab\'{a}si}
+
+  \bigskip
+
+  \showbook{sixdegrees.jpg}
+  {Six Degrees: The Science of a Connected Age}
+  {Duncan Watts\cite{watts2003a}}
+
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Books}
+%% 
+%% \showbook{handbookgraphs.jpg}
+%% {Handbook of Graphs and Networks}
+%% {editors: Stefan Bornholdt and H. G. Schuster\cite{bornholdt2003a}}
+%% 
+%% \bigskip
+%% 
+%% \showbook{evolutionofnetworks.jpg}
+%% {Evolution of Networks}
+%% {S. N. Dorogovtsev and J. F. F. Mendes\cite{dorogovtsev2003a}}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Books}
+%% 
+%% \showbook{socialnetworkanalysis.jpg}
+%% {Social Network Analysis}
+%% {Stanley Wasserman and Kathleen Faust\cite{wasserman1994a}}
+%% 
+%% \bigskip
+%% 
+%% \showbook{inthebeatofaheart.jpg}
+%% {In the Beat of a Heart: Life, Energy, and the Unity of Nature}
+%% {John Whitfield}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Numerous others:}
+  
+  \small
+  
+    \begin{itemize}
+    \item 
+      \alertb{Complex Social Networks}---F. Vega-Redondo\cite{vega-redondo2007a}
+    \item 
+      \alertb{Fractal River Basins: Chance and Self-Organization}---I. Rodr\'{\i}guez-Iturbe and A. Rinaldo\cite{rodriguez-iturbe1997a}
+    \item 
+      \alertb{Random Graph Dynamics}---R. Durette
+    \item 
+      \alertb{Scale-Free Networks}---Guido Caldarelli
+    \item 
+      \alertb{Evolution and Structure of the Internet: A Statistical Physics Approach}---Romu Pastor-Satorras and Alessandro Vespignani
+    \item 
+      \alertb{Complex Graphs and Networks}---Fan Chung
+    \item 
+      \alertb{Social Network Analysis}---Stanley Wasserman and Kathleen Faust
+    \item 
+      \alertb{Handbook of Graphs and Networks}---Eds: Stefan Bornholdt and H. G. Schuster\cite{bornholdt2003a}
+    \item 
+      \alertb{Evolution of Networks}---S. N. Dorogovtsev and J. F. F. Mendes\cite{dorogovtsev2003a}
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Observations
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{More observations}
+
+  \begin{itemize}
+  \item<1->
+    But surely \alert{networks aren't new}...
+  \item<2->
+    Graph theory is well established...
+  \item<3->
+    Study of social networks started in the 1930's...
+  \item<4->
+    So why all this `new' research on networks?
+  \item<5->
+    \alert{Answer:} \alertb{Oodles of Easily Accessible Data.}
+  \item<6->
+    We can now inform (alas) our theories \\
+    with a much more measurable reality.$^\ast$
+  \item<7-> 
+    A worthy goal: establish \alertb{mechanistic explanations}.
+
+    \medskip
+    \visible<8>{
+    {\small 
+      $\mbox{}^\ast$\textit{If this is upsetting, maybe string theory is for you...}}
+  }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{More observations}
+
+  \begin{itemize}
+  \item<1->
+    \alertb{Web-scale} data sets can be overly \alert{exciting}.
+  \end{itemize}
+  
+  \begin{block}<2->{Witness:}
+    \begin{itemize}
+    \item<2->
+      The End of Theory: The Data Deluge Makes the Scientific Theory Obsolete (Anderson, Wired)
+      \wikilink{http://www.wired.com/science/discoveries/magazine/16-07/pb\_theory\#}
+    \item<3->
+      ``The Unreasonable Effectiveness of Data,''\\ Halevy et al.\cite{halevy2009a}.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<4->{But:}
+  \begin{itemize}
+  \item<4-> 
+    For scientists, description is only part of the battle.
+  \item<5-> 
+    We still need to \alertb{understand}.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Basic definitions
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Super Basic definitions}
+
+  \begin{block}<1->{\alert{Nodes} = A collection of entities 
+      which have properties that
+      are somehow related to each other}
+    \begin{itemize}
+    \item <2-> 
+      e.g., people, forks in rivers, proteins, webpages, organisms,...
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<3->{\alert{Links} = Connections between nodes}
+    \begin{itemize}
+    \item<4->
+      \alert{Links} may be directed or undirected.
+    \item<5->
+      \alert{Links} may be binary or weighted.
+    \end{itemize}
+  \end{block}
+
+  \uncover<6->{
+    Other spiffing words: vertices and edges.
+  }
+
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Basic definitions}
+%% 
+%%   \begin{block}{\alert{Links} = Connections between nodes}
+%%     \begin{itemize}
+%%     \item<2->
+%%       \alert{links}
+%%       \begin{itemize}
+%%       \item <3->
+%%       may be real and fixed (rivers),
+%%       \item <4->
+%%       real and dynamic (airline routes), 
+%%       \item <5->
+%%       abstract with physical impact (hyperlinks),
+%%       \item <6->
+%%       or purely abstract (semantic connections between concepts).
+%%       \end{itemize}
+%%     \item<7->
+%%       \alert{Links} may be directed or undirected.
+%%     \item<8->
+%%       \alert{Links} may be binary or weighted.
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Super Basic definitions}
+
+  \begin{block}{\alert{Node degree} = Number of links per node}
+    \begin{itemize}
+    \item<2-> Notation: Node $i$'s degree = $k_i$.
+    \item<3-> $k_i$ = 0,1,2,\ldots.
+    \item<4-> Notation: the average degree of a network = $\avg{k}$ \\
+      \visible<5->{(and sometimes $z$)}
+    \item<6->
+      Connection between number of edges $m$ and average degree:
+      $$
+      \tavg{k} = \frac{2m}{N}.
+      $$
+    \item<7->
+      \alertb{Defn:} ${\cal N}_i$ = the set of $i$'s $k_i$ neighbors
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Super Basic definitions}
+
+  \begin{block}{Adjacency matrix:}
+    \begin{itemize}
+    \item<1->
+      We represent a directed network by a 
+      matrix $A$ with link weight $a_{ij}$ for nodes $i$ and $j$
+      in entry $(i,j)$.
+    \item<2->
+      e.g.,
+      $$
+      A = \left[
+        \begin{array}{ccccc}
+          0 & 1 & 1 & 1 & 0\\
+          0 & 0 & 1 & 0 & 1\\
+          1 & 0 & 0 & 0 & 0 \\
+          0 & 1 & 0 & 0 & 1 \\
+          0 & 1 & 0 & 1 & 0 \\
+        \end{array}
+      \right]
+      $$
+    \item<3->
+      (n.b., for numerical work, we 
+      always use sparse matrices.)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% examples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Examples of Complex Networks}
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \begin{block}{So what passes for a complex network?}
+    \begin{itemize}
+    \item<2-> Complex networks are \alert{large} (in node number)
+    \item<3-> Complex networks are \alert{sparse} (low edge to node ratio)
+    \item<4-> Complex networks are usually \alert{dynamic} and \alert{evolving}
+    \item<5-> Complex networks can be social, economic, natural, informational, abstract, ...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \begin{block}<1->{Physical networks}
+    \begin{columns}
+      \column {0.5\textwidth}
+        \begin{itemize}
+        \item<1-> River networks
+        \item<2-> Neural networks
+        \item<3-> Trees and leaves
+        \item<4-> Blood networks
+        \end{itemize}
+
+      \column{0.5\textwidth}
+        \begin{itemize}
+        \item<5-> The Internet
+        \item<6-> Road networks
+        \item<7-> Power grids
+        \end{itemize}
+
+    \end{columns}
+  \end{block}
+
+  \medskip
+
+  \begin{columns}[t]
+    \column{0.3\textwidth}
+      \includegraphics<5->[height=.28\textheight]{internet_opte_com.png} 
+%%      {\centering \tiny (\url{opte.com})}
+    \column{0.4\textwidth}
+    \includegraphics<1->[height=.28\textheight]{Rivierescr.jpg}
+    \column{0.3\textwidth}
+    \includegraphics<3->[height=.28\textheight]{BoucleSach_imacr.jpg} 
+  \end{columns}
+
+  \begin{itemize}
+  \item<8> \alert{Distribution} (branching) vs.\ \alert{redistribution} (cyclical)
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \begin{columns}
+    \column{0.4\textwidth}
+    \begin{block}{Interaction networks}
+      \begin{itemize}
+      \item<1->  The Blogosphere
+      \item<2->  Biochemical networks
+      \item<3->  Gene-protein networks
+      \item<4->  Food webs: who eats whom
+      \item<5->  The World Wide Web (?)
+      \item<6->  Airline networks
+      \item<7->  Call networks (AT\&T)
+      \item<8->  The Media
+      \item<9->  Paper citations
+      \end{itemize}
+    \end{block}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{datamining-core-2006-06-27.png}\\
+    {\tiny \wordwikilink{http://datamining.typepad.com}{datamining.typepad.com}}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \begin{columns}
+    \column{0.4\textwidth}
+    \begin{block}{Interaction networks: social networks}
+      \begin{itemize}
+      \item<1-> Snogging
+      \item<2-> Friendships
+      \item<3-> Acquaintances
+      \item<4-> Boards and directors
+      \item<5-> Organizations %% formal and informal ties
+      \item<6-> 
+        \wordwikilink{http://www.myspace.com}{myspace.com}, 
+        \wordwikilink{http://www.facebook.com}{facebook.com}
+      \end{itemize}
+    \end{block}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{bearman_sex_network.jpg}\\
+    {\tiny (Bearman \etal, 2004)} 
+  \end{columns}
+
+  \begin{itemize}
+  \item<7->
+  `Remotely sensed' by:
+  email activity, 
+  instant messaging, 
+  phone logs \uncover<8->{\alert{(*cough*)}}.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+
+    \includegraphics[width=\textwidth]{bearman_sex_network.jpg}\\
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \begin{block}{Relational networks}
+    \begin{itemize}
+    \item<1-> Consumer purchases \\
+      \visible<2->{(Wal-Mart: $\approx 1 \ \mbox{petabyte} \ = 10^{15} \ \mbox{bytes}$)}
+    \item<3-> Thesauri: Networks of words generated by meanings
+    \item<4-> Knowledge/Databases/Ideas
+    \item<5-> Metadata---Tagging:
+      \wordwikilink{http://del.icio.us}{del.icio.us},
+      \wordwikilink{http://www.flickr.com}{flickr}
+    \end{itemize}
+  \end{block}
+  \begin{overprint}
+    \onslide<5-| handout:1| trans:1>
+    \includegraphics{delicious.pdf}
+  \end{overprint}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Clickworthy Science:}
+
+    \includegraphics[height=0.75\textheight]{bollen2009a_fig5.pdf}\\
+    {\small Bollen et al.\cite{bollen2009a}}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% properties
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Properties of Complex Networks}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{block}<1->{A notable feature of large-scale networks:}
+    \begin{itemize}
+    \item<2->
+      Graphical renderings are often just a big mess.
+      \begin{overprint}
+        \onslide<1-2 | handout: 0 | trans:0>
+        \onslide<3->
+        \begin{columns}
+          \column{0.4\textwidth}
+          \includegraphics[height=\textwidth]{nw_purerandom_graphviz01_10}
+          \column{0.6\textwidth}
+          \begin{itemize}
+          \item[] 
+            $\Leftarrow$ Typical hairball
+          \item 
+            number of nodes $N$ = 500
+          \item 
+            number of edges $m$ = 1000
+          \item 
+            average degree $\tavg{k}$ = 4
+          \end{itemize}
+        \end{columns}
+      \end{overprint}
+    \item<4->
+      And even when renderings somehow look good:\\
+      \visible<5->{
+      \alertb{``That is a very graphic analogy which aids 
+      understanding wonderfully while being,
+      strictly speaking, wrong in every possible way''} \\
+      {\small
+      said Ponder [Stibbons]
+      ---\textit{Making Money}, T. Pratchett.
+      }
+      }
+    \item<6-> 
+      We need to extract \alert{digestible, meaningful aspects}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{Some key features of real complex networks:}
+  \begin{columns}
+    \column{0.1\textwidth}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item Degree distribution
+    \item Assortativity
+    \item Homophily
+    \item Clustering
+    \item Motifs
+    \item Modularity
+    \end{itemize}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item Concurrency
+    \item Hierarchical scaling
+    \item Network distances
+    \item Centrality
+    \item Efficiency
+    \item Robustness
+    \end{itemize}
+    \column{0.1\textwidth}
+  \end{columns}
+  \end{block}
+
+  \begin{itemize}
+  \item<1-> Coevolution of network \alertb{structure}
+    \\ and \alertb{processes} on networks.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}<1->{1. Degree distribution $P_k$}
+    \begin{itemize}
+    \item<2->
+      $P_k$ is the probability that a randomly selected
+      node has degree $k$
+    \item<3->
+      \alertb{Big deal:} Form of $P_k$ key to network's behavior
+    \item<4->
+      \alert{ex 1:}
+      \erdosrenyi\ random networks have a Poisson
+      distribution:
+      $$ P_k = e^{-\tavg{k}} \tavg{k}^k / k! $$
+    \item<5->
+      \alert{ex 2:}
+      \alertb{``Scale-free'' networks:}
+      $P_k \propto k^{-\gamma}$ $\Rightarrow$ `hubs'
+    \item<5->
+      We'll come back to this business soon...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Properties}
+%% 
+%%   \begin{block}<1->{1. Degree distribution $P_k$}
+%%     \begin{itemize}
+%%     \item<1->
+%%       \alert{ex 2:}
+%%       \alert{``Scale-free'' networks:}
+%%       $P_k \propto k^{-\gamma}$ $\Rightarrow$ `hubs'
+%%     \item<2->
+%%       Link cost controls skew
+%%     \item<3->
+%%       Hubs may facilitate or impede contagion
+%%     \end{itemize}
+%%   \end{block}
+%%  
+%% \end{frame}
+
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{2. Assortativity/3. Homophily:}
+    \begin{itemize}
+    \item<1-> Social networks: \wordwikilink{http://en.wikipedia.org/wiki/Homophily}{Homophily} = birds of a feather
+    \item<2-> e.g., degree is standard property for sorting:\\
+      measure degree-degree correlations.
+    \item<3->
+      \alert{Assortative} network:\cite{newman2002a} 
+      similar degree nodes connecting to each other.\\
+      \begin{itemize}
+      \item<5->
+      \visible<5->{\textit{Often \alertb{social}: company directors, coauthors, actors.}}
+      \end{itemize}
+    \item<4->
+      \alert{Disassortative} network: high degree nodes connecting to low degree nodes.\\
+      \begin{itemize}
+      \item<6-> 
+      \visible<6->{\textit{Often \alertb{techological} or \alertb{biological}: 
+        Internet, protein interactions, neural networks, food webs.}}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{4. Clustering:}
+    \begin{itemize}
+    \item<2-> Your friends tend to know each other.
+    \item<3-> Two measures:
+      $$ C_1 = \avg{\frac{\sum_{j_1 j_2 \in {\cal N}_i} a_{j_1 j_2}}{k_i(k_i-1)/2}}_{i} 
+      \mbox{\ due to Watts \& Strogatz\cite{watts1998a}}
+      $$  
+      $$ C_2 = \frac{3 \times \rm\#triangles}{\rm \#triples} 
+      \mbox{\ due to Newman\cite{newman2003a}}
+      $$ 
+    \item<4-> $C_1$ is the \alert{average fraction} 
+      of 
+      \alertb{pairs of neighbors} who are \alertb{connected}.
+    \item<5->
+      Interpret $C_2$ as probability two of a node's friends
+      know each other.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Properties---First clustering measure:}
+%% 
+%%   \begin{itemize}
+%%   \item<1-> $C_1$ is the \alert{average fraction} 
+%%     of 
+%%     \alertb{pairs of neighbors} who are \alertb{connected}.
+%%   \item<2-> Fraction of pairs of neighbors who are connected is
+%%     $$ \frac{\sum_{j_1 j_2 \in {\cal N}_i} a_{j_1 j_2}}{k_i(k_i-1)/2} $$
+%%     where
+%%     $k_i$ is node $i$'s degree, and 
+%%     ${\cal N}_i$ is the set of $i$'s neighbors.
+%%   \item<3->
+%%     Averaging over all nodes, we have
+%%     $$ C_1 = \frac{1}{n}{\sum_{i=1}^{n}\frac{\sum_{j_1 j_2 \in {\cal N}_i} a_{j_1 j_2}}{k_i(k_i-1)/2}} 
+%%     \visible<5->{ = \avg{\frac{\sum_{j_1 j_2 \in {\cal N}_i} a_{j_1 j_2}}{k_i(k_i-1)/2}}_{i} }$$  
+%%   \item<6-> For sparse networks, $C_1$ tends to discount
+%%     highly connected nodes.
+%%   \end{itemize}
+%% 
+%% \end{frame}
+%% 
+%% 
+%% \begin{frame}
+%%   \frametitle{Properties---Triples and triangles:}
+%% 
+%%   \begin{itemize}
+%%   \item<1->
+%%     \alertb{Defn:} Nodes $i_1$, $i_2$, and $i_3$ form a \alert{triple}
+%%     around $i_1$ if $i_1$ is connected to $i_2$ and $i_3$.
+%%   \item<2->
+%%     \alertb{Defn:} Nodes $i_1$, $i_2$, and $i_3$ form a \alert{triangle}
+%%     if each pair of nodes is connected
+%%   \item<3-> 
+%%    The definition
+%%     $$ C_2 = \frac{3 \times \rm\#triangles}{\rm \#triples} $$ 
+%%     measures the fraction of \alertb{closed triples}.
+%%   \item<4-> 
+%%     The \alert{`3'} appears because for each triangle, \\
+%%     we have 3 closed triples.
+%%   \item<5->
+%%     Interpret $C_2$ as probability two of a node's friends
+%%     know each other.
+%%   \item<6-> Social Network Analysis (SNA): fraction of
+%%     \alertb{transitive triples}.
+%%   \item<7-> In general, \alert{$C_1 \ne C_2$}.
+%%   \end{itemize}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{5. Motifs:}
+  \begin{itemize}
+  \item<1-> 
+    Small, recurring functional subnetworks 
+  \item<2->
+    e.g., Feed Forward Loop:
+    \begin{overprint}
+      \onslide<2-| handout:1| trans:1>
+      \begin{center}
+        \includegraphics[width=0.45\textwidth]{feedforwardloop}%
+      \end{center}
+    \end{overprint}
+    Shen-Orr, Uri Alon, \etal\cite{shen-orr2002a}
+  %% , Wiggins \etal
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{6. modularity:}
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[height=0.6\textheight]{ncaa_annotated}\\
+        Clauset \etal, 2006\cite{clauset2006a}: NCAA football
+      \end{tabular}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{7. Concurrency:}
+    \begin{itemize}
+    \item<1-> 
+      Transmission of a contagious element
+      only occurs during contact\cite{kretzschmar1996a}
+    \item<2-> 
+      Rather obvious but easily missed in a simple model
+    \item<3-> 
+      Dynamic property---static networks are not enough
+    \item<4-> 
+      Knowledge of previous contacts crucial
+    \item<5-> 
+      \alert{Beware} cumulated network data!
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{8. Horton-Strahler stream ordering:}
+    \begin{itemize}
+    \item<1-> Metrics for branching networks:
+      \begin{itemize}
+      \item<2-> 
+        Method for ordering streams hierarchically
+      \item<3->
+        Reveals fractal nature of natural branching networks
+      \item<4->
+        Hierarchy is not pure but mixed (Tokunaga).\cite{tokunaga1966a,dodds1999a}
+      \item<5->
+        Major examples: rivers and blood networks.
+        %%      Number: $R_n = N_{\omega}/N_{\omega+1}$ 
+        %%      \item<4->
+        %%      Segment length: $R_l = \tavg{l_{\omega+1}}/\tavg{l_{\omega}}$ 
+        %%      \item<5->
+        %%      Area/Volume: $R_a = \tavg{a_{\omega+1}}/\tavg{a_{\omega}}$ 
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+  \begin{overprint}
+    \onslide<1-| handout:1| trans:1>
+    \begin{center}
+      \includegraphics[height=0.4\textheight]{network1a}%
+      \includegraphics[height=0.4\textheight]{network2b} 
+      \includegraphics[height=0.3\textheight]{network3c}%
+    \end{center}
+  \end{overprint}
+  \begin{itemize}
+  \item<6-> \alertb{Beautifully described} but \alert{poorly explained}.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}<1->{9. Network distances:}
+    \begin{block}<2->{\alert{(a) shortest path length $d_{ij}$:}}
+      \begin{itemize}
+      \item <3->Fewest number of steps between nodes $i$ and $j$.      
+      \item <4->(Also called the chemical distance between $i$ and $j$.)
+      \end{itemize}
+    \end{block}
+    \begin{block}<5->{\alert{(b) average path length $\tavg{d_{ij}}$:}}
+      \begin{itemize}
+      \item <6-> Average shortest path length in whole network.
+      \item <7-> 
+        Good algorithms exist for calculation.
+      \item <8->
+        Weighted links can be accommodated.
+      \end{itemize}
+    \end{block}
+
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{9. Network distances:}
+    \begin{block}<1->{\alert{(c) Network diameter $d_{\rm max}$:}}
+      \begin{itemize}
+      \item<2->
+        Maximum shortest path length in network.
+      \end{itemize}
+    \end{block}
+    \begin{block}<3->{\alert{(d) Closeness $d_{\rm cl} = [\sum_{ij} d_{ij}^{\ -1} / \binom{n}{2}]^{-1}$:}}
+      \begin{itemize}
+      \item<4-> 
+        Average `distance' between any two nodes.
+      \item<5->
+        Closeness handles disconnected networks ($d_{ij}=\infty$)
+      \item<6->
+        $d_{\rm cl} = \infty$ only when all nodes are isolated.
+%%      \item<7->
+%%        Closeness perhaps compresses too much into one number.
+      \end{itemize}
+    \end{block}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties}
+
+  \begin{block}{10. Centrality:}
+    \begin{itemize}
+    \item<2-> Many such measures of a node's `importance.'  
+    \item<3-> \alert{ex 1:} Degree centrality: $k_i$.
+    \item<4-> \alert{ex 2:} Node $i$'s betweenness \\
+      = fraction of shortest paths that pass through $i$.
+    \item<5-> \alert{ex 3:} Edge $\ell$'s betweenness \\
+      = fraction of shortest paths that travel along $\ell$.
+    \item<6-> \alert{ex 4:} Recursive centrality: Hubs and Authorities
+      (Jon Kleinberg\cite{kleinberg1998a})
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+
+
+
+\section{Nutshell}
+
+\begin{frame}[label=]
+  \frametitle{Nutshell:}
+
+  \begin{block}{Overview Key Points:}
+    \begin{itemize}
+    \item<1->
+      The field of complex networks came into
+      existence in the late 1990s.
+    \item<2->
+      Explosion of papers and interest since 1998/99.
+    \item<3->
+      Hardened up much thinking about complex systems.
+    \item<4->
+      Specific focus on networks that are 
+      \alert{large-scale}, 
+      \alertb{sparse}, 
+      \alert{natural} or \alert{man-made}, 
+      \alertb{evolving} and \alertb{dynamic}, 
+      and 
+      (crucially) \alert{measurable}.
+    \item<5->
+      Three main (blurred) categories: 
+      \begin{enumerate}
+      \item 
+      \alert{Physical} (e.g., river networks),
+      \item 
+      \alert{Interactional} (e.g., social networks),
+      \item 
+      \alert{Abstract} (e.g., thesauri).
+      \end{enumerate}
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Nutshell:}
+
+  \begin{block}{Overview Key Points (cont.):}
+    \begin{itemize}
+    \item<1->
+      Obvious connections with the vast
+      extant field of graph theory.
+    \item<2->
+      But focus on dynamics is more of a physics/stat-mech/comp-sci
+      flavor.
+    \item<3->
+      Two main areas of focus:
+      \begin{enumerate}
+      \item 
+        \alertb{Description:} Characterizing very large networks
+      \item
+        \alertb{Explanation:} Micro story $\Rightarrow$ Macro features
+      \end{enumerate}
+    \item<4->
+      Some essential structural aspects are understood: degree distribution, clustering,
+      assortativity, group structure, overall structure,...
+    \item<5->
+      Still much work to be done, especially with respect to dynamics...
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}

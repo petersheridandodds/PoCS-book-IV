@@ -1,0 +1,819 @@
+%% definition 
+
+%% how to measure r
+
+%% how to build in practice
+
+%% how to deal with analytically...
+
+%% giant component calculation
+
+%% general assortativity
+
+\section{Definition}
+
+\begin{frame}
+  \frametitle{Basic idea:}
+
+  \begin{itemize}
+  \item<1->
+    Random networks with arbitrary degree distributions
+    cover much territory but do not represent
+    all networks.
+  \item<2->
+    Moving away from pure random networks was a key first step.
+  \item<3->
+    We can extend in many other directions and a natural
+    one is to introduce correlations between 
+    different kinds of nodes.
+  \item<4->
+    Node attributes may be anything, e.g.:
+    \begin{enumerate}
+    \item degree
+    \item demographics (age, gender, etc.)
+    \item group affiliation
+    \end{enumerate}
+  \item<5->
+    We speak of mixing patterns, correlations, biases...
+  \item<6->
+    Networks are still random at base but now have more 
+    global structure.
+  \item<7->
+    Build on work by Newman\cite{newman2002a,newman2003e},
+    and Bogu\~{n}\'{a} and Serano.\cite{boguna2005a}.
+  \end{itemize}
+  
+\end{frame}
+
+\section{General\ mixing}
+
+\begin{frame}
+  \frametitle{General mixing between node categories}
+
+  \begin{itemize}
+  \item<2->
+    Assume types of nodes are countable, and are
+    assigned numbers 1, 2, 3, \ldots.
+  \item<3->
+    Consider networks with directed edges.
+    \uncover<4->{
+      $$
+      \emn
+      = \Prob 
+      \left(
+        \begin{array}{ll}
+          \mbox{an edge connects a node of type $\mu$} \\ 
+          \mbox{to a node of type $\nu$}
+        \end{array}
+      \right)
+      $$
+    }
+    \uncover<5->{
+      $$
+      a_{\mu} 
+      = \Prob (\mbox{an edge comes from a node of type $\mu$})
+      $$
+    }
+    \uncover<6->{
+      $$
+      b_{\nu} 
+      = \Prob (\mbox{an edge leads to a node of type $\nu$})
+      $$
+    }  
+  \item<7->
+    Write $\m{E} = [\emn]$, $\vec{a} = [a_\mu]$, and $\vec{b} = [b_\nu]$.
+  \item<8->
+    Requirements:
+    $$
+    \sum_{\mu\ \nu} \emn = 1,
+    \
+    \sum_{\nu} \emn = a_{\mu},
+    \
+    \mbox{and}
+    \sum_{\mu} \emn = b_{\nu}.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Connection to degree distribution:}
+%% 
+%%   
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Notes:}
+
+  \begin{itemize}
+  \item<1-> Varying $\emn$ allows us to move
+    between the following:
+    \begin{enumerate}
+    \item<2-> 
+      \alert{Perfectly assortative networks} where
+      nodes only connect to like nodes, and the
+      network breaks into subnetworks.\\
+      \uncover<3->{
+        Requires 
+        \alertb{$
+        \emn = 0 
+        $
+        if $\mu \ne \nu$ and 
+        $\sum_{\mu} {\emm} = 1$.}
+      }
+    \item<4->
+      \alert{Uncorrelated networks} (as we have studied so far)\\
+      \uncover<5->{
+        For these we must have independence:
+        \alertb{$
+        \emn = a_{\mu} b_{\nu}.
+        $}
+      }
+    \item<6->
+      \alert{Disassortative networks} where nodes connect
+      to nodes distinct from themselves.
+    \end{enumerate}
+  \item<7->
+    Disassortative networks can be hard to build
+    and may require constraints on the $\emn$.
+  \item<8->
+    Basic story: level of assortativity reflects
+    the degree to which nodes are connected to
+    nodes within their group.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Correlation coefficient:}
+
+  \begin{itemize}
+  \item Quantify the level of assortativity
+    with the following \alert{assortativity coefficient}\cite{newman2003e}:
+    $$
+    r = 
+    \frac{
+      \sum_{\mu} \emm - \sum_{\mu} a_{\mu} b_{\mu}
+      }
+    {
+      1 - \sum_{\mu} a_{\mu} b_{\mu}
+    }
+    =
+    \frac{
+      {\rm Tr} \, \m{E} - || E^2 ||_1
+    }
+    {
+      1 - || E^2 ||_1
+    }
+    $$
+    where $|| \cdot ||_1$ is the $1$-norm = sum of a matrix's entries.
+  \item<2->
+    ${\rm Tr} \, \m{E}$ is the fraction of edges that are within groups.
+  \item<3->
+    $|| E^2 ||_1$ is the fraction of edges that would be within
+    groups if connections were random.
+  \item<4->
+    $1 - || E^2 ||_1$ is a normalization factor so $r_{\rm max} = 1$.
+  \item<5->
+    When $\rm{Tr}\, \emm = 1$, we have $r=1$. \alert{\checkmark}
+  \item<6->
+    When $\emm = a_{\mu} b_{\mu}$, we have $r=0$. \alert{\checkmark}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Correlation coefficient:}
+
+  \begin{block}{Notes:}
+  \begin{itemize}
+  \item<1->
+    $r=-1$ is inaccessible if three or more types are present.
+  \item<2->
+    Disassortative networks
+    simply have nodes connected to unlike nodes---no measure
+    of how unlike nodes are.
+  \item<3->
+    Minimum value of $r$ occurs when all links between
+    non-like nodes: $\rm{Tr}\, \emm = 0$.
+  \item<4->
+    $$
+    r_{\rm min}
+    =
+    \frac{
+      - || E^2 ||_1
+    }
+    {
+      1 - || E^2 ||_1
+    }
+    $$
+    where $-1 \le r_{\rm min} < 0$.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\section{Assortativity\ by\ degree}
+
+\begin{frame}
+  \frametitle{Scalar quantities}
+
+  \begin{itemize}
+  \item<1->
+    Now consider nodes defined by a scalar integer quantity.
+  \item<2->
+    Examples: age in years, height in inches, number of friends, ...
+  \item<3->
+    $\ejk$ = $\Prob$ (a randomly chosen edge connects a node with
+    value $j$ to a node with value $k$).
+  \item<4->
+    $a_{j}$ and $b_{k}$ are defined as before.
+  \item<5->
+    Can now measure correlations between nodes based 
+    on this scalar quantity using standard 
+    \wordwikilink{http://en.wikipedia.org/wiki/Correlation\#Non-parametric_correlation_coefficients}{Pearson correlation coefficient}:
+    \uncover<6->{
+      $$
+      r = 
+      \frac{\sum_{j\, k} j\, k (\ejk - a_j b_k)}
+      {\sigma_a\, \sigma_b}
+      =
+      \frac{
+        \tavg{jk} - \tavg{j}_a\tavg{k}_b
+      }
+      {
+        \sqrt{\tavg{j^2}_a - \tavg{j}_a^2}
+        \sqrt{\tavg{k^2}_b - \tavg{k}_b^2}
+      }
+      $$
+%%      where $\sigma_a^2 = \sum_{j} j^2 a_j - [\sum_{j} j a_j]^2$.
+      }
+    \item<7->
+      This is the observed normalized deviation from randomness
+      in the product $jk$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Degree-degree correlations}
+  
+  \begin{itemize}
+  \item<2->
+    Natural correlation is between the degrees
+    of connected nodes.
+  \item<3->
+    Now define $\ejk$ with a slight twist:
+    $$
+    \ejk
+      = \Prob 
+      \left(
+        \begin{array}{ll}
+          \mbox{an edge connects a \alertb{degree $j+1$ node}} \\ 
+          \mbox{to a \alertb{degree $k+1$ node}}
+        \end{array}
+      \right)
+    $$
+    \uncover<4->{
+      $$
+      = \Prob 
+      \left(
+        \begin{array}{ll}
+          \mbox{an edge runs between a \alert{node of in-degree $j$}}\\
+          \mbox{and a \alert{node of out-degree $k$}}
+        \end{array}
+      \right)
+      $$
+    }
+  \item<5->
+    Useful for calculations (as per $R_k$)
+  \item<6->
+    \alert{Important:} Must separately define $P_0$
+    as the $\{\ejk\}$ contain no information about
+    isolated nodes.
+  \item<7->
+    Directed networks still fine but we will assume
+    from here on that $\ejk = \ekj$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Degree-degree correlations}
+
+  \begin{itemize}
+  \item<1->
+    Notation reconciliation for undirected networks:
+    $$
+    r = 
+    \frac{\sum_{j\, k} j\, k (\ejk - R_j R_k)}
+    {\sigma_R^2}
+    $$
+    where, as before, $R_k$ is the probability that a 
+    randomly chosen edge leads to a node of degree $k+1$,
+    and
+    $$
+    \sigma_R^2 = 
+    \sum_j j^2 R_j - 
+    \left[
+      \sum_j j R_j
+    \right]^2.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Degree-degree correlations}
+  
+  \begin{block}{Error estimate for $r$:}
+    \begin{itemize}
+    \item<1->
+      Remove edge $i$ and recompute $r$ 
+      to obtain $r_i$.
+    \item<2->
+      Repeat for all edges and compute
+      using the 
+      \wordwikilink{http://en.wikipedia.org/wiki/Resampling_(statistics)\#Jackknife}{jackknife method}\cite{efron1981a}
+      $$
+      \sigma_r^2 
+      =
+      \sum_{i} (r_i - r)^2.
+      $$
+    \item<3-> Mildly sneaky as variables need to be
+      independent for us to be truly happy and edges
+      are correlated...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Measurements of degree-degree correlations}
+  
+  \includegraphics[width=\textwidth]{newman2003e_tab2.pdf}
+
+  \begin{itemize}
+  \item Social networks tend to be assortative (homophily)
+  \item Technological and biological networks tend to be disassortative
+  \end{itemize}
+
+\end{frame}
+
+\section{Contagion}
+
+\subsection{Spreading\ condition}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1-> 
+    Next: Generalize our work for random networks to
+    degree-correlated networks.
+  \item<2-> 
+    As before, by allowing that a node of degree $k$
+    is activated by one neighbor with probability
+    $\infprob_{k1}$, we can handle various problems:
+    \begin{enumerate}
+    \item<3-> 
+      find the giant component size.
+    \item<4-> 
+      find the probability and extent of spread
+      for simple disease models.
+    \item<5-> 
+      find the probability of spreading
+      for simple threshold models.
+    \end{enumerate}
+    
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1-> 
+    \alert{Goal:} Find $f_{n,j}$ = $\Prob$ an edge 
+    emanating from a degree $j+1$ node leads to
+    a finite active subcomponent of size $n$.
+  \item<2->
+    Repeat: a node of degree $k$ is in the game with
+    probability $\infprob_{k1}$.
+  \item<3->
+    Define $\vec{\infprob}_1 = [\infprob_{k1}]$.
+  \item<4->
+    \alert{Plan:} Find the generating function
+    $\alertb{F_j(x;\vec{\infprob}_1)} = \sum_{n=0}^\infty f_{n,j} x^n$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item Recursive relationship:
+    \begin{align}
+      \nonumber
+      F_j(x;\vec{\infprob}_1)
+      & =
+      x^{0}
+      \sum_{k=0}^{\infty} 
+      \frac{e_{jk}}{R_j}
+      ( 1 - \infprob_{k+1,1} )
+      \\ 
+      \nonumber
+      & +
+      x
+      \sum_{k=0}^{\infty} 
+      \frac{e_{jk}}{R_j}
+      \infprob_{k+1,1}
+      \left[
+        F_k(x;\vec{\infprob}_1)
+      \right]^k.
+    \end{align}
+  \item<2->
+    \alert{First term} =
+    $\Prob$ that the first node we reach is not in the game.
+  \item<3->
+    \alert{Second term} involves
+    $\Prob$ we hit an active node which has $k$ outgoing edges.
+  \item<4->
+    Next: find average size of active components reached
+    by following a link from a degree $j+1$ node = $F_{j}'(1;\vec{\infprob}_1)$.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1->
+    Differentiate $F_{j}(x;\vec{\infprob}_1)$,
+    set $x=1$, and rearrange.
+  \item<2->
+    We use $F_k(1;\vec{\infprob}_1)=1$ which
+    is true when no giant component exists.
+    \uncover<3->{We find:}
+    \uncover<3->{
+      $$
+      R_j F_{j}'(1;\vec{\infprob}_1)
+      =
+      \sum_{k=0}^{\infty}
+      e_{jk}
+      \infprob_{k+1,1}
+      + 
+      \sum_{k=0}^{\infty}
+      k e_{jk}
+      \infprob_{k+1,1}
+      F_k'(1;\vec{\infprob}_1).
+      $$
+    }
+    \item<4->
+      Rearranging and introducing a sneaky $\delta_{jk}$:
+      $$
+      \sum_{k=0}^\infty
+      \left(
+        \delta_{jk} R_k 
+        -
+        k \infprob_{k+1,1} e_{jk}
+      \right)
+      F_k'(1;\vec{\infprob}_1)
+      =
+      \sum_{k=0}^{\infty}
+      e_{jk}
+      \infprob_{k+1,1}.
+      $$
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1->
+    In matrix form, we have
+    $$
+    \mathbf{A}_{\mathbf{E},\vec{\infprob}_1 }
+    \vec{F}'(1;\vec{\infprob}_1)
+    =
+    \mathbf{E} \vec{\infprob}_1
+    $$
+    where 
+    \begin{gather}
+      \nonumber
+      \left[ \mathbf{A}_{\mathbf{E},\vec{\infprob}_1 } \right]_{j+1,k+1}
+      = 
+      \delta_{jk} R_{k} 
+      -
+      k \infprob_{k+1,1} e_{jk},
+      \\
+      \nonumber
+      \left[ \vec{F}'(1;\vec{\infprob}_1)  \right]_{k+1}
+      = 
+      F_{k}'(1;\vec{\infprob}_1),
+      \\
+      \nonumber
+      \left[ \mathbf{E} \right]_{j+1,k+1}
+      = 
+      e_{jk},
+      \
+      \mbox{and} \  \left[ \vec{\infprob}_1 \right]_{k+1}
+      =
+      \infprob_{k+1,1}.
+    \end{gather}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1->
+    So, in principle at least:
+    $$
+    \vec{F}'(1;\vec{\infprob}_1)
+    =
+    \mathbf{A}_{\mathbf{E},\vec{\infprob}_1 }^{-1}
+    \, \mathbf{E} \vec{\infprob}_1.
+    $$
+  \item<2->
+    Now: as $\vec{F}'(1;\vec{\infprob}_1)$, 
+    the average size of an active component
+    reached along an edge, increases, we move towards
+    a transition to a giant component.
+  \item<3->
+    Right at the transition, the average component
+    size explodes.
+  \item<4->
+    Exploding inverses of matrices occur
+    when their determinants are 0. 
+  \item<5->
+    The condition is therefore: 
+    $$\det{\m{A}_{\mathbf{E},\vec{\infprob}_1}} = 0$$.
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1-> General condition details:
+    $$
+    \det{\m{A}_{\mathbf{E},\vec{\infprob}_1}}
+    =
+    \det
+    \left[
+      \delta_{jk} R_{k-1} 
+      -
+      (k-1) \infprob_{k,1} e_{j-1,k-1}
+    \right] = 0.
+    $$
+  \item<2->
+    The above collapses to our standard
+    contagion condition when $e_{jk} = R_j R_k$.
+  \item<3->
+    When $\vec{\infprob}_1=\infprob \vec{1}$, we have the condition
+    for a simple disease model's successful spread
+    $$
+    \det
+    \left[
+      \delta_{jk} R_{k-1} 
+      -
+      \infprob (k-1)   e_{j-1,k-1}
+    \right] = 0.
+    $$
+  \item<4-> 
+    When $\vec{\infprob}_1=\vec{1}$, we have the condition
+    for the existence of a giant component:
+    $$
+    \det
+    \left[
+      \delta_{jk} R_{k-1} 
+      -
+      (k-1) e_{j-1,k-1}
+    \right] = 0.
+    $$
+  \item<5->
+    Bonusville: We'll find a much better
+    version of this set of conditions later...
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Triggering\ probability}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{block}{We'll next find two more pieces:}
+    \begin{enumerate}
+    \item<1-> 
+      $\Ptrig$, the probability of starting a cascade
+    \item<2->
+      $S$, the expected extent of activation given
+      a small seed.
+    \end{enumerate}
+
+    \begin{block}<3->{Triggering probability:}
+      \begin{itemize}
+      \item 
+        Generating function:
+        $$
+        H(x;\vec{\infprob}_1)
+        = 
+        x
+        \sum_{k=0}^\infty
+        P_k
+        \left[
+          F_{k-1}(x;\vec{\infprob}_1)
+        \right]^k.
+        $$
+      \item<4->
+        Generating function for vulnerable
+        component size is more complicated.
+      \end{itemize}
+    \end{block}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+
+  \begin{itemize}
+  \item<1-> 
+    Want probability of \alert{not reaching} a finite component.
+    \begin{align}
+      \nonumber
+      \Ptrig  = \Strig 
+      = & 
+      1 -
+      H(1;\vec{\infprob}_1) 
+      \\
+      \nonumber
+      = &
+      1
+      -
+      \sum_{k=0}^\infty
+      P_k
+      \left[
+        F_{k-1}(1;\vec{\infprob}_1)
+      \right]^k.
+    \end{align}
+  \item<2->
+    Last piece: we have to compute $F_{k-1}(1;\vec{\infprob}_1)$.
+  \item<3->
+    Nastier (nonlinear)---we have to solve the 
+    recursive expression we started with when $x=1$:
+    $
+      F_j(1;\vec{\infprob}_1)
+      =
+      \sum_{k=0}^{\infty} 
+      \frac{e_{jk}}{R_j}
+      ( 1 - \infprob_{k+1,1} )
+      + $\\
+      \mbox{} \hfill
+      $
+      \sum_{k=0}^{\infty} 
+      \frac{e_{jk}}{R_j}
+      \infprob_{k+1,1}
+      \left[
+        F_k(1;\vec{\infprob}_1)
+      \right]^k.
+    $
+  \item<4->
+    Iterative methods should work here.
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Expected size}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1->
+    \alert{Truly final piece:} 
+    Find final size using approach of Gleeson\cite{gleeson2008a},
+    a generalization of that used for uncorrelated random networks.
+  \item<2->
+    Need to compute $\theta_{j,t}$, the probability that 
+    an edge leading to a degree $j$ node is infected at time $t$.
+  \item<3->
+    Evolution of edge activity probability:
+    $$
+    \theta_{j,t+1}
+    =
+    G_j(\vec{\theta}_t)
+    =
+    \phi_0 + 
+    (1-\phi_0) \times
+    $$
+    $$
+    \sum_{k=1}^{\infty}
+    \frac{e_{j-1,k-1}}{R_{j-1}}
+    \sum_{i=0}^{k-1}
+    \binom{k-1}{i}
+    \theta_{k,t}^{\, i}
+    (1-\theta_{k,t})^{k-1-i}
+    \infprob_{ki}.
+    $$
+  \item<4-> 
+    Overall active fraction's evolution:
+    $$
+    \phi_{t+1}
+    =
+    \phi_0
+    +
+    (1-\phi_0)
+    \sum_{k=0}^{\infty}
+    P_k
+    \sum_{i=0}^{k}
+    \binom{k}{i}
+    \theta_{k,t}^{\, i}
+    (1-\theta_{k,t})^{k-i}
+    \infprob_{ki}.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spreading on degree-correlated networks}
+
+  \begin{itemize}
+  \item<1->
+    As before, these equations give the actual evolution
+    of $\phi_t$ for synchronous updates.
+  \item<2->
+    Contagion condition follows from $\vec{\theta}_{t+1} = \vec{G}(\vec{\theta}_{t})$.
+  \item<3->
+    %% Need small $\vec{\theta}_{0}$ to take off so we 
+    Expand $\vec{G}$ around $\vec{\theta}_{0}=\vec{0}$.
+    \uncover<4->{
+      $$
+      \theta_{j,t+1} =
+      G_j(\vec{0})
+      + 
+      \sum_{k=1}^\infty
+      \alert{\partialdiff{G_j(\vec{0})}{\theta_{k,t}}}
+      \theta_{k,t}
+      +
+      \frac{1}{2!}
+      \sum_{k=1}^\infty
+      \partialdiffsq{G_j(\vec{0})}{\theta_{k,t}}
+      \theta_{k,t}^2
+      +
+      \ldots
+      $$
+    }
+  \item<5->
+    If $G_j(\vec{0}) \ne 0$ for at least one $j$, always have some infection.
+  \item<5->
+    If $G_j(\vec{0}) = 0 \, \forall \, j$, want largest eigenvalue
+    \alertb{$\left[\partialdiff{G_j(\vec{0})}{\theta_{k,t}}\right] > 1$}.
+  \item<6-> 
+    Condition for spreading is therefore
+    dependent on eigenvalues of this matrix:
+    $$
+    \partialdiff{G_j(\vec{0})}{\theta_{k,t}} 
+    = 
+    \frac{e_{j-1,k-1}}{R_{j-1}}
+    (k-1)
+    \infprob_{k1}
+    $$
+    \insertassignmentquestionsoft{09}{9}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{How the giant component changes with assortativity:}
+
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{newman2002a_fig1.pdf}\\
+    {\tiny from Newman, 2002\cite{newman2002a}}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item 
+      More assortative networks percolate for
+      lower average degrees
+    \item 
+      But disassortative networks end up with
+      higher extents of spreading.
+    \end{itemize}
+  \end{columns}
+\end{frame}

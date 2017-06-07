@@ -1,0 +1,1811 @@
+%%\section{Introduction}
+
+\begin{frame}
+  \frametitle{Optimal supply networks}
+
+  \begin{block}<1->{What's the best way to distribute stuff?}
+    \begin{itemize}
+    \item<2-> Stuff = medical services, energy, people, 
+    \item<3-> \alert{Some} fundamental network problems:
+      \begin{enumerate}
+      \item<4-> Distribute stuff from a \alert{single source} to
+        \alert{many sinks}
+      \item<5-> Distribute stuff from \alert{many sources} to
+        many sinks
+      \item<6-> \alert{Redistribute} stuff between nodes that
+        are both sources and sinks
+      \end{enumerate}
+    \item<7-> Supply and Collection are equivalent problems
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  \begin{block}{Basic question for distribution/supply networks:}
+    \begin{itemize}
+    \item<1->
+      How does flow behave given cost:
+      $$
+      C 
+      = 
+      \sum_{j} I_j^{\, \gamma} Z_j
+      $$
+      where \\
+      \alertb{$
+      I_j 
+      $
+      = current on link $j$}\\
+      and\\
+      \alertb{$Z_j$ = link $j$'s impedance}?
+    \item<2->
+      Example: $\gamma=2$ for electrical networks.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  \includegraphics[width=\textwidth]{bohn2007a_fig2}
+  
+  \begin{itemize}
+  \item[(a)]
+    $\gamma > 1$: \alert{Braided} (bulk) flow 
+  \item[(b)]
+    $\gamma < 1$:
+    Local minimum: \alert{Branching} flow
+  \item[(c)] 
+    $\gamma < 1$:
+    Global minimum: \alert{Branching} flow
+    
+  \end{itemize}
+
+  \medskip
+  
+  {\small From Bohn and Magnasco\cite{bohn2007a}}
+
+  {\small See also Banavar et al.\cite{banavar2000a}}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  Optimal paths related to transport (Monge) problems:
+
+  \includegraphics[width=0.48\textwidth]{xia2003a_fig1.pdf}
+  \includegraphics[width=0.48\textwidth]{xia2003a_fig6.pdf}
+
+  Xia (2003)\cite{xia2003a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Growing networks:}
+
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{xia2007a_fig1.pdf}
+  \end{center}
+
+%%  \includegraphics[width=0.49\textwidth]{xia2007a_fig2}
+
+  Xia (2007)\cite{xia2007a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Growing networks:}
+
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{xia2007a_fig3.pdf}
+  \end{center}
+
+%%  \includegraphics[width=0.49\textwidth]{xia2007a_fig4}
+
+  Xia (2007)\cite{xia2007a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Single source optimal supply}
+
+  \begin{block}{An immensely controversial issue...}
+    \begin{itemize}
+    \item<1->
+      The form of river networks and blood networks:
+      optimal or not?\cite{west1997a,banavar1999a,dodds2001a,dodds2010a}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<2->{Two observations:}
+    \begin{itemize}
+    \item<2->
+      Self-similar networks appear everywhere in nature
+      for single source supply/single sink collection.
+    \item<3->
+      Real networks \alertb{differ} in \alert{details of scaling}
+      but reasonably \alertb{agree} in \alert{scaling relations}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{River network models}
+
+  \begin{block}<1->{Optimality:}
+    \begin{itemize}
+    \item<1->Optimal channel networks\cite{rodriguez-iturbe1997a}
+    \item<1->Thermodynamic analogy\cite{scheidegger1991a}
+    \end{itemize}
+  \end{block}
+  \uncover<2->{versus...}
+  \begin{block}<2->{Randomness:}
+    \begin{itemize}
+    \item<2->Scheidegger's directed random networks
+    \item<2->Undirected random networks
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\section{Optimal\ branching}
+
+\subsection{Murray's\ law}
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{columns}
+    \column{0.45\textwidth}
+    \includegraphics[width=\textwidth]{murrays-law-tp-10}
+    \column{0.55\textwidth}
+    \begin{itemize}
+    \item<1-> Murray's law (1926) connects branch radii at forks:\cite{murray1926a,murray1926b,murray1927a,labarbera1990a,thompson1961a}
+      $$ \boxed{ \alert{r_0^{3} = r_1^{3} + r_2^{3}}} $$
+      where $r_0$ = radius of main branch,
+      and $r_1$ and $r_2$ are radii of sub-branches.
+    \end{itemize}
+  \end{columns}
+    \begin{itemize}
+    \item<2-> Holds up well for outer branchings of blood networks.
+    \item<3-> Also found to hold for trees\cite{murray1927a,mcculloh2003a,mcculloh2004a}.
+    \item<4-> See D'Arcy Thompson's ``On Growth and Form'' for background inspiration\cite{thompson1952a,thompson1961a}.
+    \end{itemize}
+
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Optimization approaches}
+%% 
+%%   \begin{block}{Cardiovascular networks:}
+%%     \begin{itemize}
+%%     \item<1-> Murray's law (1926) connects branch radii at forks:\cite{murray1926a,murray1926b,murray1927a,labarbera1990a,thompson1961a}
+%%       $$ \boxed{ \alert{r_0^{3} = r_1^{3} + r_2^{3}}} $$
+%%       where $r_0$ = radius of main branch\\
+%%       and $r_1$ and $r_2$ are radii of sub-branches.
+%%     \item<1-> See D'Arcy Thompson's ``On Growth and Form'' for background inspiration\cite{thompson1952a,thompson1961a}.
+%%     \item<2-> Calculation assumes 
+%%       \wordwikilink{http://en.wikipedia.org/wiki/Hagen-Poiseuille_equation}{Poiseuille flow}.
+%%     \item<3-> Holds up well for outer branchings of blood networks.
+%%     \item<4-> Also found to hold for trees\cite{murray1927a,mcculloh2003a,mcculloh2004a}.
+%%     \item<5-> Use hydraulic equivalent of Ohm's law:
+%%       $$
+%%       \Delta p = \Phi Z  \Leftrightarrow V = IR
+%%       $$
+%%       where $\Delta p$ = pressure difference, $\Phi$ = flux.
+%%     \end{itemize}
+%%   \end{block}
+%% \end{frame}
+
+\begin{frame}
+%%  \frametitle{Optimization---Murray's law}
+
+    \begin{itemize}
+    \item<1-> Use hydraulic equivalent of Ohm's law:
+      $$
+      \Delta p = \Phi Z  \Leftrightarrow V = IR
+      $$
+      where $\Delta p$ = pressure difference, $\Phi$ = flux.
+      \begin{columns}
+        \column{0.4\textwidth}
+        \includegraphics[width=\textwidth]{poiseuille-flow-tp-10}
+        \column{0.6\textwidth}
+        \begin{itemize}
+        \item<2->
+          Fluid mechanics: 
+          \wordwikilink{http://en.wikipedia.org/wiki/Hagen-Poiseuille_equation}{Poiseuille impedance}
+          for smooth 
+          \wordwikilink{http://en.wikipedia.org/wiki/Hagen-Poiseuille_equation}{Poiseuille flow}
+          in a tube
+          of radius $r$ and length $\ell$:
+          $$ Z = \frac{8\eta \ell}{\pi r^4} $$
+        \end{itemize}
+      \end{columns}
+    \item<2->
+      $\eta$ = 
+      \wordwikilink{http://en.wikipedia.org/wiki/Dynamic_viscosity}{dynamic viscosity}
+      (units: $ML^{-1}T^{-1}$).
+    \item<3-> 
+      Power required to overcome impedance: 
+      $$ P_{\textnormal{drag}} = \Phi \Delta p  = \Phi^2 Z. $$
+    \item<4-> 
+      Also have rate of energy expenditure in maintaining blood
+      given metabolic constant $c$:
+      $$ P_{\textnormal{metabolic}} = c r^2 \ell  $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}<1->{Aside on $P_{\textnormal{drag}}$}
+  \begin{itemize}
+  \item<2-> 
+    Work done = $F \cdot d$ = energy transferred by force $F$
+  \item<3-> 
+    Power = $P$ = rate work is done = $F \cdot v$
+  \item<4-> $\Delta p$ = Force per unit area
+  \item<5-> $\Phi$ = Volume per unit time \\ = cross-sectional area $\cdot$ velocity
+  \item<6-> So $\Phi \Delta p$ = Force $\cdot$ velocity
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}{Murray's law:}
+    \begin{itemize}
+    \item<1-> Total power (cost):
+      $$ 
+      P = P_{\textnormal{drag}} + P_{\textnormal{metabolic}}
+      \uncover<2->{=
+      \Phi^2 \frac{8\eta \alert{\ell}}{\pi \alert{r^4}}
+      + c \alert{r^2 \ell}}
+      $$
+    \item<3-> Observe power increases linearly with $\ell$
+    \item<4-> But $r$'s effect is nonlinear: 
+      \begin{itemize}
+      \item<5->  
+        increasing $r$
+        makes flow easier \alert{but increases metabolic cost} (as $r^2$)
+      \item<6->
+        decreasing $r$
+        decrease metabolic cost \alert{but impedance goes up} (as $r^{-4}$)
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}{Murray's law:}
+    \begin{itemize}
+    \item<1-> Minimize $P$ with respect to $r$:
+      $$
+      \partialdiff{P}{r}
+      = 
+      \partialdiff{}{r} 
+      \left( 
+        \Phi^2 \frac{8\eta {\ell}}{\pi {r^4}}
+      + c {r^2 \ell}
+      \right)
+    $$
+      \uncover<2->{
+        $$
+        = 
+        -4 \Phi^2 \frac{8\eta {\ell}}{\pi {r^5}}
+        + c {2r \ell}
+        \uncover<3->{\alert{=0}}
+      $$
+      \item<4-> Rearrange/cancel/slap:
+        $$
+        \alert{\Phi^2} = \frac{c \pi r^6}{16 \eta} \uncover<5->{= k^2 \alert{r^6}}
+        $$
+        \uncover<5->{where $k$ = constant.}
+        
+      }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization---Murray's law}
+
+  \begin{block}{Murray's law:}
+    \begin{itemize}
+    \item<1-> So we now have:
+      $$
+      \Phi = k r^3 
+      $$
+    \item<2-> 
+      Flow rates at each branching have to add up
+      (else our organism is in serious trouble...):
+      $$
+      \Phi_0 = \Phi_1 + \Phi_2
+      $$
+      where again 0 refers to the  main branch and 1 and 2 refers
+      to the offspring branches
+    \item<3->
+      All of this means we have a groovy cube-law:
+      $$ 
+      \boxed{\alert{r_0^3 = r_1^3 + r_2^3}}
+      $$
+      
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Murray\ meets\ Tokunaga}
+
+
+\begin{frame}
+  \frametitle{Optimization}
+
+  \begin{block}{Murray meets Tokunaga:}
+    \begin{itemize}
+    \item<1-> 
+      $\Phi_\om$ = volume rate of flow into an order
+      $\om$ vessel segment
+    \item<2-> 
+      Tokunaga picture:
+      $$ 
+      \Phi_\om
+      = 
+      2 \Phi_{\om - 1}
+      +
+      \sum_{k=1}^{\om-1}
+      T_k
+      \Phi_{\om-k}
+      $$
+    \item<3->
+      Using $\phi_\om = k r_{\om}^{3}$
+      $$
+      r_\om^3
+      = 
+      2 r_{\om - 1}^{3}
+      +
+      \sum_{k=1}^{\om-1}
+      T_k
+      r_{\om-k}^{3}
+      $$
+    \item<4->
+      Find Horton ratio for vessel radius $R_r = r_{\om}/r_{\om-1}$...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization}
+
+  \begin{block}{Murray meets Tokunaga:}
+    \begin{itemize}
+    \item<1-> 
+      Find $R_r^{\, 3}$ satisfies same equation as $R_n$ and $R_v$\\
+      ($v$ is for volume):
+      $$
+      \boxed{ \alert{R_r^3 = R_n = R_v} }
+      $$
+    \item<2->
+      Is there more we could do here to constrain the Horton
+      ratios and Tokunaga constants?
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimization}
+
+  \begin{block}{Murray meets Tokunaga:}
+    \begin{itemize}
+    \item<1-> 
+      Isometry: $V_\om \propto \ell_\om^{\, 3}$
+    \item<2->
+      Gives 
+      $$\boxed{\alert{R_\ell^3 = R_v = R_n}}$$
+    \item<3-> 
+      We need one more constraint...
+    \item<4->
+      West et al (1997)\cite{west1997a} achieve similar
+      results following Horton's laws.
+    \item<5->
+      So does Turcotte et al. (1998)\cite{turcotte1998a}
+      using Tokunaga (sort of).
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%% \changelecturelogo{.2}{virtualvessels4.pdf}
+
+\section{Single\ Source}
+
+\subsection{Geometric\ argument}
+
+%% \subsection{History}
+%% 
+%% \begin{frame}
+%%   \frametitle{History in brief}
+%%   
+%%   \begin{block}<1->{Seeking optimal universality:}
+%%     \begin{itemize}
+%%     \item<1-> Two major real-world branching networks
+%%       \begin{enumerate}
+%%       \item \alert{Blood networks}
+%%       \item \alertb{River networks}
+%%       \end{enumerate}
+%%     \item<2-> Blood networks argued
+%%       to lead to 
+%%       $$B \propto M^{\alpha}$$
+%%       where
+%%       \begin{itemize}
+%%       \item 
+%%         $B$ = basal metabolic rate and $M$ = body mass
+%%       \item 
+%%       $\alpha=2/3$ or $3/4$ or something else...\cite{kleiber1961a,west1997a,banavar1999a,dodds2001d}
+%%       \end{itemize}
+%%     \item<3-> River basins may or may not scale allometrically.
+%%     \item<4->
+%%       Recall: Hack's law\cite{hack1957a}
+%%       $$\ell \propto a^h$$
+%%       If $h>1/2$ then basins elongate.
+%%     \end{itemize}
+%%     
+%%   \end{block}
+%%   
+%% \end{frame}
+%% 
+%% \subsection{Minimal volume calculation}
+%% 
+%% \begin{frame}
+%%   \frametitle{Geometric argument}
+%% 
+%%   \begin{itemize}
+%%   \item<1-> 
+%%     Consider \alert{one source supplying many sinks} in a $d$ dimensional volume
+%%   \item<2->
+%%     Material draw by sinks is invariant.
+%%   \item<3-> 
+%%     See network as a bundle of virtual vessels:
+%%     \begin{overprint}
+%%       \onslide<1-2>        
+%%       \onslide<3->        
+%%       \begin{center}
+%%         \includegraphics[angle=-90,width=0.8\textwidth]{virtualvessels4.pdf}
+%%       \end{center}
+%%       \end{overprint}
+%%   \item<4-> 
+%%     \alert{The simplest question}: how does number  of sustainable
+%%     sinks $N_{\textnormal{sinks}}$
+%%     scale with volume $V$ for the most efficient network design?
+%%   \item<5-> 
+%%     Or: what is highest $\alpha$ for $N_{\textnormal{sinks}} \propto V^{\alpha}$?
+%%   \item<6-> 
+%%     Covered in PoCS CSYS 300: we will recap and refine here.
+%%   \end{itemize}
+%% 
+%% %  \item<3-> 
+%% %    Assume some cap on flow speed of material, $v_{\textnormal{max}}$
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Geometric argument}
+%% 
+%%   \begin{itemize}
+%%   \item<1-> Consider families of systems that grow allometrically.
+%%   \item<2-> Family = a basic shape $\Omega$ indexed by volume $V$.
+%%   \begin{center}
+%%     \includegraphics[angle=-90,width=0.8\textwidth]{shapescaling}    
+%%   \end{center}
+%%   \bigskip
+%%   \item<3-> Orient shape to have dimensions $L_1 \times L_2 \times  ... \times L_d$
+%%   \item<4-> In 2-d,
+%%     $L_1 \propto A^{\gamma_1}$ and $L_2 \propto A^{\gamma_2}$
+%%     where $A$ = area.
+%%   \item<5-> In general, have $d$ lengths which scale
+%%     as $L_i \propto V^{\gamma_i}$.
+%%   \item<6-> For above example, width grows faster than
+%%     height: $\gamma_1 > \gamma_2$.
+%%   \end{itemize}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Geometric argument}
+%% 
+%%   \begin{block}<1->{Some generality:}
+%%     \begin{itemize}
+%%     \item<1-> Consider $d$ dimensional spatial regions living in 
+%%       $D$ dimensional ambient spaces.  \uncover<2->{Notation: \alert{$\volume{V}$}.}
+%%     \item<3-> River networks: \alertb{$d=2$ and $D=3$}
+%%     \item<4-> Cardiovascular networks: \alertb{$d=3$ and $D=3$}
+%%     \item<5->
+%%       \alert{Star-convexity of $\volume{V}$:} A spatial
+%%       region is star-convex if from at least one point, all other
+%%       points in the region can be reached by travelling along straight lines
+%%       while remaining within the region.
+%%     \item<6->
+%%       Assume source can be located at a point which has direct line of
+%%       sight to all sources.
+%%     \item<7->
+%%       We can generalize to a much broader class of shapes...
+%%     \end{itemize}
+%%     
+%%   \end{block}
+%% 
+%% \end{frame}
+%% 
+%% 
+%% \begin{frame}
+%%   \frametitle{Geometric argument}
+%% 
+%%   \begin{itemize}
+%%   \item<1-> Reminder of best and worst configurations
+%%     \begin{center}
+%%       \includegraphics[angle=-90,width=0.8\textwidth]{efficientnetworks5.pdf}
+%%     \end{center}
+%%     \bigskip
+%%   \item<2-> \alert{Basic idea:}
+%%     Minimum volume of material in system $V_{\textnormal{net}} \propto$ sum of distance
+%%     from the source to the sinks.
+%%   \item<3-> See what this means for sink density $\rho$ if sinks do not
+%%     change their feeding habits with overall size.
+%%   \end{itemize}
+%% 
+%% \end{frame}
+
+\begin{frame}
+%%  \frametitle{Geometric argument}
+
+  \begin{block}{
+      ``Optimal Form of Branching Supply and Collection Networks''\cite{dodds2010a}
+    }
+    P.\ S.\ Dodds, Phys. Rev. Lett., \textbf{104}, 048702, 2010.
+    \begin{itemize}
+    \item<1-> 
+      Consider \alert{one source} supplying \alert{many sinks} in a 
+      volume $V$ \alertb{$d$-dim.} region
+      in a \alertb{$D$-dim.} ambient space.
+    \item<1->
+      Assume \alertb{sinks are invariant}.
+    \item<1->
+      Assume \alert{$\rho = \rho(V)$}, i.e., $\rho$ may vary with volume $V$.
+    \item<2-> 
+      See network as a bundle of virtual vessels:
+      \begin{center}
+        \begin{overprint}
+          \onslide<1 | handout:0| trans:0>
+          \onslide<2-| handout:1| trans:1>
+          \includegraphics[angle=-90,width=0.8\textwidth]{virtualvessels4.pdf}
+        \end{overprint}
+      \end{center}
+    \item<3-> 
+      \alert{Q:} how does the number of sustainable
+      sinks $N_{\textnormal{sinks}}$
+      scale with volume $V$ for the most efficient network design?
+    \item<4-> 
+      \alert{Or:} what is the highest $\alpha$ for $N_{\textnormal{sinks}} \propto V^{\alpha}$?
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Geometric argument}
+
+  \begin{itemize}
+  \item<1-> Allometrically growing regions:
+%  \item<2-> Family = a basic shape $\Omega$ indexed by volume $V$.
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{shapescaling-unrotated}    
+  \end{center}
+  \bigskip
+%  \item<3-> Orient shape to have dimensions $L_1 \times L_2 \times  ... \times L_d$
+%  \item<4-> In 2-d,
+%    $L_1 \propto A^{\gamma_1}$ and $L_2 \propto A^{\gamma_2}$
+%    where $A$ = area.
+  \item<1-> Have $d$ length scales which scale
+    as 
+    {
+      $$
+      \alertb{L_i} \propto \alertb{V}^{\alertb{\gamma_i}}
+      \mbox{\ where $\gamma_1 + \gamma_2 + \ldots + \gamma_d = 1$.}
+      $$
+    }
+  \item<1-> 
+    For \alert{isometric} growth, $\gamma_i = 1/d$.
+  \item<1->
+    For \alert{allometric} growth, 
+    we must have at least two of the $\{\gamma_i\}$ being different
+%  \item<6-> For above example, width grows faster than
+%    height: $\gamma_1 > \gamma_2$.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Geometric argument}
+
+  \begin{itemize}
+  \item<1-> Best and worst configurations (Banavar et al.)
+    \begin{center}
+      \includegraphics[angle=-90,width=0.8\textwidth]{efficientnetworks5.pdf}
+    \end{center}
+    \bigskip
+  \item<2-> \alert{Rather obviously:}\\
+    $\min V_{\textnormal{net}} \propto \sum$
+    distances
+    from source to sinks.
+
+%  \item<3-> See what this means for sink density $\rho$ if sinks do not
+%    change their feeding habits with overall size.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Minimal network volume:}
+
+  Real supply networks are close to optimal:
+
+  \includegraphics[width=\textwidth]{gastner2006a_fig1.pdf}
+
+  \bigskip
+
+  {\small (2006)
+    Gastner and Newman\cite{gastner2006a}:
+    ``Shape and efficiency in spatial distribution networks'' }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Minimal network volume:}
+
+  \begin{block}{We add one more element:}
+    \includegraphics[width=\textwidth]{shapes-virtualv-4c.pdf}
+    \begin{itemize}
+    \item Vessel cross-sectional area
+      may vary with distance from the source.
+    \item
+      Flow rate increases as cross-sectional area decreases.
+    \item e.g., a collection network may
+      have vessels tapering as they approach
+      the central sink.
+    \item
+      Find that vessel volume $v$ must scale
+      with vessel length $\ell$ to affect overall
+      system scalings.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Minimal network volume:}
+
+  \begin{block}{Effecting scaling:}
+    \includegraphics[width=\textwidth]{shapes-virtualv-4c.pdf}
+    \begin{itemize}
+    \item
+      Consider vessel radius $r \propto (\ell+1)^{-\epsilon}$,
+      tapering from $r=r_{\max}$ where $\epsilon \ge 0$.
+    \item
+      Gives
+      $
+      v \propto \ell^{1-2\epsilon}
+      $ if $\epsilon < 1/2$
+    \item
+      Gives
+      $
+      v \propto 1 - \ell^{-(2\epsilon-1)} \rightarrow 1$ for large $\ell$
+      if $\epsilon > 1/2$
+    \item
+      Previously, we looked at $\epsilon=0$ only.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Minimal network volume:}
+
+  For $0 \le \epsilon < 1/2$, approximate network volume by integral over region:
+  $$ 
+  \alertb{\min V_{\textnormal{net}}}  \propto 
+  \int_{\volume{V}} \alertb{\rho} \, ||\vec{x}||^{1-2\epsilon} \, \dee{\vec{x}} 
+  $$
+  %%   \visible<2->{
+  %%     $$
+  %%     \rightarrow 
+  %%     \rho V^{1+\gamma_{\max}}
+  %%     \int_{\volume{c}} (c_1^{2} u_1^2 + \ldots + c_k^{2} u_k^2 )^{(1-2\epsilon)/2}
+  %%     \dee{\vec{u}}
+  %%     $$
+  %%   }
+  \visible<2->{\insertassignmentquestion{03}{3}{1}}
+  \visible<2->{
+    $$
+    \propto
+    \alert{ \rho V^{1+\gamma_{\max}(1-2\epsilon)} } 
+    \
+    \mbox{where}
+    \
+    \gamma_{\max} = \max_{i} \gamma_i.
+    $$
+  }
+  \visible<3->{
+    For $\epsilon > 1/2$, find simply that 
+    $$
+    \alertb{\min V_{\textnormal{net}}}  
+    \propto 
+    \rho V
+    $$
+  }
+  \begin{itemize}
+  \item<4->
+    So if supply lines can taper fast enough and without
+    limit, minimum network volume can be made negligible.
+%  \item<5->
+%    \alert{The problem:} must eventually reach a limiting speed
+%    or size (e.g., blood velocity and cells).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Geometric argument}
+
+  \begin{block}{For $0 \le \epsilon < 1/2$:}
+    \begin{itemize}
+    \item<1-> 
+      $
+      \boxed{\alert{
+          \min V_{\textnormal{net}} 
+          \propto
+          \rho V^{1+\gamma_{\max}(1-2\epsilon)} 
+        }}
+      $
+    \item<2-> 
+      If scaling is \alertb{isometric}, we have $\gamma_{\max} = 1/d$:
+      $$
+      \min V_{\textnormal{net/iso}} 
+      \propto
+      \rho V^{1+(1-2\epsilon)/d}
+      $$
+    \item<3-> 
+      If scaling is \alertb{allometric}, we have
+      $\gamma_{\max} = \gamma_{\textnormal{allo}} > 1/d$:
+      and 
+      $$
+      \min V_{\textnormal{net/allo}} 
+      \propto
+      \rho V^{1+(1-2\epsilon)\gamma_{\textnormal{allo}}}
+      $$
+    \item<4-> 
+      Isometrically growing volumes 
+      \alert{require less network volume} 
+      than allometrically growing volumes:
+      $$
+      \frac{\min V_{\textnormal{net/iso}}}{\min V_{\textnormal{net/allo}}} \rightarrow 0 
+      \mbox{\ as $V \rightarrow \infty$}
+      $$
+    \end{itemize}    
+    
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Geometric argument}
+
+  \begin{block}{For $\epsilon > 1/2$:}
+    \begin{itemize}
+    \item<1-> 
+      $
+      \boxed{\alert{
+          \min V_{\textnormal{net}} 
+          \propto
+          \rho V
+        }}
+      $
+    \item<2-> 
+      Network volume scaling is now independent 
+      of overall shape scaling.
+    \end{itemize}
+  \end{block}
+
+  \medskip
+
+  \begin{block}<3->{Limits to scaling}
+    \begin{itemize}
+    \item 
+      Can argue that $\epsilon$ must effectively be 0
+      for real networks over large enough scales.
+    \item 
+      Limit to how fast material can move,
+      and how small material packages can be.
+    \item 
+      e.g., blood velocity and blood cell size.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\subsection{Real\ networks}
+%% \subsection{Blood\ networks}
+
+\begin{frame}
+  \frametitle{Blood networks}
+
+  \begin{itemize}
+  \item<1-> Velocity at capillaries and 
+    aorta approximately constant across body size\cite{weinberg2006a}: 
+    $\epsilon = 0$.
+  \item<2-> \alert{Material costly} $\Rightarrow$ expect lower optimal bound of 
+    $V_{\textnormal{net}} \propto \rho V^{(d+1)/d}$ to be followed closely.
+  \item<3->
+    For cardiovascular networks, \alert{$d=D=3$}.
+  \item<4->
+    Blood volume scales linearly with body
+    volume\cite{stahl1967a}, $V_{\textnormal{net}} \propto V$.
+  \item<5->
+    Sink density must $\therefore$ decrease as volume increases:
+    $$
+    \alertb{\rho \propto V^{-1/d}}.
+    $$
+  \item<6->
+    Density of suppliable sinks \alert{decreases} with organism size.
+  \end{itemize}      
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Blood networks}
+
+  \begin{itemize}
+  \item<1-> Then $P$, the rate of overall energy 
+    use in $\Omega$, can at most scale with volume as
+    $$
+    P \propto \rho V 
+    \visible<2->{
+      \propto \rho \, M
+    }
+    \visible<3->{
+      \propto M^{\, (d-1)/d}
+    }
+    $$
+  \item<4-> 
+    For $d=3$ dimensional organisms, we have 
+    $$\alertb{\boxed{ P \propto M^{\, 2/3}}}$$
+  \item<5-> 
+    Including other constraints may raise scaling exponent
+    to a higher, less efficient value.
+  \item<6->
+    \alertb{Exciting bonus:} 
+    Scaling obtained by the supply network story and the surface-area law
+    \alert{only match} for isometrically growing shapes.\\
+    \insertassignmentquestion{03}{3}{3}
+  \end{itemize}    
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Recap:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+-> 
+    The exponent $\alpha = 2/3$ works for all birds and
+    mammals up to 10--30 kg
+  \item<+-> 
+    For mammals $>$ 10--30 kg, maybe we have a new scaling regime
+  \item<+-> 
+    Economos: limb length break in scaling around 20 kg
+  \item<+-> 
+    White and Seymour, 2005: unhappy with large herbivore measurements.
+    Find $\alpha \simeq 0.686 \pm 0.014$
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General unhappiness:}
+
+  \begin{block}{Everyone is confused:}
+    \begin{itemize}
+    \item
+      White et al., Ecology, 2007:
+      ``Allometric exponents do not support a universal metabolic allometry''\cite{white2007a}
+    \item
+      Savage et al., PLoS Computational Biology:
+      ``Sizing Up Allometric Scaling Theory.''\cite{savage2008a}
+    \item 
+      Banavar et al., PNAS, 2010:
+      ``A general basis for quarter-power scaling in animals.''\cite{banavar2010a}
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Prefactor:}
+%% 
+%%   \begin{block}<1->{Stefan-Boltzmann law:}
+%%     \begin{itemize}
+%%     \item<1->
+%%       $$\diff{E}{t} = \sigma S T^4$$
+%%       where $S$ is surface and $T$ is temperature.
+%%     \item<2-> 
+%%       Very rough estimate of prefactor based on scaling
+%%       of normal mammalian body temperature and surface
+%%       area $S$:
+%%       $$B \simeq 10^5M^{2/3} \mbox{erg/sec}.$$
+%%     \item<3->
+%%       Measured for $M \leq 10$ kg:
+%%       $$B=2.57\times 10^5M^{2/3} \mbox{erg/sec}.$$
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+
+%% \subsection{River\ networks}
+
+\begin{frame}
+  \frametitle{River networks}
+
+  \begin{itemize}
+  \item<1-> View river networks as collection networks.
+  \item<1-> Many sources and one sink.
+  \item<2-> $\epsilon$?
+  \item<3-> Assume $\rho$ is constant over time and $\epsilon=0$:
+    $$V_{\textnormal{net}} \propto \rho V^{(d+1)/d} = \mbox{constant} \times V^{\, 3/2} $$
+  \item<4-> Network volume grows faster than
+    basin `volume' (really area).
+  \item<5-> \alert{It's all okay:}\\ 
+    Landscapes are $d$=2 surfaces living in $D$=3 dimensions.
+  \item<6->
+    Streams can grow not just in width but in depth...
+  \item<7->
+    If $\epsilon > 0$, $V_{\textnormal{net}}$ will grow more slowly
+    but 3/2 appears to be confirmed from real data.
+  \end{itemize}
+
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Hack's law}
+%% 
+%%   \begin{itemize}
+%%   \item<1-> Volume of water in river network can be calculated 
+%%     by adding up basin areas
+%%   \item<1-> Flows sum in such a way that 
+%%     $$ V_{\textnormal{net}} = \sum_{\mbox{\scriptsize all pixels}} a_{\mbox{\scriptsize pixel $i$}} $$
+%%   \item<1-> Hack's law again:
+%%     $$
+%%     \ell \sim a^{\, h}
+%%     $$
+%%   \item<1-> 
+%%     Can argue     
+%%     $$ V_{\textnormal{net}} \propto V_{\textnormal{basin}}^{1+h} = a_{\textnormal{basin}}^{1+h}$$
+%%     where 
+%%     $h$ is Hack's exponent.
+%%   \item<1-> 
+%%     $\therefore$ minimal volume calculations gives 
+%%     $$
+%%     \boxed{
+%%       h=1/2
+%%     }
+%%     $$
+%%   \end{itemize}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Real data:}
+%% 
+%%   \begin{columns}
+%%     \column{0.4\textwidth}
+%%     \begin{itemize}
+%%     \item<1-> Banavar et al.'s approach\cite{banavar1999a} is okay 
+%%       because $\rho$ \alertb{really is constant}.
+%%     \item<3-> \alert{The irony:} shows optimal basins are isometric
+%%     \item<4-> Optimal Hack's law: $\msl \sim a^{h}$ with
+%%       $h=1/2$ 
+%%     \item<5-> \visible<5->{(Zzzzz)}
+%%     \end{itemize}
+%%     \column{0.6\textwidth}
+%%     \begin{overprint}
+%%       \onslide<2-| handout:1| trans:1>
+%%       \includegraphics[width=\textwidth]{banavar1999fig2.png}\\
+%%       {\small From Banavar et al. (1999)\cite{banavar1999a}}
+%%     \end{overprint}
+%%   \end{columns}
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Even better---prefactors match up:}
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=0.8\textwidth]{figwatervolume02_noname.pdf}
+%%   \end{center}
+%% 
+%% \end{frame}
+
+
+\changelecturelogo{.18}{gastner2006c_fig6b-tp-1}
+
+\section{Distributed\ Sources}
+
+%% \subsection{Facility location}
+
+\begin{frame}
+  \frametitle{Many sources, many sinks}
+  
+  \begin{block}<1->{How do we distribute sources?}
+    \begin{itemize}
+    \item<2-> Focus on 2-d (results generalize to higher dimensions).
+    \item<3-> Sources = hospitals, post offices, pubs, ...
+    \item<4-> \alert{Key problem:} How do we cope with uneven population densities?
+    \item<5-> Obvious: if density is uniform then sources are best distributed
+      \alert{uniformly}.
+    \item<6-> Which lattice is optimal? \uncover<7->{The \alert{hexagonal lattice}}
+    \item<8-> \alert{Q2:} Given population density is uneven, what do we do?
+    \item<9-> We'll follow work by Stephan (1977, 1984)\cite{stephan1977a,stephan1984a},
+      Gastner and Newman (2006)\cite{gastner2006c}, 
+      Um \etal (2009)\cite{um2009a} and work cited by them.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{block}<1->{Solidifying the basic problem}
+    \begin{itemize}
+    \item<1-> Given a region with some population distribution $\rho$, most likely uneven.
+    \item<2-> Given resources to build and maintain $N$ facilities.
+    \item<3-> \alert{Q:} How do we locate these $N$ facilities so as to
+      \alert{minimize the average distance} between an \alertb{individual's residence} and 
+      the \alertb{nearest facility}?
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  {\centering
+    \includegraphics[width=0.9\textwidth]{gastner2006c_fig1}
+  }
+
+  {\small 
+    From Gastner and Newman (2006)\cite{gastner2006c}\\
+    \begin{itemize}
+    \item<1-> Approximately optimal location of 5000 facilities.
+    \item<1-> Based on 2000 Census data.
+    \item<1-> Simulated annealing + Voronoi tessellation.
+    \end{itemize}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{gastner2006c_fig2}
+  \end{center}
+  {\small
+    From Gastner and Newman (2006)\cite{gastner2006c}
+  }
+  \begin{itemize}
+  \item<1-> Optimal facility density $\rhofac$ vs.\ population density $\rhopop$.
+  \item<2-> Fit is $\rhofac \propto \rhopop^{0.66}$ with $r^2 = 0.94$.
+  \item<3-> Looking good for a 2/3 power...
+  \end{itemize}
+  
+\end{frame}
+
+
+\subsection{Size-density\ law}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{block}<1->{Size-density law:}
+    \begin{itemize}
+    \item<1->
+    $$
+    \boxed{\alert{\rhofac \propto \rhopop^{2/3}}}
+    $$
+    \item<2->
+      Why?
+    \item<3->
+      Again: Different story to branching networks where
+      there was either one source or one sink.
+    \item<4->
+      Now sources \& sinks are distributed 
+      throughout region...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+    \begin{itemize}
+    \item<+-> 
+      We first examine Stephan's treatment (1977)\cite{stephan1977a,stephan1984a}
+    \item<+->
+      \alertb{``Territorial Division: The Least-Time Constraint
+        Behind the Formation of Subnational Boundaries''} (Science, 1977)
+    \item<+->
+      Zipf-like approach: invokes \alert{principle of minimal effort}.
+    \item<+->
+      Also known as the Homer principle.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item<1-> 
+    Consider a region of area $A$ and population $P$ with
+    a single functional center that everyone needs to access
+    every day.
+  \item<2->
+    Build up a general cost function based on time expended
+    to \alert{access and maintain center}.
+  \item<3->
+    Write \alert{average travel distance} to center as $\bar{d}$ and 
+    assume \alert{average speed of travel} is $\bar{v}$.
+  \item<4->
+    Assume \alertb{isometry}: average travel distance $\bar{d}$ will be on the length
+    scale of the region which is $\sim$ \alertb{$A^{1/2}$}
+  \item<5->
+    Average time expended per person in accessing facility
+    is therefore
+    \alertb{
+      $$
+      \bar{d}/\bar{v} = c A^{1/2} / \bar{v}
+      $$
+    }
+    where $c$ is an unimportant shape factor.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item<1-> Next assume facility requires regular maintenance (person-hours per day)
+  \item<2-> Call this quantity $\tau$
+  \item<3-> If burden of mainenance is shared then average cost per person
+    is \alert{$\tau/P$} where $P$ = population.
+  \item<4-> Replace $P$ by $\rhopop A$ where $\rhopop$ is density.
+  \item<5-> Total average time cost per person:
+    $$
+    T = \bar{d}/\bar{v} + \tau/(\rhopop A) 
+    \uncover<6->{= c \alert{A^{1/2}}/\bar{v} + \tau/(\rhopop \alert{A}).}
+    $$
+  \item<7-> Now Minimize with respect to $A$...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item<1-> Differentiating...
+    $$
+    \partialdiff{T}{A} = 
+    \partialdiff{}{A} \left( c A^{1/2}/\bar{v} + \tau/(\rhopop A) \right)
+    $$
+    $$
+    \uncover<2->{
+      =
+      \frac{c}{2\bar{v} A^{1/2}}
+      -\frac{\tau}{\rhopop A^2}
+    }
+    \uncover<3->{
+      \alert{ = 0 }
+    }
+    $$
+  \item<4-> Rearrange:
+    $$
+    A = 
+    \left(
+      \frac{2 \bar{v} \tau}
+      {c \rhopop}
+    \right)^{2/3}
+    \uncover<5->{
+      \propto \rhopop^{-2/3}
+    }
+    $$
+  \item<6-> \# facilities per unit area $\rhofac$:
+    $$ 
+    \rhofac
+    \propto
+    \alert{A^{-1}  \propto \rhopop^{2/3}}
+    $$
+  \item<7-> Groovy...
+    
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{block}{An issue:}
+    \begin{itemize}
+    \item<1-> Maintenance ($\tau$) is assumed to be 
+      \alert{independent} of population
+      and area ($P$ and $A$)
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal source allocation}
+
+  \begin{itemize}
+  \item 
+    Stephan's online book\\
+    \alert{``The Division of Territory in Society''}
+    is
+    \wordwikilink{http://www.edstephan.org/Book/contents.html}{here}.
+  \item 
+    (It used to be
+    \wordwikilink{http://www.ac.wwu.edu/~stephan/Book/contents.html}{here}.)
+  \item 
+    The 
+    \wordwikilink{http://www.edstephan.org/Book/chap0/0.html}{Readme} 
+    is well worth reading (1995).
+  \end{itemize}
+
+  %% winner of the first Zipf award!
+  %% George Kingsley Zipf 
+  %% Memorial Award
+  %% 1984 Population Association of America
+\end{frame}
+
+\subsection{Cartograms}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Standard world map:
+  \includegraphics[width=\textwidth]{newman_world1024x512.png}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Cartogram of countries `rescaled' by population:
+  \includegraphics[width=\textwidth]{newman_population1024x512.png}\\
+  \includegraphics[width=0.25\textwidth]{newman_world1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  \begin{block}<1->{Diffusion-based cartograms:}
+    \begin{itemize}
+    \item<2-> Idea of cartograms is to \alert{distort areas} to 
+      more accurately represent
+      some local density $\rhopop$ (e.g. population).
+    \item<3-> Many methods put forward---typically involve
+      some kind of physical analogy to \alert{spreading or repulsion}.
+    \item<4-> Algorithm due to Gastner and Newman (2004)\cite{gastner2004a}
+      is based on \alertb{standard diffusion}:
+      $$ 
+      \nabla^2 \rhopop - \partialdiff{\rhopop}{t} = 0. 
+      $$
+    \item<5-> Allow density to diffuse and trace the 
+      movement of individual elements and boundaries.
+    \item<6-> Diffusion is constrained by boundary condition
+      of surrounding area having density $\bar{\rhopop}$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Child mortality:
+  \includegraphics[width=\textwidth]{newman_childmort1024x512.png}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Energy consumption:
+  \includegraphics[width=\textwidth]{newman_energyconsump1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Gross domestic product:
+  \includegraphics[width=\textwidth]{newman_gdp1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Greenhouse gas emissions:
+  \includegraphics[width=\textwidth]{newman_greenhouse1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  Spending on healthcare:
+  \includegraphics[width=\textwidth]{newman_healthcare1024x512.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cartograms}
+  
+  People living with HIV:
+  \includegraphics[width=\textwidth]{newman_hiv1024x512.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Cartograms}
+
+  \begin{itemize}
+  \item<1-> The preceding sampling of Gastner \& Newman's cartograms
+    lives \wordwikilink{http://www-personal.umich.edu/~mejn/cartograms/}{here}.
+  \item<1->
+    A larger collection can be found
+    at \wordwikilink{http://www.worldmapper.org/}{worldmapper.org}.
+
+    \bigskip
+
+    \includegraphics[width=0.5\textwidth]{worldmapper.png}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \includegraphics[width=\textwidth]{gastner2006c_fig3}
+
+  \begin{itemize}
+  \item <1-> \alert{Left:} population density-equalized cartogram.
+  \item <2-> \alert{Right:} (population density)$^{2/3}$-equalized cartogram.
+  \item <3-> Facility density is uniform for $\rhopop^{2/3}$ cartogram.
+  \end{itemize}
+  {\small
+    From Gastner and Newman (2006)\cite{gastner2006c}
+  }
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{}
+%% 
+%%   \includegraphics[width=\textwidth]{gastner2006c_fig4}
+%% 
+%%   From Gastner and Newman (2006)\cite{gastner2006c}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \includegraphics[width=\textwidth]{gastner2006c_fig5}
+
+  {\small
+    From Gastner and Newman (2006)\cite{gastner2006c}
+  }
+  \begin{itemize}
+  \item Cartogram's Voronoi cells are somewhat hexagonal.
+  \end{itemize}
+  
+\end{frame}
+
+\subsection{A\ reasonable\ derivation}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}<1->{Deriving the optimal source distribution:}
+    \begin{itemize}
+    \item<2-> \alert{Basic idea:} Minimize the average distance
+      from a random individual to the nearest facility.\cite{gastner2006c}
+    \item<3-> Assume given a fixed population density $\rhopop$ defined
+      on a spatial region $\Om$.
+    \item<4-> Formally, we want to find the locations of 
+      \alert{$n$ sources} $\{\vec{x}_1,\ldots,\vec{x}_n\}$
+      that minimizes the \alert{cost function}
+      $$
+      F(\{\vec{x}_1,\ldots,\vec{x}_n\})
+      =
+      \int_{\Om}
+      \alert{\rhopop(\vec{x})}
+      \,
+      \alertb{\min_{i}
+      || \vec{x} - \vec{x}_i ||}
+      \dee{\vec{x}}.
+      $$
+    \item<5-> Also known as the p-median problem.
+    \item<6-> Not easy...  \uncover<6->{in fact this one is an NP-hard problem.\cite{gastner2006c}}
+    \item<7-> Approximate solution originally due to
+      Gusein-Zade\cite{gusein-zade1982a}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Approximations:}
+    \begin{itemize}
+    \item<1-> For a given set of source placements $\{\vec{x}_1,\ldots,\vec{x}_n\}$,
+      the region $\Om$ is divided up into 
+      \wordwikilink{http://en.wikipedia.org/wiki/Voronoi_diagram}{Voronoi cells},
+      one per source.
+    \item<2->
+      Define \alert{$A(\vec{x})$} as the \alert{area} of the 
+      Voronoi cell containing $\vec{x}$.
+    \item<3-> As per Stephan's calculation, estimate
+      typical distance from $\vec{x}$ to the nearest source (say $i$)
+      as 
+      $$
+      \alertb{c_i A(\vec{x})^{1/2}}
+      $$
+      where $c_i$ is a shape factor for the $i$th Voronoi cell.
+    \item<4-> 
+      Approximate $c_i$ as a constant $c$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Carrying on:}
+    \begin{itemize}
+    \item<1-> The cost function is now
+      $$
+      F
+      =
+      c \int_{\Om}
+      \alertb{\rhopop(\vec{x})}
+      \alertb{ A(\vec{x})^{1/2}}
+      \dee{\vec{x}}.
+      $$
+    \item<2-> We also have that the \alert{constraint} that
+      Voronoi cells divide up the overall area
+      of $\Om$:
+      $
+      \sum_{i=1}^{n} A(\vec{x}_i) = A_\Om.
+      $
+    \item<3-> Sneakily turn this into an integral constraint:
+      $$
+      \int_\Om
+      \frac{\dee{\vec{x}}}
+      {A(\vec{x})}
+      = n.
+      $$
+    \item<4->
+      Within each cell, $A(\vec{x})$ is constant.
+    \item<5->
+      So... integral over each of the $n$ cells equals 1.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Now a Lagrange multiplier story:}
+    \begin{itemize}
+    \item<1-> By varying $\{\vec{x}_1,...,\vec{x}_n\}$, minimize
+      $$
+      G(A) = 
+      c \int_{\Om}
+      \alertb{\rhopop(\vec{x})}
+      \alertb{ A(\vec{x})^{1/2}}
+      \dee{\vec{x}}
+      -
+      \lambda
+      \left(n -
+        \int_\Om
+        \left[A(\vec{x})\right]^{-1}
+        \dee{\vec{x}}
+      \right)
+      $$
+    \item<2->
+      I Can Haz
+      \wordwikilink{http://en.wikipedia.org/wiki/Calculus\_of\_variations}{Calculus of Variations}?
+    \item<3->
+      Compute
+      $\delta G / \delta A$,
+      the \wordwikilink{http://en.wikipedia.org/wiki/Functional_derivative}{functional derivative}
+      of the functional $G(A)$.
+    \item<4-> This gives
+      $$
+      \int_{\Om}
+      \left[
+        \frac{c}{2} \alertb{\rhopop(\vec{x})}
+        \alertb{ A(\vec{x})^{-1/2}}
+        -
+        \lambda
+        \left[A(\vec{x})\right]^{-2}
+      \right]
+      \dee{\vec{x}} = 0.
+      $$
+    \item<5-> Setting the integrand to be zilch, we have:
+      $$
+      \rhopop(\vec{x})
+      =
+      2\lambda
+      c^{-1}
+      A(\vec{x})^{-3/2}.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Size-density law}
+
+  \begin{block}{Now a Lagrange multiplier story:}
+    \begin{itemize}
+    \item<1-> Rearranging, we have
+      $$
+      A(\vec{x}) = (2{\lambda} c^{-1})^{2/3} \rhopop^{-2/3}.
+      $$
+    \item<2->
+      Finally, we indentify $1/A(\vec{x})$ as $\rhofac(\vec{x})$,
+      an approximation of the local source density.
+    \item<3-> Substituting $\rhofac=1/A$, we have
+      $$
+      \alert{\rhofac(\vec{x})
+      = \left( 
+        \frac{c}{2{\lambda}}
+        \rhopop
+    \right)^{2/3}}.
+      $$
+    \item<4-> Normalizing (or solving for $\lambda$):
+      $$
+      \alert{\rhofac(\vec{x})}
+      =  n 
+      \frac{[\rhopop(\vec{x})]^{2/3}}
+      {\int_{\Om} [\rhopop(\vec{x})]^{2/3} \dee{\vec{x}}}
+      \alert{\propto [\rhopop(\vec{x})]^{2/3}}.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Global\ redistribution}
+
+\begin{frame}
+  \frametitle{Global redistribution networks}
+
+  \begin{block}<1->{One more thing:}
+    \begin{itemize}
+    \item<1-> How do we supply these facilities?
+    \item<2-> How do we best redistribute mail?  People?
+    \item<3-> How do we get beer to the pubs?
+    \item<4-> Gaster and Newman model: cost is 
+      a function of basic maintenance and travel time:
+      $$
+      C_{\textnormal{maint}} + \gamma C_{\textnormal{travel}}.
+      $$
+    \item<5-> Travel time is more complicated:
+      Take `distance' between nodes to be a composite
+      of shortest path distance $\ell_{ij}$ and 
+      number of legs to journey:
+      $$
+      (1-\delta) \ell_{ij} + \delta (\# \mbox{hops}).
+      $$
+    \item<6-> When $\delta=1$, only number of hops matters.
+      
+      
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Global redistribution networks}
+
+  \includegraphics[width=\textwidth]{gastner2006c_fig6}
+
+  From Gastner and Newman (2006)\cite{gastner2006c}
+\end{frame}
+
+\subsection{Public\ versus\ Private}
+
+\begin{frame}
+  \frametitle{Public versus private facilities}
+
+  \begin{block}<1->{Beyond minimizing distances:}
+    \begin{itemize}
+    \item<2->
+      ``Scaling laws between population and facility densities'' by
+      Um et al., Proc. Natl. Acad. Sci., 2009.\cite{um2009a}
+    \item<3->
+      Um et al.\ find empirically and argue theoretically that the connection
+      between facility and population density
+      $$
+      \rhofac \propto \rhopop^{\alpha}
+      $$
+      \alertb{does not universally hold} with $\alpha=2/3$.
+    \item<4->
+      \alert{Two idealized limiting classes}:
+      \begin{enumerate}
+      \item<4->
+        For-profit, commercial facilities: \alertb{$\alpha = 1$};
+      \item<5->
+        Pro-social, public facilities: \alertb{$\alpha = 2/3$}.
+      \end{enumerate}
+    \item<5->
+      Um et al.\ investigate facility locations in the United States
+      and South Korea.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Public versus private facilities: evidence}
+
+  \includegraphics[width=0.49\textwidth]{um2009a_fig1A.pdf}
+  \includegraphics[width=0.49\textwidth]{um2009a_fig1B.pdf}
+
+  \begin{itemize}
+  \item<1->
+    \alert{Left plot:} ambulatory hospitals in the U.S.
+  \item<1-> 
+    \alert{Right plot:} public schools in the U.S.
+  \item<2->
+    Note: break in scaling for public schools.
+    Transition from $\alpha \simeq 2/3$ to 
+    $\alpha = 1$ around $\rhopop \simeq 100$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: evidence}
+
+  \begin{columns}
+    \column{0.7\textwidth}
+    \includegraphics[width=\textwidth]{um2009a_tab1A.pdf}\\
+    \includegraphics[width=\textwidth]{um2009a_tab1B.pdf}
+    \column{0.3\textwidth}
+      {\small
+        Rough \alertb{transition} between public and private at $\alpha \simeq 0.8$.
+
+        \medskip
+
+        Note: * indicates analysis is at state/province level; otherwise county level.}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: evidence}
+
+  \includegraphics[width=\textwidth]{um2009a_fig2.pdf}
+
+  \alert{A, C:} ambulatory hospitals in the U.S.;
+  \alert{B, D:} public schools in the U.S.;
+  \alert{A, B:} data; 
+  \alert{C, D:} Voronoi diagram from model simulation.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: the story}
+
+  \begin{block}<1->{So what's going on?}
+    \begin{itemize}
+    \item<1->
+      Social institutions seek to \alertb{minimize distance of travel}.
+    \item<2->
+      Commercial institutions seek to \alertb{maximize the
+      number of visitors}.
+    \item<3->
+      \alertb{Defns:} For the $i$th facility and its Voronoi cell $V_i$, define
+      \begin{itemize}
+      \item
+        $n_i$ = population of the $i$th cell;
+      \item
+        $\tavg{r_i}$ = the average travel distance
+        to the $i$th facility.
+      \item
+        $s_i$ = area of $i$th cell.
+      \end{itemize}
+    \item<4->
+      Objective function to maximize for a facility (highly constructed):
+      $$ 
+      \alertb{v_i = n_i \tavg{r_i}^\beta}
+      \
+      \mbox{with}
+      \
+      0 \le \beta \le 1.
+      $$
+    \item<5->
+      Limits:
+      \begin{itemize}
+      \item $\beta = 0$: purely commercial.
+      \item $\beta = 1$: purely social.
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Public versus private facilities: the story}
+
+  \begin{itemize}
+  \item<1-> 
+    Proceeding as per the Gastner-Newman-Gusein-Zade calculation,
+    Um et al.\ obtain:
+    $$
+    \alert{\rhofac(\vec{x})}
+    =  n
+    \frac{[\rhopop(\vec{x})]^{2/(\beta+2)}}
+    {\int_{\Om} [\rhopop(\vec{x})]^{2/(\beta+2)} \dee{\vec{x}}}
+    \alert{\propto [\rhopop(\vec{x})]^{2/(\beta+2)}}.
+    $$
+  \item<2-> 
+    For $\beta=0$, $\alpha=1$: commercial scaling is linear.
+  \item<3-> 
+    For $\beta=1$, $\alpha=2/3$: social scaling is sublinear.
+  \item<3-> 
+    You can try this too: \insertassignmentquestion{04}{4}{3}.
+  \end{itemize}
+
+\end{frame}
+

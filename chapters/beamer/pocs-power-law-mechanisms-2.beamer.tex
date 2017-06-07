@@ -1,0 +1,1835 @@
+%%
+%% add simon's checking for stability
+%% in notes and in assignment
+%% 
+
+%% Add a section on this?:
+%% Belevitch V (18 December 1959). "On the statistical laws of linguistic distributions". Annales de la Société Scientifique de Bruxelles. I 73: 310–326
+
+%% add more on information theory
+%% a few more pages
+%% make that section sing
+%% show some nice things about log story
+%% connect to papers coming after shannon
+
+% to do 
+% improve section on HOT theory
+%
+% re-read carlson2000a
+% include more plots 
+% explaining how results change with D, etc.
+%
+
+
+%% add section on percolation
+%% 
+%% add baek 2011
+%% 
+%% add lada adamic 2011
+%% 
+%% add petersen 2011 (language)
+%% 
+%% Get this:
+%% M.A Serrano, A. Flammini, F. Menczer, Modeling Statistical Properties of Written Text. PLoS ONE 4(4), e5372 (2009)
+
+\changelecturelogo{.18}{2014-09-09simon-postcard_polaroid-logo.png}
+
+\section{Rich-Get-Richer\ Mechanism}
+
+\subsection{Simon's Model}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{2014-09-09simon-postcard_polaroid.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aggregation:}
+  
+  \begin{block}{}
+    \begin{itemize}
+    \item<1-> 
+      Random walks represent \alertg{additive aggregation}
+    \item<2-> 
+      Mechanism: Random addition and subtraction
+    \item<3-> 
+      Compare across realizations, no competition.
+    \item<4-> 
+      Next: \alertg{Random Additive/Copying Processes}
+      involving Competition.
+    \item<5-> 
+      \alertg{Widespread:} Words, Cities, the Web, Wealth, Productivity (Lotka), Popularity (Books, People, ...) 
+    \item<6-> 
+      Competing mechanisms (trickiness)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Work of Yore:}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1->
+      1924: \alertg{G. Udny Yule}\cite{yule1924a}:\\ \# Species per Genus
+    \item<2->
+      1926: \alertg{Lotka}\cite{lotka1926a}:\\ \# Scientific papers per author (Lotka's law)
+    \item<3->
+      1953: \alertg{Mandelbrot}\cite{mandelbrot1953a}:\\ Optimality argument
+      for Zipf's law; focus on language.
+    \item<4->
+      1955: \alertg{Herbert Simon}\cite{simon1955a,zipf1949a}:\\ Zipf's law for
+      word frequency, city size, income, publications, and species per genus.
+    \item<5->
+      1965/1976: \alertg{Derek de Solla Price}\cite{price1965a,price1976a}:\\ Network of Scientific Citations.
+    \item <6->
+      1999: \alertg{Barabasi and Albert}\cite{barabasi1999a}:\\ The World Wide Web, networks-at-large.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples:}
+
+  \begin{block}{Recent evidence for Zipf's law...}
+    \includegraphics[width=0.48\textwidth]{maillart2008a_fig1}
+    \includegraphics[width=0.48\textwidth]{maillart2008a_fig1caption}
+
+    Maillart et al., PRL, 2008:\\
+    ``Empirical Tests of {Z}ipf's Law Mechanism in 
+    Open Source {L}inux Distribution''\cite{maillart2008a}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{}
+    \begin{columns}
+      \column{0.03\textwidth}
+      \column{0.1\textwidth}
+      \includegraphics[width=\textwidth]{simon.pdf}
+      \column{0.81\textwidth}
+      \wordwikilink{http://en.wikipedia.org/wiki/Herbert\_A.\_Simon}{Herbert Simon} (1916--2001):
+      \column{0.03\textwidth}
+      \includegraphics[width=\textwidth]{wikipedia-tp.pdf}
+      \column{0.03\textwidth}
+    \end{columns}
+  \begin{itemize}
+  \item<+-> 
+    Political scientist (and much more)
+  \item<+-> 
+    Involved in Cognitive Psychology, Computer Science, Public Administration,
+    Economics, Management, Sociology
+  \item<+-> 
+    Coined `bounded rationality' and `satisficing'
+  \item<+-> 
+    Nearly 1000 publications
+  \item<+-> 
+    An early leader in
+    Artificial Intelligence, Information Processing,
+    Decision-Making, Problem-Solving, Attention Economics, Organization
+    Theory, Complex Systems, And Computer Simulation Of Scientific
+    Discovery. 
+  \item<+-> 
+    1978 Nobel Laureate in Economics\\
+    (his Nobel bio is \wordwikilink{http://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/1978/simon-bio.html}{here}).
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Essential Extract of a Growth Model:}
+
+  \begin{block}{Random Competitive Replication (RCR):}
+    \begin{enumerate}
+    \item<1-> Start with 1 elephant (or element) of a particular flavor at $t=1$
+    \item<2-> At time $t=2,3,4,\ldots$, add a new elephant in
+      one of two ways:
+      \begin{itemize}
+      \item<2-> With probability $\simonalpha$, create a new elephant
+        with a new flavor\\
+        \visible<5->{\alertg{= Mutation/Innovation}}\\
+        \bigskip
+      \item<3-> With probability $1-\simonalpha$, randomly choose
+        from all existing elephants, and make a copy.\\
+        \visible<6->{\alertg{= Replication/Imitation}}
+        \bigskip
+      \item<4-> \alertg{Elephants of the same flavor form a group}
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+  
+  \begin{block}{Example: Words appearing in a language}
+    \begin{itemize}
+    \item<2-> Consider words as they appear sequentially.
+    \item<3-> With probability $\simonalpha$, the next word
+      has not previously appeared\\
+      \visible<5->{\alertg{= Mutation/Innovation}}\\
+      \bigskip
+    \item<4-> With probability $1-\simonalpha$, randomly choose
+      one word from all words that have come before, and reuse this word\\
+      \visible<6->{\alertg{= Replication/Imitation}}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<7->{}
+    Note: This is a terrible way to write a novel.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{For example:}
+
+  \begin{block}{}
+    \includegraphics[width=\textwidth]{2013-01-28simon-model-ook-crop-tp-3.pdf}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{Some observations:}
+  \begin{itemize}
+  \item<+-> 
+    Fundamental \alert{Rich-get-Richer} story;
+  \item<+-> 
+    Competition for replication between individual elephants is random;
+  \item<+-> 
+    Competition for growth between groups of matching elephants is not random;
+  \item<+-> 
+    Selection on groups is biased by size;
+  \item<+-> 
+    Random selection sounds \alertg{easy};
+  \item<+-> 
+    Possible that no great knowledge of system needed (but more later ...).
+  \end{itemize}
+  \end{block}
+
+% would be interesting to look at what happens
+% with different layers of groups
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{Some observations:}
+  \begin{itemize}
+  \item<1-> Steady growth of system: +1 elephant per unit time.
+  \item<2-> Steady growth of distinct flavors at \alertg{rate $\simonalpha$}
+  \item<3-> We can incorporate 
+    \begin{enumerate}
+    \item<4-> Elephant elimination
+    \item<5-> Elephants moving between groups
+    \item<6-> Variable innovation rate $\simonalpha$
+    \item<7-> Different selection based on group size\\
+      \visible<8->{(But mechanism for selection is not as simple...)}
+    \end{enumerate}
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Analysis}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{}
+  \alertg{Definitions:}
+  \begin{itemize}
+    \item<1-> $k_i$ = size of a group $i$
+    \item<2-> $N_{k,t}$ = \# groups containing $k$ elephants at time $t$.
+  \end{itemize}
+
+  \bigskip
+
+  \visible<3->{\alertg{Basic question:} How does $N_{k,t}$ evolve with time?}
+
+  \bigskip
+
+  \visible<4->{$$ \mbox{First:\ } \sum_{k} k N_{k,t} = t = \mbox{number of elephants at time $t$}$$}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{}
+  $P_k(t)$ = Probability of choosing an elephant that belongs
+  to a group of size \alertg{$k$}:
+
+  \begin{itemize}
+  \item <2-> $N_{k,t}$ size $k$ groups
+  \item <3-> $\Rightarrow$ $kN_{k,t}$ elephants in size $k$ groups
+  \item <4-> $t$ elephants overall
+  \end{itemize}
+  \visible<5->{
+    $$ P_k(t) = \alertg{\frac{k N_{k,t}}{ t}}.$$
+  }
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{$N_{k,t}$, the number of groups with $k$ elephants, changes at time $t$ if}
+    \begin{enumerate}
+    \item<2-> An elephant belonging to a group with \alertg{$k$} elephants is \alertg{replicated}:\\
+      \visible<4->{\alertb{$N_{k,t+1} = N_{k,t} - 1$}}\\
+      \visible<5->{Happens with probability \alertb{$(1-\simonalpha) k N_{k,t}/t$}}
+      \bigskip
+    \item<3-> An elephant belonging to a group with \alertg{$k-1$} elephants is \alertg{replicated}:\\
+      \visible<6->{\alertb{$N_{k,t+1} = N_{k,t}  + 1$}}\\
+      \visible<7->{Happens with probability \alertb{$(1-\simonalpha) (k-1) N_{k-1,t}/t$}}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{Special case for $N_{1,t}$:}
+    \begin{enumerate}
+    \item<2-> The new elephant is a new flavor:\\
+      \visible<4->{\alertb{$N_{1,t+1} = N_{1,t} + 1$}}\\
+      \visible<5->{Happens with probability \alertg{$\simonalpha$}}
+      \bigskip
+    \item<3-> A unique elephant is replicated:\\
+      \visible<6->{\alertb{$N_{1,t+1} = N_{1,t}  - 1$}}\\
+      \visible<7->{Happens with probability \alertg{$(1-\simonalpha) N_1/t$}}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{Putting everything together:}
+  \visible<1->{  \alertg{For $k>1$:}
+    $$
+    \avg{N_{k,t+1} - N_{k,t}}
+    =
+    (1-\simonalpha)
+    \left(
+      \alertg{(+1)}
+      (k-1)\frac{N_{k-1,t}}{t}
+      +
+      \alertg{(-1)}
+      k\frac{N_{k,t}}{t}
+    \right)
+    $$
+  }
+  \end{block}
+
+  \bigskip
+
+  \begin{block}{}
+  \visible<2-> {
+    \alertg{For $k=1$:}
+    $$
+    \avg{N_{1,t+1} - N_{1,t}}
+    =
+    \alertg{(+1)}
+    \simonalpha
+    +
+    \alertg{(-1)}
+    (1-\simonalpha)
+    1\cdot\frac{N_{1,t}}{t}
+    $$
+  }
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{}
+  \visible<1->{
+    Assume distribution stabilizes: \alertg{$N_{k,t} = n_k t$}
+  }
+
+  \smallskip
+  
+  \visible<1->{
+    (Reasonable for $t$ large)
+  }
+  \end{block}
+
+  \bigskip
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<2-> 
+      Drop expectations
+    \item<3-> 
+      Numbers of elephants now fractional
+    \item<4-> 
+      Okay over large time scales 
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<5-> 
+      For later:  the fraction of groups that have
+      size $k$ is $n_k/\simonalpha$ since
+      $$
+      \frac{N_{k,t}}{\rho t} 
+      = 
+      \frac{n_{k} \cancel{t}}{\rho \cancel{t}}
+      =
+      \frac{n_{k}}{\simonalpha}.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{Stochastic difference equation:}
+    \visible<1->{
+      $$
+      \avg{N_{k,t+1} - N_{k,t}}
+      =
+      (1-\simonalpha)
+      \left(
+        (k-1)\frac{N_{k-1,t}}{t}
+        -
+        k\frac{N_{k,t}}{t}
+      \right)
+      $$
+    }
+    becomes
+    \visible<1->{
+      $$
+      n_k(t+1)-n_k t
+      =
+      (1-\simonalpha)
+      \left(
+        (k-1)\frac{n_{k-1}t}{t}
+        -
+        k\frac{n_{k}t}{t}
+      \right)
+      $$}
+    \visible<2->{
+      $$
+      n_k(\alertg{\cancel{t}}+1-\alertg{\cancel{t}})
+      =
+      (1-\simonalpha)
+      \left(
+        (k-1)\frac{n_{k-1}\alertg{\cancel{t}}}{\alertg{\cancel{t}}}
+        -
+        k\frac{n_{k}\alertg{\cancel{t}}}{\alertg{\cancel{t}}}
+      \right)
+      $$}
+    \visible<3->{
+      $$
+      \Rightarrow
+      n_k
+      =
+      (1-\simonalpha)
+      \left(
+        (k-1)n_{k-1}
+        -
+        kn_{k}
+      \right)
+      $$
+    }
+    \visible<4->{
+      $$
+      \Rightarrow
+      n_k\left( 1 + \alertg{(1-\simonalpha)k} \right)
+      =
+      (1-\simonalpha)
+      (k-1)
+      n_{k-1}
+      $$
+    }
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Random Competitive Replication:}
+
+  \begin{block}<+->{We have a simple recursion:}
+    $$  \frac{n_k}{n_{k-1}}
+    =
+    \frac{(k-1)(1-\simonalpha)}
+    {1+(1-\simonalpha)k}
+    $$
+    
+    \begin{itemize}
+    \item<+-> 
+      Interested in $k$ large (the tail of the distribution)
+    \item<+->
+      Can be solved exactly.
+    \item<+->[]
+      \insertassignmentquestionsoft{03}{3}
+    \item<+->
+      To get at tail: Expand as a series of powers of $1/k$
+    \item<+->[]
+      \insertassignmentquestionsoft{03}{3}
+    \item<+->[]
+      We (okay, you) find
+      $$
+      n_k \propto k^{-\frac{(2-\simonalpha)}{(1-\simonalpha)}}  = k^{-\alertg{\gamma}}
+      $$
+      $$
+      \boxed{
+        \alertg{\gamma} = \frac{(2-\simonalpha)}{(1-\simonalpha)} = 1 + \frac{1}{(1-\simonalpha)}
+      }
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%% following removed and placed in a problem set
+
+%% \begin{frame}
+%%   \frametitle{Random Competitive Replication}
+%% 
+%%   \begin{itemize}
+%%   \item <1->
+%%     $$  \frac{n_k}{n_{k-1}}
+%%     =
+%%     \frac{(k-1)(1-\simonalpha)}
+%%     {1+(1-\simonalpha)k}
+%%     $$ 
+%%   \item <2->
+%%     Rearrange:
+%%     $$
+%%     = \frac{k(1-\simonalpha) - (1-\simonalpha)}
+%%     {k(1-\simonalpha) + 1}
+%%     $$
+%%   \item <3->
+%%     Divide through by $k(1-\simonalpha)$:
+%%     $$
+%%     \visible<4->{\frac{1 - \frac{1}{k}}
+%%     {\visible<5->{ 1 + \frac{1}{k(1-\simonalpha)}}}
+%%     }
+%%     $$
+%% 
+%%   \end{itemize}
+%%   
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Random Competitive Replication}
+%% 
+%%   \begin{itemize}
+%%   \item  
+%%     $$
+%%     \frac{n_k}{n_{k-1}} =
+%%     \frac{1 - \frac{1}{k}}
+%%     { 1 + \frac{1}{k(1-\simonalpha)}}
+%%     $$
+%%   \item<2-> Use 
+%%     $$ \frac{1}{1+x} = 1 - x + x^2 -x^3 + \ldots $$
+%%   \item<3->
+%%     $$
+%%     \frac{n_k}{n_{k-1}} =
+%%     \left(
+%%       1 - \frac{1}{k}
+%%     \right)
+%%     \left(
+%%       1 - \frac{1}{k(1-\simonalpha)} + O(k^{-2})
+%%     \right)
+%%     $$
+%%   \item<4->
+%%     $$
+%%     =
+%%     1 - \frac{1}{k}
+%%     - \frac{1}{k(1-\simonalpha)} + O(k^{-2})
+%%     $$
+%%   \end{itemize}
+%% \end{frame}
+%% 
+%% 
+%% \begin{frame}
+%%   \frametitle{Random Competitive Replication}
+%%   
+%%   \begin{itemize}
+%%   \item<1-> 
+%%     $$ 
+%%     \frac{n_k}{n_{k-1}}
+%%     =
+%%     1 - \frac{1}{k}
+%%     - \frac{1}{k(1-\simonalpha)} + O(k^{-2})
+%%     $$
+%%   \item<1-> 
+%%     $$ 
+%%     \frac{n_k}{n_{k-1}}
+%%     =
+%%     1 
+%%     - \frac{1}{k}
+%%     \left(
+%%       \frac{(1-\simonalpha) + 1}{1-\simonalpha}
+%%     \right)
+%%     + O(k^{-2})
+%%     $$
+%%   \item<2->
+%%     $$
+%%     = 1 - \frac{1}{k}\frac{(2-\simonalpha)}{(1-\simonalpha)}
+%%     + O(k^{-2})
+%%     $$
+%%   \item<3->
+%%     Use
+%%     $$(1+x)^\theta = 1 + \theta x + O(x^2)$$
+%%   \item<4->
+%%     $$
+%%     \frac{n_k}{n_{k-1}}
+%%     = (1 - \frac{1}{k})^{\frac{(2-\simonalpha)}{(1-\simonalpha)}}
+%%     + O(k^{-2})
+%%     $$
+%%   \end{itemize}
+%% 
+%% \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Random Competitive Replication:}
+%% 
+%%   \begin{block}{}
+%%   \begin{itemize}
+%%   \item<1->
+%%     We (okay, you) find
+%%     $$
+%%     \frac{n_k}{n_{k-1}}
+%%     \simeq (1 - \frac{1}{k})^{\frac{(2-\simonalpha)}{(1-\simonalpha)}}
+%%     $$
+%%   \item<2->
+%%     $$
+%%     \frac{n_k}{n_{k-1}}
+%%     \simeq \left(
+%%       \alertg{\frac{k -1}{k}}
+%%     \right)^{\frac{(2-\simonalpha)}{(1-\simonalpha)}}
+%%     $$
+%%   \item<3->
+%%     $$
+%%     n_k \propto k^{-\frac{(2-\simonalpha)}{(1-\simonalpha)}}  = k^{-\alertg{\gamma}}
+%%     $$
+%%   \end{itemize}
+%%   \bigskip
+%%   \visible<4-> {
+%%   $$
+%%   \boxed{
+%%   \alertg{\gamma} = \frac{(2-\simonalpha)}{(1-\simonalpha)} = 1 + \frac{1}{(1-\simonalpha)}
+%%   }
+%%   $$
+%%   }
+%%   \end{block}
+%% 
+%% \end{frame}
+
+\begin{frame}
+%%  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+-> 
+    Micro-to-Macro story with $\rho$ and $\gamma$ measurable.
+    $$
+    \boxed{
+      \alertg{\gamma} = \frac{(2-\simonalpha)}{(1-\simonalpha)} = 1 + \frac{1}{(1-\simonalpha)}
+    }
+    $$
+  \item<+-> 
+    Observe $2 < \gamma < \infty $ for  $0 < \simonalpha < 1$.
+  \item<+-> 
+    For $\simonalpha \simeq 0$ (low innovation rate):\\
+    $$\alertg{\gamma \simeq 2}$$
+  \item<+-> 
+    `Wild' power-law size distribution of group sizes, 
+    bordering on `infinite' mean.
+  \item<+-> 
+    For $\simonalpha \simeq 1$ (high innovation rate):\\
+    $$\alertg{\gamma \simeq \infty}$$
+  \item<+-> 
+    All elephants have different flavors.
+  \item<+-> 
+    Upshot: Tunable mechanism producing 
+    a family of universality classes.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+%%  \frametitle{Random Competitive Replication:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+-> 
+    Recall Zipf's law: $s_\rank \sim \rank^{-\alpha}$\\
+    ($s_\rank$ = size of the $\rank$th largest group of elephants)
+  \item<+-> 
+    We found $\alpha = 1/(\gamma-1)$ so:
+    $$
+    \boxed{
+      \alpha 
+      = 
+      \frac{1}{\gamma-1}
+      = 
+      \frac{1}
+      {\alertg{\cancel{1}} + \frac{1}{(1-\simonalpha) - \alertg{\cancel{1}}}}
+      =
+      1 - \simonalpha.
+    }
+    $$
+  \item<+-> 
+    $\gamma = 2$ corresponds to $\alpha = 1$
+  \item<+-> 
+    We (roughly) see Zipfian exponent\cite{zipf1949a} 
+    of $\alpha=1$ for many real systems:
+    city sizes, word distributions, ...
+  \item<+-> 
+    Corresponds to $\simonalpha \rightarrow 0$, low innovation.
+  \item<+-> 
+    Krugman doesn't like it)\cite{krugman1995a}
+    but it's all good.
+  \item<+-> 
+    Still, \alertb{other quite different} mechanisms are possible...
+  \item<+-> 
+    Must look at the details to see if mechanism makes sense...  
+    \visible<5->{\alertg{more later}.}
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{What about small $k$?:}
+
+  \begin{block}{We had one other equation:}
+    \begin{itemize}
+  \item <1->
+    $$
+    \avg{N_{1,t+1} - N_{1,t}}
+    =
+    \simonalpha
+    -(1-\simonalpha)
+    1\cdot\frac{N_{1,t}}{t}
+    $$
+  \item <2->
+    As before, set $N_{1,t} = n_1 t$ and drop expectations
+  \item <3->
+    $$
+    n_1(t+1) - n_1 t 
+    =
+    \simonalpha
+    -(1-\simonalpha)
+    1\cdot\frac{n_{1}t}{t}
+    $$
+  \item <3->
+    $$
+    n_1
+    =
+    \simonalpha
+    -(1-\simonalpha) n_1
+    $$
+  \item <4->
+    Rearrange:
+    $$
+    n_1 + ( 1-\simonalpha) n_1 
+    = \simonalpha
+    $$
+  \item <5->
+    $$
+    \boxed{
+      n_1 
+      = \frac{\simonalpha}{2-\simonalpha}
+    }
+    $$
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+
+\begin{frame}
+  %% \frametitle{Random Competitive Replication:}
+
+  \begin{block}{}
+    $$
+    \mbox{So...} \qquad
+    N_{1,t} = n_1 t
+    = \frac{\simonalpha t}{2-\simonalpha}
+    $$
+    \begin{itemize}
+    \item<2-> Recall number of distinct elephants = $\simonalpha t$.
+    \item<3-> Fraction of distinct elephants that are unique
+      (belong to groups of size 1):
+      $$
+      \frac{1}
+      {\simonalpha t}
+      N_{1,t}
+      =
+      \frac{1}
+      {\cancel{\simonalpha t}}
+      \frac{\cancel{\simonalpha t}}{2-\simonalpha}
+      = \frac{1}{2-\simonalpha}
+      $$
+      (also = fraction of groups of size 1)
+    \item<4-> 
+      For $\simonalpha$ small, fraction of unique elephants $\sim 1/2$
+    \item<5-> Roughly observed for real distributions
+    \item<6-> $\simonalpha$ increases, fraction increases
+    \item<7-> 
+      Can show fraction of groups with two elephants $\sim 1/6$
+    \item<8-> Model works well \alertg{for large and small $k$}
+      \alertg{\#awesome}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{2014-09-09simon-postcard_polaroid.png}
+\end{frame}
+
+%% \subsection{Words,\ Cities,\ and\ the\ Web}
+
+\subsection{Words}
+
+\begin{frame}
+  \frametitle{Words:}
+
+  \begin{block}{From Simon\cite{simon1955a}:}
+    Estimate $\simonalpha_{\textrm{est}} = \mbox{\# unique words}/\mbox{\# all words}$
+
+    \medskip
+
+    \visible<2->{
+      For Joyce's \alertg{Ulysses}: $\simonalpha_{\textrm{est}} \simeq 0.115 $
+    }
+
+    \medskip
+
+    \visible<3->{
+      \begin{tabular}{|r|r|r|r|}
+        \hline
+        $N_1$ (real) & $N_1$ (est) & $N_2$ (real) & $N_2$ (est) \\
+        \hline
+        16,432 & 15,850 & 4,776 &  4,870 \\
+        \hline
+      \end{tabular}
+    }
+  \end{block}
+
+\end{frame}
+
+\subsection{Catchphrases}
+
+\begin{frame}
+  \frametitle{Evolution of catch phrases:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item <1->  Yule's paper (1924)\cite{yule1924a}:\\
+  ``A mathematical theory of evolution, based on the conclusions of Dr J. C. Willis, F.R.S.''
+  \item <2-> Simon's paper (1955)\cite{simon1955a}:\\
+  ``On a class of skew distribution functions'' (snore)\\
+  \end{itemize}
+  \end{block}
+
+  \begin{block}<3->{From Simon's introduction:}
+    \uncover<4->{It is the purpose of this paper to analyse a class of distribution
+      functions that appear in a wide range of empirical data}\uncover<5->{---particularly 
+      \alertb{data describing sociological, biological and economic phenomena.}}
+
+    \smallskip
+
+    \uncover<6->{Its appearance is so frequent, and the phenomena so diverse,}
+    \uncover<7->{\alertb{that one is led to conjecture
+        that if these phenomena have any property in common}}
+    \uncover<8->{it can only be a similarity 
+      in the structure of the underlying probability mechanisms.}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evolution of catch phrases:}
+
+  \begin{block}{Derek de Solla Price:}
+  \begin{itemize}
+  \item<1-> First to study network evolution
+    with these kinds of models.
+  \item<2-> Citation network of scientific papers
+  \item<3-> Price's term: \alertg{Cumulative Advantage}
+  \item<4-> Idea: papers receive new citations with probability proportional
+    to their existing \# of citations
+  \item<5-> Directed network
+  \item<6-> Two (surmountable) problems:
+    \begin{enumerate}
+    \item New papers have no citations
+    \item Selection mechanism is more complicated
+    \end{enumerate}
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evolution of catch phrases:}
+
+  \begin{block}{Robert K. Merton: \wordwikilink{http://en.wikipedia.org/wiki/Matthew\_effect\_(sociology)}{the Matthew Effect}}
+  \begin{itemize}
+  \item<+-> 
+    Studied careers of scientists and found credit
+    flowed disproportionately to the already famous\\
+    \medskip
+    \visible<+->{From the Gospel of Matthew:\\
+      \alertb{``For to every one that hath shall be given...}\\}
+    \visible<+->{\alertg{(Wait!  There's more....)}}\\
+    \visible<+->{\alertb{but from him that hath not, that also which he seemeth to have shall be taken away.}\\}
+    \visible<+->{ \alertb{And cast the worthless servant into the outer darkness; there men will weep and gnash their teeth.''}}
+  \item<+->
+    (\alertg{Hath} = suggested unit of purchasing power.)
+  \item<+->
+    {\wordwikilink{http://en.wikipedia.org/wiki/Matilda\_effect}{Matilda effect:} women's scientific achievements are often overlooked}
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evolution of catch phrases:}
+
+  \begin{block}<+->{Merton was a catchphrase machine:}
+  \begin{enumerate}
+  \item<+-> 
+    Self-fulfilling prophecy
+  \item<+-> 
+    Role model
+  \item<+-> 
+    Unintended (or unanticipated) consequences
+  \item<+-> 
+    Focused interview $\rightarrow$ focus group
+  \end{enumerate}
+
+  \visible<+->{\alertg{And just to be clear...}}\\
+  \medskip
+  \visible<+->{Merton's son, Robert C. Merton, won the Nobel Prize for Economics in 1997.}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evolution of catch phrases:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+-> 
+    Barabasi and Albert\cite{barabasi1999a}---thinking about the Web
+  \item<+-> 
+    Independent reinvention of a version of Simon and Price's theory for networks
+  \item<+-> 
+    Another term: \alertg{``Preferential Attachment''}
+  \item<+-> 
+    Considered undirected networks (not realistic but avoids 0 citation problem)
+  \item<+-> 
+    Still have selection problem based on size (non-random)
+  \item<+-> 
+    Solution: Randomly connect to a node (\alertg{easy}) \ldots
+  \item<+-> 
+    \ldots and then randomly connect to the node's friends (\alertg{also easy})
+  \item<+-> 
+    \alertg{``Scale-free networks''} = food on the table for physicists
+  \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\changelecturelogo{.18}{2014-09-09mandelbrot-postcard_polaroid-logo.png}
+
+\section{Optimization}
+
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{2014-09-09mandelbrot-postcard_polaroid.png}
+\end{frame}
+
+\subsection{Minimal\ Cost}
+
+\begin{frame}
+
+  \begin{block}{\wordwikilink{http://bit.ly/bQc8AN}{Beno\^{i}t Mandelbrot}}
+    \bigskip
+  
+    \begin{columns}
+      \column{0.25\textwidth}
+      \column{0.50\textwidth}
+      \includegraphics[width=\textwidth]{322px-Mandel_zoom_00_mandelbrot_set.jpg}
+      \column{0.25\textwidth}
+    \end{columns}
+
+    \bigskip
+    \bigskip
+    \begin{itemize}
+    \item
+      Mandelbrot = father of fractals
+    \item
+      Mandelbrot = almond bread
+    \item 
+      Bonus Mandelbrot set action: \wordwikilink{http://en.wikipedia.org/wiki/File:Mandelbrot_sequence_new.gif}{here}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+  
+
+\begin{frame}
+  \frametitle{Another approach:}
+
+  \begin{block}{Beno\^{i}t Mandelbrot}
+    \begin{itemize}
+    \item<1-> 
+      Derived Zipf's law through optimization\cite{mandelbrot1953a}
+    \item<2-> 
+      \alertg{Idea:} Language is efficient
+    \item<3-> 
+      Communicate as \alertb{much information as possible}
+      for \alertg{as little cost}
+    \item<4-> 
+      Need measures of information ($H$) and average cost ($C$)...
+    \item<5-> 
+      Language evolves to maximize $H/C$,
+      the amount of information per average cost.
+    \item<6-> 
+      Equivalently: minimize $C/H$.
+    \item<7-> 
+      \alertg{Recurring theme:} what role does optimization play in complex systems?
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Mandelbrot\ vs.\ Simon}
+
+\begin{frame}
+  \frametitle{The \wordwikilink{http://www.colbertnation.com/the-colbert-report-videos/255252/november-12-2009/stephen-claims-lou-dobbs--audience}{Quickening}---Mandelbrot v.\ Simon:}
+
+  \begin{block}<+->{\wordwikilink{http://en.wikipedia.org/wiki/Highlander\_(film)}{There Can Be Only One:}}
+    %% http://1.bp.blogspot.com/_mpBGa4P5jUo/S7ycthI4brI/AAAAAAAAEg0/PywevOhc00A/s1600/highlander2.jpg
+    \includegraphics[width=\textwidth]{highlander2.jpg}
+    \begin{itemize}
+    \item<+->
+      Things there should be only one of:\\ 
+      Theory, Highlander Films.
+    \item<+->
+      Feel free to play Queen's 
+      \wordwikilink{http://en.wikipedia.org/wiki/A_Kind_of_Magic}{It's a Kind of Magic} 
+      in your head
+      (funding remains tight).
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% Queen, Freddie Mercury
+%% Here we are, Born to be kings,
+%% We're the princes of the universe,
+%% Here we belong, Fighting to survive,
+%% In a world with the darkest powers,
+%% And here we are, We're the princes of the universe,
+%% Here we belong, Fighting for survival,
+%% We've come to be the rulers of your world,
+%% I am immortal, I have inside me blood of kings, (Yeah!)
+%% I have no rival, No man can be my equal,
+%% Take me to the future of your world,
+%% Born to be kings, Princes of the universe,
+%% Fighting and free, Got your world in my hand,
+%% I'm here for your love and I'll make my stand,
+%% We were born to be princes of the universe,
+%% No man could understand. My power is in my own hand,
+%% Ooh, Ooh, Ooh, Ooh, People talk about you,
+%% People say you've had your day,
+%% I'm a man that will go far,
+%% Fly the moon and reach for the stars,
+%% With my sword and head held high,
+%% Got to pass the test first time - yeah,
+%% I know that people talk about me I hear it every day,
+%% But I can prove you wrong cos I'm right first time,
+%% Yeah. Yeah. Alright, Watch this man fly,
+%% Bring on the girls,
+%% Here We are. Born to be kings. We're the princes of
+%% the universe. Here we belong. Born to be kings,
+%% Princes of the universe. Fighting and free,
+%% Got the world in my hands. I'm here for your love,
+%% And I'll make my stand,
+%% We were born to be princes of the universe.
+
+%% no good:
+%% \insertvideo{DSZ0gxh2ZKQ}{}{}{Now let us enjoy the Trailer for Highlander:}
+
+\insertvideo{omOZyLmNMJs}{}{}{Now let us enjoy the Trailer for Highlander:}
+
+\begin{frame}
+  \frametitle{\small\textit{We were born to be Princes of the Universe}}
+
+  \smallskip
+
+  \includegraphics[height=0.3\textheight]{mandelbrot.pdf}
+  \quad
+  \includegraphics[height=0.3\textheight]{simon.pdf}
+%%  \quad
+%%  \only<6->{\includegraphics[height=0.3\textheight]{plankton.jpg}}
+
+  \begin{block}{Mandelbrot vs.\ Simon:}
+    \begin{itemize}
+    \item<2-> Mandelbrot (1953): ``An Informational Theory of the Statistical Structure of Languages''\cite{mandelbrot1953a}
+    \item<3-> Simon (1955): ``On a class of skew distribution functions''\cite{simon1955a}
+    \item<4-> Mandelbrot (1959):  ``A note on a class of skew distribution functions: analysis and critique of a paper by H.A. Simon''\cite{mandelbrot1959a}
+    \item<5-> Simon (1960): ``Some further notes on a class of skew distribution functions''\cite{simon1960a}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{\small\textit{I have no rival, No man can be my equal}}
+
+  \smallskip
+
+  \includegraphics[height=0.3\textheight]{mandelbrot.pdf}
+  \quad
+  \includegraphics[height=0.3\textheight]{simon.pdf}
+
+  \begin{block}{Mandelbrot vs.\ Simon:}
+    \begin{itemize}
+    \item<1-> Mandelbrot (1961): ``Final note on a class of skew distribution functions: analysis and critique of a model due to H.A. Simon''\cite{mandelbrot1961b}
+    \item<2-> Simon (1961): ``Reply to `final note' by Benoit Mandelbrot''\cite{simon1961a}
+    \item<3-> Mandelbrot (1961): ``Post scriptum to `final note'''\cite{mandelbrot1961b}
+    \item<4-> Simon (1961): ``Reply to Dr. Mandelbrot's post scriptum''\cite{simon1961b}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\small\textit{I am immortal, I have inside me blood of kings}}
+
+  \begin{block}<1->{Mandelbrot:}
+    ``We shall restate in detail our 1959 objections to Simon's 1955
+    model for the Pareto-Yule-Zipf distribution.  
+    Our objections are
+    valid quite irrespectively of the sign of p-1, so that 
+    most of
+    Simon's (1960) reply was irrelevant.''\cite{mandelbrot1961a}
+  \end{block}
+
+  \begin{block}<2->{Simon:}
+    ``Dr. Mandelbrot has proposed a new set of objections to my 1955
+    models of the Yule distribution.  Like his earlier objections,
+    these are invalid.''\cite{simon1961a}
+  \end{block}
+
+  \begin{overprint}
+    \onslide<3 | handout:0| trans:0>
+    \onslide<4-| handout:0| trans:0>
+    \begin{block}{Plankton:}
+      \smallskip
+      \begin{columns}
+        \column{0.2\textwidth}
+        \includegraphics[width=\textwidth]{plankton.jpg}
+        \column{0.8\textwidth}
+        \visible<5->{
+          ``You can't do this to me, \alertb{I WENT TO COLLEGE!}''
+        }
+%%        \visible<6->{
+%%          ``You weak minded fool!''\\
+%%        }
+%%        \visible<7->{
+%%          ``You just lost your brain privileges,'' etc.
+%%        }
+      \end{columns}
+    \end{block}
+  \end{overprint}
+
+%  {\tiny \visible<6->{More details: \url{http://linkage.rockefeller.edu/wli/zipf/index_ru.html}}}
+
+\end{frame}
+
+\insertvideo{pmRAiUPdRjk}{}{}{An alternative framing:}
+
+%%   "On a class of skew distribution functions", 
+%%   Biometrika, 42:425-440. 
+%% 
+%% BB Mandelbrot, "A note on a class of skew distribution function. analysis and critique of a paper by H.A. Simon", Information and Control, 2,90-99 (1959).
+%% 
+%% 
+%% [ABSTRACT: This note is a discussion of H.A. Simon's model (1955) concerning the class of frequency distributions generally associated with the name of G.K. Zipf. The main purpose is to show that Simon's model is analytically circular in the case of the linguistic laws of Estoup-Zipf and Willis-Yule. Insofar as the economic law of Pareto is concerned, Simon has himself noted that his model is a particular case of that of Champernowne; this is correct, with some reservation. A simplified version of Simon's model is included. ]
+%% 
+%% HA Simon, "Some further notes on a class of skew distribution functions", Information and Control, 3, 80-88 (1960). 
+%% [ABSTRACT: This note takes issue with a recent criticism by Dr. B. Mandelbrot of a certain stochastic model to explain word-frequency data. Dr. Mandelbrot's principal empirical and mathematical objections to the model are shown to be unfounded. a central question is whether the basic parameter of the distributions is larger or smaller than unity. The empirical data show it is almost always very close to unity, Sometimes slightly larger, sometimes smaller. Simple stochastic models can be constructed for either case, and give a special status, as a limiting case, to instances where the parameter is unity. More generally, the empirical data can be explained by two types of stochastic models as well as by models assuming efficient information coding. The three types of models are briefly characterized and compared. ]
+%% 
+%% BB Mandelbrot, "Final note on a class of skew distribution functions: analysis and critique of a model due to H.A. Simon", Information and Control, 4, 198-216 (1961). 
+%% [ABSTRACT: We shall restate in detail our 1959 objections to Simon's 1955 model for the Pareto-Yule-Zipf distribution. Our objections are valid quite irrespectively of the sign of p-1, so that most of Simon's (1960) reply was irrelevant. We shall also analyze the other points brought up in that reply. ]
+%% 
+%% HA Simon, "Reply to 'final note' by Benoit Mandelbrot", Information and Control, 4, 217-223 (1961). 
+%% [ABSTRACT: Dr. Mandelbrot's original objection (1959) to using the Yule process to explain the phenomena of word frequencies were refuted in Simon (1960), and are now mostly abandoned. the present "reply" refutes the almost entirely new arguments introduced by Dr. Mandelbrot in his "final note", and demonstrates again the adequacy of the models in (1955). ]
+%% 
+%% BB Mandelbrot, "Post scriptum to 'final note'", Information and Control, 4, 300-304 (1961). 
+%% [ABSTRACT: My criticism has not changed since I first had the privilege of commenting upon a draft of Simon (1955). ]
+%% 
+%% HA Simon, "Reply to Dr. Mandelbrot's post scriptum", Information and Control, 4, 305-308 (1961). 
+%% [ABSTRACT: Dr. Mandelbrot has proposed a new set of objections to my 1955 models of the Yule distribution. Like his earlier objections, these are invalid. ] 
+
+\subsection{Assumptions}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}<+->{Mandelbrot's Assumptions:}
+    \begin{itemize}
+    \item<+-> 
+      Language contains $n$ words: $w_1, w_2, \ldots, w_n$.
+    \item<+-> 
+      $i$th word appears with probability $p_i$
+    \item<+-> 
+      Words appear randomly according to this distribution (obviously not true...)
+    \item<+-> 
+      Words = composition of letters is important
+    \item<+-> 
+      Alphabet contains $m$ letters
+    \item<+-> 
+      Words are ordered by length (shortest first)
+    \end{itemize}
+  \end{block}
+
+  \end{frame}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}<1->{Word Cost}
+    \begin{itemize}
+    \item<2-> \alertg{Length of word} (plus a space)
+    \item<3-> Word length was irrelevant for Simon's method
+    \end{itemize}
+  \end{block}
+
+\begin{block}<4->{Objection}
+  \begin{itemize}
+  \item<4-> Real words don't use all letter sequences
+  \end{itemize}
+\end{block}
+
+\begin{block}<5->{Objections to Objection}
+  \begin{itemize}
+  \item<5-> Maybe real words roughly follow this pattern (?)
+  \item<6-> Words can be encoded this way
+  \item<7-> Na na na-na naaaaa...
+  \end{itemize}
+\end{block}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}<1->{Binary alphabet plus a space symbol}
+    \medskip
+    \visible<1-> {\small
+    \begin{tabular}{|c|cccccccc|}
+      \hline
+      $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+      \hline
+      word & 1 & 10 & 11 & 100 & 101 & 110 & 111 & 1000 \\
+      \hline
+      length & 1 & 2 & 2 & 3 & 3 & 3 & 3 & 4 \\
+      \hline
+      $1+\log_2 i$ & 1 & 2 & 2.58 & 3 & 3.32 & 3.58 & 3.81 & 4 \\
+      \hline
+    \end{tabular}
+    }
+  \end{block}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<2-> Word length of $2^k$th word:
+      $= k+1 \visible<3->{\alertg{= 1+\log_2 2^k }}$
+    \item<4-> Word length of $i$th word $\simeq 1 + \log_2 i$
+    \item<5-> For an alphabet with $m$ letters,\\
+      word length of $i$th word $\simeq 1 + \log_m i$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Model}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{Total Cost $C$}
+    \begin{itemize}
+    \item<1->
+      Cost of the $i$th word:
+      $
+      C_i \simeq 1 + \log_{m} i
+      $
+    \item<2->
+      Cost of the $i$th word plus space:
+      $
+      C_i \simeq 1 + \log_{m} (i + 1)
+      $
+    \item<3->
+      Subtract fixed cost:
+      $ C_i' = C_i - 1 \simeq \log_{m} (i + 1) $
+    \item<4->
+      Simplify base of logarithm:
+      $$ 
+      C_i' \simeq \log_{m} (i+1) = \frac{\log_e (i+1)}{\log_e m}
+      \visible<5->{\alertg{\propto \ln (i+1)}}
+      $$
+    \item<6->
+      Total Cost:
+      $$
+      C \sim \sum_{i=1}^n p_i C_i' \propto \sum_{i=1}^n p_i \ln (i+1)
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+%% ???
+  \begin{block}{Information Measure}
+    \begin{itemize}
+    \item<1-> Use Shannon's Entropy (or Uncertainty): 
+      $$ 
+      H = -\sum_{i=1}^n p_i \log_2 p_i
+      $$
+    \item<2-> (allegedly) von Neumann suggested `entropy'...
+    \item<3-> Proportional to average number of bits needed to encode each `word'
+      based on frequency of occurrence
+    \item<4-> $-\log_2 p_i = \log_2 1/p_i$ = minimum number
+      of bits needed to distinguish event $i$ from all others
+    \item<5-> If $p_i = 1/2$, \alertg{need only 1 bit} ($\log_{2} 1/p_i = 1$)
+    \item<6-> If $p_i = 1/64$, \alertg{need 6 bits} ($\log_{2} 1/p_i = 6$)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{Information Measure}
+    \begin{itemize}
+    \item<1->       
+      Use a slightly simpler form:
+      $$ 
+      H = -\sum_{i=1}^n p_i \log_e {p_i}/\log_e{2} 
+      \uncover<2->{= -g \sum_{i=1}^n p_i \ln p_i}
+      $$
+      \uncover<2->{\mbox{}\hfill where $g = 1/\ln{2}$}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<1-> Minimize 
+    $$ \alertg{F(p_1,p_2,\ldots,p_n) = C/H} $$
+    subject to constraint
+    $$ \sum_{i=1}^n p_i = 1 $$
+  \item<2-> Tension: \\
+    \alertg{(1)} Shorter words are \alertg{cheaper}\\
+    \visible<3->{\alertg{(2)} Longer words are \alertg{more informative} (rarer)}
+%%  \item<4-> (Good) question: how much does choice of $C/H$ 
+%%    as function to minimize affect things?
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\subsection{Analysis}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{Time for Lagrange Multipliers:}
+    \begin{itemize}
+    \item<1->
+      Minimize
+      $$
+      \Psi(p_1,p_2,\ldots,p_n) = 
+      $$
+      $$
+      F(p_1,p_2,\ldots,p_n) + \lambda G(p_1,p_2,\ldots,p_n)
+      $$
+    \item<2->[]
+      where
+      $$
+      F(p_1,p_2,\ldots,p_n)
+      = 
+      \frac{C}{H}
+      =
+      \alertg{
+        \frac{\sum_{i=1}^n p_i \ln (i+1)}
+        {-g\sum_{i=1}^n p_i \ln p_i}
+      }
+      $$
+      and the
+      constraint function is
+      $$
+      G(p_1,p_2,\ldots,p_n) = \alertg{\sum_{i=1}^n p_i - 1  (= 0)}
+      $$
+    \end{itemize}
+    \visible<3->{
+      \large
+      \insertassignmentquestionsoft{03}{3}
+    }
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{Some mild suffering leads to:}
+    \begin{itemize}
+    \item<1->
+      $$
+      \alertg{p_j} = e^{-1 -\lambda H^2/gC} (j+1)^{-H/gC} \uncover<2->{\alertg{\propto (j+1)^{-H/gC}}}
+      $$
+    \item<3-> A power law appears \alertg{[applause]}: $\alertg{\boxed{\alpha = H/gC}}$
+    \item<4-> \alertb{Next:} sneakily deduce $\lambda$ in terms of $g$, $C$, and $H$.
+    \item<5-> Find
+      $$
+      \alertb{p_j = (j+1)^{-H/gC}}
+      $$
+    \end{itemize}
+  \end{block}
+
+  
+\end{frame}
+
+%% \begin{frame}<0>
+%%   \frametitle{Zipfarama via Optimization}
+%% 
+%%   \begin{block}{Differentiate with respect to $p_j$:}
+%%     \begin{itemize}
+%%     \item<1-> 
+%%       $$ 
+%%       \partialdiff{\Psi}{p_j} =
+%%       \partialdiff{(C/H)}{p_j} + \partialdiff{}{p_j} \lambda \left(\sum_{i=1}^n p_i - 1 \right)
+%%       \
+%%       \visible<2->{
+%%         \alertg{(= 0)}
+%%       }
+%%       $$
+%%     \item<3->
+%%       $$
+%%       = 
+%%       \frac{
+%%         \partialdiff{C}{p_j}H - C\partialdiff{H}{p_j}
+%%       }
+%%       {H^2}
+%%       + \lambda
+%%       $$
+%%     \item<4->
+%%       $$
+%%       = 
+%%       \frac{
+%%         \partialdiff{}{p_j}
+%%         \left(\sum_{i=1}^n p_i \ln (i+1)\right)H 
+%%         - C\partialdiff{}{p_j}\left(-g\sum_{i=1}^n p_i \ln p_i\right)
+%%       }
+%%       {H^2}
+%%       + \lambda
+%%       $$
+%%     \item<5->
+%%       $$
+%%       \frac{
+%%       H\ln{(j+1)} + g C ( \ln{p_j} + \only<-5>{p_j/p_j}\only<6>{\alertg{\cancel{p_j/p_j}\ 1}} \only<7->{1} )
+%%       }
+%%       {H^2}
+%%       + \lambda
+%%       \only<7->{\ \alertg{=0}}
+%%       $$
+%% 
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}<0>
+%%   \frametitle{Zipfarama via Optimization}
+%% 
+%%   \begin{block}{Keep going...}
+%%     \begin{itemize}
+%%     \item<1-> $$
+%%       \frac{H \ln{(j+1)}  + g C ( \ln{p_j} + 1 )}{H^2} + \lambda= 0.
+%%       $$
+%%     \item<2->
+%%       $$ 
+%%       \ln{p_j} = -1 - \frac{ H \ln{(j+1)}+ \lambda H^2}{gC} 
+%%       $$
+%%       Rearrange:
+%%       \only<1>{
+%%         $$ (\ln{j}) H + g C ( \ln{p_j} + 1 ) = 0 $$
+%%       }%
+%%       \only<2>{
+%%         $$ (\ln{j}) H + g C ( \ln{p_j} + 1 ) = 0 $$
+%%       }%
+%%       \only<3>{
+%%         $$ \alertg{\cancel{(\ln{j}) H}} + g C ( \ln{p_j} + 1 ) = \alertg{- (\ln{j}) H} $$
+%%       }%
+%%       \only<4>{
+%%         $$ g C ( \ln{p_j} + 1 ) = - (\ln{j}) H $$
+%%       }%
+%%       \only<5>{
+%%         $$ \ln{p_j} + 1  = -  \frac{(\ln{j}) H}{gC} $$
+%%       }%
+%%      \only<6->{
+%%      }
+%%     \item<3->
+%%       $$
+%%       p_j = \exp\left\{-1 - \frac{ H\ln{(j+1)} + \lambda H^2}{gC}\right\}
+%%       $$
+%%     \item<4->
+%%       $$
+%%       \alertg{p_j} = e^{-1 -\lambda H^2/gC} (j+1)^{-H/gC} \uncover<5->{\alertg{\propto (j+1)^{-H/gC}}}
+%%       $$
+%%     \item<6-> A power law appears \alertg{[applause]}: $\alertg{\boxed{\alpha = H/gC}}$
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+
+%% \begin{frame}<0>
+%%   \frametitle{Zipfarama via Optimization}
+%% 
+%%   \begin{block}{Finding the exponent}
+%%   \begin{itemize}
+%%   \item<1-> Expressions for $H$ and $C$ are implicit functions.
+%%   \item<2-> Not terribly obvious what the exponent will be.
+%%   \item<3-> \alertg{Let's find out...}
+%%   \item<3-> First: Determine $\lambda$
+%%   \item<4-> Sneakiness: Subsitute form for $p_j$ into $H$
+%%   \item<5-> Find $\lambda = -gC/H^2$\\
+%%     \uncover<6->{ Our form for $p_j$ reduces:
+%%       $$
+%%       \alertg{p_j} = e^{-1 -\lambda H^2/gC} (j+1)^{-H/gC} 
+%%       $$
+%%       }
+%%       \uncover<7->{
+%%       $$
+%%       = \alertg{e^{-1+1}} (j+1)^{-H/gC} = \alertg{(j+1)^{-H/gC}}
+%%       $$
+%%     }
+%%   \end{itemize}
+%%   \end{block}
+
+%%     $$ \sum_{i=1}^n p_j = 1 $$
+%%   \item<4->
+%%     $$ 
+%%     1 = \sum_{j=1}^n e^{-1 -\lambda H^2/gC} j^{-H/gC}
+%%     $$  
+%%     \uncover<5->{
+%%       $$
+%%       = e^{-1 -\lambda H^2/gC} \sum_{j=1}^n j^{-H/gC}
+%%       $$
+%%     }
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{Finding the exponent}
+  \begin{itemize}
+  \item<1-> Now use the normalization constraint:
+    $$ 
+    1 = \sum_{j=1}^n p_j
+    \uncover<2->{
+      = \sum_{j=1}^n (j+1)^{-H/gC}
+    }
+    \uncover<3->{
+      = \sum_{j=1}^n (j+1)^{-\alpha}
+    }
+    $$
+  \item<4-> As $n \rightarrow \infty$, we end up with \alertg{$\zeta(H/gC)=2$}\\
+    where $\zeta$ is the Riemann Zeta Function
+  \item<5-> Gives $\alpha \simeq 1.73$ ($> 1$, too high)
+  \item<6-> If cost function \alertg{changes} ($j+1 \rightarrow j+a$)
+    then exponent is tunable
+  \item<7-> Increase $a$, decrease $\alpha$
+  \end{itemize}
+\end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{2014-09-09mandelbrot-postcard_polaroid.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zipfarama via Optimization:}
+
+  \begin{block}{All told:}
+    \begin{itemize}
+    \item<+-> 
+      Reasonable approach: Optimization is at work in evolutionary processes
+    \item<+-> 
+      But optimization can involve many incommensurate elephants:
+      monetary cost, robustness, happiness,...
+    \item<+-> 
+      Mandelbrot's argument is not super convincing
+    \item<+-> 
+      Exponent depends too much on a loose definition of cost
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%% \neuralreboot{V6c7Vw6R33E}{}{}{Ron Swanson's Pyramid of Greatness:}
+
+\begin{frame}
+
+  \begin{block}{From the discussion at the end of Mandelbrot's paper:}
+    \begin{itemize}
+    \item
+      A. S. C. Ross: 
+      ``M. Mandelbrot states that `the actual direction of evolution
+      (sc. of language) is, in fact, towards fuller and fuller utilization
+      of places'. We are, in fact, completely without evidence as to the
+      existence of any `direction of evolution' in language, and it is
+      axiomatic that we shall remain so. Many philologists would deny that a
+      `direction of evolution' could be theoretically possible; thus I
+      myself take the view that a language develops in what is essentially a
+      purely random manner.''
+    \item
+      Mandelbrot: ``As to the `fundamental linguistic units being the least possible
+      differences between pairs of utterances' this is a logical consequence
+      of the fact that two is the least integer greater than one.''
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{More:}
+
+  \begin{block}<1->{Reconciling Mandelbrot and Simon}
+      \begin{itemize}
+      \item<1-> Mixture of local optimization and randomness 
+      \item<2-> Numerous efforts...
+      \end{itemize}
+      \begin{enumerate}
+      \item<2-> Carlson and Doyle, 1999:\\
+        Highly Optimized Tolerance (HOT)---Evolved/Engineered Robustness\cite{carlson1999a,carlson2002a}
+      \item<3-> Ferrer i Cancho and Sol\'{e}, 2002: \\
+        Zipf's Principle of Least Effort\cite{ferrericancho2002a}
+      \item<4-> D'Souza et al., 2007:\\ Scale-free networks\cite{dsouza2007a}
+      \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{More}
+
+  \begin{block}<1->{Other mechanisms:}
+    \begin{itemize}
+    \item<+-> 
+      Much argument about whether or not monkeys typing
+      could produce Zipf's law... (Miller, 1957)\cite{miller1957a}
+    \item<+-> 
+      Miller gets to slap Zipf rather rudely in an introduction to
+      a 1965 reprint of Zipf's ``Psycho-biology of Language''\cite{miller1965a,zipf1935a}
+    \item<+-> 
+      Let us now slap Miller around by simply reading his words out:\\
+      \includegraphics[width=0.2\textwidth,page=1]{miller1965a}\,
+      \includegraphics[width=0.2\textwidth,page=2]{miller1965a}\,
+      \includegraphics[width=0.2\textwidth,page=3]{miller1965a}\,
+      \includegraphics[width=0.2\textwidth,page=4]{miller1965a}
+
+    \item<+-> 
+      Side note: Miller mentions ``Genes of Language.''
+    \item<+-> 
+      Still fighting: ``Random Texts Do Not Exhibit the Real Zipf's 
+      Law-Like Rank Distribution''\cite{ferrericancho2010a}
+      by Ferrer-i-Cancho and Elvev\r{a}g, 2010.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\subsection{Extra}
+
+\begin{frame}
+  \frametitle{Others are also not happy:}
+  %% \includegraphics[height=20pt]{plankton.jpg}}
+
+  \begin{block}{Krugman and Simon}
+    \begin{itemize}
+    \item<1-> ``The Self-Organizing Economy'' (Paul Krugman, 1995)\cite{krugman1995a}
+    \item<2-> Krugman touts Zipf's law for cities, Simon's model
+    \item<3-> ``D\'{e}j\`{a} vu, Mr. Krugman'' (Berry, 1999)
+    \item<4-> Substantial work done by Urban Geographers 
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Who needs a hug?}
+
+  \begin{block}{From Berry\cite{berry1999a}}
+    \begin{itemize}
+    \item<1->
+      D\'{e}j\`{a} vu, Mr. Krugman. Been there, done that. The Simon-Ijiri model was introduced 
+      to geographers in 1958 as an explanation of city size distributions, the first of many such 
+      contributions dealing with the steady states of random growth processes, ...
+                                %contributions 
+                                %    that soon were complemented by works detailing the self-organized criticality of central- 
+                                %    place and other polycentric spatial arrangements. 
+    \item<2->
+      But then, I suppose, even if Krugman 
+      had known about these studies, they would have been discounted because they were not 
+      written by professional economists or published in one of the top five journals in economics!  
+    \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Who needs a hug?}
+
+  \begin{block}{From Berry\cite{berry1999a}}
+    \begin{itemize}
+    \item<1-> ... [Krugman] needs to exercise some humility, for his 
+    world view is circumscribed by folkways that militate against recognition and 
+    acknowledgment of scholarship beyond his disciplinary frontier. 
+    \item<2-> \alertg{Urban geographers, thank heavens, are not so afflicted.}
+    \end{itemize}
+
+  \end{block}
+  
+\end{frame}
+
+\subsection{And\ the\ winner\ is...?}
+
+\begin{frame}
+  \frametitle{So who's right?}
+
+  \begin{block}{}
+    \includegraphics[width=\textwidth]{maillart2008a_abstract.pdf}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{So who's right?}
+
+  \begin{block}{}
+  \includegraphics[width=0.48\textwidth]{maillart2008a_fig1}
+  \includegraphics[width=0.48\textwidth]{maillart2008a_fig1caption}
+  
+  \bigskip
+
+  Maillart et al., PRL, 2008:\\
+  ``Empirical Tests of {Z}ipf's Law Mechanism in 
+  Open Source {L}inux Distribution''\cite{maillart2008a}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{So who's right?}
+
+  \begin{block}{}
+    \includegraphics[height=0.7\textheight]{maillart2008a_fig2}
+    
+    \begin{itemize}
+    \item<1-> 
+      Rough, approximately linear relationship
+      between $C$ number of in-links and $\Delta C$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{So who's right?}
+
+  \begin{block}{}
+  Bornholdt and Ebel (PRE), 2001:\\
+  ``World {W}ide {W}eb scaling exponent from {S}imon's 1955 model''\cite{bornholdt2001a}.
+
+  \begin{itemize}
+  \item<2->
+    Show Simon's model fares well.
+  \item<3->
+    Recall $\rho$ = probability new flavor appears.
+  \item<4->
+    \wordwikilink{http://en.wikipedia.org/wiki/AltaVista}{Alta Vista} crawls in approximately 6 month period in 1999
+    give $\rho \simeq 0.10$
+  \item<5->
+    Leads to $\gamma = 1 + \frac{1}{1-\rho} \simeq 2.1$ for in-link distribution.
+  \item<6->
+    Cite direct measurement of $\gamma$ at the time: $2.1 \pm 0.1$ and 2.09
+    in two studies.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{So who's right?}
+
+  \begin{block}{Nutshell:}
+    \begin{itemize}
+    \item<1->
+      Simonish random \alertg{`rich-get-richer'} models
+      agree in detail with empirical observations.
+    \item<2->
+      \alertg{Power-lawfulness}: Mandelbrot's optimality is still apparent.
+    \item<3->
+      Optimality arises for free in
+      \alertb{Random Competitive Replication} models.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\changelecturelogo{.18}{pocslogo100.pdf}
+
+\neuralreboot{CxiDTwvsLbA}{}{}{Walking with a baby robin:}

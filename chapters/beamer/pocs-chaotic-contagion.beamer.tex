@@ -1,0 +1,442 @@
+\section{Chaotic\ Contagion}
+
+\begin{frame}
+  \frametitle{Chaotic Contagion on Networks:}
+
+  \begin{block}{}
+    \displaypaper{dodds2013a}{1}
+  \end{block}
+
+  \begin{block}{}
+    \displaypaper{harris2013a}{1}
+  \end{block}
+
+\end{frame}
+
+
+\subsection{Chaos}
+
+\begin{frame}
+  \frametitle{Chaotic contagion:}
+
+  \begin{itemize}
+  \item<1->   What if individual response functions are not monotonic?
+  \item<2->  Consider a simple deterministic version:
+    \begin{columns}
+      \column{0.7\textwidth}
+      \begin{itemize}
+      \item Node $i$ has an \alertb{`activation threshold'} $\phi_{i,1}$
+      \item[] \ldots and a \alertb{`de-activation threshold'} $\phi_{i,2}$
+      \item<3-> Nodes like to imitate but only up to a limit---they don't
+        want to be like everyone else.
+      \end{itemize}
+      \column{0.3\textwidth}
+      \includegraphics<2->[width=\textwidth]{figupdownrfn_noname_A} 
+    \end{columns}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+  \includegraphics[width=\textwidth]{figupdownrfn_network05_noname.pdf} 
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Chaotic contagion}
+
+  \begin{block}{Definition of the tent map:}
+    $$ 
+    F(x) = 
+    \left\{
+      \begin{array}{l}
+        rx \mbox{\ for $0 \le x \le \frac{1}{2}$}, \\
+        r(1-x) \mbox{\ for $\frac{1}{2} \le x \le 1$}. \\
+      \end{array}
+    \right.
+    $$
+    \begin{itemize}
+    \item The usual business: 
+      look at how
+      $F$ iteratively maps the unit interval $[0,1]$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The tent map}
+
+  Effect of increasing $r$ from 1 to 2.
+  \begin{columns}
+    \column{.333\textwidth}
+    \includegraphics<1->[width=\textwidth]{figtentmap7_noname} 
+    \column{.333\textwidth}
+    \includegraphics<2->[width=\textwidth]{figtentmap6_noname} 
+    \column{.333\textwidth}
+    \includegraphics<3->[width=\textwidth]{figtentmap8_noname} 
+  \end{columns}
+
+  \begin{overprint}
+    \onslide<1-3| handout:0| trans:0>
+    \onslide<4-| handout:1| trans:1>
+    \begin{columns}
+      \column{.5\textwidth}
+      \includegraphics[width=\textwidth]{fignetwork_ud_meanfield02_pdd_noname}  
+      \column{.5\textwidth}
+%      \alert{$\rightpointleft$ Orbit diagram} \\
+%      \alert{$\HandCuffLeft$ Orbit diagram} \\
+      \begin{block}{Orbit diagram:}
+        Chaotic behavior increases
+        as map slope $r$ is increased.
+      \end{block}
+    \end{columns}
+  \end{overprint}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Chaotic behavior}
+
+  Take $r=2$ case:
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{figtentmap8_noname} 
+  \end{center}
+
+  \begin{itemize}
+  \item<2-> What happens if nodes have limited information?
+  \item<3-> As before, allow interactions to take place on a sparse random network.
+  \item<4-> Vary average degree $z=\tavg{k}$, a measure of information
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Two population examples:}
+
+  \includegraphics[width=\textwidth]{figupdownrfn_noname} 
+    
+  \begin{itemize}
+    \item<1-> 
+      Randomly select $(\phi_{i,1},\phi_{i,2})$ from
+      gray regions shown in plots B and C.
+    \item<1->
+      Insets show composite response function
+      averaged over population.
+    \item<2->
+      We'll consider plot C's example: \alertb{the tent map}.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Invariant densities---stochastic response functions}
+
+  \centering
+  \begin{tabular}{cc}
+    \includegraphics[width=0.48\textwidth]{fignetwork_ud_purerandom_seq14c1_1_1_noname} &
+    \includegraphics[width=0.48\textwidth]{fignetwork_ud_purerandom_seq14c2_1_1_noname} \\
+    activation time series & activation density \\
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Invariant densities---stochastic response functions}
+  \begin{tabular}{llll}
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c1_1_1_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c2_1_1_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c1_4_2_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c2_4_2_noname} \\
+    \\
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c1_13_6_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c2_13_6_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c1_4_8_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c2_4_8_noname} \\
+    \\
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c1_2_9_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c2_2_9_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c1_13_12_noname} &
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq14c2_13_12_noname} \\
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+
+  \frametitle{Invariant densities---deterministic response functions for one specific network with $\tavg{k}=18$}
+  \begin{tabular}{ll}
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_1_1_1_noname}%
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_2_1_1_noname} &
+    \qquad    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_1_18_1_noname}%
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_2_18_1_noname} \\
+    \\
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_1_5_1_noname}%
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_2_5_1_noname} &
+    \qquad    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_1_8_1_noname}%
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_2_8_1_noname} \\
+    \\
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_1_9_1_noname}%
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_2_9_1_noname} &
+    \qquad    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_1_10_1_noname}%
+    \includegraphics[width=0.2\textwidth]{fignetwork_ud_purerandom_seq16_2_10_1_noname} \\
+  \end{tabular}
+
+  %%      Examples of time series for one realized random network with $\avg{k}=18$ and
+  %%      varying randomly chosen initial seeds (I have excluded events that did not take off).
+  %%      Very interesting---sometimes the dynamics hold on for at least 2000 cycles but many
+  %%      times they collapse to one or two period orbits.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Invariant densities---stochastic response functions}
+  \begin{tabular}{llll}
+    \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq14d1_1_1_noname} &
+    \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq14d2_1_1_noname} &
+    \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq14e1_1_1_noname} &
+    \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq14e2_1_1_noname} \\
+  \end{tabular}
+  Trying out higher values of $\tavg{k}$\ldots
+        
+%      Examples of time series for single initial seeds and stochastic tent map response functions.
+%      As $z$ increases, the invariant density spreads out as would expect (for the fully mixed
+%      version, the invariant density is uniform, $\rho(\phi)=1$.
+%      Again, $N=10^4$ and the histograms of cascade size $s$ are derived from $s(t)$ for $t \ge 100$.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Invariant densities---deterministic response functions}
+  \begin{tabular}{llll}
+    \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13d1_1_1_noname} &
+      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13d2_1_1_noname} &
+      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13e1_1_1_noname} &
+      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13e2_1_1_noname} \\
+      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13f1_1_1_noname} &
+      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13f2_1_1_noname} &
+      \\
+  \end{tabular}
+  Trying out higher values of $\tavg{k}$\ldots
+
+%      Same as Fig.~\ref{fig:network_ud_purerandom_seq13de} but back to deterministic
+%      up/down response functions.
+%      Again, $N=10^4$ and the histograms of cascade size $s$ are derived from $s(t)$ for $t \ge 100$.
+%      The third plot shows that even for $\tavg{k}=100$, the dynamics can collapse.
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Connectivity leads to chaos:}
+
+  \begin{columns}
+    \column{0.35\textwidth}
+    \includegraphics[width=\textwidth]{fignetwork_ud_meanfield02_pdd_noname}\\
+    \includegraphics[width=\textwidth]{fignetwork_ud_meanfield04_pdd_noname} 
+    \column{0.65\textwidth}
+    Stochastic response functions:
+    \includegraphics[width=\textwidth]{fignetwork_ud_purerandom_seq14_pdd_noname}  
+  \end{columns}
+  
+\end{frame}
+
+
+
+  
+\begin{frame}
+  \frametitle{Bifurcation diagram: Asynchronous updating}
+
+  \begin{columns}
+    \column{0.35\textwidth}
+    \includegraphics[width=\textwidth]{fignetwork_ud_meanfield02_pdd_noname} \\
+    \includegraphics[width=\textwidth]{fignetwork_ud_meanfield04_pdd_noname} 
+    \column{0.65\textwidth}
+    \includegraphics[width=\textwidth]{fignetwork_ud_meanfield06_pdd_noname}  
+  \end{columns}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bifurcation diagram: Asynchronous updating}
+
+    \includegraphics[height=0.9\textheight]{harris2013a_fig3}  
+  
+\end{frame}
+
+
+
+%%\begin{frame}
+%%  \frametitle{Chaotic behavior---the tent map}
+%%
+%%  \includegraphics[width=0.3\textwidth]{figtentmap5_noname} 
+%%  \includegraphics[width=0.3\textwidth]{figtentmap4_noname} 
+%%  \includegraphics[width=0.3\textwidth]{figtentmap3_noname} 
+%%
+%%  1, 2, and 5-fold self-composed tent maps.
+%%
+%%\end{frame}
+%%
+%%\begin{frame}
+%%  \frametitle{Standard tent map bifurcation diagram}
+%%  \centering
+%%  \includegraphics[width=0.7\textwidth]{fignetwork_ud_meanfield02_pdd_noname}  
+%%
+%%\end{frame}
+%%
+%%\begin{frame}
+%%  \frametitle{Tent map bifurcation diagram with $\tavg{k}$ as parameter---stochastic}
+%%  \centering
+%%  \includegraphics[width=0.7\textwidth]{fignetwork_ud_purerandom_seq14_pdd_noname}  
+%%
+%%\end{frame}
+%%
+%%\begin{frame}
+%%  \frametitle{Tent map bifurcation diagram with $\tavg{k}$ as parameter---deterministic}
+%%  \centering
+%%  \includegraphics[width=0.7\textwidth]{fignetwork_ud_purerandom_seq13_pdd_noname}  
+%%
+%%\end{frame}
+%%
+%%\begin{frame}
+%%  \frametitle{Standard logistic map bifurcation diagram}
+%%  \centering
+%%  \includegraphics[width=0.7\textwidth]{fignetwork_ud_meanfield04_pdd_noname}  
+%%
+%%\end{frame}
+%%
+%%
+%%
+%%\begin{frame}
+%%  \frametitle{Invariant densities---deterministic response functions}
+%%  \begin{tabular}{llll}
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c1_1_1_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c2_1_1_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c1_5_2_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c2_5_2_noname} \\
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c1_1_4_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c2_1_4_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c1_5_7_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c2_5_7_noname} \\
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c1_1_10_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c2_1_10_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c1_4_12_noname} &
+%%      \includegraphics[width=0.22\textwidth]{fignetwork_ud_purerandom_seq13c2_4_12_noname} \\
+%%  \end{tabular}
+%%
+%%
+%%\end{frame}
+
+
+
+%%%%%%%%%%%%%% extensions
+%%%%%%%%%%%%%% threshold model
+%%%%%%%%%%%%%% 2. non-monotonic response functions
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{7JHrZyyq870}{}{} 
+    \small 
+    How the bifurcation diagram changes with increasing average degree
+    $\tavg{k}$
+    as a function of the synchronicity parameter $\alpha$
+    for the stochastic response (tent map) case.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{_zwK6poIBvc}{}{}
+    \small
+    How the bifurcation diagram changes with increasing $\alpha$, the
+    synchronicity parameter as a function of average degree $\tavg{k}$
+    for the stochastic response (tent map) case.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{3bo4fzp4Snw}{}{}
+    \small
+    LIC dynamics on a fixed graph with a
+    shared stochastic (tent map) response function. Average degree =
+    6, update synchronicity parameter $\alpha$ = 1. The macroscopic
+    behavior is period-1, plus noisy fluctuations.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{7UCuIa_ktmw}{}{} 
+    \small 
+    LIC dynamics on a fixed
+    graph with a shared stochastic (tent map) response
+    function. Average degree = 11, update synchronicity parameter
+    $\alpha = 1$. The macroscopic behavior is period-2, plus noisy
+    fluctuations.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{oWKt8Zj1Ccw}{}{}
+    \small
+    LIC dynamics on a fixed graph with a
+    shared stochastic (tent map) response function. $\avg{k} = 30$,
+    update synchronicity parameter $\alpha = 1$.
+    The macroscopic behavior is
+    chaotic.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{AfhUlkIOiOU}{}{}
+    \small
+    LIC dynamics on a fixed graph with
+    fixed, deterministic response functions. Average degree = 30,
+    update synchronicity parameter $\alpha$ = 1. Shown are nodes
+    which continue changing (703/1000) after the transient chaotic
+    behavior has "collapsed."
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{ZwY0hTstJ2M}{}{}
+    \small
+    LIC dynamics on a fixed graph with fixed, deterministic response
+    functions. Average degree = 30, update synchronicity parameter
+    $\alpha$ = 1. The dynamics exhibit transient chaotic behavior before
+    collapsing to a fixed point.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+    \youtubevideo{YDhjmFyBSn4}{}{}
+    \small
+    LIC dynamics on a fixed graph with fixed, deterministic response
+    functions. Average degree = 17, update synchronicity parameter
+    $\alpha$ = 1. The dynamics exhibit transient chaotic behavior before
+    collapsing to a period-4 orbit.
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[plain]
+
+  \includegraphics[width=1.2\textwidth]{fignetwork_ud_purerandom_orbitdiagrams006_noname.pdf}
+
+\end{frame}
+
+
+\begin{frame}[plain]
+  
+  \includegraphics[width=1.2\textwidth]{fignetwork_ud_purerandom_seq77_collectedgoodies003_noname.pdf}
+
+\end{frame}
+
+
+

@@ -1,0 +1,2593 @@
+% net% Re error bars: Point out evident robustness
+%% of new hedonometer means measure
+%% has become much more stable
+
+%% I realized this morning that I failed to go back
+%% and point out the tunability of the improved hedonometer is
+%% our big statement about the instrument's robustness.
+%% In that one complicated figure showing many Twitter time
+%% series (just as an example), we have that very different words sets give the same trend (with varying offsets).
+%% 
+%% We had the essence of this with our first version (using the ANEW study
+%% word list) but now it's a much deeper story due to the scale
+%% invariance of expressed emotion in the English language.
+%% 
+%% And as I said, we're working toward turning this observation into error bars using some kind of bootstrap method.
+%% 
+%% Thanks again for having me over to talk.
+
+
+
+
+%% 20 minute talk
+%% 10 minutes discussion
+
+%% Mystery of cooperation slide
+%% Bash economists
+%% hedonometer.org will be live in a few days
+%% 
+%% plot ambient happiness
+
+
+%% add stronger slide: either this is obvious to you, or not
+%% be clear about disagreement with past
+%% inverted U: makes sense theoretically
+
+%% add clarification that we are measuring
+%% people's exhibited happiness as perceived 
+%% by others
+%% socially construed happiness 
+%% and that this matters enormously.
+%% think about people!
+
+%% add that tweets are a subset
+%% of all interactions
+
+%%%%%%%%%%%%%%%%%%%
+
+
+%% update # of tweets/data sizes
+
+%% add phonemes, letters, etc.?
+%% add qwerty?
+
+%% show how performance has improved beyond ANEW
+%% include old time series?
+%% or just mention that we didn't see any negative drops before
+
+%% better time series
+
+%%%%%%%%%%%%%%%%%%%%
+
+%% done: add page of papers
+
+%% done: add blip about no global accidental happiness
+
+
+%% \textbf{Good news for giving the first talk:}
+
+\textbf{The daily unravelling of the human mind:}
+  \begin{center}
+      \includegraphics[width=.7\textwidth]{figtwitter_daily_thetruth_mechturk004_noname.pdf}\\
+      \includegraphics[width=.65\textwidth]{figtwitter_daily_anewfreq_spesh_thetruth005_motherfucker_fuck_shit_asshole_bitch_noname.pdf}\\
+%%      \includegraphics[width=1.2\textwidth]{figtwitter_weeklybyhour002_1_noname.pdf}
+    \end{center}
+  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Happiness
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\changelogo{.2}{smiley-face-sketch-tp-3.pdf}
+
+\section{Measuring\ Happiness}
+
+
+
+%% \subsection{Some\ motivation}
+
+
+  \textbf{Happiness:}
+
+      
+    \includegraphics[width=\textwidth]{socrates.jpg}
+    
+    \includegraphics[width=\textwidth]{bentham.jpg}
+    
+    \includegraphics[width=\textwidth]{jefferson.jpg}
+    \medskip
+      
+    Socrates et al.:\\
+    \alertb{eudaimonia}\cite{jones1970a}
+    
+    Bentham:\\
+    \alertb{hedonistic calculus}
+    
+    Jefferson:\\
+    \alertb{\ldots the pursuit of happiness}
+  
+%%  \textbf{Early drafts:}
+
+  \textbf{Early drafts:}
+    \includegraphics[width=\textwidth]{declaration-independence-draft-tp-10.pdf}
+  
+
+
+  \textbf{Happiness:}
+
+      
+    
+      Even the odd modern economist is happy:
+
+      \medskip
+
+      ``Happiness'' by Richard Layard\cite{layard2005a}
+    
+    
+  \includegraphics[width=0.8\textwidth]{book-layard-v2.png}\\
+  {
+    \tiny
+    \wordwikilink{http://www.amazon.com/Happiness-Lessons-Science-Richard-Layard/dp/1594200394}{[amazon]}
+  }
+  
+
+  \textbf{What makes us happy?}
+
+  Layard's summary:
+  \textbf{Dominant factors:}
+          
+      
+      
+       
+      Family relationships 
+       
+      Financial situation 
+       
+      Work 
+       
+      Community and Friends 
+      
+      
+      
+      
+       
+      Health 
+       
+      Personal Values 
+       
+      Personal Freedom 
+      
+      
+      
+
+  \textbf{Unimportant factors:}
+          
+      
+      
+       
+        Age
+       
+        Gender
+       
+        Education
+      
+      
+      
+      
+       
+        Inherent intelligence
+       
+        Looks
+       
+      
+      
+
+
+
+
+  
+
+  \textbf{Desiring happiness---not just for boffins:}
+    
+    
+    Average people routinely report being happy
+    is what they want most in life\cite{layard2005a,lyubomirsky2007a,diener2011a}
+   
+    And it matters: ``Happy people live longer:\ldots''\\ 
+    Survey by Diener and Chan.~\cite{diener2011a}
+    
+  
+
+       
+     
+      
+    
+    \includegraphics[width=\textwidth]{2005-10-03nytimes-happiness-fig1.png}
+    
+    
+    \textbf{National indices of well-being:}
+      
+       Bhutan
+       France
+       Australia
+      
+    
+    
+
+
+%% \subsection{Measuring\ emotional\ content}
+
+
+  \textbf{An easy knock:}
+
+      
+    
+    \centering
+    \includegraphics[width=\textwidth]{1984first.jpg}\\
+    \smallskip
+    \alertb{Science = Orwell}
+    
+    
+    \centering
+    %%      
+      
+      \includegraphics[width=\textwidth]{BraveNewWorld_FirstEdition.jpg}\\
+      \smallskip
+      \alertb{Policy = Brave New World}
+        
+  
+
+%% %% 
+%%   \begin{center}
+%%     \includegraphics[height=0.85\textheight]{2011-11-04cia-twitter.pdf}  
+%%   \end{center}
+%% 
+%%   
+%%    
+%%     See story \wordwikilink{http://slatest.slate.com/posts/2011/11/04/cia_s_vengeful_librarians_track_up_to_5_million_tweets_per_day.html}{here} for example [slate].
+%%   
+%% 
+%% 
+
+  \textbf{Emotional content}
+
+  \textbf{So how does one measure}
+    
+     happiness?
+     levels of other emotional states?
+    
+  
+
+  \textbf{Just ask people how happy they are.}
+    
+    
+      Experience sampling\cite{christensen2003a,csikszentmihalyi1977a,csikszentmihalyi1990a} (Csikszentmihalyi et al.) 
+    
+      Day reconstruction\cite{kahneman2004a} (Kahneman et al.)
+    
+  
+  
+  \textbf{But self-reporting has some drawbacks:}
+    
+     relies on memory and self-perception
+     induces misreporting\cite{martinelli2007a}
+     costly
+    
+  
+
+  %% gallup 
+  %% facebook
+  %% stumbling on happiness
+
+
+  \textbf{Happiness, attention, and doing:}
+
+      
+%%    \includegraphics[width=\textwidth]{killingsworth2010a_fig1-tp-5}
+    \includegraphics[width=\textwidth]{killingsworth2010a_fig1}
+    
+    \includegraphics[width=\textwidth]{killingsworth2010a_fig1caption}
+
+    {\small Killingsworth and Gilbert, Science, 2010\cite{killingsworth2010a}}
+  
+
+%% %%   \textbf{Facebook Lexicon Sentiment Analysis}
+%% 
+%%   \includegraphics[width=\textwidth]{lexicon-democrat-sentiment}
+%% 
+%% %% 
+%% %%   \textbf{Facebook Lexicon Sentiment Analysis}
+%%   \textbf{Binary decision on emotional content}
+%%     \includegraphics[width=.68\textwidth]{lexicon-palin-sentiment}
+%%     \quad
+%%     \includegraphics[width=.23\textwidth]{sarah-palin}
+%%   
+%%   
+%%   
+%%     Limitation:   Sentiments are classified as either \alert{positive} or \alertb{negative}.
+%%   
+%%       `I like Sarah Palin' \alert{given same score as} `Sarah Palin's voice fills me with unbridled joy!'
+%%   
+%% 
+\changelogo{.18}{hedonometer-smiley-sketch-tp-3.pdf}
+
+
+%%  \textbf{Measuring Emotional Content:}
+
+  \textbf{We'd like to build an `hedonometer':}
+          
+%%      \vskip5pt%
+      \renewcommand{\fboxrule}{1pt}
+      \renewcommand{\fboxsep}{0pt}
+%%      \fbox{\includegraphics[width=\textwidth]{gdp-dials.pdf}}
+      \includegraphics[width=\textwidth]{hedonometer-smiley-sketch-tp-3.pdf}
+      
+      
+      
+        An instrument to
+        `remotely-sense' emotional states and levels,
+        in real time or post hoc.
+      
+      
+
+%  \textbf{Our instrument would be ideally:}
+  \textbf{Ideally:}
+          
+      
+       
+        Transparent 
+       
+        Fast
+       
+        Based on written expression
+      
+        Uses human evaluation
+      
+      
+      
+       
+        Non-reactive
+       
+        Complementary to self-reported measures
+       
+        Improvable
+      
+      
+
+%%    \textbf{Some possibilities:}
+%%      
+%%         Natural language processing (e.g., OpinionFinder)
+%%         Declared mood levels in blogs (e.g., Livejournal)\cite{mishne2005a}
+%%      
+%%    
+
+
+
+
+
+%% %%   \textbf{Emotional content}
+%% 
+%%   Natural Language Processing techniques
+%% 
+%%   OpinionFinder\cite{???}
+%% 
+%% 
+
+  \textbf{Measuring Emotional Content}
+
+  
+   \alert{Idea:} 
+    Build on measures of the emotional content of \alertb{individual words}.
+  
+    Osgood et al. (1957)\cite{osgood1957a} identified\\ a basis of three
+    psychological variables as semantic differentials:
+    
+    
+      \alert{Valence:} \alertb{bad $\leftrightarrow$ good }
+    
+      \alert{Dominance:} \alertb{weak $\leftrightarrow$ strong }
+    
+      \alert{Arousal:} \alertb{passive $\leftrightarrow$ active }
+    
+%%    {\small (also often: Evaluation, Potency, and Activity)}
+
+  
+
+
+  \textbf{ANEW study}
+
+  
+    
+     
+      \alertb{ANEW} = ``Affective Norms for English Words''
+    
+
+    \medskip
+
+    
+     
+      Study: participants shown lists of isolated words
+     
+      Asked to grade each word's valence, arousal, and dominance level
+     
+      Integer scale of 1--9
+    
+
+    \medskip
+
+    
+     
+      $N=$1034 words---previously identified as bearing emotional weight
+     
+      Participants = College students (*cough*)
+     
+      Results published by Bradley and Lang (1999)\cite{bradley1999a}
+    
+    
+
+
+  \textbf{1999 ANEW study---three 1--9 scales:\cite{bradley1999a}}
+                                %  \includegraphics[width=\textwidth]{anewstudy-form-piece1.pdf} 
+  \alertb{valence:} \\
+  \smallskip
+  \includegraphics[width=\textwidth]{anewstudy-form-piece2-flip.jpg} 
+      
+    
+    \alertb{arousal:} \\
+    \medskip
+    \includegraphics[width=\textwidth]{anewstudy-form-piece3.pdf} \\
+    \alertb{dominance:} \\
+    \medskip
+    \includegraphics[width=\textwidth]{anewstudy-form-piece4.pdf} \\
+  
+
+  \textbf{ANEW study:}
+
+  \textbf{Valence = Happiness:}
+    
+    
+      Valence scale presented to participants
+      as a \alertb{`happy-unhappy scale.'}
+    
+      Participants were further told: \\
+      \medskip
+      ``At one extreme of this scale, you are happy, pleased,
+      satisfied, contented, hopeful. \ldots \\
+      \medskip
+      {
+        The other end of the scale is when you feel completely unhappy,
+        annoyed, unsatisfied, melancholic, despaired, or bored.''
+      }
+    
+  
+
+
+ \textbf{Top and Bottom 5 words by valence}
+  \Large
+  \rowcolors[]{1}{blue!20}{blue!10}
+   \begin{tabular}{lll} \hline
+    1 & triumphant (8.82) & rape (1.25)\\  \hline
+    2 & paradise (8.72) & suicide (1.25) \\  \hline
+    3 & love (8.72) & funeral (1.39) \\  \hline
+    4 & loved (8.64) & cancer (1.50) \\ \hline
+%%    3 & {love (8.72)}{\alert{love (8.72)}} & funeral (1.39) \\  \hline
+%%    4 & {loved (8.64)}{\alertb{loved (8.64)}} & cancer (1.50) \\ \hline
+    5 & miracle (8.60) & rejected (1.50) \\ \hline
+  \end{tabular}
+
+
+
+  \textbf{ANEW study words---examples}
+
+  \includegraphics[width=0.9\textwidth]{figanewwords03_noname.pdf} 
+
+    \alertb{ANEW} = ``Affective Norms for English Words''\cite{bradley1999a}
+
+  \textbf{Measuring the happiness of a text:}
+
+  \includegraphics[width=0.2\textwidth]{album-thriller-cover.jpg}
+
+  \includegraphics[width=\textwidth]{fighappiness_explanation05}
+
+
+
+%% %%   \textbf{Analysing text:}
+%% 
+%%   
+%%    
+%%     Simplest measure for a text:
+%%     $$
+%%     \theta_{\textrm{avg}
+%%     =
+%%       \sum_{i=1}^{N}
+%%       p_i \theta_i
+%%     $$
+%%     where $p_i$ is fractional abundance of word $i$
+%%     and $\theta$ is average valence, arousal, or dominance for word $i$.
+%%    
+%%     Focus on valence, $\theta = v$.
+%%    
+%%     Average valence typically falls between 5 and 7.
+%%   
+%% 
+%% 
+%% 
+
+
+%% %%   \textbf{Unhappiness:}
+%% 
+%%   \textbf{Some obvious problems/issues:}
+%%     
+%%      Partial coverage of all words.
+%%      Context is ignored.
+%%      You just don't like it.  {Really.}
+%%     
+%%   
+%%   
+%%   \textbf{Clearly:}
+%%     
+%%      Only suitable for large-scale texts.
+%%     
+%%   
+%% 
+%% 
+
+
+%% \subsection{Analysis}
+
+
+%% \subsection{Songs}
+
+  \textbf{Song Lyrics---average happiness}
+
+  
+    \includegraphics[width=\textwidth]{figanew_lyrics_paper02_talks01_noname}
+  
+
+
+%% %%   \textbf{Lyrics---measurement robustness}
+%% 
+%%   \textbf{Problem of }
+%%     
+%%      Beep.
+%%     
+%%     
+%% 
+%% 
+  \textbf{Song Lyrics---measurement robustness}
+
+  \includegraphics[width=\textwidth]{figanew_lyrics_paper02_talks02_noname}
+
+  {\small 100 random subsets of 750 ANEW words}
+
+
+
+  \textbf{Song Lyrics---average happiness of genres:}
+
+  
+    \includegraphics[width=\textwidth]{figanew_lyrics_paper02_talks03_noname}
+  
+
+
+%% %%   \textbf{Comparing Texts}
+%%  \small
+%%   \rowcolors[]{1}{blue!20}{blue!10} 
+%%   \begin{tabular}[t]{ccc}
+%%     \hline 
+%%     \alert{Source} &     \alert{$v_{\textrm{avg}$} &     \alert{Words with same value} \\ \hline
+%%     Soul/Gospel Music & 6.8 & chocolate, leisurely, penthouse\\  \hline
+%%     Music Lyrics (1970) &  6.5 & candy, nice, power \\ \hline
+%%     Dante's Paradise & 6.5 & muffin, rabbit, smooth \\ \hline
+%%     Enron Emails &  6.2 & alert, clouds, computer \\ \hline
+%%     SOTU Addresses & 6.1 & bottle, grass, idol \\ \hline
+%%     Music Lyrics (2004) &  6.0 & curious, fragrance, pancakes\\ \hline
+%%     Blogs &  5.8 & humble, owl, whistle \\ \hline
+%%     Dante's Inferno & 5.5 & glacier, mischief, repentant \\ \hline 
+%%     Metal/Indust Music & 5.4 & elevator, lamp, truck FIX!!\\ \hline
+%%     Indeterm. Sentence & 4.8 & anxious, curtains, tease \\ \hline
+%%   \end{tabular}
+%% 
+  \textbf{Valence shift details:}
+
+  \textbf{Given two texts $a$ and $b$:}
+    
+    
+      Measure difference in average valence: $v_{avg}^{(b)} - v_{avg}^{(a)}$
+      
+      Break difference down by contributions from individual words:
+      $$
+      \Delta_i
+      =100 \times
+      [p_{i,b} - p_{i,a}]
+      \frac{
+      [v_i - v_{\textrm{avg}^{(a)}]
+      }
+      {
+      [v_{\textrm{avg}^{(b)}-v_{\textrm{avg}^{(a)}]
+    }
+      $$
+      $$
+      \sum_{i} \Delta_i = v_{avg}^{(b)} - v_{avg}^{(a)}
+      $$
+      
+      Rank words by $|\Delta_i|$
+    
+  
+
+
+
+  \textbf{Happiness Word Shift Graph:}
+
+%%  %%     
+%%     Valence Shift Word Graph:
+%%     
+%%     \includegraphics[height=.95\textheight]{figanew_lyrics_paper02_talks06_noname}
+%%   
+  
+    \includegraphics[width=\textwidth]{figanew_lyrics_paper03_part2e_noname}
+  
+
+
+  \textbf{Top 16 of $\simeq$ 20,000 artists:}
+  
+  \begin{center}
+    \small
+    \rowcolors[]{1}{blue!20}{blue!10} 
+    \begin{tabular}{lll}
+      \hline Rank & Artist & Valence \\ \hline
+      1 & All-4-One & 7.15  \\ \hline
+      2 & Luther Vandross & 7.12  \\ \hline
+      3 & S Club 7 & 7.05  \\ \hline
+      4 & K Ci \& JoJo & 7.04  \\ \hline
+      5 & Perry Como & 7.04  \\ \hline
+      6 & Diana Ross  \&  The Supremes & 7.03  \\ \hline
+      7 & Buddy Holly & 7.02  \\ \hline
+      8 & Faith Evans & 7.01  \\ \hline
+      9 & The Beach Boys & 7.01  \\ \hline
+      10 & Jon B  & 6.98  \\ \hline
+      11 & Dru Hill & 6.96  \\ \hline
+      12 & Earth Wind  \& Fire & 6.95  \\ \hline
+      13 & Ashanti & 6.95  \\ \hline
+      14 & Otis Redding & 6.93  \\ \hline
+      15 & Faith Hill & 6.93  \\ \hline
+      16 & NSync & 6.93  \\ \hline
+      %%     17 & The Supremes & 6.91  \\ \hline
+      %%     18 & The Partridge Family & 6.91  \\ \hline
+      %%     19 & Kelly Price & 6.89  \\ \hline
+      %%     20 & Tamia & 6.89  \\ \hline
+      %%     21 & Avant & 6.88  \\ \hline
+      %%     22 & Jennifer Lopez & 6.88  \\ \hline
+      %%     23 & Vanessa Williams & 6.87  \\ \hline
+      %%     24 & Babyface & 6.87  \\ \hline
+      %%     25 & E Rotic & 6.87  \\ \hline
+      %%     26 & Sarah Connor & 6.86  \\ \hline
+      %%     27 & Darlene Zschech & 6.86  \\ \hline
+      %%     28 & Mary J  Blige & 6.86  \\ \hline
+      %%     29 & Steve Miller Band & 6.86  \\ \hline
+      %%     30 & New Edition & 6.86  \\ \hline
+      %%     31 & Mandy Moore & 6.86  \\ \hline
+      %%     32 & Alicia Keys & 6.85  \\ \hline
+      %%     33 & Cher & 6.85  \\ \hline
+      %%     34 & Modern Talking & 6.85  \\ \hline
+      %%     35 & Mario & 6.84  \\ \hline
+      %%     36 & Aretha Franklin & 6.84  \\ \hline
+      %%     37 & Jessica Simpson & 6.84  \\ \hline
+      %%     38 & 112 & 6.84  \\ \hline
+      %%     39 & Backstreet Boys & 6.83  \\ \hline
+      %%     40 & Billy Gilman & 6.83  \\ \hline
+      %%     41 & B2K & 6.82  \\ \hline
+      %%     42 & Stevie Wonder & 6.82  \\ \hline
+      %%     43 & John Legend & 6.81  \\ \hline
+      %%     44 & Ricky Nelson & 6.79  \\ \hline
+      %%     45 & Lionel Richie & 6.79  \\ \hline
+      %%     46 & 98 Degrees & 6.79  \\ \hline
+      %%     47 & Boyzone & 6.79  \\ \hline
+      %%     48 & Gerald Levert & 6.79  \\ \hline
+      %%     49 & Nat King Cole & 6.78  \\ \hline
+      %%     50 & Marques Houston & 6.78  \\ \hline
+    \end{tabular}
+
+    \medskip
+    (criteria: $\geq$ 50 songs and $\geq$ 1000 ANEW words)
+  \end{center}
+
+
+  \textbf{Bottom 16 of $\simeq$ 20,000 artists:}
+
+  \begin{center}
+  \small
+  \rowcolors[]{1}{blue!20}{blue!10} 
+  \begin{tabular}{lll}
+    \hline Rank & Artist & Valence \\ \hline
+    1 & Slayer & 4.80  \\ \hline
+    2 & Misfits & 4.88  \\ \hline
+    3 & Staind & 4.93  \\ \hline
+    4 & Slipknot & 4.98  \\ \hline
+    5 & Darkthrone & 4.98  \\ \hline
+    6 & Death & 5.02  \\ \hline
+    7 & Black Label Society & 5.05  \\ \hline
+    8 & Pig & 5.08  \\ \hline
+    9 & Voivod & 5.14  \\ \hline
+    10 & Fear Factory & 5.15  \\ \hline
+    11 & Iced Earth & 5.16  \\ \hline
+    12 & Simple Plan & 5.16  \\ \hline
+    13 & Machine Head & 5.17  \\ \hline
+    14 & Metallica & 5.19  \\ \hline
+    15 & Dimmu Borgir & 5.20  \\ \hline
+    16 & Mudvayne & 5.21  \\ \hline
+    %%     17 & Linkin Park & 5.22  \\ \hline
+    %%     18 & Papa Roach & 5.22  \\ \hline
+    %%     19 & Audioslave & 5.24  \\ \hline
+    %%     20 & Rage Against The Machine & 5.24  \\ \hline
+    %%     21 & Cradle Of Filth & 5.25  \\ \hline
+    %%     22 & Dark Tranquility & 5.26  \\ \hline
+    %%     23 & Jack Off Jill & 5.28  \\ \hline
+    %%     24 & Evanescence & 5.30  \\ \hline
+    %%     25 & Twiztid & 5.33  \\ \hline
+    %%     26 & Nine Inch Nails & 5.34  \\ \hline
+    %%     27 & Sevendust & 5.34  \\ \hline
+    %%     28 & Annihilator & 5.35  \\ \hline
+    %%     29 & Biohazard & 5.36  \\ \hline
+    %%     30 & Insane Clown Posse & 5.36  \\ \hline
+    %%     31 & Megadeth & 5.36  \\ \hline
+    %%     32 & Manowar & 5.37  \\ \hline
+    %%     33 & Zebrahead & 5.38  \\ \hline
+    %%     34 & Danzig & 5.39  \\ \hline
+    %%     35 & Acid Drinkers & 5.40  \\ \hline
+    %%     36 & Dag Nasty & 5.40  \\ \hline
+    %%     37 & Iron Maiden & 5.40  \\ \hline
+    %%     38 & Flotsam And Jetsam & 5.41  \\ \hline
+    %%     39 & Powerman 5000 & 5.42  \\ \hline
+    %%     40 & Anthrax & 5.43  \\ \hline
+    %%     41 & Rhapsody & 5.43  \\ \hline
+    %%     42 & Korn & 5.43  \\ \hline
+    %%     43 & Rage & 5.44  \\ \hline
+    %%     44 & Accept & 5.45  \\ \hline
+    %%     45 & Esham & 5.46  \\ \hline
+    %%     46 & Blind Guardian & 5.46  \\ \hline
+    %%     47 & White Zombie & 5.47  \\ \hline
+    %%     48 & Helloween & 5.50  \\ \hline
+    %%     49 & W A S P  & 5.50  \\ \hline
+    %%     50 & Green Day & 5.50  \\ \hline
+  \end{tabular}
+
+  \medskip
+  (criteria: $\geq$ 50 songs and $\geq$ 1000 ANEW words)
+  \end{center}
+
+
+\changelogo{.2}{smiley-face-sketch-tp-3.pdf}
+
+
+\section{Data\ sets}
+
+  \textbf{Data sets:}
+
+  \textbf{Texts:}
+    
+     
+      Song lyrics and titles (1960--2008)
+     
+      State of the Union (SOTU) Addresses (1790--2008)
+    
+      Twitter, 2008---
+      %%      \raisebox{-30pt}{
+      %%        \includegraphics[width=.8\textwidth]{twitter-header-tp-10.pdf} 
+      %%      }
+    
+      Blogs (wefeelfine.org)
+    
+      New York Times (20 years)
+    
+      Gutenberg.org
+    
+      Google Books: \wordwikilink{http://ngrams.googlelabs.com/}{http://ngrams.googlelabs.com/}
+     
+      BBC transcripts
+     
+      \vdots
+    
+  
+
+  %%   \textbf{Sources:}
+  %%     
+  %%      
+  %%       \wordwikilink{hotlyrics.com}{hotlyrics.com}
+  %%      
+  %%       \wordwikilink{freedb.com}{freedb.com}
+  %%      
+  %%       American Presidency Project: \wordwikilink{http://www.presidency.ucsb.edu/}{www.presidency.ucsb.edu}.
+  %%     
+  %%   
+
+
+   \textbf{Data sets:}
+
+  
+   Blog phrases containing \alertb{``I feel...''},
+    \alertb{``I am feeling''}, etc., taken from \wordwikilink{http://www.wefeelfine.org}{wefeelfine.org} (API, 2005--2010)
+  
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{wefeelfine_frontpage_cut.pdf}
+  \end{center}
+  
+      
+    
+    \includegraphics[width=\textwidth]{harriskamvar.pdf}
+    
+    
+     
+      Created by \\
+      Jonathan Harris \\
+      \& Sep Kamvar
+    
+  
+
+\textbf{Jonathan Harris, wefeelfine.org}
+  \includemovie[poster,controls,text=(Loading Movie)]{\textwidth}{0.75\textwidth}{wefeelfine-harris-2.mov}
+
+  \textbf{wefeelfine.org:}
+
+  \includegraphics[width=\textwidth]{wefeelfine-murmurs-full.jpg}
+
+
+  \textbf{wefeelfine.org:}
+
+  \includegraphics[width=\textwidth]{wefeelfine-panel-full.jpg}
+
+
+ \textbf{wefeelfine.org:}
+
+  \includegraphics[width=\textwidth]{harris-1.jpg}
+  \includegraphics[width=\textwidth]{harris-2.jpg}
+  \includegraphics[width=\textwidth]{harris-3.jpg}
+  \includegraphics[width=\textwidth]{harris-4.jpg}
+  \includegraphics[width=\textwidth]{harris-5.jpg}
+  \includegraphics[width=\textwidth]{harris-6.jpg}
+  \includegraphics[width=\textwidth]{harris-7.jpg}
+  \includegraphics[width=\textwidth]{harris-8.jpg}
+  \includegraphics[width=\textwidth]{harris-9.jpg} 
+  \includegraphics[width=\textwidth]{harris-10.jpg}
+  \includegraphics[width=\textwidth]{harris-11.jpg}
+  \includegraphics[width=\textwidth]{harris-12.jpg}
+  \includegraphics[width=\textwidth]{harris-13.jpg}
+  \includegraphics[width=\textwidth]{harris-14.jpg}
+  \includegraphics[width=\textwidth]{harris-15.jpg}
+
+  \textbf{More data sets:}
+
+  
+  [5.]
+    \raisebox{-30pt}{
+    \includegraphics[width=.8\textwidth]{twitter-header-tp-10.pdf} 
+    }
+  [6.]
+    New York Times (20 years)
+  [7.]
+    Gutenberg.org
+  [8.]
+    Google Books: \wordwikilink{http://ngrams.googlelabs.com/}{http://ngrams.googlelabs.com/}
+  [9.] 
+    \ldots
+  
+
+
+
+
+  \textbf{Data sets:}
+
+  \begin{center}
+    \rowcolors[]{1}{blue!20}{blue!10} 
+    \begin{tabular}[t]{|c|c|c|}
+      \hline 
+      Counts      & Song lyrics       & Song titles        \\
+      \hline                                              
+      All words   & 58,610,849        & 60,867,223         \\
+%%      ANEW words  & 3,477,575 (5.9\%) & 5,612,708 (9.2\%) \\
+      Individuals &   $\sim$ 20,000   & $\sim$ 632,000     \\
+      \hline
+    \end{tabular}
+
+    \medskip
+
+    \begin{tabular}[t]{|c|c|c|}
+      \hline 
+      Counts        & blogs             & SOTU  \\           
+      \hline                                        
+      All words     & 155,667,394         & 1,796,763 \\       
+  %%    ANEW words    & 8,581,226 (5.5\%)   & 61,926 (3.5\%) \\  
+      Individuals   & $\sim$ 2,335,000    &  43 \\             
+      \hline     
+    \end{tabular}
+    
+    \medskip
+
+    \begin{tabular}[t]{|c|c|}
+      \hline 
+      Counts        & Twitter             \\
+      \hline                                        
+      All words     & $\sim$ 100 billion     \\
+      Tweets    & $\sim$ 10 billion \\
+      Individuals    & $\sim$ 100 million  \\
+      \hline     
+    \end{tabular}
+  \end{center}
+
+
+  \textbf{Most frequent ANEW words:}
+
+  \rowcolors[]{1}{blue!20}{blue!10} 
+  \begin{tabular}[t]{|c|c|c|}
+    \firsthline 
+    Rank        &  Song lyrics         & Song titles      \\
+    \hline                                                 
+    1           &  love (7.37\%)       & love (7.39\%)     \\
+    2           &  time (4.18\%)       & time (4.19\%)     \\
+    3           &  baby (2.75\%)       & baby (2.75\%)     \\
+    4           &  life (2.59\%)       & life (2.60\%)     \\
+    5           &  heart (2.14\%)      & heart (2.15\%)    \\
+    \lasthline     
+  \end{tabular}
+
+  \medskip
+
+  \begin{tabular}[t]{|c|c|c|c|}
+    \firsthline 
+    Rank           & blogs              & SOTU    & twitter\\
+    \hline                                
+    1              & good (4.89\%)        & people  (5.49\%)   & good (4.50\%) \\
+    2              & time (4.72\%)        & time (4.09\%)      & love (4.45\%) \\
+    3              & people (3.94\%)      & present (3.45\%)   & time (3.30\%) \\
+    4              & love (3.31\%)        & world (3.10\%)     & people (2.06\%)  \\
+    5              & life (3.13\%)        & war (2.98\%)       & home (1.71\%)   \\
+    \lasthline     
+  \end{tabular}
+
+
+
+
+\subsection{Blogs}
+
+\begin{frame}[plain]
+  \textbf{Blogs---Overall trend}
+
+  
+    \includegraphics[angle=0,width=1.2\textwidth]{figanew_blogs101_noname}
+  
+
+
+
+%% \begin{frame}[plain]
+%% 
+%%   
+%%   \small
+%%   \begin{tabular}{|>{\raggedright\arraybackslash}p{0.3\columnwidth}|c|>{\raggedright\arraybackslash}p{0.65\columnwidth}|}
+%%     \hline 
+%%     Text: &     $\havgfn$ & Words with a similar score: \\ 
+%%     \hline
+%%     \hline
+%%     Soul/Gospel lyrics~\cite{dodds2009b} & 6.9 & chocolate (6.88), leisurely (6.88), penthouse (6.81)\\  \hline
+%% %%    Music Lyrics (1970) &  6.5 & candy, nice, power \\ \hline
+%%     Pop lyrics~\cite{dodds2009b} & 6.7 & dream (6.73), honey (6.73), sugar (6.74) \\ \hline
+%%     Dante's Paradise~\cite{gutenberg} & 6.5 & muffin (6.57), rabbit (6.57), smooth (6.58) \\ \hline
+%%     Tweets, 9/9/2008 to 12/31/2010  & 6.4 & thought (6.39), face (6.39), blond (6.42) \\ \hline
+%%     %% tweets: 6.366
+%%     Rock lyrics~\cite{dodds2009b} & 6.3 & church (6.28), tree (6.32), air (6.34) \\ \hline
+%%     Enron Emails~\cite{enron} &  6.2 & clouds (6.18), alert (6.20), computer (6.24) \\ \hline
+%%     State of the Union Messages~\cite{dodds2009b} & 6.1 & grass (6.12), idol (6.12), bottle (6.15) \\ \hline
+%% %%    Music Lyrics (2004) &  6.0 & curious, fragrance, pancakes\\ \hline
+%%     New York Times (1987--2007)~\cite{nytimescorpus2008a} & 6.0  & hotel (6.00), tennis (6.02), wonder (6.03) \\ \hline % 6.0058
+%%     Blogs~\cite{dodds2009b} &  5.8 & owl (5.80), whistle (5.81), humble (5.86)\\ \hline
+%%     Dante's Inferno~\cite{gutenberg} & 5.5 & glacier (5.50), repentant (5.53), mischief (5.57) \\ \hline 
+%%     Heavy Metal lyrics~\cite{dodds2009b} & 5.4 & lamp (5.41), elevator (5.44), truck (5.47) \\ \hline
+%% %%    Indeterm. Sentence & 4.8 & anxious, curtains, tease \\ \hline
+%%   \end{tabular}
+%%   
+%%   
+%% 
+
+%% %%   
+%% 
+%%   \includegraphics[width=\textwidth]{figanewIII_paper_3days001_noname}
+%% 
+
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_2005_12_25_noname}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[angle=0,height=\textheight]{figanewIII_wordchanges_comp003_2007_02_14_noname}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[height=\textheight,angle=-90]{figanewIII_wordchanges_comp003_2006_09_11_noname}
+%% 
+%% 
+%% %%   \textbf{Blogs---Age}
+%% 
+%%   
+%%    
+%%     Self-report studies find \alert{little variation}
+%%     in happiness with age\cite{easterlin2001a,easterlin2003a}
+%%   
+%%     Surprising: Expect a rise and fall.
+%%   
+%%     A `challenge' for theory...
+%%    
+%%     Related to the \alertb{Easterlin Paradox}:\\
+%%     \alert{Money doesn't buy happiness}
+%%    
+%%     But maybe it does a little bit---Veenhoven \& Hagerty (2003) and Wolfers \& Stevenson (2008).
+%%   
+%% 
+%% 
+
+
+  \textbf{Blogs---Age:}
+
+  
+    \begin{center}
+      \includegraphics[angle=0,width=0.6\textwidth]{figanew_blogs_sotu03_talks3_noname}
+      %%   \includegraphics[width=.9\textwidth]{figanewIII_age007_noname}
+    \end{center}
+
+    \medskip
+
+    
+     
+      Average happiness as a function of the age bloggers
+      report they will turn in the year of their posting.
+    
+  
+
+
+  
+
+  
+    \begin{center}
+      \includegraphics[height=0.9\textheight]{figanewIII_wordchanges_comp011_birthyear_age001_noname.pdf}
+    \end{center}
+  
+
+
+%% %%   \textbf{Blogs---Latitude}
+%% 
+%%   %%     
+%%     \includegraphics[angle=0,width=\textwidth]{figanew_blogs_sotu03_talks2_noname}
+%%     
+%%     \textbf{Near equator---social factors}
+%%     
+%%      
+%%       Increase in `sad', `bored', `lonely', `stupid', `guilty'
+%%      
+%%       Decrease in `good' and `people'
+%%     
+%%   
+%% 
+%%   \textbf{Near poles---social/psychological/climate}
+%%     
+%%     
+%%       Increase in `sick', `guilty', `cold', `depressed', and `headache'
+%%       and decrease of `love' and `life.'
+%%     
+%%       Offset by decrease in `hurt' and `pain.'
+%%      
+%%       More `bed' and `sleep.'
+%%     
+%%   
+%%   %% 
+%% 
+%% %%   
+%% 
+%%   \includegraphics[width=.48\textwidth]{figanewIII_valence_latitude008_noname}
+%% 
+%% 
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_latitude001_1_noname}
+%% 
+%% 
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_latitude001_9_noname}
+%% 
+%% 
+
+
+%% %%   \textbf{Blogs---day of the week}
+%% 
+%%   Very gentle weekly cycle:
+%%   \begin{center}
+%%     \includegraphics[angle=0,width=0.6\textwidth]{figanew_blogs_sotu03_talks4_noname}
+%%   \end{center}
+%% 
+%%   Monday is not so bad for bloggers...
+%% 
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[angle=-90,width=0.98\textwidth]{fig_vswg_explanation.pdf}
+%% 
+%% 
+%% %%   
+%% 
+%%   \centering
+%%   \includegraphics[width=\textwidth]{figgenre_song_titles_anew01_noname}
+%% 
+%% 
+
+%% %%   
+%% 
+%%   \rowcolors[]{1}{blue!20}{blue!10} 
+%%   \begin{tabular}{|c|c|c|}
+%%     \hline
+%%     gender &    female & male \\
+%%     \hline
+%%     mean valence &    5.89 & 5.91 \\
+%%     ANEW word count & 860,687 & 622,462 \\
+%%     \hline
+%%   \end{tabular}
+%% 
+%% 
+%%  \textbf{Blogs---Gender:}
+
+  
+    \begin{center}
+      \includegraphics[height=0.9\textheight]{figanewIII_wordchanges_comp011_gender002_noname}
+    \end{center}
+  
+
+
+%% %%   
+%% 
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_conditions001_noname}
+%% 
+%% 
+%% %%   \textbf{National happiness:}
+%% 
+%%   \centering
+%%   \includegraphics[width=0.3\textwidth,angle=0]{figanewIII_valence_country011_noname.pdf}
+%% 
+%% 
+%% %%   
+%% 
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_country003_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_country005_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_country012_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_country010_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[height=\textheight]{figanewIII_wordchanges_comp003_country011_noname.pdf}
+%% 
+%% 
+
+%% %%   
+%% 
+%%   \begin{tabular}{|c|c|c|c|}
+%%     \hline
+%%     sun & rain & snow & clouds \\
+%%     \hline
+%%     \hline
+%%     5.84 & 5.83 & 5.77 & 5.85 \\ 
+%%     352,714 & 150,053 & 31,334 & 872,803 \\ 
+%%     \hline
+%%   \end{tabular}
+%% 
+%%   Average valence for gender and weather conditions.
+%% 
+%% 
+
+%% %%   
+%% 
+%%   \begin{tabular}{|c|c|c|}
+%%     \hline
+%%     &    female & male \\
+%%     \hline
+%%     \hline
+%%     mean valence &    5.89 & 5.91 \\
+%%     ANEW word count & 860,687 & 622,462 \\
+%%     \hline
+%%   \end{tabular}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \begin{tabular}{|c|c|c|c|}
+%%     \hline
+%%     sun & rain & snow & clouds \\
+%%     \hline
+%%     \hline
+%%     5.84 & 5.83 & 5.77 & 5.85 \\ 
+%%     352,714 & 150,053 & 31,334 & 872,803 \\ 
+%%     \hline
+%%   \end{tabular}
+%% 
+%%   Average valence for gender and weather conditions.
+%% 
+%% 
+
+%% %% \subsection{SOTU}
+%% 
+%% %%   \textbf{Presidential happiness:}
+%% 
+%%   \includegraphics[angle=90,width=\textwidth]{figanew_blogs_sotu03_talks6_noname}
+%% 
+%% %  \includegraphics[angle=90,width=\textwidth]{figanew_blogs_sotu03_talks5_noname}
+%% 
+%% %  \includegraphics[angle=90,width=\textwidth]{figsotu_valence_ts028_noname.pdf}
+%% 
+%% 
+
+
+
+%% %%   
+%% 
+%%   \includegraphics[angle=90,width=\textwidth]{figsotu_valence_ts031_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[angle=90,width=\textwidth]{figsotu_valence_ts032_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[width=\textwidth]{figanewIII_wordchanges_compSOTU001_hoover01_noname.pdf}
+%% 
+%% %% 
+%% %%   
+%% 
+%%   \includegraphics[width=\textwidth]{figanewIII_wordchanges_compSOTU001_fdr01_noname.pdf}
+%% 
+%% %% 
+
+\changelogo{.18}{hedonometer-smiley-sketch-tp-3.pdf}
+
+
+  \textbf{labMT 1.0: \\ language assessment by Mechanical Turk}
+
+  
+    
+     
+      Twitter, Google Books, Music Lyrics, and the New York Times.
+     
+      5000 most frequency used words for each corpus.
+     
+      10,222 words, 50 evaluations each.
+    
+  
+
+  \begin{center}
+    \includegraphics[height=0.5\textheight]{2011-11-15mechturk-frontpage.pdf}
+\end{center}
+  
+
+
+%%  \textbf{Mechanical Turk action:}
+
+%  \begin{center}
+%    \includegraphics[width=0.85\textwidth]{nyt-twitter-top-of-table-2.pdf}
+%  \end{center}
+  \tiny
+
+  
+  \begin{center}
+    \input{mturk-list-table-top.tex}
+  \end{center}
+  
+
+
+%%  \textbf{Mechanical Turk action:}
+  \tiny
+
+  
+  \begin{center}
+    \input{mturk-list-table-bottom.tex}
+  \end{center}
+  
+
+%%  \begin{center}
+%%     \includegraphics[width=0.85\textwidth]{nyt-twitter-bottom-of-table-2.pdf}    
+%%   \end{center}
+
+%%  \textbf{Variable words:}
+  
+  \tiny
+
+  
+    \begin{center}
+      \input{mturk-list-table-std-top.tex}
+    \end{center}
+  
+
+%%   \begin{center}
+%%     \includegraphics[width=0.85\textwidth]{nyt-twitter-std-table-2-redact.pdf}
+%%   \end{center}
+
+
+%% \section{English\ is\ happy}
+
+
+  \textbf{English's scale-invariant, positive bias:\cite{kloumann2012a}}
+    \includegraphics[width=0.9\columnwidth]{fighappinessdist002_noname}  
+    
+     
+      Social organism story manifested in language.
+    
+  
+
+%%      \small
+%%      ``Positivity of the English Language''\\
+%%      Kloumann et al., PLoS ONE, 2012\cite{kloumann2012a}
+
+
+  \textbf{Spanish and Portuguese:}
+
+  \includegraphices[width=0.495\textwidth]{fighappinessdist_multilanguage_Spanish_002_noname.pdf}
+  \includegraphices[width=0.495\textwidth]{fighappinessdist_multilanguage_Portuguese_002_noname.pdf}
+
+  
+
+
+%%  \textbf{Positive bias in the English language:}
+
+  
+    \includegraphics[width=\textwidth]{fighappinessdist014_noname.pdf}
+  
+
+
+%%  \textbf{Positive bias in the English language:}
+
+  
+    \includegraphics[width=\textwidth]{fighappiness_words011_3_noname.pdf}  
+  
+  
+
+%%  \textbf{Positive bias in the English language:}
+
+  
+    \includegraphics[width=\textwidth]{fighappiness_percentiles004_noname.pdf}
+  
+  
+
+
+%% standard deviation
+
+%% %% %%  \textbf{Positive bias in the English language:}
+%% 
+%%   
+%%     \includegraphics[width=\textwidth]{fighappiness_std006_2_noname.pdf}
+%%   
+%%   
+%% %% 
+%% %% %%  \textbf{Positive bias in the English language:}
+%% 
+%%   
+%%     \includegraphics[width=\textwidth]{fighappiness_std004_noname.pdf}
+%%   
+%%   
+%% 
+
+
+%% %%   \textbf{Culturomics:}
+%% 
+%%   \small{``Quantitative analysis of culture using millions of
+%%     digitized books'' by Michel et al., Science, 2011\cite{michel2011a}}
+%% 
+%%   \includegraphics[width=0.45\textwidth]{michel2011a_fig3a.pdf} 
+%%   \includegraphics[width=0.45\textwidth]{michel2011a_fig3e.pdf} \\
+%%   \includegraphics[width=0.45\textwidth]{michel2011a_fig3f.pdf}
+%%   \includegraphics[width=0.35\textwidth]{michel2011a_fig4f.pdf}
+%% 
+%%   {\small
+%%     \wordwikilink{http://www.culturomics.org/}{http://www.culturomics.org/}\\
+%%     \wordwikilink{http://ngrams.googlelabs.com/}{Google Books ngram viewer}
+%%   }
+%% 
+%% 
+
+%% %%   \textbf{QWERTY and happiness}
+%%   
+%%   
+%%   
+%% 
+%% finishing slides
+
+
+%%  \textbf
+
+  \textbf{The very surprising tunable hedonometer:}
+    \includegraphics[width=\textwidth]{figtwitter_timeseries_thetruth_mechturk_stopwords005_noname.pdf}
+  
+
+
+  
+  \includegraphics[height=\textheight]{figmechturk_happy_wordclouds005_2010_000_013_noname.pdf}
+  
+  \includegraphics[height=\textheight]{figmechturk_happy_wordclouds005_2010_050_013_noname.pdf}
+  
+  \includegraphics[height=\textheight]{figmechturk_happy_wordclouds005_2010_100_013_noname.pdf}
+  
+  \includegraphics[height=\textheight]{figmechturk_happy_wordclouds005_2010_150_013_noname.pdf}
+  
+  \includegraphics[height=\textheight]{figmechturk_happy_wordclouds005_2010_200_013_noname.pdf}
+  
+  \includegraphics[height=\textheight]{figmechturk_happy_wordclouds005_2010_250_013_noname.pdf}
+
+
+\changelogo{.2}{smiley-face-sketch-tp-3.pdf}
+
+\section{Twitter}
+
+%% %%   \textbf{twitter.com:}
+%% 
+%%   \includegraphics[width=\textwidth]{twitter-header.jpg} \\
+%% 
+%% 
+  \textbf{Twitter---living in the now:}
+
+  
+  \includegraphics[width=\textwidth]{figtwitter_daily_anewfreq_spesh_thetruth002_breakfast_lunch_dinner_noname.pdf}
+
+  
+   
+    Quantifying the quotidian.
+  
+
+  
+
+
+
+  \textbf{Twitter---living in the now:}
+
+  
+  \includegraphics[width=\textwidth]{figtwitter_daily_anewfreq_spesh_thetruth002_hungry_starving_food_eat_chicken_noname.pdf}
+
+  
+   
+    Makes the unexpected believable...
+  
+
+  
+
+
+%% %%   \textbf{Twitter---living in the now:}
+%% 
+%%   \begin{center}
+%%   \includegraphics[width=0.8\textwidth]{2009-02-02superbowltweets.jpg}
+%% 
+%%   \wordwikilink{http://www.nytimes.com/interactive/2009/02/02/sports/20090202_superbowl_twitter.html}{Tweeting the Superbowl} [NY Times]
+%%   \end{center}
+%% 
+%% 
+%% %%   \textbf{Twitter---living in the now:}
+%% 
+%%   
+%%   \includegraphics[width=\textwidth]{figtwitter_daily_anewfreq_spesh_thetruth003_motherfucker_fuck_shit_asshole_bitch_noname.pdf}
+%% 
+%%   A few words you can't say on television...
+%%   
+%% 
+%% 
+
+\begin{frame}[plain]
+  \textbf{The happiest distribution:}
+
+  \bigskip
+   \includegraphics[width=1.2\textwidth]{hahaha.pdf}
+
+
+%% \bgroup
+%% \setbeamercolor{background canvas}{bg=black}
+%% 
+%% \begin{frame}[plain]
+%%   \includegraphics[width=1.2\textwidth]{json-screen-grab.pdf} \\
+%% %% 
+%% \egroup
+
+%% \begin{frame}[plain]
+%%   %%   \textbf{Twitter Cartography}
+%%   
+%%   \centering
+%%   \includegraphics[width=1.2\textwidth]{plot_world_map.pdf}
+%%   \vspace{.05cm}
+%%   \tiny{\wordwikilink{onehappybird.com}{http:/www.onehappybird.com}}
+%% 
+
+
+
+%% \begin{frame}[plain]
+%%   %%   \textbf{Twitter Cartography}
+%%   \begin{center}
+%%     \includegraphics[height=0.9\textheight]{nyc_tweet_map1.jpg}
+%%     \vspace{.05cm}
+%%     \tiny{\wordwikilink{onehappybird.com}{http:/www.onehappybird.com}}
+%%   \end{center}
+%% 
+%% 
+
+
+%% \begin{frame}[plain]
+%%   \wordwikilink{Language communities of Twitter:}{http://flowingdata.com/2011/10/27/language-communities-of-twitter/}
+%%   \includegraphics[height=0.9\textheight]{danforth-Twitter-Language-Map.jpg}
+%% 
+
+
+%% %% \textbf{A day in the life of the blogosphere}
+%%   \includemovie[poster,controls,repeat,text=(Loading Movie)]{\textwidth}{0.75\textwidth}{Emotions.mpg}
+%% 
+%% %%   \textbf{Some demographics for blog sentences:}
+%% 
+%%   Breakdown by \# of sentences:
+%% 
+%%   \medskip
+%% 
+%% %  \small
+%%   \rowcolors[]{1}{blue!20}{blue!10} 
+%%   \begin{tabular}{|l|l|}
+%%     \hline
+%%     Country & Percentage \\
+%%     \hline
+%%     United States &  82.3 \\
+%%     Canada &  6.1 \\
+%%     United Kingdom &  4.8 \\
+%%     Australia &  3.7 \\
+%%     Philippines &  0.4 \\
+%%     Germany &  0.2 \\
+%%     \hline
+%%   \end{tabular}
+%% 
+%% %%   \begin{tabular}{|l|l|l|}
+%% %%     \hline
+%% %%     Country & Percentage & \# blog sentences \\
+%% %%     \hline
+%% %%     United States &  82.3 & 2518493 \\ 
+%% %%     Canada &  6.1 & 186824 \\ 
+%% %%     United Kingdom &  4.8 & 147492 \\ 
+%% %%     Australia &  3.7 & 114110 \\ 
+%% %%     Philippines &  0.4 & 13012 \\ 
+%% %%     Germany &  0.2 & 6815 \\ 
+%% %%     \hline
+%% %%   \end{tabular}
+%% 
+%% 
+
+
+
+\begin{frame}[plain]
+  \textbf{Twitter---overall time series:}
+
+  
+    \begin{center}
+      \includegraphics[width=1.2\textwidth]{figtwitter_timeseries_thetruth_mechturk013_007_noname.pdf}
+    \end{center}
+    
+    
+      Global happiness spikes due to predictable rituals.
+    
+      Global sadness spikes due to unpredictable, exogeneous shocks.
+%%    
+%%      No accidental happiness outbreaks.
+    
+  
+
+
+
+%% \begin{frame}[plain]
+%%   \textbf{Twitter---overall time series:}
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=1.2\textwidth]{figtwitter_timeseries_thetruth_mechturk014_1_noname.pdf}
+%%   \end{center}
+%% 
+%% %% 
+%% \bgroup
+%% \setbeamercolor{background canvas}{bg=black}
+%% \begin{frame}[plain]
+%%   \begin{center}
+%%     \includegraphics[width=1.2\textwidth]{figtwitter_timeseries_thetruth_mechturk013_004_noname.pdf}
+%%   \end{center}
+%% %% \egroup
+%% 
+%% \bgroup
+%% \setbeamercolor{background canvas}{bg=black}
+%% \begin{frame}[plain]
+%%   \begin{center}
+%%     \includegraphics[width=1.2\textwidth]{figtwitter_timeseries_thetruth_mechturk013_005_noname.pdf}
+%%   \end{center}
+%% %% \egroup
+
+
+\bgroup
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]
+  \begin{center}
+    \includegraphics[width=1.2\textwidth]{figtwitter_timeseries_thetruth_mechturk013_006_noname.pdf}
+  \end{center}
+\egroup
+
+
+%% \bgroup
+%% \setbeamercolor{background canvas}{bg=black}
+%% \begin{frame}[plain]
+%%   \begin{center}
+%%     \includegraphics[width=1\textwidth]{figtwitter_timeseries_thetruth_mechturk013_010_noname.pdf}
+%%   \end{center}
+%% %% \egroup
+
+
+
+\begin{frame}[plain]
+
+  
+    \includegraphics[width=1.2\textwidth]{figmechturk_happy_wordchanges_comp004_combined_bailout_royalwedding_binladen.pdf}
+  
+
+
+
+\begin{frame}[plain]
+  \textbf{\wordwikilink{http://www.hedonometer.org}{hedonometer.org} (launching Tuesday, April 30, 2013)}
+
+  \includegraphics[width=1.2\textwidth]{2013-02-13hedonometer-snapshot.png}
+
+
+%% %%   \textbf{Twitter---overall time series:}
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=1.0\textwidth]{figtwitter_timeseries_thetruth003_1_noname.pdf}
+%%   \end{center}
+%% 
+%% 
+
+
+  \textbf{Twitter---weekly time series:}
+    \begin{center}
+              
+        
+        What people say:
+        
+        \includegraphics[width=\textwidth]{figtwitter_dow500_noname.pdf}
+        
+                    
+        
+        What people think:
+        
+        \includegraphics[width=\textwidth]{figmechturk_daysofweek_happiness_noname.pdf}
+        
+          \end{center}
+
+    \small
+    
+     
+      Inflation: 
+      \wordwikilink{http://www.nytimes.com/2012/10/14/opinion/sunday/blue-mondays-arent-really-blue-so-why-do-we-think-they-are.html}{NYT piece} 
+      on the blueness of Tuesdays.
+
+    
+  
+
+
+%% %% 
+%%   
+%%     \begin{center}
+%%       \includegraphics[height=\textheight]{figmechturk_happy_wordchanges_comp001_daycomparisons_thetruth_mechturk006_6_3_noname.pdf}
+%%     \end{center}
+%%   
+%% 
+%% 
+%% \begin{frame}[plain]
+%%   \textbf{The daily unravelling of the human mind:}
+%% 
+%%   
+%%     \begin{center}
+%%       \includegraphics[width=0.55\textwidth]{figtwitter_daily_thetruth_mechturk004_noname.pdf}\includegraphics[width=0.35\textwidth]{figtwitter_daily_anewfreq_spesh_thetruth003_motherfucker_fuck_shit_asshole_bitch_noname.pdf}\\
+%%       \includegraphics[width=1.2\textwidth]{figtwitter_weeklybyhour002_1_noname.pdf}
+%%     \end{center}
+%%   
+%% 
+%% 
+
+
+
+%% %% 
+%%   
+%%     \begin{center}
+%%       \includegraphics[height=.95\textheight]{figanewIII_wordchanges_comp011_daycomparisons_thetruth006_1_5_noname.pdf}
+%%     \end{center}
+%%   
+%% 
+%% %% figanewIII_wordchanges_comp011_daycomparisons_thetruth005_1_5_noname.pdf}
+%% 
+%% 
+
+
+%% %%   \textbf{Twitter---daily time series:}
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=0.9\columnwidth]{figtwitter_daily_thetruth004_noname.pdf}
+%%   \end{center}
+%% 
+%% %% 
+%% %% 
+%%   \begin{center}
+%%     \includegraphics[height=0.95\textheight]{figanewIII_wordchanges_comp011_dailycomparisons_thetruth005_14_7_noname.pdf}
+%%   \end{center}
+%% 
+%% 
+%% \changelogo{.18}{hedonometer-smiley-sketch-tp-3.pdf}
+
+%% %% 
+%%   
+%%     \begin{center}
+%%       \includegraphics[height=.9\textheight]{fig_twitter_monthtimeseries001_alltogether_allwords_ishappy.pdf}
+%% %%      \includegraphics[height=.9\textheight]{2011-02-04fig_twitter_monthtimeseries001_alltogether_allwords-p1.pdf}
+%%       %%    \includegraphics[width=0.48\textwidth]{2011-02-04fig_twitter_monthtimeseries001_alltogether_allwords-p2.pdf}
+%%     \end{center}
+%%   
+%% 
+%% %% 
+%% %% 
+%%   
+%%     \includegraphics[height=\textheight]{figtiger-bp-combined.pdf}
+%%   
+%%   
+%% %% 
+%% %% 
+%%   
+%%     \includegraphics[width=\textwidth]{figpope-israel-combined.pdf}
+%%   
+%% 
+%% 
+%% %% 
+%%   
+%%     \includegraphics[width=0.48\textwidth]{2011-02-04fig_twitter_monthtimeseries001_tiger_woods.pdf}
+%%     \includegraphics[width=0.48\textwidth]{2011-02-04figanewIII_wordchanges_comp011_tiger_woods_noname.pdf}
+%%   
+%% 
+%% %% 
+%% %% 
+%%   
+%%     \includegraphics[width=0.48\textwidth]{2011-02-04fig_twitter_monthtimeseries001_bp.pdf}
+%%     \includegraphics[width=0.48\textwidth]{2011-02-04figanewIII_wordchanges_comp011_bp_noname.pdf}
+%%   
+%% 
+%% %% 
+%% %% 
+%%   \includegraphics[width=0.48\textwidth]{fig_twitter_monthtimeseries001_pope.pdf}
+%%   \includegraphics[width=0.48\textwidth]{figanewIII_wordchanges_comp011_pope_noname.pdf}
+%% 
+%% %% 
+%%   \includegraphics[width=0.48\textwidth]{fig_twitter_monthtimeseries001_israel.pdf}
+%%   \includegraphics[width=0.48\textwidth]{figanewIII_wordchanges_comp011_israel_noname.pdf}
+%% 
+
+  
+    \begin{center}
+      \includegraphics[height=0.97\textheight]{dodds2011f_tab2.pdf}
+    \end{center}
+  
+
+
+%% %% 
+%%   \textbf{Text element and context correlate in happiness scores:}
+%%     
+%%     
+%%       Compare ambient happiness with text element happiness.
+%%     
+%%       Spearman correlation coefficient: \\ 
+%%       $r_s \simeq 0.79$, $p$-value $< 10^{-10}$.
+%%     
+%%       An on-average result: says nothing about any individual sentence.
+%%     
+%%       Extra random piece: \alertb{stemming is fallible}.
+%%     
+%%       
+%%   
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% lewis mitchell action
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Geography}
+
+
+%% %%   \textbf{Twitter Cartography}
+%%   
+%%   
+%%     \includegraphics[width=\textwidth]{frank2013a_fig1.pdf}    
+%%   
+%% 
+%% %%  \includegraphics[width=1.2\textwidth]{plot_us_map.pdf}
+%% 
+%% %%  \vspace{.05cm}
+%% %%  \tiny{\wordwikilink{onehappybird.com}{http:/www.onehappybird.com}}
+%% 
+%% 
+  \textbf{The Geography of Happiness:}
+
+  \centering
+  \includegraphics[width=0.5\textwidth]{mitchell2013a_fig1-tp-2}
+
+  
+    
+     
+      From ``The Geography of Happiness: {C}onnecting {T}witter sentiment and expression, demographics, and objective characteristics of place'', Mitchell et al., 2013, to appear in PLoS ONE\cite{mitchell2013a}.
+     
+      See blog posts 
+      \wordwikilink{http://onehappybird.com/2013/02/18/where-is-the-happiest-city-in-the-usa/}{here},
+      \wordwikilink{http://onehappybird.com/2013/02/25/what-makes-a-city-happy/}{here},
+      and
+      \wordwikilink{http://onehappybird.com/2013/03/04/the-twitter-diet/}{here}.
+    
+  
+
+
+  \centering
+  
+  \includegraphics[width=\columnwidth]{NYC_hap}
+
+
+  \textbf{Happiness in Manhattan:}
+
+  \includegraphics[width=0.75\textheight]{nyc_heatmap_gmap.jpg}
+  \includegraphics[width=0.20\textwidth]{freshly-pressed.png}
+
+  See \wordwikilink{http://onehappybird.com/2012/03/22/question-where-is-the-happiest-place-in-new-york-city/}{Blog post on onehappybird}
+
+
+%% %%   \centering
+%% 
+%%   %%     
+%%     {\large Happiest Cities:}
+%%     
+%%     \includegraphics[width=\columnwidth]{happiest_15_censored.pdf}\\
+%%   %% 
+%%   %%     
+%%     {\large Saddest Cities:}
+%%     
+%%     \includegraphics[width=\columnwidth]{saddest_15_censored.pdf}
+%%   %% 
+%% 
+
+  
+  \textbf{Happiest Cities:}
+    \includegraphics[width=\textwidth]{happiest_15_censored.pdf}      
+  
+
+
+  
+  \textbf{Saddest Cities (geoprofanity):}
+    \includegraphics[width=\textwidth]{saddest_15_censored.pdf}      
+  
+
+
+
+%% %%   \centering
+%% 
+%% %%  \includegraphics[height=0.98\textheight]{wordshift_Napa_CA.pdf}
+%%   \includegraphics[height=0.98\textheight]{mitchell2013a_fig9.pdf}
+%% 
+%% %%   \begin{overpic}[height=0.95\textheight,unit=1cm]%%
+%% %%     {wordshift_Napa_CA.pdf}
+%% %%     \put(5.49,31.07){\textcolor{gray}{$*$}}
+%% %%     \put(4.32,30.49){\textcolor{gray}{$*$}}
+%% %%     \put(4.07,29.63){\textcolor{gray}{$*$}}
+%% %%   \end{overpic}
+%% 
+%% 
+  \textbf{Validity test \#30,231(b):}
+
+  \includegraphics[height=0.85\textheight]{2013-03-12lewis-mitchell-happinessScatterMatrix.pdf}
+  
+
+
+\section{Health}
+
+
+  \textbf{Good news for Valentine's Day:}
+
+  \textbf{Happiness and Marriage:}
+    \includegraphics[width=\columnwidth]{happiness_married.pdf}
+  
+
+
+
+
+
+  \textbf{Obesity and tweets---``McDonalds'':}
+    \includegraphics[width=\columnwidth]{mcdonalds_obesity.pdf}
+  
+
+
+
+  \textbf{Obesity and tweets---``Brunch'':}
+    \includegraphics[width=\columnwidth]{brunch_obesity.pdf}
+  
+
+
+%% %%   \vspace{-0.2cm}
+%%   %%     
+%%     \begin{tabular}{|c|}
+%%       \hline
+%%       ``Skinny'' words:\\
+%%       \hline
+%%       brunch \\
+%%       banana\\
+%%       bar\\
+%%       barista\\
+%%       delicious\\
+%%       dinner\\
+%%       coffee\\
+%%       espresso\\
+%%       booze\\
+%%       wines\\
+%%       cocktails\\
+%%       mimosa\\
+%%       chef\\
+%%       tofu\\
+%%       panini\\
+%%       latte\\
+%%       vegan\\
+%%       bento\\
+%%       \hline
+%%     \end{tabular}
+%% 
+%%     %%
+%%     %%\centering 
+%%     %%
+%%     %%{\it Making the unexpected believable}(?) -PSD
+%%     
+%%     \begin{tabular}{|c|}
+%%       \hline
+%%       ``Obese'' Words:\\
+%%       \hline
+%%       mcdonalds\\
+%%       eat\\
+%%       hungry\\
+%%       wings\\
+%%       salty\\
+%%       ham\\
+%%       spaghetti\\
+%%       ihop\\
+%%       noodles\\
+%%       ketchup\\
+%%       fat\\
+%%       cook\\
+%%       sprite\\
+%%       cookin\\
+%%       heartburn\\
+%%       miller\\
+%%       kool-aid\\
+%%       pickles\\
+%%       \hline
+%%     \end{tabular}
+%%   %% 
+%% 
+
+
+
+  
+          
+      
+      \alertg{Obesity rates and usage of food-related words:}\\
+      \bigskip
+      Negative correlations
+      
+      \includegraphics[height=0.95\textheight]{mitchell2013a_tab3_top}
+      
+
+
+
+  
+          
+      
+      \alertg{Obesity rates and usage of food-related words:}\\
+      \bigskip
+      Positive correlations
+      
+      \includegraphics[width=\textwidth]{mitchell2013a_tab3_bottom}
+      
+      
+
+
+\section{Demographics}
+
+
+  \alertg{\small `cafe' usage frequency vs.\ fraction with College degree:}
+    
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{mitchell2013a_fig11}
+  \end{center}
+
+\begin{frame}[plain]
+  {\small \alertg{Word usage frequency vs.\ fraction with College degree:}}
+
+  \includegraphics[height=0.9\textheight]{mitchell2013a_tab1}\includegraphics[height=0.9\textheight]{mitchell2013a_tab2}
+
+
+%%%%%%%%%%%%%%
+
+
+  
+  \includegraphics[width=\columnwidth]{N_tweets_happiness_TEDx.pdf}
+
+
+
+
+%%%%%%%%%%%%%
+
+
+
+  \centering
+
+  \includegraphics[width=\columnwidth]{tweetlength.pdf}
+
+
+
+
+
+  
+ %%  \includegraphics[width=\columnwidth]{demographic_groupings_TEDx.pdf}
+ 
+   \includegraphics[width=\columnwidth]{demographic_groupings_letters.jpg}
+ 
+   Explore more \wordwikilink{http://www.uvm.edu/~lmitche1/CitiesAppendices/AppendixD.html}{here}.
+ 
+ 
+    \centering
+ 
+   \includegraphics[height=\paperheight]{city_groups_50000_clustered_censored.pdf}
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% lewis's section is above
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% %%   \textbf{Twitter---location:}
+%% 
+%%   
+%%     \begin{center}
+%%       \includegraphics[width=\textwidth]{states_val-2011-01-16-tp-0.pdf}  
+%%     \end{center}
+%%   
+%% 
+%% 
+%% based on slides from lewis mitchell
+
+
+%% %%   \textbf{Twitter---location:}
+%% 
+%%   
+%%     \begin{center}
+%%       \includegraphics[width=0.7\textwidth]{figanewIII_wordchanges_comp011_states_v_state200_35_5_NY_CA_noname.pdf}
+%%       %%    \includegraphics[width=0.7\textwidth]{figanewIII_wordchanges_comp003_states_v_state_35_5_NY_CA_noname.pdf}
+%%     \end{center}
+%%   
+%% 
+%% 
+\section{Movement}
+
+  \includegraphics[width=\textwidth]{frank2013a_fig1}
+  
+  
+    
+     
+      From ``Happiness and the Patterns of Life: {A} Study of Geolocated Tweets'', Frank et al., 2013, in review\cite{frank2013a}.
+     
+      See blog post
+      \wordwikilink{http://onehappybird.com/2013/04/08/a-data-driven-study-of-the-patterns-of-life-for-180000-people/}{here}.
+    
+  
+
+
+  \includegraphics[width=\textwidth]{frank2013a_fig2}
+  
+  Frank et al., in preparation.
+
+  \includegraphics[width=\textwidth]{frank2013a_fig3}
+
+  Raw movement patterns agree with cell phone data findings\cite{gonzalez2008a}
+
+
+\section{Networks}
+
+  \textbf{Twitter---popularity based on follower count:}
+
+  
+      
+    \includegraphics[width=\textwidth]{2011-02-04plot_follower_sep08_jun09.pdf}
+    
+    \includegraphics[width=\textwidth]{2011-02-04plot_follower_sep08_jun09_amb.pdf}    
+  
+  \begin{center}
+    
+     
+      Dunbar's number $\simeq$ 150.    
+    
+  \end{center}
+  
+
+
+  %% \includegraphics[width=0.48\textwidth]{figtwitter_followercount_dunbar_thetruth001_noname.pdf}
+  %% \includegraphics[width=0.48\textwidth]{figanewIII_wordchanges_comp003_twitter_followercount005_100_noname.pdf}
+  %%      \includegraphics[width=0.31\textwidth]{figbroadcast_transition110_noname.pdf}
+
+
+\begin{frame}[plain]
+  %%  \textbf{Twitter---popularity based on follower count:}
+
+  
+    \begin{center}
+      \includegraphics[height=0.95\textheight]{2011-02-04figanewIII_wordchanges_comp011_follower_epoch_1_noname.pdf}
+    \end{center}
+  
+
+
+\begin{frame}[plain]
+
+  
+    \includegraphics[width=\textwidth]{figbroadcast_transition110_noname.pdf}
+  
+
+  %% \includegraphics[width=0.48\textwidth]{figtwitter_followercount_dunbar_thetruth001_noname.pdf}
+  %% \includegraphics[width=0.48\textwidth]{figanewIII_wordchanges_comp003_twitter_followercount005_100_noname.pdf}
+  %%      
+
+\changelogo{.2}{smiley-face-sketch-tp-3.pdf}
+
+  \textbf{Twitter---interactions:}
+
+  %%  \includegraphics[width=0.48\textwidth]{2010-05-12isabelk-heat-map-normalized-random-reply-pairs-v2.png}
+
+  
+    \begin{center}
+      \includegraphics[width=0.6\textwidth]{cathybliss2010-03-14summary_p-excerpt-tp-0.pdf}
+    \end{center}
+
+  
+%%   
+%%    Left: Message and replies correlate in happiness.
+   
+    Decay in happiness correlation in social network.
+  
+    $\rho$ = Spearman's correlation coefficient.
+  
+
+  
+   
+    \small
+      ``Twitter reciprocal reply networks exhibit
+      assortativity with respect to happiness''\\
+      Bliss et al., Journal of Computational Science, 2012\cite{bliss2012a}
+  
+  
+
+
+
+%% %%   \textbf{twitter.com Status Updates (microblogs)}
+%% 
+%%   \includegraphics[width=\textwidth]{twitter-browser-flowingdatadotcom.png} \\
+%%       \vspace{.1cm}
+%%     \tiny{\url{http://flowingdata.com}}
+%% 
+%% %%   \textbf{twitter.com Status Updates (microblogs)}
+%% 
+%%   \includegraphics[width=.9\textwidth]{twitter-network.png}
+%% 
+%% %%   \textbf{iPhones and twitter.com}
+%% 
+%%   \includegraphics[width=.82\textwidth]{twitter-iphone-picture.jpg}
+%% 
+
+%% %% \textbf{Status updates, microblogs from twitter.com \\ Evening of Vice-Presidential Debate}
+%%   \includemovie[poster,controls,repeat,text=(Loading Movie)]{\textwidth}{0.75\textwidth}{vp-debate.mov}
+%% 
+
+
+%% \subsection{Mechanical\ Turk}
+
+
+\section{Phrases}
+
+  \textbf{Phrases---Music Lyrics:}  
+
+  
+%%  {\fontsize{6.8}{8.16}\selectfont
+  {\fontsize{8}{10.2}\selectfont
+    \rowcolors[]{1}{blue!20}{blue!10} 
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline 
+      rank & order=1 & order=2 & order=3 & order=4 
+      \\
+      \hline 
+      \hline 
+      1 & i & and i & i know you & if you want to 
+      \\
+      \hline 
+      2 & the & in the & you know i & let me tell you 
+      \\
+      \hline 
+      3 & and & if you & and i know & tell me what you 
+      \\
+      \hline 
+      4 & you & on the & this is then & don't want to be 
+      \\
+      \hline 
+      5 & a & to the & la la la & all i need is 
+      \\
+      \hline 
+      6 & to & i know & don't want to & and i know that 
+      \\
+      \hline 
+      7 & my & you know & if i could & what can i do 
+      \\
+      \hline 
+      8 & i'm& but i & can't you see & want you to know 
+      \\
+      \hline 
+      9 & it & when i & don't know what & all i want is 
+      \\
+      \hline
+      10 & that & when you & all the time & give it to me 
+      \\
+      \hline 
+      11 & so & all the & why don't you & when it comes to 
+      \\
+      \hline
+      12 & your & like a & as long as & how does it feel 
+      \\
+      \hline
+      13 & me & this is & don't you know & you know that i 
+      \\
+      \hline
+      14 & in & come on & there is no & don't you know that 
+      \\
+      \hline
+      15 & no & to be & i know that & don't give a fuck 
+      \\
+      \hline\hline
+      25 & love & don't know & but i can't & all the things that 
+      \\
+      \hline\hline 
+      100 & m & just like & in this world & woke up this morning 
+      \\
+      \hline 
+    \end{tabular}
+    }
+
+  
+   
+    J. Williams et al., in preparation.
+  
+
+
+
+
+%% \begin{frame}[plain]
+%%   \textbf{New York Times:}  
+%% 
+%% %%  {\fontsize{6.8}{8.16}\selectfont
+%%   {\fontsize{4.6}{6.12}\selectfont
+%%     \begin{tabular}{|c|c|c|c|c|c|c|}
+%%       \hline rank & order=1 & order=2 & order=3 & order=4 & order=5 & order=6 
+%%       \\
+%%       \hline 
+%%       1&the&in the&one of the&at the same time&at the end of the&he is survived by his wife
+%%       \\
+%%       \hline
+%%       2&and&of the&as well as&for the first time&because of an editing error&could not be reached for comment
+%%       \\
+%%       \hline
+%%       3&a&he said&percent of the&one of the most&years old and lived in&on the other side of the
+%%       \\
+%%       \hline
+%%       4&to&on the&some of the&executive director of the&memorial service will be held&contributions may be made to the
+%%       \\
+%%       \hline
+%%       5&in&new york&part of the&on the other hand&an article in business day&menu listings and prices are subject
+%%       \\
+%%       \hline
+%%       6&of&in a&most of the&by the end of&he is survived by his&secretary of health and human services
+%%       \\
+%%       \hline
+%%       7&mr&for the&there is a&at the end of&at the time of the&contributions in his memory may be
+%%       \\
+%%       \hline
+%%       8&that&at the&it was a&at a news conference&she is survived by her&memorial contributions may be made to
+%%       \\
+%%       \hline
+%%       9&is&it is&according to the&as a result of&executive vice president of the&indicates that a book's sales are
+%%       \\
+%%       \hline
+%%       10&for&but the&president of the&i don't want to&she is a daughter of&speaking on the condition of anonymity
+%%       \\
+%%       \hline
+%%       11&he&it was&there is no&at a time when&tonight and tomorrow night at&comforted among the mourners of zion
+%%       \\
+%%       \hline
+%%       12&but&with the&this is a&at the university of&director of the center for&where she was elected to phi
+%%       \\
+%%       \hline
+%%       13&said&he was&director of the&chairman and chief executive&an article last sunday about&catholic charities of the archdiocese of
+%%       \\
+%%       \hline
+%%       14&was&united states&i don't think&when it comes to&this is the first time&where he was elected to phi
+%%       \\
+%%       \hline
+%%       15&his&as a&many of the&president and chief executive&president of the united states&contributions to the fund are deductible
+%%       \\
+%%       \hline\hline
+%%       25&who&will be&it would be&securities and exchange commission&died of a heart attack&editors' choices of other recent books
+%%       \\
+%%       \hline\hline
+%%       100&there&it has&one of them&there would be no&times pays the fund's expenses&since the beginning of the year
+%%       \\
+%%       \hline
+%%     \end{tabular}
+%%   }
+%% 
+%%   
+%%    
+%%     J. Williams et al., in preparation.
+%%   
+%% 
+%% %% 
+%% \begin{frame}[plain]
+%%   \textbf{Wikipedia:}  
+%% 
+%% %%   {\fontsize{6.8}{8.16}\selectfont
+%%   {\fontsize{4.6}{6.12}\selectfont
+%%     \begin{tabular}{|c|c|c|c|c|c|c|}
+%%       \hline rank & order=1 & order=2 & order=3 & order=4 & order=5 & order=6 
+%%       \\
+%%       \hline 
+%%       1&the&in the&as well as&median income for a&years of age or older&this page is no longer live
+%%       \\
+%%       \hline
+%%       2&and&of the&one of the&at the age of&result of the debate was&here so that this page is
+%%       \\
+%%       \hline
+%%       3&in&is a&part of the&one of the most&at the end of the&at the time of his death
+%%       \\
+%%       \hline
+%%       4&a&he was&member of the&as a result of&per capita income for the&please do not edit this page
+%%       \\
+%%       \hline
+%%       5&of&it is&according to the&at the same time&all households were made up&confirmed by the united states senate
+%%       \\
+%%       \hline
+%%       6&to&on the&also known as&under the age of&housing units at an average&it has a population of about
+%%       \\
+%%       \hline
+%%       7&was&to the&most of the&for the first time&had a female householder with&he is also a member of
+%%       \\
+%%       \hline
+%%       8&is&it was&as part of&racial makeup of the&population was spread out with&historical records the village was first
+%%       \\
+%%       \hline
+%%       9&he&for the&there is a&at the end of&this is a list of&currently used mostly for football matches
+%%       \\
+%%       \hline
+%%       10&s&with the&at the time&average household size was&conflict of interest in adding&considered to be one of the
+%%       \\
+%%       \hline
+%%       11&for&at the&such as the&average family size was&or that the involved accounts&intended to be a complete list
+%%       \\
+%%       \hline
+%%       12&as&as a&due to the&males had a median&village has a population of&italics indicates the round in which
+%%       \\
+%%       \hline
+%%       13&his&by the&some of the&had children under the&at the time of the&plays in the russian second division
+%%       \\
+%%       \hline
+%%       14&with&was a&is an american&had someone living alone&it has a population of&he has been a member of
+%%       \\
+%%       \hline
+%%       15&on&from the&it has been&households out of which&listed on the national register&municipality lies at an altitude of
+%%       \\
+%%       \hline\hline
+%%       25&but&which was&this is a&best known for his&station is currently owned by&declared a national historic landmark in
+%%       \\
+%%       \hline\hline
+%%       100&second&los angeles&history of the&cdp has a total&end of world war ii&emigrated to the united states in
+%%       \\
+%%       \hline
+%%     \end{tabular}
+%%   }
+%% 
+%%   
+%%    
+%%     J. Williams et al., in preparation.
+%%   
+%% 
+%% 
+%% %% 
+%%   \includegraphics[width=\textwidth]{times2.pdf}
+%% 
+%%   
+%%    
+%%     J. Williams et al., in preparation.
+%%   
+%% 
+%% 
+%% %% 
+%%   \includegraphics[width=\textwidth]{wikipedia2.pdf}
+%% 
+%%   
+%%    
+%%     J. Williams et al., in preparation.
+%%   
+%% 
+%% %% 
+%% %% 
+%%   \includegraphics[width=\textwidth]{2012-12-07generatedLanguage_800m_2.pdf}
+%% 
+%%   
+%%    
+%%     J. Williams et al., in preparation.
+%%   
+%% 
+%% 
+\changelogo{0.15}{lightbulb-idea-calculus-circle-tp-1.pdf}
+
+\section{The End}
+
+%%  \textbf{Now and next:}
+
+  \textbf{Next for Happiness:}
+    
+      %%  New tools needed for measuring internet content in real time.
+     
+      \wordwikilink{http://www.hedonometer.org}{hedonometer.org} (early 2013).
+     
+      Over 10 additional languages being scored through a new service.
+     
+      Four other emotions: surprise, fear, disgust, and anger.
+     
+      Other input streams (e.g., BBC)
+     
+      Expansion to phrase-based analysis.
+    
+  
+
+%%   \textbf{Understanding the Sociotechnocene:}
+%%     %%       
+%%       
+%%       \includegraphics[width=\textwidth]{xkcd-904-sports.png}\\
+%%       {\tiny
+%%       \wordwikilink{http://xkcd.com/904/}{http://xkcd.com/904/}}
+%%       
+%%       
+%%       
+%%         Homo narrativus---it's all about stories.
+%%       
+%%         Extraction of metaphors, frames, narratives, and stories from large-scale text.
+%%       
+%%     %%   
+
+%%   \textbf{Understanding the Sociotechnocene:}
+%%     
+%%      
+%%       Improve algorithms for measuring/predicting decisions, contagion, demographics, weather, \ldots
+%%      
+%%       Extract metaphors, narratives, and stories from large-scale text \ldots
+%%     
+%%       Buzzframes, story contagion.
+%%      
+%%       Scalability of narratives.
+%%      
+%%       The taxonomy of human stories.
+%%     
+%%   
+
+
+%% %% 
+%%   \textbf{Homo narrativus---it's all about stories:}
+%% 
+%%   %%     
+%%     \includegraphics[width=\textwidth]{xkcd-904-sports.png}\\
+%%     \medskip
+%%     \wordwikilink{http://xkcd.com/904/}{http://xkcd.com/904/}
+%%     
+%%     
+%%     
+%%       Mechanisms = 
+%%       Evolution equations, 
+%%       algorithms,
+%%       stories, ...
+%%     
+%%       Rollover zing:
+%%       ``Also, all financial analysis.
+%%       And, more directly, D\&D.''
+%%     
+%%   %% 
+%% 
+
+  \small
+%%  \textbf{Papers:}
+
+  
+          
+      \includegraphics[width=\textwidth]{plos-2011-screenshot.pdf}
+      
+      ``Temporal patterns of happiness and information in a
+      global social network: 
+      Hedonometrics and Twitter''\\
+      Dodds et al., PLoS ONE, 2011\cite{dodds2011e}\\
+      Much better version here:
+      \wordwikilink{http://arxiv.org/abs/1101.5120}{http://arxiv.org/abs/1101.5120}
+        
+     
+      ``Twitter reciprocal reply networks exhibit
+      assortativity with respect to happiness''\\
+      Bliss et al., Journal of Computational Science, 2012\cite{bliss2012a}
+     
+      ``Positivity of the English Language''\\
+      Kloumann et al., PLoS ONE, 2012\cite{kloumann2012a}
+     
+      ``Measuring the Happiness of Large-Scale Written Expression: 
+      Songs, Blogs, and Presidents''\\
+      Dodds and Danforth, Journal of Happiness Studies, 2009\cite{dodds2009b}
+     language assessment by Mechanical Turk \\ (labMT 1.0)
+     \wordwikilink{onehappybird.com}{http://www.onehappybird.com}
+    
+  
+
+
+  \small
+  \textbf{Some press...}
+  
+  
+          
+      
+      
+        ``Social {S}cientists wade into the {T}weet stream''
+        by Greg Miller, \\
+        Science, \textbf{333}, 1814--1815, 2011\cite{miller2011a}
+       
+        ``Does\ a\ Nation's\ Mood\ Lurk\ in\ Its\ Songs\ and\ Blogs?''
+        by Benedict Carey \\
+        \wordwikilink{http://www.nytimes.com/2009/08/04/health/04mind.html}
+        {New York Times, August 2009.}
+      
+      
+      \setlength\fboxrule{1pt}
+      \setlength\fboxsep{0pt}
+      \fbox{\includegraphics[width=\textwidth]{nytimes-benedict-carey-04mind-500.jpg}}
+        
+    
+      More here:
+      \wordwikilink{http://www.uvm.edu/$\sim$pdodds/research/}{http://www.uvm.edu/$\sim$pdodds/research/}
+    
+  
+
+
+
+
+

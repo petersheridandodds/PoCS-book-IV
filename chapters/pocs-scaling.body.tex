@@ -1,0 +1,1232 @@
+\section{Introduction to Scalingology}
+
+Systems whose components and properties
+cross many spatial and temporal scales
+often exhibit some form of \textbf{scaling}.
+
+Examples
+
+We'll find that some scaling laws
+can be uncovered with an ancient technology:
+the back of envelope.\sidenote{The best magic rectangle is a blank piece of
+  paper.}
+But we'll also see
+that describing and explaining scaling can both be
+fraught scientific activities.\sidenote{In a ``Behind the Science'' kind of way.}
+
+While we'll lay out general principles for thinking about scaling,
+some derivations of scaling laws will have a magical feel.
+
+
+We're going to take a tour of the vast world of scaling, 
+starting with physical systems 
+and moving up through
+biological to social and informational realms.
+Some scalings are 
+
+
+
+The systems may be 
+
+
+The surface areas 
+Economic productivity as a function of country or city population,
+the expected number of heartbeats in an organism's lifespan as a
+function of body mass;
+
+In this chapter, we'll move through 
+\begin{itemize}
+\item 
+  some basic definitions,
+\item 
+  take in a host of examples,
+\item 
+  How to measure your power-law relationship.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% definitions and examples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+A simple \alertb{power law}\sidenote{
+  The widespread use of `law' is often generous and
+  should not be interpreted as meaning every power
+  law is set in stone.
+  In many cases, lore would be the better word to hear.
+}
+relates two
+variables $x$ and $y$ as:
+\begin{equation}
+y
+=
+c
+x^\alpha.
+\label{eq.pocsbook:powerlaw}
+\end{equation}
+We say $\alpha$ is the law's \alertg{scaling exponent}
+or just its \alertg{exponent}.\sidenote{
+  In some scientific victories,
+  \alertg{expwnent}
+  may be appropriate.}
+The possible values of the exponent $\alpha$
+will find various restrictions, depending on context.
+
+Unexcitingly, we call the constant $c$ the \alertg{prefactor}.
+The prefactor is often overlooked in more cavalier
+scaling calculations\sidenote{Theoretical physicists capable of feeling shame
+  begin to inspect their feet.}
+but we want to make sure to mark it here as being
+potentially important.
+
+A super simple physical example is the scaling of a
+sphere's surface area $S$ as a function of its radius $r$:
+$
+S
+=
+4\phi
+r^2
+$
+where
+$c = 4\pi$
+and
+$\alpha = 2$.
+
+For clarity of presentation and to prevent back of the envelope misadventures,
+the \monks\ tell us that if we know a scaling exponent is negative,
+we should express that scaling explicitly:
+\begin{equation}
+y
+=
+c
+x^{-\alpha}.
+\label{eq.pocsbook:powerlawnegative}
+\end{equation}
+
+
+\textbf{Definitions}
+
+
+The \alertb{prefactor} $c$ must \alertb{balance dimensions}.
+
+Imagine the height $\ell$ and volume $v$ of 
+a family of shapes
+are related as:
+$$\ell = c v^{1/4}$$
+
+Using $[ \cdot ]$ to indicate dimension, then 
+$$[c] = [l]/[V^{1/4}] = L/L^{3/4} = L^{1/4}.$$
+\textbf{Looking at data}
+
+
+Power-law relationships
+are linear in log-log space:
+$$y = c x^\alpha $$
+$$ \Rightarrow \alertb{\log_{b} y = \alpha \log_{b} x + \log_{b} c} $$
+with slope equal to $\alpha$, the scaling exponent.
+
+Much searching for straight lines on 
+\alertb{log-log} or \alertb{double-logarithmic plots}.
+
+Good practice: \alertg{Always, always, always use base 10}.
+
+Talk only about orders of magnitude (powers of 10).
+\textbf{A beautiful, heart-warming example:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{zhang2000a_fig1-tp-5.pdf} 
+\end{marginfigure}
+
+$G$ = volume of gray matter:\\ \alertg{`computing elements'}
+
+$W$ = volume of white matter:\\ \alertg{`wiring'}
+
+\alertb{$W \sim c G^{1.23}$}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{zhang2000a_fig2.jpg}  
+\end{marginfigure}
+
+\small from Zhang \& Sejnowski, PNAS (2000)\cite{zhang2000a}
+
+\textbf{Why is $\alpha \simeq 1.23$?}
+
+\textbf{Quantities (following Zhang and Sejnowski):}
+
+$G = $ Volume of gray matter (cortex/processors)
+$W = $ Volume of white matter (wiring)
+$T = $ Cortical thickness (wiring)
+$S = $ Cortical surface area
+$L = $ Average length of white matter fibers
+$p$ = density of axons on white matter/cortex interface
+\textbf{A rough understanding:}
+
+\alertb{$G \sim S T$} (convolutions are okay)
+\alertg{$W \sim \frac{1}{2} p S L$}
+\alertb{$G \sim L^3$} {$\leftarrow$ this is a little sketchy...}
+Eliminate $S$ and $L$ to find \alertg{$W \propto G^{\, 4/3}/T$}
+
+\textbf{Why is $\alpha \simeq 1.23$?}
+
+\textbf{A rough understanding:}
+We are here: \alertg{$W \propto G^{\, 4/3}/T$}
+
+Observe weak scaling $T \propto G^{\, 0.10 \pm 0.02}$.
+
+(Implies $S \propto G^{\, 0.9}$ $\rightarrow$ convolutions fill space.)
+
+$\Rightarrow W \propto G^{\, 4/3}/T \propto G^{\, 1.23 \pm 0.02}$
+\textbf{Trickiness:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{zhang2000a_fig5.jpg}
+\end{marginfigure}
+
+
+
+
+With $V = G + W$, some power laws must be approximations.
+Measuring exponents is a hairy business...
+\textbf{Good scaling:}
+
+\textbf{General rules of thumb:}
+\textit{High quality:} scaling persists over\\
+\alertb{three or more orders of magnitude}\\
+for \alertg{each variable}.
+\textit{Medium quality:} scaling persists over \\
+\alertb{three or more orders of magnitude}\\
+for \alertg{only one variable} and 
+\alertb{at least one} for \alertg{the other}.
+\textit{Very dubious:} scaling `persists' over\\
+\alertb{less than an order of magnitude}\\
+for \alertg{both variables}.
+\textbf{Unconvincing scaling:}
+
+\textbf{Average walking speed as a function of city population:}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{bettencourt2007a_fig.pdf}
+\end{marginfigure}
+
+
+Two problems:
+use of natural log, and
+
+minute varation in dependent variable.
+
+
+{\small from Bettencourt et al. (2007)\cite{bettencourt2007a};
+  otherwise totally great---see later.}
+\textbf{Definitions}
+
+
+\textbf{Power laws are the signature of \alertg{scale invariance}:}
+\bigskip
+
+Scale invariant \alertb{`objects'}\\
+look the \alertb{`same'}\\ 
+when they are 
+appropriately \alertb{rescaled.}
+
+
+\bigskip
+
+
+\alertb{Objects} = geometric shapes, time series, functions, relationships, distributions,...
+
+\alertb{`Same'} might be \alertb{`statistically the same'}
+
+To \alertb{rescale} means to change the units
+of measurement for the relevant variables
+\textbf{Scale invariance}
+
+\textbf{Our friend \alertb{$y=cx^{\alpha}$}:}
+If we rescale $x$ as $x = rx'$ and $y$ as $y = r^\alpha y'$,
+
+then
+$$r^\alpha y' = c (rx')^{\alpha}$$
+
+$$\Rightarrow y' = c r^{\alpha} {x'}^{\alpha}r^{-\alpha}$$
+
+$$\Rightarrow y' = c {x'}^{\alpha}$$
+\textbf{Scale invariance}
+
+\textbf{Compare with \alertb{$y=c e^{-\lambda x}$}:}
+If we rescale $x$ as $x = rx'$, then
+$$ y = c e^{-\lambda rx'} $$
+
+Original form cannot be recovered.
+
+\alertg{Scale matters} for the exponential.
+\textbf{More on \alertb{$y=c e^{-\lambda x}$}:}
+Say $x_0 = 1/\lambda$ is the \alertb{characteristic scale}.
+
+For $x \gg x_0$, $y$ is small,\\
+while for $x \ll x_0$, $y$ is large.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% allometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Allometry}      
+\small
+%% \textbf{Definitions:}
+
+\textbf{Isometry:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{iso_tree.jpg}
+\end{marginfigure}
+
+
+Dimensions scale linearly with each other.
+
+
+\textbf{Allometry:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{allo_tree.jpg}\\
+\end{marginfigure}
+
+
+Dimensions scale nonlinearly.
+
+
+\textbf{\wordwikilink{http://en.wikipedia.org/wiki/Allometry}{Allometry:}}
+Refers to differential growth rates of the parts
+of a living organism's body part or process.
+
+First proposed by Huxley and Teissier, Nature, 1936\\
+``Terminology of relative growth''\cite{huxley1936a,shingleton2010a}
+\textbf{Definitions}
+
+\textbf{Isometry versus Allometry:}
+Iso-metry = `same measure'
+
+Allo-metry = `other measure'
+\bigskip
+
+\textbf{Confusingly, we use allometric scaling to refer to both:}
+Nonlinear scaling of a dependent variable
+on an independent one (e.g., $y \propto x^{1/3}$)
+
+The relative scaling of correlated measures\\
+(e.g., white and gray matter).
+%% \changelogo{.18}{mcmahon1983a_p2}
+
+\section{Examples\ in\ Biology}
+\textbf{An interesting, earlier treatise on scaling:}
+
+McMahon and Bonner, 1983\cite{mcmahon1983a}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_cover.pdf}
+\end{marginfigure}
+
+%% 
+%%   \textbf{For the following slide:}
+%%   
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption1}
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption2}
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption3}
+\end{marginfigure}
+
+%%   
+%%   \small{p.\ 2, McMahon and Bonner\cite{mcmahon1983a}}
+%%   
+%% 
+\textbf{The many scales of life:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption1}\\
+\end{marginfigure}
+
+{\small p.\ 2, McMahon and Bonner\cite{mcmahon1983a}}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p2}
+\end{marginfigure}
+
+%% 
+%%   \textbf{For the following slide:}
+%%   
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption1}
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption2}
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption3}
+\end{marginfigure}
+
+%%   
+%%   \small{p.\ 2, McMahon and Bonner\cite{mcmahon1983a}}
+%%   
+%% 
+\textbf{The many scales of life:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption2}\\
+\end{marginfigure}
+
+\small p.\ 3, McMahon and Bonner\cite{mcmahon1983a}
+\\
+\small
+More on the Elephant Bird \wordwikilink{https://en.wikipedia.org/wiki/Aepyornis}{here}.
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3fig1}
+\end{marginfigure}
+
+%% 
+%%   \textbf{For the following slide:}
+%%   
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption1}
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption2}
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption3}
+\end{marginfigure}
+
+%%   
+%%   \small{p.\ 2, McMahon and Bonner\cite{mcmahon1983a}}
+%%   
+%% 
+\textbf{The many scales of life:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3caption3}
+\end{marginfigure}
+
+{\small p.\ 3, McMahon and Bonner\cite{mcmahon1983a}}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p3fig2}    
+\end{marginfigure}
+
+\textbf{Size range (in grams) and cell differentiation:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p4sizerange.pdf}\\
+\end{marginfigure}
+
+{\tiny $10^{-13}$ to $10^{8}$, p.\ 3, McMahon and Bonner\cite{mcmahon1983a}}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p22cells}
+\end{marginfigure}
+
+
+\textbf{Non-uniform growth:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p32humangrowth.pdf}    
+\end{marginfigure}
+
+
+\small{p.\ 32, McMahon and Bonner\cite{mcmahon1983a}}
+\textbf{Non-uniform growth---arm length versus height:}
+
+\textbf{Good example of a \alertg{break in scaling}:}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p32armgrowth.pdf}
+\end{marginfigure}
+
+
+A \alert{crossover} in scaling occurs around a height of 1 metre.
+\small{p.\ 32, McMahon and Bonner\cite{mcmahon1983a}}
+%% \textbf
+
+\textbf{Weightlifting: $M_{\textnormal{world record}} \propto M_{\textnormal{lifter}}^{\, 2/3}$}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p56weightlifting.pdf}
+\end{marginfigure}
+
+
+Idea: Power $\sim$ cross-sectional area of isometric lifters.
+\small{p.\ 53, McMahon and Bonner\cite{mcmahon1983a}}
+%% \textbf
+
+\textbf{Titanothere horns: $L_{\textnormal{horn}} \sim L_{\textnormal{skull}^4}$}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p36horns.pdf}    
+\end{marginfigure}
+
+\small{p.\ 36, McMahon and Bonner\cite{mcmahon1983a}; a bit dubious.}
+%% 
+%%   \textbf{The allometry of trees:}
+%%   
+%%   Prothero...
+%%   
+%% 
+\textbf{Animal power}
+
+\textbf{Fundamental biological and ecological constraint:}
+$$
+\alertb{\boxed{P = c\, M^{\, \alpha}}}
+$$
+$$P = \mbox{basal metabolic rate}$$
+$$M = \mbox{organismal body mass}$$
+
+%% Mammals, poikilotherms, birds, trees,\\
+%% bacteria, rocks,\ldots\\
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{shrew.jpg}
+\end{marginfigure}
+
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{shrew-elephant-tp-5.pdf}
+\end{marginfigure}
+
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{250px-Re-exposure_of_elephant_-_lahugala_park1.jpg}
+\end{marginfigure}
+
+
+%% \changelogo{.18}{sliderule_small}
+\textbf{Stories---The Fraction Assassin:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{2014-08-26pocs-sketch-metabolism-assassin_shadow.png}
+\end{marginfigure}
+
+%% \changelogo{.18}{mcmahon1983a_p2}
+\textbf{Ecology---\wordwikilink{http://en.wikipedia.org/wiki/Species-area\_curve}{Species-area law:}}
+
+\textbf{Allegedly (data is messy):\cite{macarthur1963a,levin1992a}}
+
+\displaypaper{macarthur1963a}{2}
+
+$
+N_{\textnormal{species}} \propto A^{\, \beta}
+$
+
+According to physicists---on islands: $\beta \approx 1/4$.
+
+Also---on continuous land: $\beta \approx 1/8$.
+
+%% \textbf{A focus:}
+%% 
+%% How much energy do organisms need to live?
+%% And how does this scale with organismal size?
+%% 
+%% 
+\textbf{Cancer:}
+
+\displaypaper{tomasetti2015a}{2}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{tomasetti2015a_fig1.pdf}
+\end{marginfigure}
+
+
+Roughly:
+$
+p 
+\sim
+r^{2/3}
+$
+where
+$p$ = life time probability 
+and
+$r$ = rate of stem cell replication.
+
+
+\displaypaper{meyer-vernet2015a}{4}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{meyer-vernet2015a_fig1.pdf}\\
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{meyer-vernet2015a_fig1_caption.pdf}
+\end{marginfigure}
+
+\insertassignmentquestionsoft{01}{1}
+%% \changelogo{.18}{2015-09-02pocs-postcard-allometry_polaroid-1200px.png}
+
+\section{Physics}
+\textbf{Engines:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p61engines.pdf}
+\end{marginfigure}
+
+
+\tiny{BHP = brake horse power}
+\small
+\textbf{The allometry of nails:}
+
+\textbf{Observed: Diameter $\propto$ Length$^{2/3}$ or $d \propto \ell^{2/3}$.}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p58nails.pdf}
+\end{marginfigure}
+
+\
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p59nails.pdf}
+\end{marginfigure}
+
+\textbf{Since $\ell d^2 \propto$ Volume $v$:}
+Diameter $\propto$ {Mass$^{2/7}$ or $d \propto v^{2/7}$.}
+
+Length $\propto$ {Mass$^{3/7}$ or $\ell \propto v^{3/7}$.}
+
+Nails lengthen faster than they broaden (c.f. trees).
+\small{p.\ 58--59, McMahon and Bonner\cite{mcmahon1983a}}
+\textbf{The allometry of nails:}
+
+\textbf{A buckling instability?:}
+\wordwikilink{http://en.wikipedia.org/wiki/Buckling}{Physics/Engineering result}: 
+Columns buckle under a load which depends on $d^4/\ell^2$.
+
+To drive nails in, posit resistive force $\propto$ nail circumference = $\pi d$.
+
+Match forces independent of nail size: $\alertg{d^4/\ell^2 \propto d}$.
+
+Leads to \alertg{$d \propto \ell^{2/3}$}.
+
+Argument made by Galileo\cite{galilei1638a} in 1638 in
+\wordwikilink{http://www.liberliber.it/biblioteca/g/galilei/discorsi_e_dimostrazioni_matematiche_intorno_a_due_nuove_etc/pdf/discor_p.pdf}{``Discourses on Two New Sciences.''} 
+Also, see \wordwikilink{http://en.wikipedia.org/wiki/Two_New_Sciences}{here.}
+
+Another smart person's contribution: \wordwikilink{http://en.wikipedia.org/wiki/Buckling}{Euler, 1757}
+
+Also see McMahon, ``Size and Shape in Biology,'' Science, 1973.\cite{mcmahon1973a}
+%% \textbf
+
+\textbf{Rowing: Speed $\propto $ (number of rowers)$^{1/9}$}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p46rowing.pdf} \\
+\end{marginfigure}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{mcmahon1983a_p47rowing.pdf}
+\end{marginfigure}
+
+\textbf{Physics:}
+
+\textbf{Scaling in elementary laws of physics:}
+Inverse-square law of gravity
+and Coulomb's law: 
+$$
+F 
+\propto 
+\frac{m_1 m_2}{r^{2}}
+\quad 
+\mbox{and} 
+\quad
+F 
+\propto 
+\frac{q_1 q_2}{r^{2}}.
+$$
+
+Force is diminished by expansion of space away from source.  
+
+The square is $d-1=3-1=2$, the dimension of
+a sphere's surface.
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% dimensional analysis
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+\textbf{Dimensional Analysis:}
+
+The 
+\wordwikilink{https://en.wikipedia.org/wiki/Buckingham\_π\_theorem}{Buckingham
+  $\pi$ theorem}:\footnote{\wordwikilink{http://en.wikipedia.org/wiki/Stigler's\_law\_of\_eponymy}{Stigler's
+    Law of Eponymy} applies.
+  See \wordwikilink{https://en.wikipedia.org/wiki/Dimensional\_analysis\#History}{here}.
+}
+
+\medskip
+
+\displaypaper{buckingham1914a}{1}
+
+\bigskip
+
+As captured in the 1990s in the MIT physics library:
+
+\medskip
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth,page=1]{buckingham1914a_scanned}
+\end{marginfigure}
+
+\
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth,page=2]{buckingham1914a_scanned}
+\end{marginfigure}
+
+\
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth,page=3]{buckingham1914a_scanned}
+\end{marginfigure}
+
+\
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth,page=4]{buckingham1914a_scanned}
+\end{marginfigure}
+
+\
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth,page=5]{buckingham1914a_scanned}
+\end{marginfigure}
+
+\
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth,page=6]{buckingham1914a_scanned}
+\end{marginfigure}
+
+\small
+\textbf{Dimensional Analysis:\footnote{Length is a dimension,
+    furlongs and \wordwikilink{https://en.wikipedia.org/wiki/Smoot}{smoots} are units}}
+
+\textbf{Fundamental equations cannot depend on units:}
+System involves $n$ related quantities with some unknown equation $f(q_1, q_2, \ldots, q_n) = 0$.
+
+Geometric ex.: area of a square, side length $\ell$:\\ 
+$A = \ell^2$ where $[A] = L^2$ and $[\ell] = L$.
+
+Rewrite as a relation of $p \le n$ independent
+\wordwikilink{https://en.wikipedia.org/wiki/Dimensionless\_quantity}{dimensionless parameters}
+where $p$ is the number of independent dimensions (mass, length,
+time, luminous intensity \ldots):
+$$
+F(\pi_1,\pi_2, \ldots, \pi_p) = 0
+$$
+
+e.g., $A/\ell^2 - 1 = 0$ where $\pi_1 = A/\ell^2$.
+
+Another example: $F = ma$ $\Rightarrow$ $F/ma - 1 = 0$.
+
+Plan: solve problems using only backs of envelopes.
+%%  
+%%   Aside: Good for physics.
+%%   What about biological, ecological, social, algorithmic systems?
+
+\textbf{Example:}
+
+\textbf{Simple pendulum:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{2015-09-03pocs-platypus-pendulum_1200px-mod-tp-10.png}
+\end{marginfigure}
+
+
+
+Idealized mass/platypus swinging forever.
+
+Four quantities: 
+Length 
+$\ell$, 
+
+mass $m$, 
+
+gravitational
+acceleration $g$, 
+and 
+
+pendulum's period $\tau$.
+
+
+Variable dimensions:
+$[\ell] = L$, 
+$[m] = M$, 
+$[g] = L T^{-2}$,
+and $[\tau] = T$.
+
+Turn over your envelopes and find some $\pi$'s.
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{2015-09-02pocs-homer-pendulum_1200px-tp-10.png}
+\end{marginfigure}
+
+%% \changelogo{0.18}{2015-09-02pocs-homer-pendulum_1200px-tp-10.png}
+
+\small
+
+\textbf{A little formalism:}
+Game: find all possible independent combinations of the
+$\{q_1, q_2, \ldots, q_n\}$,
+that form dimensionless quantities
+$\{\pi_1, \pi_2, \ldots, \pi_p\}$,
+where we need to figure out $p \le n$.
+
+Consider 
+$
+\pi_i 
+= 
+q_1^{x_{1}} 
+q_2^{x_{2}} 
+\cdots
+q_n^{x_{n}} 
+$.
+
+We (desperately) want to find all sets of powers $x_{j}$ that create dimensionless quantities.
+
+Dimensions:
+want
+$
+[\pi_i]
+= 
+[q_1]^{x_{1}} 
+[q_2]^{x_{2}} \cdots
+[q_n]^{x_{n}} 
+= 
+1
+$.
+
+For the platypus pendulum we have \\
+$[q_1] = L$, $[q_2] = M$, $[q_3] = L T^{-2}$, and $[q_4] = T$,\\
+
+with dimensions
+$d_1=L$, $d_2=M$, and $d_3=T$.
+
+So:
+$
+[\pi_i]
+=
+L^{x_{1}}
+M^{x_{2}}
+(LT^{-2})^{x_{3}}
+T^{x_{4}}
+$.
+
+We regroup:
+$
+[\pi_i]
+=
+L^{x_{1} + x_{3}}
+M^{x_{2}}
+T^{-2x_{3} + x_{4}}
+$.
+
+We now need:
+$x_{1} + x_{3} = 0$,
+$x_{2} =  0$,
+and
+$-2x_{3} + x_{4}$.
+
+Time for {\alertg{matrixology} \ldots}
+\textbf{\small Well, of course there are matrices:}
+
+\small
+
+Thrillingly, we have:
+$$
+\m{A}\vec{x}
+=
+\mymatrix{cccc}{
+  1 & 0 & 1 & 0 \\
+  0 & 1 &  0 & 0 \\
+  0 & 0 & -2 & 1 \\
+}
+\colvec{ x_{1} \\ x_{2} \\ x_{3} \\ x_{4} }
+= 
+\colvec{ 0 \\ 0 \\ 0}
+$$
+
+A nullspace equation: $ \m{A} \vec{x} = \vec{0}$.
+
+\alertg{Number of dimensionless parameters = Dimension of null
+  space = $n - r$}
+where $n$ is the number of columns of $\m{A}$ and $r$ is the rank
+of $\m{A}$.
+
+Here: $n=4$ and $r=3$ 
+{$\rightarrow$ $F(\pi_1) = 0$}
+{$\rightarrow$ $\pi_1$ = const.}
+
+\alertdg{In general: Create a matrix $\m{A}$
+  where $ij$th entry is the power of dimension $i$ in the $j$th
+  variable,
+  and solve by row reduction to find basis null vectors.}
+
+We (you) find:
+\alertg{
+  $
+  \pi_1 = \ell / g \tau^2 = \mbox{const}.
+  $
+}
+
+Upshot: $\tau \propto \sqrt{\ell}$.
+
+
+\insertassignmentquestionsoft{01}{1}
+%% \changelogo{.18}{2015-09-02pocs-postcard-allometry_polaroid-1200px.png}
+
+\small
+
+\displayamazonbook{barenblatt1996a}
+
+\textbf{G.\ I. Taylor, magazines, and classified secrets:}
+
+1945 \\  New Mexico \\ Trinity test:
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{trinities3-600x471.jpg}
+\end{marginfigure}
+
+
+Self-similar blast wave:
+Radius: $[R] = L$, \\
+Time: $[t] = T$,\\
+Density of air: $[\rho]=M/L^{3}$,\\
+Energy: $[E] = ML^{2}/T^{2}$.
+
+Four variables, three dimensions.
+
+One dimensionless variable:\\
+$
+E
+= 
+\mbox{constant} \times
+\rho R^5 / t^2.
+$
+%% http://www.math.utah.edu/~zajac/Math1170/BlastRadius.pdf
+%% 1 \times 10^{21} ergs
+
+Scaling: Speed decays as $1/R^{3/2}$.
+
+
+{Related: Radiolab's 
+  \wordwikilink{http://www.radiolab.org/story/elements/}{Elements}
+  on the Cold War, the Bomb Pulse, and the dating of cell age (33:30).}
+\textbf{We're still sorting out units:}
+
+\textbf{\wordwikilink{https://en.wikipedia.org/wiki/Proposed\_redefinition\_of\_SI\_base\_units}{Proposed
+    2018 revision of SI base units:}}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{SI_base_unit.pdf}\\
+\end{marginfigure}
+
+\attribution{by Dono/Wikipedia}
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{Relations_between_New_SI_units_definitions.pdf}\\
+\end{marginfigure}
+
+\attribution{by Wikipetzi/Wikipedia}
+
+
+Now: kilogram is an 
+\wordwikilink{https://en.wikipedia.org/wiki/Kilogram\#International\_prototype\_kilogram}{artifact} 
+in S\`{e}vres, France.
+
+Future: 
+Defined by fixing Planck's constant 
+as $6.62606X \times 10^{−34}$
+s$^{-1}\cdot$m$^{2}\cdot$kg.\footnotemark[3]
+
+Metre chosen to fix speed of light at 299792458 m$\cdot$s$^{-1}$.        
+
+%% 
+%%   
+%%   
+\wordwikilink{http://www.radiolab.org/story/kg/}{Radiolab
+  piece: $\le$ kg}\\
+\medskip
+\begin{marginfigure}[]
+  \includegraphics[width=0.4\textwidth]{MassStandards_024.jpg}  
+\end{marginfigure}
+
+%% 
+
+
+\footnotetext[3]{$X$ = still arguing \ldots}
+\textbf{Turbulence:}
+
+%% 
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{jet_cfd.jpg}    
+\end{marginfigure}
+
+
+Big whirls have little whirls\\
+That heed on their velocity, \\
+And little whirls have littler whirls \\
+And so on to viscosity.
+
+\hfill---
+\wordwikilink{https://en.wikipedia.org/wiki/Lewis\_Fry\_Richardson}{Lewis
+  Fry Richardson}
+\small
+
+Image from \wordwikilink{http://www.efluids.com/efluids/gallery/gallery_pages/jet\_cfd\_page.jsp}{here}.
+
+Jonathan Swift (1733): \alertdg{``Big fleas have little fleas
+  upon their backs to bite 'em, And little fleas have lesser
+  fleas, and so, ad infinitum.''}
+\wordwikilink{https://en.wikipedia.org/wiki/The\_Siphonaptera}{The Siphonaptera.}
+\displaypaper{aragon2008a}{4}
+
+
+Examined the probability pixels a distance $R$ apart share the same luminance.
+
+\wordwikilink{http://www.nature.com/news/2006/060703/full/news060703-17.html}{``Van
+  Gogh painted perfect turbulence''}
+by Phillip Ball, July 2006.
+
+Apparently not observed in other famous painter's works
+or when van Gogh was settled.
+
+Oops: Small ranges and natural log used.
+%% The disturbed artist intuited the deep forms of fluid flow.
+%% http://www.nature.com/news/2006/060703/full/060703-17.html
+\textbf{Advances in turbulence:}
+
+\textbf{
+  Kolmogorov, armed only with dimensional analysis and an envelope
+  figures this out in 1941:
+}
+$$
+E(k)
+=
+C
+\epsilon^{2/3}
+k^{-5/3}
+$$
+$E(k)$ = energy spectrum function.
+
+$\epsilon$ = rate of energy dissipation.
+
+$k = 2\pi/\lambda$ = wavenumber.
+
+Energy is distributed across all modes,
+decaying with wave number.
+
+No internal characteristic scale to turbulence.
+
+Stands up well experimentally and there has been no other advance of similar magnitude.
+%% \textbf{\small Okay, okay, okay, ...}
+
+\small
+\textbf{ ``The Geometry of Nature'': \wordwikilink{https://en.wikipedia.org/wiki/Fractal}{Fractals}}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{Romanesco_Broccoli_detail.jpg}\footnotemark[4]
+\end{marginfigure}
+
+
+``Anomalous'' scaling of lengths, areas, volumes relative to each other.
+
+The enduring question: how do self-similar geometries form?
+
+\wordwikilink{https://en.wikipedia.org/wiki/Robert\_E.\_Horton}{Robert E. Horton}: Self-similarity of river (branching) networks (1945).\cite{horton1945a}
+
+\wordwikilink{https://en.wikipedia.org/wiki/Hurst\_exponent}{Harold
+  Hurst}---Roughness of time series (1951).\cite{hurst1951a}
+
+\wordwikilink{https://en.wikipedia.org/wiki/Lewis\_Fry\_Richardson}{Lewis
+  Fry Richardson}---Coastlines (1961).
+
+\wordwikilink{https://en.wikipedia.org/wiki/Benoit\_Mandelbrot}{Beno\^{i}t
+  Mandelbrot}---Introduced the term ``Fractals'' and explored
+them everywhere, 1960s on.\cite{mandelbrot1967a,mandelbrot1977a,mandelbrot1983a}
+\footnotetext[4]{Note to self: Make millions with the ``Fractal Diet''}
+\section{Cities}
+\textbf{Scaling in Cities:}
+\displaypaper{bettencourt2007a}{2}
+
+Quantified levels of 
+
+Infrastructure
+Wealth
+Crime levels
+Disease
+Energy consumption
+
+as a function of city size $N$ (population).
+
+\textbf{Scaling in Cities:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{bettencourt2007a_fig1and2.pdf}
+\end{marginfigure}
+
+\textbf{Scaling in Cities:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{bettencourt2007a_tab1.pdf}
+\end{marginfigure}
+
+\textbf{Scaling in Cities:}
+
+\textbf{Intriguing findings:}
+Global supply costs scale \alertg{sublinearly} with $N$ ($\beta<1$).
+
+Returns to scale for infrastructure.
+Total individual costs scale \alertg{linearly} with $N$ ($\beta=1$)
+
+Individuals consume similar amounts independent of city size.
+Social quantities scale \alertg{superlinearly} with $N$ ($\beta>1$)
+
+Creativity (\# patents), wealth, disease, crime, ...
+
+
+\medskip
+
+\textbf{Density doesn't seem to matter...}
+
+Surprising given that across the world,
+we observe two orders of magnitude variation
+in area covered by
+\wordwikilink{http://en.wikipedia.org/wiki/Urban\_agglomeration}{agglomerations} 
+of fixed populations.
+\textbf{A possible theoretical explanation?}
+\displaypaper{bettencourt2013a}{4}
+\bigskip
+\#sixthology
+\textbf{Density of public and private facilities:}
+
+\begin{marginfigure}[]
+  \includegraphics[width=0.49\textwidth]{um2009a_fig1A.pdf}
+\end{marginfigure}
+
+
+\begin{marginfigure}[]
+  \includegraphics[width=0.49\textwidth]{um2009a_fig1B.pdf}
+\end{marginfigure}
+
+$$
+\rhofac \propto \rhopop^{\alpha} 
+$$    
+\alert{Left plot:} ambulatory hospitals in the U.S.
+
+\alert{Right plot:} public schools in the U.S.
+%% 
+%%   Note: possible break in scaling for public schools.
+%%   Transition from $\alpha \simeq 2/3$ to 
+%%   $\alpha = 1$ around $\rhopop \simeq 100$.
+\section{Money}
+
+
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{money.png}
+\end{marginfigure}
+
+
+\url{http://xkcd.com/980/}
+
+Explore the original zoomable and  interactive version here: 
+\wordwikilink{http://xkcd.com/980/}{http://xkcd.com/980/}.
+\textbf{\wordwikilink{http://en.wikipedia.org/wiki/Moore's_law}{Moore's Law:}}
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{transistor_Count_and_Moore_Law.png}
+\end{marginfigure}
+
+\section{Technology}
+\small
+
+\textbf{Scaling laws for technology production:}
+``Statistical Basis for Predicting Technological Progress\cite{nagy2013a}''
+Nagy et al., PLoS ONE, 2013.
+
+$y_t$ = stuff unit cost;
+$x_t$ = total amount of stuff made.
+
+Wright's Law, cost decreases as a power of total stuff made:\cite{wright1936a}
+$$ 
+y_t \propto x_t^{-w}.
+$$
+
+\wordwikilink{http://en.wikipedia.org/wiki/Moore's_law}{Moore's Law},
+framed as cost decrease 
+connected with doubling of transistor density every two years:\cite{moore1965a}
+$$
+y_t \propto e^{- m t}. 
+$$
+
+Sahal's observation that Moore's law gives rise to Wright's law if
+stuff production grows exponentially:\cite{sahal1979a}
+$$
+x_t \propto e^{g t}.
+$$
+
+Sahal + Moore gives Wright with $w = m/g$.
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{nagy2013a_fig3.pdf}
+\end{marginfigure}
+
+
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{nagy2013a_fig4.pdf}
+\end{marginfigure}
+
+\section{Specialization}
+\textbf{Scaling of Specialization:}
+``Scaling of Differentiation in Networks: Nervous Systems, Organisms,
+Ant Colonies, Ecosystems, Businesses, Universities, Cities, Electronic
+Circuits, and \alertr{Legos}''\\
+M. A. Changizi, M. A. McDannald and D. Widders\cite{changizi2002a}\\
+J. Theor. Biol., 2002.\\
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{changizi2002a_fig3}
+\end{marginfigure}
+
+\wordwikilink{http://www.wired.com/wiredscience/2012/01/the-mathematics-of-lego/}{Nice 2012 wired.com write-up}
+%% \includegraphics[width=\textwidth]{lego-cities-andrew-sullivan.jpg}
+%% \url{http://andrewsullivan.thedailybeast.com/2012/01/how-lego-cities-are-like-real-cities.html}
+\textbf{$C \sim N^{1/d}$, $d \ge 1$:}
+$C$ = network differentiation = \# node types.
+
+$N$ = network size = \# nodes.
+
+$d$ = combinatorial degree.
+
+Low $d$: strongly specialized parts.
+
+High $d$: strongly combinatorial in nature, parts are reused. 
+
+Claim: Natural selection produces high $d$ systems.
+
+Claim: Engineering/brains produces low $d$ systems.
+
+
+
+\begin{marginfigure}[]
+  \includegraphics[width=\textwidth]{changizi2002a_tab1}
+\end{marginfigure}
+
+\textbf{Shell of the nut:}
+Scaling is a fundamental feature of complex systems.
+
+Basic distinction between isometric and allometric scaling.
+
+Powerful envelope-based approach: Dimensional analysis.
+
+``Oh yeah, well that's just dimensional analysis'' said the [insert
+  your own adjective] physicist.
+
+\alertg{Tricksiness:}
+A wide variety of mechanisms give rise to scalings, 
+both normal and unusual.
+
+
+
+
+To Add?
+
+Scaling in blood and river networks.
+
+The Unsolved Allometry Theoricides.

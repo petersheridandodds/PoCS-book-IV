@@ -1,0 +1,50 @@
+\subsection{Damuth's Law}d
+
+Damuth's law relates the population density, $\rho$, of mammalian primary consumers
+to their body mass, $m$.  In support of the scaling relationship,
+Damuth cites statistics on 307 different groups of mammals\cite{damuth81}.  A more extensive
+set of data is used in a more recent paper\cite{damuth93}, where a least squared
+regression test of $\log\rho$ vs. $m$ leads to an exponent of $-0.77 \pm 0.05$.
+The spread of population density, $\delta\rho$, is typically two to three orders of magnitude
+which is not surprising given the varied ecological conditions over which the data was collected.
+
+Because of the large spread of the data, it is clear that many fits
+may lead to similar values of least square error.  Given a possible allometric exponent,
+$\alpha$, the power law of best fit may be calculated directly from the data,
+$\rho(m)=C(\alpha)m^{\alpha}$.  The flucutations, $\rho_i'$ about this possible scaling law are
+\begin{equation}
+\rho_i'={\rho_i\over C(\alpha)m^{\alpha}}.
+\end{equation}
+Since evolution is a growth process, it is natural to study the correlation coefficient, $r$,
+of $\log\rho_i'$ vs. $m_i$ as a function of the scaling exponent, $\alpha$.  We find $r=0$ 
+when $\alpha=0.65$, much closer to 2/3 than to 3/4.  For $\alpha=0.66$, $r=0.009$, while
+for $\alpha=0.75$, $r=0.078$, nearly an order of magnitude difference.  
+
+Damuth's law was also intended to give ecologists
+a sense of population densities in (relatively) isolated
+ecological communities.  In support of this proposition, Damuth extracts the
+109 species whose population density was sampled in ecological communities
+of three or more species.  Damuth concludes that the mean allometric exponent
+of these pooled communities is -0.74, e.g.\ ecological communities obey the 
+same allometric scaling structure as the entire ecological community.
+This result is tenuous at best.  A closer examination of Damuths constructed communities
+reveals that seven of the fifteen examples have less than five individual species,
+which leads Damuth to offer the warning that the "individual values for
+these regressions are not very reliable".
+
+If we only consider communities with seven or more species, e.g.\ all
+of the communities whom Damuth considers to have reliable regressions,
+we find something completely different.  The mean of the scaling exponents for the 
+communities with reliable regressions is $-0.68\pm 0.10$.
+Using 10000 bootstrap samples, we calculated a 95\% bootstrap interval on the 
+mean of the exponent.  
+The mean exponent from bootstrap analysis is $-0.6803\pm 0.03167$, and the 95\% bootstrap confidence 
+interval stretches from -0.6200 to -0.7438.  Note that this interval does not include -3/4!
+
+Any scaling law based on the behavior of a limited number of ecological
+communities is clearly subject to criticism.  Our objective here is
+to show that the results for population density in ecological communities
+subject to similar ecological conditions is by no means inconsistent
+with a 2/3 law for basal metabolic rate.  There is still a great need
+for further data collection, studies on the role of sample size\cite{woman},
+as well as further studies on equipartitioning of ecological resources.

@@ -1,0 +1,685 @@
+\begin{comment}
+
+
+\subsection{Universality}
+
+%% real world measurements
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{Outline:}\\
+  \vspace{5mm}
+  Focus on robustness of Hack's law: \alert{universality}.
+  $$ \boxed{l \propto a^h} $$
+  \begin{center}
+    \includegraphics[angle=90,width=0.48\textwidth]{figmeanhackdist_kansas}  
+  \end{center}
+
+{\small
+Three regimes of scaling (or non-scaling):\\
+small, intermediate, and large scales.
+
+small: linear basins
+
+intermediate: scaling but slow drifts observed\\
+$\rightarrow$ correlate with overall basin shape
+
+large scales: discreteness of network kicks in.
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A toy model---Scheidegger's model}
+
+  \begin{block}{Fluctuations in Hack's law:}
+    \includegraphics[angle=90,width=0.8\textwidth]{figsche_hackscalingfn}    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Seeking truth}
+
+  \begin{block}<1->{Fluctuations + Deviations + Universality?}
+    \begin{itemize}
+    \item<1-> Can we have them all?
+    \item<2-> Maybe...
+    \item<3-> Certainly true that region of 
+      pure scaling must be restricted due to:
+      \begin{enumerate}
+      \item<4->
+        Crossover regions between scaling
+      \item<5->
+        Fluctuations grow strongly with basin size
+        (generalization of Horton, Tokunaga laws)
+      \item<6->
+        Fluctuations in overall basin shape.
+        (due to geology and/or chance)
+      \end{enumerate}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  Mean Hack's law:  $ \avg{l} = \theta a^h $
+
+  Scaling ansatzes:
+  $$\cprob{l}{a} = 1/a^h F_l (l/a^h)$$
+  $$\cprob{a}{l} = 1/l^{1/h} F_a (a/l^{1/h})$$
+  $$P(a,l) = P(a) \cprob{l}{a} = P(l)\cprob{a}{l}$$
+
+  $$P(a) \sim N_a a^{-\tau} 
+  \quad
+  \mbox{and}
+  \quad
+  P(l) \sim N_l l^{-\gamma}$$
+
+  $$\tau = 2 - h
+  \quad
+  \mbox{and}
+  \quad
+  \gamma = 1/h$$
+\end{frame}
+
+ \begin{frame}
+  \frametitle{Fluctuations in Hack's law:}
+
+  Scaling form of $P(a,l)$
+  $$P(a,l) = 1/a^{2} F(l/a^h) = 1/l^{2/h} G(a/l^{1/h})$$
+where\\
+$x^{-2} F(x^{-h}) = G(x)$ and
+$F(y) = y^{-2} G(y^{-1/h})$
+
+%From random walks:
+%$$P(n) \sim \frac{1}{\sqrt{2}\pi} n^{-3/2}
+%\rightarrow P(l) \sim \frac{2}{\pi} l^{-3/2}$$
+
+Postulate:
+$$  \cprob{l}{a} = \frac{1}{\sqrt{2\pi} a^{2/3} \eta}
+  \exp\{-(l/a^{2/3}-\theta)^2/2\eta^2\} $$
+
+$$
+  P(a,l)  =  \frac{N_a}{a^{4/3}}
+  \frac{1}{\sqrt{2\pi} a^{2/3} \eta}
+  \exp\{-(l/a^{2/3}-\theta)^2/2\eta^2\} $$
+$$ = 
+  \frac{N_a}{\sqrt{2\pi} a^{2} \eta}
+  \exp\{-(l/a^{2/3}-\theta)^2/2\eta^2\} $$
+$$     N_a =  \frac{2^{5/2}\eta}{\sqrt{3\pi}}
+  \left[ \int_{u=0}^\infty \dee{u}
+  u^{1/2} \exp\{-(u-\theta)^2/2\eta^2\} \right]^{-1}$$
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  $$ F_l(z)  =  \frac{1}{\sqrt{2\pi} \eta}
+  \exp\{-(z-\theta)^2/2\eta^2\} $$
+
+  $$ F_a(z)  =  \frac{N_a \sqrt{\pi}}{2^{3/2}\eta} z^{-2}
+  \exp\{-(z^{-2/3}-\theta)^2/2\eta^2\} $$
+
+  $$ F(z)  =  \frac{N_a}{\sqrt{2\pi} \eta}
+  \exp\{-(z-\theta)^2/2\eta^2\} $$
+
+  $$ G(z)  =  \frac{2N_a}{\sqrt{\pi}2^{3/2}\eta} z^{-2}
+  \exp\{-(z^{-2/3}-\theta)^2/2\eta^2\} $$
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  $ \cprob{l}{a} = 1/a^h F_l(l/a^h)$\\
+  \mbox{}\\
+  $  = 1/a^h \frac{1}{\sqrt{2\pi} \eta} \exp\{-(l/a^h-\theta)^2/2\eta^2\}$
+
+  $\cprob{a}{l} = 1/l^{1/h} F_a(a/l^{1/h})$\\
+  \mbox{}\\
+  $=  1/l^{1/h} \frac{N_a}{\sqrt{2\pi} N_l \eta} 
+  (a/l^{1/h})^{-2}$\\
+  $\qquad \times \exp\{-((a/l^{1/h})^{-h}-\theta)^2/2\eta^2\},$
+
+the full Hack distribution:
+$ P(a,l)  =  1/a^{2} F(l/a^h) = 1/l^{2/h} G(a/l^{1/h})$\\
+  \mbox{}\\
+ $ = \frac{N_a}{\sqrt{2\pi} \eta a^2} \exp\{-(l/a^h-\theta)^2/2\eta^2\}.$
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{fighack_scfns_mispi}    
+  \end{center}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{fighack_scfns_amazon}
+  \end{center}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{Deviations I:}\hfill\mbox{}\\
+  \textsl{\small Linear basin crossover:}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+  \begin{tabular}{cc}
+    \includegraphics[width=.475\textwidth]{fighacksample_rep}
+    \includegraphics[width=.475\textwidth]{fighillslope_rep}
+  \end{tabular}
+  \end{center}
+
+  $\bullet$ Increased resolution does not improve this.
+
+  $\bullet$ Hillslopes masked by linear basins but\\
+  \mbox{}\hspace{5mm} can be resolved.
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Linear basin crossover:}\hfill\mbox{}\\
+  \vspace{15mm}
+  \begin{center}
+  \includegraphics[width=0.9\textwidth]{hackjump}\\
+  \vspace{15mm}
+  \includegraphics[width=0.48\textwidth]{figmeanhackdist_kansas} 
+  \includegraphics[width=0.48\textwidth]{figmeanhackdist_mispi}
+  \end{center}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Issues at intermediate scales:}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figdiffmeanhacks}
+  \end{center}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Deviations I:}\hfill\mbox{}\\
+  \textsl{\small Issues at intermediate scales:}\hfill\mbox{}\\
+    \vspace{20mm}
+    \includegraphics[width=0.48\textwidth]{figdiffmeanhack_kansas}
+    \includegraphics[width=0.48\textwidth]{figdiffmeanhack_mispi}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \textsl{\small Deviations III:}\hfill\mbox{}\\
+  \textsl{\small Large scale fluctuations:}\hfill\mbox{}\\
+  
+  Basin structure is discrete at large scales.
+
+  Self-averaging decreases $+$ fluctuations increase.
+    
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{fig_al_ge10e10_mispi10}    
+  \end{center}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{}
+
+  \begin{tabular}{cc}
+    \includegraphics[width=.425\textwidth]{fignalomega_mispi10} &
+    \includegraphics[width=.425\textwidth]{fighackorder_mispi10_noname} \\
+    \includegraphics[width=.425\textwidth]{fignalomega_nile} &
+    \includegraphics[width=.425\textwidth]{fighackorder_nile_noname} \\
+    \includegraphics[width=.425\textwidth]{fignalomega_amazon} &
+    \includegraphics[width=.425\textwidth]{fighackorder_amazon_noname} \\
+  \end{tabular}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{Large scale deviations in Hack's law}
+
+    \includegraphics[angle=90,width=.48\textwidth]{figorderhack7_mispi10_2}
+    \includegraphics[angle=90,width=.48\textwidth]{figorderhack7_mispi10}
+
+    \begin{itemize}
+    \item Fluctuations grow as $(R_\msl)^\om/(R_n)^{(\Om-\om)/2}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Large scale deviations in Hack's law}
+
+  Correlations of deviations within basins.
+
+  $r$ = linear correlation coefficient.\\
+  $s$ = significance from Spearman's rank ordering correlation.
+
+  $ r = 
+  \frac{\sum_{i=1}^{N}(u_i-\mu_u)(v_i-\mu_v)}
+  {\sum_{i=1}^{N}(x_i-\mu_u)^2
+    \sum_{i=1}^{N}(y_i-\mu_v)^2}
+  = \frac{C(u,v)}
+  {\sigma_u \sigma_v}$
+
+  \begin{center}
+    \includegraphics[angle=90,width=0.6\textwidth]{fighackorder_correls}
+  \end{center}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Correlations of deviations and basin shape}
+
+    \includegraphics[angle=90,width=.8\textwidth]{figorderhack7_asp5log_m10}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Large scale deviations in Hack's law}
+
+  \includegraphics[angle=90,width=.8\textwidth]{fighack7_spearman_mispi_2}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{World's largest rivers:}
+
+  $$\tilde{h} = 0.50 \pm 0.06$$
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{xfworldhack}
+  \end{center}
+  \begin{itemize}
+  \item Data from Leopold (1994)\cite{leopold1994a}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Large scale deviations in Hack's law}
+
+  \begin{center}
+    \includegraphics[angle=90,width=.48\textwidth]{figworld_shapefactor}
+    \includegraphics[angle=90,width=.48\textwidth]{fighack7_shapefactor_mispi}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Hack's law}
+
+  \begin{center}
+    \includegraphics[angle=90,width=0.7\textwidth]{fighack3d_kansas3}
+  \end{center}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Hack's law in the raw}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{fighack3d_kansas3}
+  \end{center}
+
+\end{frame}
+
+
+
+
+%\begin{frame}
+%  \frametitle{}
+
+%\slidetitle{Fluctuations in Hack's law}
+
+%  \begin{center}
+%    \includegraphics[width=\textwidth]{fighack3dpcmax_gsm_kansas_noname}
+%    \includegraphics[width=\textwidth]{fighack3dpcmax_kansas_noname}
+%  \end{center}
+
+%\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  Mean Hack's law:  $ \avg{l} = \theta a^h $
+
+  Scaling ansatzes:
+  $$\cprob{l}{a} = 1/a^h F_l (l/a^h)$$
+  $$\cprob{a}{l} = 1/l^{1/h} F_a (a/l^{1/h})$$
+  $$P(a,l) = P(a) \cprob{l}{a} = P(l)\cprob{a}{l}$$
+
+  $$P(a) \sim N_a a^{-\tau} 
+  \quad
+  \mbox{and}
+  \quad
+  P(l) \sim N_l l^{-\gamma}$$
+
+  $$\tau = 2 - h
+  \quad
+  \mbox{and}
+  \quad
+  \gamma = 1/h$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  Scaling form of $P(a,l)$:
+  $$P(a,l) = 1/a^{2} F(l/a^h) = 1/l^{2/h} G(a/l^{1/h})$$
+  \vspace{30mm}
+%where\\
+%$x^{-2} F(x^{-h}) = G(x)$ and
+%$F(y) = y^{-2} G(y^{-1/h})$
+
+%From random walks:
+%$$P(n) \sim \frac{1}{\sqrt{2}\pi} n^{-3/2}
+%\rightarrow P(l) \sim \frac{2}{\pi} l^{-3/2}$$
+
+Postulate normal distribution:
+$$  \cprob{l}{a} = \frac{1}{\sqrt{2\pi} a^{2/3} \eta}
+  \exp\{-(l/a^{2/3}-\theta)^2/2\eta^2\} $$
+
+%$$
+%  P(a,l)  =  \frac{N_a}{a^{4/3}}
+%  \frac{1}{\sqrt{2\pi} a^{2/3} \eta}
+%  \exp\{-(l/a^{2/3}-\theta)^2/2\eta^2\} $$
+%$$ = 
+%  \frac{N_a}{\sqrt{2\pi} a^{2} \eta}
+%  \exp\{-(l/a^{2/3}-\theta)^2/2\eta^2\} $$
+%$$     N_a =  \frac{2^{5/2}\eta}{\sqrt{3\pi}}
+%  \left[ \int_{u=0}^\infty \dee{u}
+%  u^{1/2} \exp\{-(u-\theta)^2/2\eta^2\} \right]^{-1}$$
+\end{frame}
+
+%\begin{frame}
+  \frametitle{}
+
+%  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+%  \vspace{5mm}
+%  $$ F_l(z)  =  \frac{1}{\sqrt{2\pi} \eta}
+%  \exp\{-(z-\theta)^2/2\eta^2\} $$
+%
+%  $$ F_a(z)  =  \frac{N_a \sqrt{\pi}}{2^{3/2}\eta} z^{-2}
+%  \exp\{-(z^{-2/3}-\theta)^2/2\eta^2\} $$
+%
+%  $$ F(z)  =  \frac{N_a}{\sqrt{2\pi} \eta}
+%  \exp\{-(z-\theta)^2/2\eta^2\} $$
+%
+%  $$ G(z)  =  \frac{2N_a}{\sqrt{\pi}2^{3/2}\eta} z^{-2}
+%  \exp\{-(z^{-2/3}-\theta)^2/2\eta^2\} $$
+%\end{frame}
+
+%\begin{frame}
+  \frametitle{}
+
+%  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+%  \vspace{5mm}
+%  $ \cprob{l}{a} = 1/a^h F_l(l/a^h)$\\
+%  \mbox{}\\
+%  $  = 1/a^h \frac{1}{\sqrt{2\pi} \eta} \exp\{-(l/a^h-\theta)^2/2\eta^2\}$
+%
+%  $\cprob{a}{l} = 1/l^{1/h} F_a(a/l^{1/h})$\\
+%  \mbox{}\\
+%  $=  1/l^{1/h} \frac{N_a}{\sqrt{2\pi} N_l \eta} 
+%  (a/l^{1/h})^{-2}$\\
+%  $\qquad \times \exp\{-((a/l^{1/h})^{-h}-\theta)^2/2\eta^2\},$
+%
+%\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{Full Hack distribution:  $2/3 \rightarrow h$}\hfill\mbox{}\\
+  \vspace{15mm}
+  $ P(a,l)  =  1/a^{2} F(l/a^h) = 1/l^{2/h} G(a/l^{1/h})$\\
+  \mbox{}\\
+  \vspace{10mm}
+  $ \qquad \quad = \frac{N_a}{\sqrt{2\pi} \eta a^2} \exp\{-(l/a^h-\theta)^2/2\eta^2\}.$
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Fluctuations in Hack's law:}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{fighack_scfns_amazon}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fluctuations in Hack's law}
+
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{fighack_scfns_mispi}    
+  \end{center}
+
+  \begin{tabular}{lccc}
+    River network & $\theta$ & $\eta$ & $h$ \\
+    Mississippi & 0.80 & 0.20 & 0.55 \\
+    Amazon & 1.90 & 0.35 & 0.52 \\
+    Nile & 2.45 & 0.50 & 0.50 \\
+    Kansas & 0.70 & 0.15 & 0.57 \\
+    Congo & 0.89 & 0.18 & 0.54
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hack's law}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{fighack3d_kansas3}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{Deviations I:}\hfill\mbox{}\\
+  \textsl{\small Linear basin crossover:}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+  \begin{tabular}{cc}
+    \includegraphics[width=.475\textwidth]{fighacksample_rep}
+    \includegraphics[width=.475\textwidth]{fighillslope_rep}
+  \end{tabular}
+  \end{center}
+
+  $\bullet$ Increased resolution does not improve this.
+
+  $\bullet$ Hillslopes masked by linear basins but\\
+  \mbox{}\hspace{5mm} can be resolved.
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Linear basin crossover:}\hfill\mbox{}\\
+  \vspace{15mm}
+  \begin{center}
+  \includegraphics[width=0.9\textwidth]{hackjump}\\
+  \vspace{15mm}
+  \includegraphics[width=0.48\textwidth]{figmeanhackdist_kansas} 
+  \includegraphics[width=0.48\textwidth]{figmeanhackdist_mispi}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hack's law}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{fighack3d_kansas3}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Deviations II: Intermediate scales}\hfill\mbox{}\\
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figdiffmeanhacks}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Issues at intermediate scales:}\hfill\mbox{}\\
+    \vspace{20mm}
+    \includegraphics[width=0.48\textwidth]{figdiffmeanhack_kansas}
+    \includegraphics[width=0.48\textwidth]{figdiffmeanhack_mispi}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hack's law}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{fighack3d_kansas3}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Deviations III:}\hfill\mbox{}\\
+  \textsl{\small Large scale fluctuations:}\hfill\mbox{}\\
+  
+  Basin structure is discrete at large scales.
+
+  Self-averaging decreases $+$ fluctuations increase.
+    
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{fig_al_ge10e10_mispi10}    
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{tabular}{cc}
+    \includegraphics[width=.425\textwidth]{fignalomega_mispi10} &
+    \includegraphics[width=.425\textwidth]{fighackorder_mispi10_noname} \\
+    \includegraphics[width=.425\textwidth]{fignalomega_nile} &
+    \includegraphics[width=.425\textwidth]{fighackorder_nile_noname} \\
+    \includegraphics[width=.425\textwidth]{fignalomega_amazon} &
+    \includegraphics[width=.425\textwidth]{fighackorder_amazon_noname} \\
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Large scale fluctuations:}\hfill\mbox{}\\
+
+  \begin{center}
+    \includegraphics[width=.5\textwidth]{figorderhack7_mispi10_2} \\
+    \includegraphics[width=.5\textwidth]{figorderhack7_mispi10} \\
+    Fluctuations grow as $(R_\msl)^\om/(R_n)^{(\Om-\om)/2}$.
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Large scale deviations in Hack's law}
+  Correlations of deviations within basins.
+
+  $r$ = linear correlation coefficient.\\
+  $s$ = significance from Spearman's rank ordering correlation.
+
+  $ r = 
+  \frac{\sum_{i=1}^{N}(u_i-\mu_u)(v_i-\mu_v)}
+  {\sum_{i=1}^{N}(x_i-\mu_u)^2
+    \sum_{i=1}^{N}(y_i-\mu_v)^2}
+  = \frac{C(u,v)}
+  {\sigma_u \sigma_v}$
+
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{fighackorder_correls}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Correlations of deviations and basin shape}
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=.8\textwidth]{figorderhack7_asp5log_m10}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \textsl{\small Large scale deviations in Hack's law}
+  \vspace{5mm}
+  \begin{center}
+    \includegraphics[width=.8\textwidth]{fighack7_spearman_mispi_2}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{World's largest rivers:}
+
+  $$\tilde{h} = 0.50 \pm 0.06$$
+  \begin{center}
+    \includegraphics[height=0.6\textheight]{xfworldhack}
+  \end{center}
+  data from Leopold, 1994\cite{leopold1994a}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Large scale deviations in Hack's law}
+
+  \begin{center}
+    \includegraphics[angle=90,width=.48\textwidth]{figworld_shapefactor}
+    \includegraphics[angle=90,width=.48\textwidth]{fighack7_shapefactor_mispi}
+  \end{center}
+
+\end{frame}
+
+\end{comment}

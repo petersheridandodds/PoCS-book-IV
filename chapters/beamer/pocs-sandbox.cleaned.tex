@@ -1,0 +1,3295 @@
+
+
+%% \adverstisement{Broccoli}{}{link}{figure}
+
+%% for assignments
+%% for each one, add some gephi action
+%% for exploring what they're computing
+%% give them a few networks to play around with
+%% for each assignment.
+
+
+  \textbf{Key element for division approach:}
+    
+     
+      Recomputing betweenness.
+     
+      \alert{Reason:} Possible to have a low betweenness
+      in links that connect large communities
+      if other links carry majority of shortest paths.
+    
+  
+
+  \textbf{When to stop?:}
+    
+     
+      How do we know which
+      divisions are meaningful?
+     
+      \alert{Modularity measure:}
+      difference in fraction of within component
+      nodes to that expected for randomized version:\\
+      \smallskip
+      {
+      $
+      Q = 
+      \sum_{i}
+      [e_{ii} - a_{i}^2]
+      $\\
+      \smallskip
+      where $e_{ij}$ is the fraction of (undirected) edges
+      travelling between identified communities $i$ and $j$,
+      and $a_i = \sum_{j}e_{ij}$ is the fraction of edges with
+      at least one end in community $i$.
+    }
+    
+  
+
+
+  \textbf{Hierarchy by division}
+
+  \textbf{Key element:}
+    
+     
+      Recomputing betweenness.
+     
+      \alert{Reason:} Possible to have a low betweenness
+      in links that connect large communities
+      if other links carry majority of shortest paths.
+    
+  
+
+  \textbf{When to stop?:}
+    
+     
+      How do we know which
+      divisions are meaningful?
+     
+      \alert{Modularity measure:}
+      difference in fraction of within component
+      nodes to that expected for randomized version:\\
+      \smallskip
+      {
+      $
+      Q = 
+      \sum_{i}
+      [e_{ii} - a_{i}^2]
+      $\\
+      \smallskip
+      where $e_{ij}$ is the fraction of (undirected) edges
+      travelling between identified communities $i$ and $j$,
+      and $a_i = \sum_{j}e_{ij}$ is the fraction of edges with
+      at least one end in community $i$.
+    }
+    
+  
+
+
+
+  \textbf{Modularity measure:}
+    
+     
+      Define 
+    
+
+    $$  
+    Q = 
+    \sum_{i}
+    [e_{ii} - (\sum_j e_{ij})^2]
+    =
+    {\textnormal{Tr}} \textmatrix{E} - || \textmatrix{E}^2 ||_1,
+    $$
+  
+
+
+
+\begin{comment}
+
+
+
+  Structure detection:
+
+  From Lipari summer school:
+
+%%
+
+jure leskovec:
+
+bipartite affiliation graph model
+
+community detection
+
+affiliation graph model
+
+%%%
+
+Add Louvain method
+
+Limits of modularity:
+
+Can fail for random graphs.
+
+Spinglass models
+
+Look at fluctuations of modularity.
+
+Resolution limit
+Fortunato and Barthelemy, 2007
+
+Infomap (Rosvall and Bergstrom, 2008)
+Random walks and geometric maps
+
+
+Methods for finding overlapping communities.
+
+Clique percolation method.
+
+How to test clustering algorithms.
+
+LFR benchmark
+lancichinetti et al 2008
+
+Mutual information
+
+Danon et al. (2005) using GN benchmark
+
+
+%% Get this to work:
+%%  \pdfmouseovercomment{Does this work?}{Beep}
+
+
+  Include Romu's famous paper
+
+  Add Callaway to random networks
+  Point out growing mechanism.
+
+  Move Newman's generating function madness to 
+  the end of assortativity.
+
+  Add our work?
+
+%%   \displaypaper{}
+
+  Glock's paper
+
+
+%%   \displaypaper{}
+
+  River network piracy
+
+  Add to branching networks 2
+
+
+\wordwikilink{http://amaznode.fladdict.net/}{Fun with amazon's recommender system}.
+
+[amaznode.fladdict.net]
+  
+
+
+  \wordwikilink{http://www.ted.com/index.php/talks/blaise_aguera_y_arcas_demos_photosynth.html}{Photosynth}.
+
+
+  Spreaders?
+
+\url{http://dish.andrewsullivan.com/2014/03/20/the-conspiratorial-sort/}
+
+
+  
+  %% show examples of how the following works
+
+  \textbf{Some extra thinking:}
+    
+     
+      (
+    
+    
+  
+  
+
+  $ \mbox{$x^k$ piece of $\left( \sum_{i'=0}^\infty V_{i'}x^{i'}\right)^j$}$
+
+
+
+
+Harold Ramis
+
+``What did you do Ray?''
+
+It's the Stay Puft Marshmallow Man
+
+Connect Ghostbusters to kid's showing self control
+over marshmallows.
+
+
+
+
+  Random network applications
+
+  Add code to site, github.
+
+Random network applications
+  Piece on Ugander 2013a
+
+  Types of motifs possible.
+
+
+
+
+
+
+\section{Nutshell}
+
+\begin{frame}[label=]
+  \textbf{Nutshell:}
+
+  \textbf{Optimal supply networks:}
+    
+     Be
+    
+    
+    
+    
+    
+  
+
+
+
+
+  Ugander's
+
+  Structural Diversity work.
+
+  Beautiful.
+
+
+  Add page on 
+  
+  ``Virality Prediction and Community Structure in Social Networks''
+
+  \cite{weng2013a}
+
+  Weng, Men?er, Ahn
+
+
+  ``Subgraph Frequencies: Mapping the Empirical and Extremal Geography of
+  Large Graph Collections''
+
+  To add to Motifs
+
+  Ugander: Neighborhood graphs.
+
+  Triad space.
+
+  Triadic closure (Rapaport)
+
+  Suppression of certain graph types.
+
+  Extremal graph theory.
+
+  Razborov, flag albebras, 2007.
+
+  Not a lot of open triads.
+
+  \cite{ugander2013a}
+
+
+  
+For optimal supply networks
+Metastable states in random media.  Optimal paths.
+P. Jogi and Sornette, 1998, Phys Rev. E 57, 6931--6943.
+ 
+ \cite{xie2007a}
+ Geographical networks evolving with an optimal policy
+
+
+%% For random networks:
+
+\subsection{Simple analysis}
+
+
+
+
+
+
+
+
+
+%% build course map figures
+
+  \textbf{Weighted networks}
+
+  %% Barrat et al. 2004
+  
+
+http://prl.aps.org/abstract/PRL/v112/i4/e048701
+James P. Gleeson1,*, Jonathan A. Ward2, Kevin P. O’Sullivan1, and William T. Lee1
+1MACSI, Department of Mathematics and Statistics, University of Limerick, Limerick, Ireland
+2Centre for the Mathematics of Human Behaviour, Department of Mathematics and Statistics, University of Reading, Whiteknights RG6 6AH, United Kingdom
+Selected for a Viewpoint in Physics Published 30 January 2014; received 31 May 2013
+See accompanying Physics Synopsis
+Heavy-tailed distributions of meme popularity occur naturally in a model of meme diffusion on social networks. Competition between multiple memes for the limited resource of user attention is identified as the mechanism that poises the system at criticality. The popularity growth of each meme is described by a critical branching process, and asymptotic analysis predicts power-law distributions of popularity with very heavy tails (exponent α<2, unlike preferential-attachment models), similar to those seen in empirical data.
+
+%% Add a drawn picture for "and in detail" section
+
+%% Get into hierarchies.
+
+For branching networks:
+  
+Cite woldenberg1966a
+\cite{woldenberg1966a}
+Allometry, Herbert Simon!
+
+Describe process of network growth...
+Extract pictures from
+\cite{glock1931a}
+
+Precipitation of DEMS
+\cite{gregory1994a}
+
+Add page on Caldarelli 1997
+``Randomly pinned landscape evolution''
+
+
+
+
+add slide about galactic network
+to intro
+  
+
+%% weighted networks
+%% Barrat et al. 2004
+
+  
+
+
+%% far lands or bust
+%% \insertvideo{teU1nRc0bso}{980}{1100}{Crafting landscapes}
+%% far lands or bust
+%% \insertvideo{7uBRfjlv480}{1410}{1530}{Crafting landscapes}
+
+
+\insertvideo{lFg21x2sj-M}{}{}{Ant colony structure}
+
+\insertvideo{1IugvemOyZY}{}{}{Ant colony structure}
+
+
+
+
+      The \syllabuslink{\coursewebsite/docs/\courseprefix}.  
+
+
+
+%% To do:
+%% 
+%% stories as theme
+%% 
+%% outline
+%%
+%% make a poster (movie like)
+%% 
+%% logo
+%% 
+%% New theme for website
+%%
+%% script for putting videos up
+%% 
+%% add more videos throughout
+%% 
+%% sketch outline of video shell
+%% tape images on
+%% 
+%% Lada Adamic
+
+%% london biking
+
+
+
+ 
+
+
+
+  Supernatural clip:
+
+  Clowns, S7 or S8?
+
+  Terrifying Octopus.
+
+
+  Networks are a mess.
+  
+  Join-the-dots gag.
+  
+  
+
+  Katz Centrality
+
+
+
+  \textbf{Maximum flow problem:}
+
+  To add to supply networks...
+  
+  \wordwikilink{http://www.technologyreview.com/article/26869/}{http://www.technologyreview.com/article/26869/}
+
+
+\section{Beep}
+
+  \textbf{Where is Barry?}
+
+    \includegraphics[width=\textwidth]{datamining-core-2006-06-27-tp-10.pdf}
+
+
+  \textbf{Yes...}
+
+  
+   
+    Weird
+  
+
+
+\subsection{Sub Beep 1}
+
+  \textbf{Yes...}
+
+  
+   
+    Weird
+  
+
+
+\subsection{Sub Beep 2}
+
+  \textbf{Yes...}
+
+  
+   
+    Weird
+  
+
+
+\section{Random\ walks\ on\ networks}
+
+  \textbf{Yes...}
+
+  
+   
+    Weird
+  
+
+
+
+\subsection{Sub Beep 1}
+
+  \textbf{Yes...}
+
+  
+   
+    Weird
+  
+
+
+\renewcommand{\insertlecturelogo}{
+      \includegraphics[height=0.1\textheight]{seal4.pdf}
+      X
+}
+
+
+\subsection{Sub Beep 2}
+
+  \textbf{Yes...}
+
+  
+   
+    Weird
+  
+
+
+\renewcommand{\insertlecturelogo}{
+      \includegraphics[height=0.1\textheight]{icons-lightbulb2.pdf}
+}
+
+%% %% 
+%% Next time: add in time to equilibrium, max lambda, noh2006a.pdf.
+%% 
+%% Also:
+%% 
+%% Laplacian matrix
+%% 
+%% Admittance matrix
+%% 
+%% Similar to a shifted version of the Laplacian
+%% 
+%% Kirchoff's laws
+%% 
+%% Connection to transportation problems
+%% 
+%% Electricity
+%%   
+%% 
+  \textbf{Random walks on networks---basics:}
+
+  
+  
+    Imagine a single random walker moving
+    around on a network.
+   
+    At $t=0$, start walker at node $j$ and 
+    take time to be discrete.
+   
+    \alert{Q:} What's the long term probability distribution
+    for where the walker will be?
+   
+
+    Define \alertb{$p_i(t)$} as the probability
+    that at time step $t$, our walker is at node $i$.
+   
+    We want to characterize the evolution
+    of $\vec{p}(t)$.
+   
+    First task: connect $\vec{p}(t+1)$ to $\vec{p}(t)$.
+   
+    {Let's call our walker \alert{Barry}.}
+   
+    {Unfortunately for Barry,
+      he lives on a high dimensional graph and is far from home.}
+  
+    {Worse still: Barry is \alertb{hopelessly drunk}.}
+  
+
+
+\renewcommand{\insertlecturelogo}{
+  \includegraphics[height=0.1\textheight]{scrabbleletters2-tp.pdf}
+}
+
+  \textbf{Where is Barry?}
+
+  
+  
+    Consider simple directed, ergodic (strongly connected) networks.
+  
+    As usual, represent network by \alert{adjacency matrix $A$}
+    where
+    $$
+    \begin{array}{l}
+      a_{ij}=1 \ \mbox{if $i$ has an edge leading to $j$}, \\
+      a_{ij}=0 \ \mbox{otherwise.}
+    \end{array}
+    $$
+  
+    Barry is at node $i$ at time $t$ with probability $p_i(t)$.
+  
+    In the next time step he 
+    \alertb{randomly lurches} toward one of $i$'s neighbors.
+  
+    Equation-wise:
+    $$
+      p_i(t+1) = \sum_{j=1}^{n} \frac{1}{k_i}  a_{ji} p_j(t).
+    $$
+    where $k_i$ is $i$'s degree.
+    {Note: $k_i = \sum_{j=1}^{n} a_{ij}$.}
+  
+
+
+  \textbf{Where is Barry?}
+
+  
+  
+    Linear algebra-based excitement:
+    $
+    p_i(t+1) = \sum_{j=1}^{n} a_{ji} \frac{1}{k_j} p_j(t)
+    $
+    is more usefully viewed as
+    $$
+    \vec{p}(t+1) 
+    = 
+    A^{\textnormal{T}} K^{-1}
+    \vec{p}(t) 
+    $$
+    where $[K_{ij}] = [\delta_{ij} k_i]$ 
+    has node degrees on the main diagonal
+    and zeros everywhere else.
+  
+    So... we need to find the \alert{dominant eigenvalue} 
+    of $A^{\textnormal{T}} K^{-1}$.
+  
+    Expect this eigenvalue will be 1 (doesn't make sense
+    for total probability to change).
+  
+    The corresponding eigenvector will be the limiting
+    probability distribution (or invariant measure).
+  
+    Extra concerns: multiplicity of eigenvalue = 1,
+    and network connectedness.
+  
+
+
+  \textbf{Where is Barry?}
+
+  
+  
+    By inspection, we see that
+    $$
+    \vec{p}(\infty) = \frac{1}{\sum_{i=1}^{n} k_i} \vec{k}
+    $$
+    satisfies
+    $
+    \vec{p}(\infty)
+    = 
+    A^{\textnormal{T}} K^{-1}
+    \vec{p}(\infty)
+    $
+    with eigenvalue 1.
+  
+    We will find Barry at node $i$ with probability
+    proportional to its degree $k_i$.
+  
+    Nice implication: probability of finding Barry travelling along
+    any edge is \alert{uniform}.
+  
+    Diffusion in real space smooths things out.
+  
+    On networks, uniformity occurs on edges.
+  
+    So in fact, diffusion in real space is \alertb{about the edges too}
+    but we just don't see that.
+  
+
+
+  \textbf{Other pieces:}
+
+  
+  
+    Goodness: $A^{\textnormal{T}} K^{-1}$ is similar to a real symmetric matrix
+    if $A = A^{\textnormal{T}}$.
+  
+    Consider the transformation $M = \alertb{K^{-1/2}}$:
+    $$
+    \alertb{K^{-1/2}}
+    \alert{A^{\textnormal{T}} K^{-1}}
+    \alertb{K^{1/2}}
+    =
+    \alertb{K^{-1/2}}
+    \alert{A^{\textnormal{T}}}
+    \alertb{K^{-1/2}}.
+    $$
+  
+    Since $A^{\textnormal{T}} = A$, we 
+    have 
+    $$
+    ({K^{-1/2}}
+    {A}
+    {K^{-1/2}})^{\textnormal{T}}
+    =
+    {K^{-1/2}}
+    {A}
+    {K^{-1/2}}.
+    $$
+  
+    Upshot: $A^{\textnormal{T}} K^{-1} = A K^{-1}$ has real eigenvalues and a complete
+    set of orthogonal eigenvectors.
+  
+    Can also show that maximum eigenvalue magnitude is indeed 1.
+  
+    Other goodies: next time round.
+  
+
+
+
+
+\end{comment}
+%%  ``Experimental evidence of massive-scale emotional contagion through
+%%  social networks''
+
+  \displaypaper{kramer2014a}{1}
+  
+  Somewhat creeptastic.
+
+
+Vaccine
+
+Difficulty of changing opinions
+
+\url{http://www.newyorker.com/online/blogs/mariakonnikova/2014/05/why-do-people-persist-in-believing-things-that-just-arent-true.html}
+
+
+
+
+Rosencrantz and Guildenstern are Dead  
+Coin flipping:
+
+https://www.youtube.com/watch?v=NbInZ5oJ0bc
+
+
+
+%% For scaling:
+  
+Sornette
+How Much is the Whole Really More than the Sum of its Parts? 1 + 1 = 2.5: Superlinear Productivity in Collective ...
+arxiv.org/abs/1405.4298
+
+
+
+  Make a 2/3 movie with students from film.
+
+  2/3 in a hospital bed.
+
+  Hearsay, the word.
+
+1525–35; from phrase by hear say, translation of Middle French par ouïr dire.
+
+  Money 
+  xkcd 
+
+  Add to scaling.
+
+
+%% make composite videos
+
+%% happiness is for the weak
+%% http://thecolbertreport.cc.com/videos/nocpjv/jennifer-senior?xrs=share_copy_email
+
+
+
+%% make this work (for social contagion):
+%% \insertlocalvideo{2014-04-16scrubsS1E21contagious-smile-perry-cox.mp4}{}{}{}
+%% also do for john stewart
+
+
+
+
+\wordwikilink{Saturn's hexagon}{http://en.wikipedia.org/wiki/Saturn\'s\_hexagon}
+  
+
+  hexnet.org
+
+  Global Hexagon Awareness
+  hexagon love
+
+
+  Add slides on 1/f noise, etc.
+
+  Saturated fat isn't a problem.
+http://mobile.nytimes.com/blogs/well/2014/03/17/study-questions-fat-and-heart-disease-link/?hp=
+
+  
+  Success of bad things:
+
+  Why Flappy Bird Had to Die
+  \url{http://www.slate.com/articles/technology/gaming/2014/02/flappy_bird_online_game_why_dong_nguyen_had_to_kill_his_perfect_creation.html}
+
+
+  Add Doyle 2005a
+  as a refutation of 
+  Barabasi network failure model
+  
+
+  Add Stradivarius to Mona Lisa story
+
+\url{http://www.nytimes.com/2014/01/31/us/a-violinists-triumph-is-ruined-by-thieves.html?hp}
+
+  Much of art is held in people's heads.
+
+
+add milgram's video, an excerpt ...
+
+add a little of ghostbusters ...
+very start, electrocution.
+  
+
+
+  The role of universality and accidents not being understood.
+  
+  \url{https://www.sciencenews.org/blog/context/gell-mann-hartle-spin-quantum-narrative-about-reality}
+
+
+  
+Douglas Adams
+
+The world is a thing of utter inordinate complexity and richness and
+strangeness that is absolutely awesome. I mean the idea that such
+complexity can arise not only out of such simplicity, but probably
+absolutely out of nothing, is the most fabulous extraordinary
+idea. And once you get some kind of inkling of how that might have
+happened, it's just wonderful. And ... the opportunity to spend 70 or 80
+years of your life in such a universe is time well spent as far as I
+am concerned.
+
+Response to the question "What is it about science that really gets
+your blood running?" — as quoted in Richard Dawkins in his eulogy for
+Adams (17 September 2001)
+
+\url{http://en.wikiquote.org/wiki/Douglas_Adams}
+
+If you try and take a cat apart to see how it works, the first thing
+you have on your hands is a nonworking cat. Life is a level of
+complexity that almost lies outside our vision; it is so far beyond
+anything we have any means of understanding that we just think of it
+as a different class of object, a different class of matter; 'life',
+something that had a mysterious essence about it, was God given, and
+that's the only explanation we had. The bombshell comes in 1859 when
+Darwin publishes On the Origin of Species. It takes a long time before
+we really get to grips with this and begin to understand it, because
+not only does it seem incredible and thoroughly demeaning to us, but
+it's yet another shock to our system to discover that not only are we
+not the centre of the Universe and we're not made by anything, but we
+started out as some kind of slime and got to where we are via being a
+monkey. It just doesn't read well.
+
+
+Life's Complexity Pyramid\cite{oltvai2002b}
+  Oltvai and Barab\'{a}si
+
+  \includegraphics[height=0.7\textheight]{oltvai2002b_fig1}
+  \includegraphics[height=0.7\textheight]{oltvai2002b_fig1_caption}
+
+  
+Map of the course
+
+Show Indiana Jones
+Muppets travel by map
+
+
+%% overview slides:
+
+
+%% elements of babies
+%% Subject: Born Wet, Human Babies Are 75 Percent Water. Then Comes Drying : Krulwich Wonders... : NPR
+%% 
+%% http://www.npr.org/blogs/krulwich/2013/11/26/247212488/born-wet-human-babies-are-75-percent-water-then-comes-dryin
+%% g?ft=1&f=5500502
+
+
+
+%% prereq:
+%% stats, diff eqs, lineary algebra, calc
+%%
+%% add poincare
+%%
+%% bruce west's book
+%% complexity figure 
+%%
+%% taken's theory (complexity theory)
+%% 
+%% coupled systems: synchronization
+
+
+
+
+
+
+\begin{comment}
+
+%% For scaling
+%% turbulence
+
+%% 1/12 = Judas fraction
+%% 3 out of 4 points on the cross
+%% pyramids
+
+%% add my interview with Whitman
+
+%% Clauset's blue whale work
+
+record voiceover for truthicide investigation
+
+\url{http://www.sciencemag.org/content/340/6139/1438}
+
+Big science versus little science:
+Scaling with funding:
+\url{http://www.plosone.org/article/info:doi\%2F10.1371\%2Fjournal.pone.0065263}
+
+
+The Origins of Scaling in Cities
+
+%% this course will explode in ...
+
+%% lecture logo options
+%% \changelogo{.18}{boston-red-sox-tp-1.pdf}
+
+
+  
+
+\includemedia[
+width=1\linewidth,height=0.5625\linewidth,
+activate=pageopen,
+flashvars={
+}
+]
+{}
+{http://www.thedailyshow.com/watch/tue-september-18-2007/alan-greenspan}
+
+%% {http://www.thedailyshow.com/video/index.jhtml?videoId=102970\&title=alan-greenspan}
+
+
+%% flashvars={
+%%   modestbranding=0 % no YT logo in control bar
+%%   &autoplay=1
+%%   &fs=1
+%%   &autohide=1 % controlbar autohide
+%%   &showinfo=0 % no title and other info before start
+%%   &rel=0
+%%   &start=#2
+%%   &end=#3
+%%       %   &rel=0 % no related videos after end
+%% }
+
+
+%% http://www.thedailyshow.com/watch/tue-september-18-2007/alan-greenspan
+
+\changelogowithlink{.18}{http://xkcd.com/793/}{xkcd-793-physicists.png}
+
+  
+Paraprosdokian:
+
+"Figure of speech in which the latter part of a sentence or phrase is
+surprising or unexpected; frequently used in a humorous situation."
+
+
+1. Do not argue with an idiot. He will drag you down to his level and beat you with experience.
+2. The last thing I want to do is hurt you. But it's still on my list.
+3. Light travels faster than sound. This is why some people appear bright until you hear them speak.
+4. If I agreed with you, we'd both be wrong.
+5. We never really grow up, we only learn how to act in public.
+6. War does not determine who is right - only who is left.
+7. Knowledge is knowing a tomato is a fruit. Wisdom is not putting it in a fruit salad.
+8. Evening news is where they begin with 'Good Evening,' and then proceed to tell you why it isn't.
+9. To steal ideas from one person is plagiarism. To steal from many is research.
+10. A bus station is where a bus stops. A train station is where a train stops. On my desk, I have a work station.
+
+
+
+
+%% Yawning:
+%% http://blogs.scientificamerican.com/thoughtful-animal/2013/10/16/searching-for-the-social-in-contagious-yawning/
+
+
+
+%% link to fowler and christakis arxiv paper
+
+
+%% role of strong ties
+%% http://www.technologyreview.com/view/512951/how-strong-social-ties-hinder-the-spread-of-rumours/
+
+%% good news travels fast
+%% http://www.nytimes.com/2013/03/19/science/good-news-spreads-faster-on-twitter-and-facebook.html?ref=science
+
+
+%% add tedx stuff!
+%% 
+%% Jake's tweeting:
+%% http://research.microsoft.com/en-us/um/redmond/events/techfest2013/projects.aspx#224
+%% http://www.technologyreview.com/view/512271/researchers-peek-at-the-structure-of-the-viral-internet/
+%% http://www.youtube.com/watch?feature=player_embedded&v=wSwOszoHuoI#!
+%% 
+%% From here:
+%% 
+%% http://www.economist.com/news/science-and-technology/21572159-data-social-networks-are-making-social-science-more-scientific-dr-seldon-i?fsrc=scn/tw_ec/dr_seldon_i_presume
+%% 
+%% Politics, too, is falling to the new psychohistorians. Boleslaw Szymanski of the Rensselaer Polytechnic Institute in New York state studies how societies change their collective minds. By studying simulated networks of people he can predict the point at which a committed minority can convert almost everyone else to its way of thinking. For an idealised model, the size of this catalytic minority is just under 10\%. Tweaking the model with data from real networks such as Twitter and Facebook, he hopes, will allow these insights to be applied to the real world.
+%% 
+%% 
+%% ugander2012a
+%% http://www.pnas.org/content/109/16/5962
+%% 
+%% romero2011/2012a
+%% 
+%% Trauma:
+%% http://andrewsullivan.thedailybeast.com/2013/01/trauma-is-a-contagious-disease.html
+%% 
+%% Add bakshy2011a
+%% 
+%% Competition among memes in a world with limited attention
+%% L. Weng1, A. Flammini1, A. Vespignani2,3,4 & F. Menczer1
+%% 
+%% Everyone's an Influencer: Quantifying Influence on Twitter
+%% 
+%% viralspread
+%% jake hofman
+
+
+
+
+  ``What''
+
+  $x = y$
+
+  $$\int_{z=4}^{\infty} z^3 \mbox{d} z.$$
+
+\changelogotovideo{HQe2f8L-Rkc}{0}{55}
+
+
+  
+  
+  \faAdjust
+
+  \faExternalLink
+
+  \wordwikilink{http://bit.ly/VdbsWU}{\protect G\"{o}del's Theorem}  
+
+\wordwikilink{http://www.nytimes.com/2013/08/20/nyregion/prosecutors-expect-more-arrests-in-art-fraud-scheme.html}{Prosecutors
+  Are Contemplating More Arrests in \$80 Million Art Fraud Case}
+
+
+\switchbackground{london-apocalypse.jpg}
+
+
+
+\end{comment}      
+
+
+\begin{comment}
+  
+
+%% example
+%% \neuralreboot{FEaCfIp9qR4}{}{}{Market much?}
+%% \insertvideo{FEaCfIp9qR4}{}{}{Market much?}
+%%
+%% \youtubevideo{FEaCfIp9qR4}{t1}{t2}
+
+
+Great branching networks of the multiverse:
+\url{http://en.wikipedia.org/wiki/Yggdrasil}
+
+To insert:
+
+Platypus
+
+Read they're made out of meat story.
+
+This one goes to 11.
+
+
+
+
+
+
+
+Contagion:
+\url{http://www.nature.com/srep/2013/131018/srep02980/full/srep02980.html}
+Higgs Boson
+Twitter
+
+``Scaling-laws of human broadcast communication enable distinction between human, corporate and robot {T}witter users},''
+
+
+Neil's learning stuff
+  
+http://www.wired.com/dangerroom/2011/07/physicist-i-can-predict-insurgent-attacks-thanks-to-the-red-queen/
+
+
+%% add notes on moritz2005a.pdf
+%% forest fires
+
+
+
+
+  
+
+What witchcraft is Facebook?
+
+Mass hysteria
+
+\url{http://m.theatlantic.com/health/archive/2013/09/what-witchcraft-is-facebook/279499/}
+
+  How bad prediction is ...
+  
+
+  
+\url{http://www.nytimes.com/2013/10/12/arts/music/ylviss-unlikely-hit-started-as-a-joke.html}
+
+Tried to make a bad song.
+
+
+
+  %% include tweets by strogatz ...
+
+  
+
+  
+  
+
+%% 
+%% 
+%% %%   
+%% Carina C. Zona @cczona
+%% NSA says suspicion of 1 person entitles it to data of all w/in 3
+%% degrees of separation. In perspective: that's nearly every person in
+%% the US
+%% 
+%% 
+\end{comment}
+
+
+\begin{comment}
+  
+
+
+
+add recent studies to list for small worlds
+\url{http://www.nytimes.com/2011/11/22/technology/between-you-and-me-4-74-degrees.html?hp}
+
+plus horvitz
+
+The ``six degrees'' concept dates to a 1929 short story, ``Chains,''
+in which Frigyes Karinthy, the Hungarian author, suggested that no one
+is more than a string of six friends away from any other person.
+
+After Milgram published his famous paper ``The Small World Problem,''
+in 1967, the playwright John Guare made ``Six Degrees of Separation,''
+the title of a 1990 play that explored Milgram’s premise. And that
+gave rise to the parlor game Six Degrees of Kevin Bacon, in which
+disparate Hollywood personalities are linked to one another. (Elvis
+Presley was in ``Change of Habit'' with Edward Asner; Mr. Asner was in
+``J.F.K.'' with Kevin Bacon.)
+ 
+
+The Facebook paper, titled ``Four Degrees of Separation,'' notes that
+Milgram posed both an optimistic interpretation of his findings and a
+pessimistic one.
+
+On one hand, it is a startling notion that reaching someone on the
+other side of the world takes only a small group of social
+connections. On the other hand, Milgram said, the result could also be
+evidence of psychological distance: that we were actually, on average,
+five ``worlds apart.''
+ 
+ ``From this gloomier perspective,'' the new paper says, ``it is
+reassuring to see that our findings show that people are in fact only
+four worlds apart, and not five.''
+
+
+  Scaling from Big Science
+
+%%  \includepaperwithfigure{sugihara2009a}{2a}
+  show overall front figure
+
+
+ revamp network examples
+ 
+   
+ 
+
+%% put this somewhere...
+%% newman paper on first mover advantage
+
+
+  Add more phase transition examples to overview slides.
+
+  Skewed distributions:
+
+  Baby names
+
+  \url{http://www.babynamewizard.com/voyager\#ms=false\&exact=false}
+
+
+
+
+%% fix up HOT forests---real data
+
+
+
+
+
+scaling
+\url{www.plosone.org/article/info:doi/10.1371/journal.pone.0065774}
+
+
+%% youtube ref
+%% subtitle
+%% start time
+%% stop time
+\neuralreboot{V6c7Vw6R33E}{30}{60}{Ron Swanson's Pyramid of
+  Greatness:}
+
+
+\neuralreboot{}{}{}{And now for something completely different:}
+
+
+  
+  Add Google+ Circles page.
+
+
+  
+  Clauset's measurements of power laws.
+
+
+
+  \textbf{Emergence:}
+
+  \textbf{Higher complexity:}
+    
+     
+      Many system scales (or levels) \\ 
+      that
+      interact with each other.
+    
+      Potentially much harder to explain/understand.
+    
+  
+  \textbf{Even mathematics:\cite{foote2007a}}
+          
+      
+      \includegraphics[width=\textwidth]{kurt_godel.jpg}
+      
+      \wordwikilink{http://bit.ly/VdbsWU}{\protect G\"{o}del's Theorem}:\\
+      we can't prove every theorem that's true \ldots
+      
+      \includegraphics[width=\textwidth]{hofst.pdf}
+      {\small
+        ``G\"{o}del, Escher, Bach''\cite{hofstadter1980a}
+%%        Hofstader, 1980.
+      }
+      
+
+  
+    
+     
+      Suggests a \alertb{strong form of emergence}:
+      {
+        Some phenomena cannot be analytically deduced
+        from elementary aspects of a system.
+      }
+    
+  
+
+
+
+  \textbf{Emergence:}
+
+  \textbf{Higher complexity:}
+    
+     
+      Many system scales (or levels) \\ 
+      that
+      interact with each other.
+    
+      Potentially much harder to explain/understand.
+    
+  
+  \textbf{Even mathematics:\cite{foote2007a}}
+          
+      
+              
+        
+        \includegraphics[width=\textwidth]{kurt_godel.jpg}
+            
+      \wordwikilink{http://bit.ly/VdbsWU}{\protect G\"{o}del's Theorem}:\\
+      we can't prove every theorem that's true \ldots
+      
+              
+        
+        \includegraphics[width=\textwidth]{hofst.pdf}\\
+            {\small
+        ``G\"{o}del, Escher, Bach''\cite{hofstadter1980a}
+%%        Hoftstader, 1980.
+      }
+      
+
+  
+    
+     
+      Suggests a \alertb{strong form of emergence}:
+      {
+        Some phenomena cannot be analytically deduced
+        from elementary aspects of a system.
+      }
+    
+  
+
+
+
+%% ``Operation Righteous Cowboy Lightning is a go.''
+
+%% projects
+
+
+  Someone should tackle Bettencourt's latest paper.
+
+Code up the 2-d HOT forest model
+
+Code up the HOT network model.
+
+Are blue whales oddly big
+
+
+Global E-mail Patterns Reveal "Clash of Civilizations" | MIT Technology Review
+
+http://www.technologyreview.com/view/512116/global-e-mail-patterns-reveal-clash-of-civilizations/
+
+
+Andrea Rapisarda
+ig nobel work!
+
+amancio2013a/b.pdf
+
+serra2012
+evolution of music
+``Measuring the evolution of contemporary western popular music''
+
+%% doyle2011a
+
+%% add krause, couzin stuff.
+%% 5 to 10 leaders needed for example.
+%% Crowd experiments (100, 200 people).
+
+add simini2012a
+migration
+
+
+%% baby names
+%% 
+
+
+
+
+Small-world: NSA's call on three steps away search (everyone!)
+
+Small-world: Put in link to Phillip Ball story.
+
+Add an insert video showing the transformation of variables thing ...
+General plus an example, two videos.
+
+
+Add Clauset's method for measuring power laws
+
+social contagion:
+%% wow
+%% http://www.cmswire.com/cms/customer-experience/4-steps-to-executing-a-successful-influencerdriven-wordofmouth-campaign-022232.php?utm_source=MainRSSFeed&utm_medium=Web&utm_campaign=RSS-News
+
+
+
+%% where's george
+%% http://www.fastcoexist.com/1681677/a-new-map-of-the-us-created-by-how-our-dollar-bills-move#1
+
+
+
+\wordwikilink{http://www.nytimes.com/2013/08/20/nyregion/prosecutors-expect-more-arrests-in-art-fraud-scheme.html}{Prosecutors
+  Are Contemplating More Arrests in \$80 Million Art Fraud Case}
+
+The fame of great art has an enormous social component.
+
+
+%% for youtube videos
+%% includes frame, everything
+
+%% \youtubevideo{link}{start}{stop}
+%% \neuralreboot{link}{start}{stop}{title}
+
+\neuralreboot{-8lDYrvTILc}{}{}{Secrets of the Universe will be revealed}{}{}
+
+%% youtube parameters
+%% https://developers.google.com/youtube/player_parameters
+
+\changelogo{0.18}{MacGillivray_William_John_Dory_cut.png}
+  
+  \textbf{Course mascot:}
+    \includegraphics[width=\textwidth]{Silvery_john_dory-tp-1.pdf}
+
+    \alertg{What's the John Dory?}
+  
+
+\changelogo{.18}{sealie-lambie-productions.jpg}
+
+
+  add figure from Godel Escher Bach
+
+%%  \includegraphics[width=0.7\textwidth]{hofst.jpg}
+
+  \includemedia[
+  activate=pageopen,
+  addresource=audio/doink-doink.mp3,
+  flashvars={
+    source=audio/doink-doink.mp3
+    &autoPlay=1
+    &showinfo=0
+  },
+  transparent
+  ]{\color{blue}\framebox[0.4\linewidth][c]{Singing bird}}{APlayer.swf}
+
+\begin{frame}[plain]
+
+  \textbf{Secrets of the Universe will be revealed:}
+  
+  \includemedia[
+  label=audio.theclang,
+  width=0.001\linewidth,height=0.001\linewidth,
+  activate=pageopen,
+  flashvars={
+    modestbranding=0 % no YT logo in control bar
+    &autoplay=1
+    &fs=1
+    &autohide=1 % controlbar autohide
+    &showinfo=0 % no title and other info before start
+    &rel=0
+    % &rel=0 % no related videos after end
+  }
+  ]
+  {}
+  {http://www.youtube.com/v/-8lDYrvTILc?rel=0}
+
+
+
+
+%%    \includemovie[autoplay,continue,text=click here!]{10pt}{10pt}{audio/The_Clang.mpg}
+%
+%%    \includemovie[text=click here!,autoplay,continue]{10pt}{10pt}{audio/Law_And_Order_theme.mpg}
+%
+
+  My scientific heroes:
+
+  Leonardo da Vinci
+  
+  Doc Brown
+
+  Walter Bishop
+
+  ``I like porcupines.  They show that God has a sense of humour.''
+  
+
+\begin{frame}[plain]
+
+  \textbf{Secrets of the Universe will be revealed:}
+  
+  \includemedia[
+  label=vid.spreadclip,
+  width=1\linewidth,height=0.5625\linewidth,
+  activate=pageopen,
+  flashvars={
+    modestbranding=0 % no YT logo in control bar
+    &autoplay=1
+    &fs=1
+    &autohide=1 % controlbar autohide
+    &showinfo=0 % no title and other info before start
+    &rel=0
+    % &rel=0 % no related videos after end
+  }
+  ]
+  {\includegraphics[width=1\linewidth]{videos/2012/2012-11-03testing-cut.jpg}}
+  {http://www.youtube.com/v/tcRudblV-eM?rel=0}
+
+
+
+
+
+Also here:
+
+\url{http://thautcast.com/drupal5/content/rescuing-autism-pseudo-science-part-one-simon-baron-cohen}
+
+
+  Wealth distribution in NYC.
+  \url{http://www.huffingtonpost.com/2013/08/16/wealth-inequality-new-york_n_3764217.html}
+
+\end{comment}
+
+
+\begin{comment}
+  
+
+%% %%   \textbf{Spreading:}
+%% 
+%%     
+%%     
+%%       Example: Spreading of buildings in the U.S.:
+%%     
+%% 
+%%   \begin{center}
+%%     \includemovie[
+%%     controls=true,
+%%     toolbar=true,
+%%     poster=walmartspread-frame.jpg,
+%%     ]{100mm}{75mm}{videos/2010/walmartspread.mp4}
+%%   \end{center}
+%% 
+%% 
+
+
+  More on spreading (religion):
+  \url{http://www.bdkeller.com/2013/08/spreading-the-word/}
+
+Add to centrality measures paper's mentioned
+by John Ugander.
+
+  Peter Sheridan Dodds @peterdodds
+RT @scott_bot: History of how people illustrate the structure of
+knowledge: \url{scottbot.net/HIAL/?p=38807}
+
+Tree of knowledge stuff
+
+
+
+HBR 
+If You Want to Raise Prices, Tell a Better Story
+\url{http://t.co/WnMXqP34M5}
+
+  \textbf{Pigeons ...}
+  
+  Context-dependent hierarchies in pigeons
+
+  Success:
+
+  Fame = talk.
+
+  Why innovations don't catch on.
+\url{http://www.newyorker.com/reporting/2013/07/29/130729fa_fact_gawande?currentPage=all}
+
+  Religion:
+\url{http://www.nytimes.com/2013/07/27/technology/the-faithful-embrace-youversion-a-bible-app.html?hpw}
+
+How to spread religion, as I have long said:
+\url{http://dish.andrewsullivan.com/2013/07/27/the-good-e-book/}
+
+Simple things first.
+
+
+Add Marvel comics small world network paper:
+http://arxiv.org/pdf/cond-mat/0202174v1.pdf
+
+
+http://journals.ametsoc.org/doi/abs/10.1175/1520-0469(1948)005%3C0165:TDORWS%3E2.0.CO;2
+THE DISTRIBUTION OF RAINDROPS WITH SIZE
+J. S. Marshall and W. Mc K. Palmer
+
+
+\url{http://en.wikipedia.org/wiki/Free_will_theorem}
+
+Fairy circles:
+Strong interaction between plants induces circular barren patches: fairy circles
+\url{http://arxiv.org/pdf/1306.4848v1.pdf}
+
+
+  
+Bettencourt
+\url{http://www.sciencemag.org/content/340/6139/1438}
+
+
+
+
+share data sets
+e.g., metabolism
+
+
+  
+
+Heap's law
+
+
+clauset
+whales!
+
+
+  bumblebee, travelling salesman
+
+  lihoreau2010b.pdf
+  
+
+
+Complexity by subtraction
+http://www.eurekalert.org/pub_releases/2013-04/nesc-spa041213.php?utm_medium=referral&utm_source=t.co
+
+
+Functional cartography of metabolic networks
+http://www.nature.com/nature/journal/v433/n7028/abs/nature03288.html
+
+
+
+http://www.nature.com/nature/journal/vaop/ncurrent/full/nature12071.html
+Slower recovery in space before collapse of connected populations
+
+Lei Dai,	 Kirill S. Korolev	 Jeff Gore
+
+
+
+Add to complex networks:
+Link communities reveal multiscale complexity in networks
+ahn2011a
+
+%%%
+
+Add Radicchi's paper:
+``Defining and identifying communities in networks''
+
+%%%
+
+Add to complex networks:
+
+%% http://www.engadget.com/2013/01/03/inside-ups-worldport-sorting-hub/
+
+delivery 
+UPS/FEDEX
+heart-like
+%% http://www.youtube.com/watch?v=F3TpKvsxqts
+
+%%% 
+
+limits to tree height
+
+%% http://news.sciencemag.org/sciencenow/2013/01/simple-physics-may-limit-the-siz.html
+
+%%% 
+
+Add to the big story:
+
+Lawrence Krauss: Our Godless Universe is Precious
+%% http://www.youtube.com/watch?v=SB5cBl2np-I&feature=player_embedded
+
+Right!
+Acci
+
+%%%
+
+project:
+``Understanding Road Usage Patterns in Urban Areas''
+Wang2012a
+
+%%%
+
+
+Contagion:
+
+``Structural Diversity in Social Contagion'': Study from Cornell University and Facebook published in the Proceedings of the National Academy of Sciences.
+
+%%%%%%
+
+Lego puzzles
+http://copyranter.blogspot.com/2012/03/did-german-ad-agency-blatantly-steal.html
+
+
+
+%% \todo{Add requirement of building towards publishing a paper; either class will support existing work or give a chance to development new work; make my makerevtex4 code available}
+
+
+  Universality of citation distributions
+
+  Radicchi 2008, PNAS
+
+  Scaling collapse example
+
+  radicchi2008b
+
+  lognormal
+
+
+Advertising
+
+Lego!
+ 
+http://copyranter.blogspot.com/2012/03/did-german-ad-agency-blatantly-steal.html
+
+
+
+Projects:
+
+Sugihara2012a.pdf
+
+``Detecting Causality in Complex Ecosystems''
+
+scheffer
+
+
+Projects:
+
+Response to disasters
+
+Carter Butts's work, networks.
+
+Bagrow et al. 
+PLoS ONE
+2011
+
+Get his slides ...
+
+
+
+
+\url{http://switchboard.nrdc.org/blogs/dgunders/not_eating_away_at_our_resourc.html}
+
+Throwing away food.  Maybe 40\% of food is uneaten.
+
+
+
+Predicting the future
+
+\url{http://www.foreignpolicy.com/articles/2012/11/16/predicting_the_future_is_easier_than_it_looks?page=full}
+
+
+
+
+Recipes
+
+Lada
+
+\url{http://andrewsullivan.thedailybeast.com/2012/11/perfecting-dinner-through-data-mining.html}
+
+
+
+\url{http://andrewsullivan.thedailybeast.com/2012/11/perfecting-dinner-through-data-mining.html}
+
+
+
+Make a geeky, interactive map of 300, 303, linear algebra
+
+Here be dragons.
+
+Here be matrices.
+
+\url{http://1.bp.blogspot.com/_V73c9Avfduk/TTBQqupLLyI/AAAAAAAAAls/GDX9x4SMsM4/s1600/TomeMap.jpg}
+
+
+
+
+
+
+
+faces 
+
+boxes plotting things
+
+http://andrewsullivan.thedailybeast.com/2012/11/faces-1.html
+
+
+
+Add list of Complex Systems Certificate 
+
+
+CSYS/MATH 300 (Principles of Complex Systems)
+￼
+CSYS/CS 302 (Modeling Complex Systems)
+￼
+￼CSYS/MATH 266 (Chaos, Fractals, and Dyn. Sys)
+￼
+CSYS/MATH 303 (Complex Networks)
+￼
+CSYS/BIOL/CS 352 (Evolutionary Computation)
+￼
+CSYS/STAT/CS 256 (Neural Computation)
+￼
+CSYS/STAT/CS 355 (Statistical Pattern Recognition)
+￼
+￼CSYS/STAT 253 (Appl Time Series \& Forecasting)
+CSYS/STAT/CE 369 (Applied Geostatistics)
+￼
+CSYS/CE 359 (Applied Artificial Neural Networks)
+￼
+￼B-List (select 0-2 courses) (other special topics may apply)
+CSYS/MATH 221 (Deterministic Modls Oper Rsch)
+￼
+CSYS/MATH 268 (Mathematical Biology \& Ecology)
+￼
+CSYS/CS 251 (Artificial Intelligence)
+￼
+CSYS/CE 245 (Intelligent Transportation Sys)
+￼
+CSYS/CE 226 (Civil Engr Systems Analysis)
+￼
+EE/STAT 270 (Stochastic Processes)
+￼
+ME 295 (Systems and Synthetic Biology)
+￼
+CSYS/ME 312 (Advanced Bioengineering Systems)
+￼
+CSYS/ME 350 (Multi-Scale Modeling)
+￼
+PA 308 (Decision Making Models)
+￼
+￼
+PA 317 (Systems Analysis and Strategic Management)
+BIOL 271 (Evolution)
+￼
+CSYS/PBIO 295 (Ecological \& Environmental Modeling)
+￼
+PHYS 265 (Thermal Physics)
+￼
+CS 395 (Evolutionary Robotics)
+STAT 330 (Bayesian Statistics)
+ENVS 295 (Envir. Modeling and Systems Thinking)
+
+
+\changelogo{.18}{cheat-to-win-bracelet-the-onion-tp-1.pdf}
+
+
+and then this!
+
+\wordwikilink{http://www.nytimes.com/2012/10/21/sports/how-armstrongs-wall-fell-one-rider-at-a-time.html?hpw}{Armstrong's Wall of Silence Fell Rider by Rider}
+
+But the lunch conversation between Landis and Messick would eventually
+be seen as the first significant crack in Armstrong's gilded
+foundation, a critical turning point in antidoping officials' quest to
+penetrate the code of secrecy that endured in cycling.
+
+  \wordwikilink{http://www.nytimes.com/2012/10/18/sports/cycling/inquiry-into-kayle-leogrande-led-to-lance-armstrongs-eventual-fall.html?hp}{`Tattooed Guy' Was Pivotal in Armstrong Case [nytimes]}
+
+  \begin{center}
+  \includegraphics[width=\textwidth]{CYCLING-articleLarge.jpg}
+  \end{center}
+
+  
+  
+    ``... Leogrande's doping \alertb{sparked} a series of events ...''
+%%   
+%%    ``Without Leogrande, who knows, the Armstrong investigation maybe never would have happened,'' 
+%%    Tygart said.
+  
+
+
+%%  \begin{center}
+%%    \includegraphics[width=0.7\textwidth]{cheat-to-win-bracelet-the-onion.jpg}
+%%    \wordwikilink{http://store.theonion.com/p-5045-cheat-to-win-bracelet.aspx}{[the onion]}
+%%  \end{center}
+
+
+\changelogo{0.15}{lightbulb-idea-calculus-circle-tp-1.pdf}
+
+
+
+xkcd plots:
+http://jakevdp.github.com/blog/2012/10/07/xkcd-style-plots-in-matplotlib/
+
+  Visualizing vastness:
+
+  http://opinionator.blogs.nytimes.com/2012/10/15/visualizing-vastness/
+
+Possible project
+
+Malaria
+Movement of people
+Phone calls
+http://www.sciencemag.org/content/338/6104/267
+
+
+Control Centrality and Hierarchical Structure in Complex Networks
+
+%%   We introduce the concept of control centrality to quantify the
+%% ability of a single node to control a directed weighted network. We
+%% calculate the distribution of control centrality for several real
+%% networks and find that it is mainly determined by the network’s degree
+%% distribution. We show that in a directed network without loops the
+%% control centrality of a node is uniquely determined by its layer index
+%% or topological position in the underlying hierarchical structure of
+%% the network. Inspired by the deep relation between control centrality
+%% and hierarchical structure in a general directed network, we design an
+%% efficient attack strategy against the controllability of malicious
+%% networks.
+
+
+%% Liu Y-Y, Slotine J-J, Barabási A-L (2012) Control Centrality and Hierarchical Structure in Complex Networks. PLoS ONE 7(9): e44459.
+%% \url{http://unam.us4.list-manage2.com/track/click?u=0eb0ac9b4e8565f2967a8304b&id=7d4a593e5f&e=d38efa683e}
+
+
+
+Complex Systems Society
+
+\url{http://www.complexssociety.eu/}
+
+
+
+Evolution of economic division/inequality:
+
+\url{http://www.nytimes.com/2012/10/14/opinion/sunday/the-self-destruction-of-the-1-percent.html?src=recg}
+
+
+
+Dark social
+
+\url{http://www.theatlantic.com/technology/archive/2012/10/dark-social-we-have-the-whole-history-of-the-web-wrong/263523/}
+
+
+
+Evolutionary Anthropology
+Ayn Rand
+http://io9.com/5950256/evolutionary-anthropology-to-ayn-rand-you-fail
+
+
+Add to population/facility density stuff:
+
+\url{http://andrewsullivan.thedailybeast.com/2012/10/the-starbucks-stop-here.html}
+
+
+
+Synchrony
+
+\url{http://io9.com/5947112/watch-32-discordant-metronomes-achieve-synchrony-in-a-matter-of-minutes}
+
+And now Gollum will sing the British national anthem God Save the Queen.
+
+Add other characters to recordings.
+
+Gollum asking questions.  Solving questions.  Dumbledore.  JFK exhorting
+people to ask what they can do for linear algebra.
+
+
+  \url{http://www.datagenetics.com/blog/september32012/}
+
+  Pin codes
+
+
+Zipf's law
+
+\url{http://www.nytimes.com/2012/09/16/opinion/sunday/the-computer-as-music-critic.html?_r=1&hp}
+
+\url{http://www.nature.com/srep/2012/120726/srep00521/full/srep00521.html}
+
+\cite{serra2012a}
+
+
+The great power of humanity: 
+
+We copy and imitate and replicate
+while we think we're freely choosing,
+acting independently.
+
+Monty Python: ``Yes, we are all individuals.''
+
+
+
+More on randomness and optimization
+
+barabasi2012a.pdf papadopolous2012a.pdf
+
+
+
+Complexity framing
+
+Find nyt articles on genome project
+
+Ten years after the big genome breakthrough
+the Times published an article
+wondering what happened to all those
+amazing discoveries we expected.
+
+
+
+
+  spreading of mormonism:
+
+  exactly my main thoughts on contagion:
+
+  peer pressure is huge
+
+  also springing the more ridiculous stuff on
+  people after they join.
+
+  start off simple.
+
+\url{http://www.reddit.com/r/IAmA/comments/z6ufq/iama\_hardcore\_mormon\_who\_will\_tell\_you\_what\_we/}
+
+
+
+wisdom of groups
+
+cooperation
+
+\url{http://arxiv.org/abs/1208.4091}
+
+Wisdom of groups promotes cooperation in evolutionary social dilemmas
+
+
+
+\url{http://www.nature.com/news/computational-social-science-making-the-links-1.11243}
+
+
+
+Idea: pop up citations on slides with mouse over
+
+  
+  Project: best selling book numbers
+
+  What are the distributions?
+
+  \url{http://en.wikipedia.org/wiki/List\_of\_best-selling\_books}
+
+
+
+  Scaling: add turbulence.
+
+
+
+
+
+Networks
+
+Social networks in movies:
+
+\url{http://flowingdata.com/2012/08/17/character-social-networks-in-movies/}
+
+Could be a project.
+
+
+  Spiegelman:
+
+  Scale invariance.
+
+  \includegraphics[width=0.8\textwidth]{2011-10-10spiegelman-fractals-lessard.jpg}
+
+
+cliodynamics
+
+\url{http://www.nature.com/news/human-cycles-history-as-science-1.11078?WT.ec\_id=NEWS-20120807}
+
+
+  Books to read:
+
+  Thinking, fast and slow.
+  
+
+
+Library search
+\url{http://jorendorff.github.com/hackday/2012/library/}
+
+
+
+
+
+Write up riberio2012a
+Cricket
+
+
+Anomalous Diffusion and Long-range Correlations in the Score Evolution of the Game of Cricket
+
+Anomalous diffusion:
+ribeiro2012a.pdf
+
+Mediocre and scarce work so far.
+
+mukherjee2012a.pdf
+mukherjee2012b.pdf
+
+
+
+spread of technology
+
+\url{http://www.theatlantic.com/technology/archive/2012/07/most-people-didnt-have-a-c-until-1973-and-other-strange-tech-timelines/260427/}
+
+
+Filippo Radicchi's work on human performance
+
+Olympics
+
+\url{http://www.wired.com/wiredscience/2012/07/universal-laws-at-the-olympics/}
+
+
+
+
+Changizi
+
+Economically organized hierarchies in WordNet and the Oxford English Dictionary
+\cite{changizi2008a}
+
+
+
+Series of frames about the Monkey typing stuff.
+
+Miller.
+
+``Some Effects of Intermittent Silence''
+\cite{miller1957a}
+
+Hammer it to bits.
+
+There's a recent paper to cite here.
+
+
+
+Interesting/good/thought of this: Cure Together.
+
+Find Patients Like You.
+
+
+
+adamic2008a
+
+Knowledge Sharing and Yahoo Answers: Everyone Knows Something
+
+
+
+
+Why do leading biologists, economists, and others dismiss group selection?
+
+Pinker says group selection doesn't make sense:
+
+His argument and many responses from other scholars are 
+\wordwikilink{http://edge.org/conversation/the-false-allure-of-group-selection}{here.}
+
+
+ 
+  Pinker is wrong.
+ 
+  Gintis is right.
+ 
+  Dawkins was accurately portrayed on South Park.
+
+
+
+
+
+
+
+Attack emergence of cooperation nonsense.
+
+More here:
+%% \url{http://www.pnas.org/content/early/2012/05/16/1206569109.short?rss=1&amp%3bssource=mfr}
+
+Write this concept up?  Where to publish.  The arxiv.  A call for better models.
+
+More money makes people less humane.
+
+
+contagion
+
+violence as disease
+
+\url{http://andrewsullivan.thedailybeast.com/2012/07/an-epidemic-of-violence.html}
+
+\url{http://www.thenation.com/article/168529/can-street-violence-be-fought-virus}
+
+``more on the metaphor''
+
+\url{http://thenewinquiry.com/essays/the-plague-years/}
+
+
+
+Puzzles:
+
+From Bill G.
+
+1000 bottles of wine
+
+10 poison detecting instruments (not mice)
+
+a day before the big party, you hear
+your nemesis has poisoned one bottle.
+
+test work over night.
+
+what's the largest number of wine bottles
+that can be safely served?
+
+
+
+Scaling:
+
+Moore's Law
+
+Eroom's Law
+
+
+
+quarterology
+
+\cite{economos1983a}
+
+whales 
+1/3 scaling
+
+
+
+computational folkloristics
+
+huge
+
+abello2012a
+
+Projects
+
+
+
+add slides on;
+add as projects
+
+katifori2012a.pdf 
+mileyko2012b.pdf
+
+
+
+
+Add to rich-gets-richer networks stuff
+
+Winner's don't take all: Characterizing the competition for links on the web
+
+pennock2002a
+
+
+geophysics and power laws
+
+czechowski2001\_annotated.pdf
+
+
+
+japanese names, power laws
+miyazima2000a.pdf
+
+beards
+robinson1976a.pdf 
+
+
+
+Picture of a jet,
+
+fluid around a ball
+
+Thomas Schelling
+
+
+
+
+Work by Magnasco and Weitz and others
+on Horton-Strahler applied to looped networks:
+
+%% \url{http://www.plosone.org/article/info:doi%2F10.1371%2Fjournal.pone.0037994}
+
+
+\cite{mileyko2012a}
+
+
+geographic spreading of disease
+
+black plague
+
+\cite{noble1974a}
+
+
+ontogenetic growth
+
+banavar2002c
+
+von bertalanffy
+
+our point that 2/3 works as well.
+
+
+
+Possible project?
+
+Google Knowledge Network
+
+\url{http://www.google.com/insidesearch/features/search/knowledge.html}
+
+
+
+More on cities
+
+Bettencourt 2010 a and b
+
+
+
+power of networks
+
+\url{http://comment.rsablogs.org.uk/2012/05/22/rsa-animate-power-networks/}
+\url{http://www.thersa.org/events/video/animate/rsa-animate-the-power-of-networks}
+
+
+
+
+Baby name faddishness
+
+Lieberson
+
+Berger
+
+\url{http://www.wired.com/wiredscience/2009/05/baby-names-quantify-the-faddishness-of-fads/}
+
+
+
+
+  Lies in science:
+
+  \url{http://www.nature.com/news/beware-the-creeping-cracks-of-bias-1.10600}
+
+It would therefore be naive to believe that systematic error is a problem for biomedicine alone. It is likely to be prevalent in any field that seeks to predict the behaviour of complex systems---economics, ecology, environmental science, epidemiology and so on. The cracks will be there, they are just harder to spot because it is harder to test research results through direct technological applications (such as drugs) and straightforward indicators of desired outcomes (such as reduced morbidity and mortality).
+
+
+
+Search
+Google's Knowledge Graph
+
+\url{http://mashable.com/2012/05/16/google-knowledge-graph/}j
+
+
+The origin of bursts and heavy tails in human dynamics
+
+Barabasi~\cite{barabasi2005a}
+
+
+
+Font Size Matters
+
+\url{http://www.plosone.org/article/info\%3Adoi\%2F10.1371\%2Fjournal.pone.0036042}
+
+
+  Information content of networks...
+
+Information Transfer among Coupled Random Boolean Networks
+Chiara Damiani, Stuart A. Kauffman, Roberto Serra, Marco Villani and Annamaria Colacci
+\url{http://www.springerlink.com/content/lx276184111010uk/}
+
+
+
+
+
+%% contagion
+Schweitzer
+
+contagion PLOs ONE
+donations
+
+%% \url{http://www.plosone.org/article/info:doi%2F10.1371%2Fjournal.pone.0001458}
+
+
+Title: Statistical Outliers and Dragon-Kings as Bose-Condensed Droplets
+Authors: V. I. Yukalov and D. Sornette
+Categories: physics.soc-ph q-fin.GN quant-ph
+Comments: Latex file, 16 pages, 1 figure
+Journal-ref: Eur. Phys. J. Spec. Top. 205 (2012) 53-64
+\\
+?A theory of exceptional extreme events, characterized by their abnormal sizes
+compared with the rest of the distribution, is presented. Such outliers, called
+"dragon-kings", have been reported in the distribution of financial drawdowns,
+city-size distributions (e.g., Paris in France and London in the UK), in
+material failure, epileptic seizure intensities, and other systems. Within our
+theory, the large outliers are interpreted as droplets of Bose-Einstein
+condensate: the appearance of outliers is a natural consequence of the
+occurrence of Bose-Einstein condensation controlled by the relative degree of
+attraction, or utility, of the largest entities. For large populations, Zipf's
+law is recovered (except for the dragon-king outliers). The theory thus
+provides a parsimonious description of the possible coexistence of a power law
+distribution of event sizes (Zipf's law) and dragon-king outliers.
+%% \\ (?http://arxiv.org/abs/1205.1364?, ?37kb)
+
+
+  Section on autocatalysis
+
+  Kauffman's stuff?
+
+
+Contagion
+
+Ugander et al.
+
+Structural diversity in social contagion.
+
+
+Dirk's grand challenges:
+
+San Miguel et al.
+
+sanmiguel2012a
+
+
+Section on Sornette's endogenous/exogeneous stuff;
+Precursors
+
+%% for 124
+
+Fun examples of combining parts to make a whole.
+Pictures
+
+Tangrams
+
+Then go to what linear superposition is.
+
+
+\url{http://www.youtube.com/watch?v=2guKJfvq4uI&feature=related}
+
+Egyptian Revolution
+
+
+May, R.M., 1972, Will a large complex system be stable? Nature 238, 413-414.
+
+And following.  Project for students to work on.
+
+Also: 
+cohen1985a
+
+\cite{may1972a}
+
+
+Simini et al.
+Nature
+
+Radiation model versus Gravity model.
+
+
+big data
+
+\url{http://biomedicalcomputationreview.org/content/big-data-analytics-biomedical-research}
+  
+
+
+Kauffman:
+
+Dom warm thanks. Hello Peter, and hello Claire and Gary, I look forward to meeting you. A brief statement of my own interests in cancer. For
+some years I have been thinking about cancer differentiation therapy. With wonderful Dr. Sui Huang, who i stole from Harvard Med School to join
+me at the University of Calgary several years ago, we have taken a breast cancer cell line, individually screened 1500 FDA approved drugs and
+found 16 that induce what appears to be differentiation to normal adult breast cells. Sui has just completed gene arrays on these 16 drugs with
+3 time points in each treatment, to test if the 16 all induce the same changes or different changes in gene expression patterns. Obviously this
+is encouraging, with a long way to go before it may be clinically relevant. ?
+The central idea behind this work is an old theory, initially derived from a 1963 article by Jacob and Monod, that genetic regulatory circuits
+could have multiple alternative stable or recurrent patterns of gene activities called "attractors", and that different cell types are
+different attractors in the behavior of the same genetic regulatory net. Then differentiation is a perturbation or signal that "kicks" the
+genetic dynamical network from one attractor to another. And cancer, with our without mutations, may often have normal cell type attractors to
+which malignant cells can be induced to differentiate.
+I'd be anxious to hear your lines of thought, Claire and Gary, if you'd care to share them. And I look very much forward to interacting before
+and when I get to UVM next Fall.
+
+
+For scaling:
+
+\url{http://www.nature.com/nature/journal/v376/n6535/abs/376046a0.html}
+
+Add Scaling behaviour in the dynamics of an economic index
+  
+
+
+
+\wordwikilink{http://pre.aps.org/abstract/PRE/v57/i2/p1347\_1}{Beep}
+
+
+  
+
+\wordwikilink{http://www.shirky.com/writings/powerlaw\_weblog.html}{Clay Shirky on Power laws}
+
+Create a simple problem based on people choosing their favorite thing.
+
+Urn models.
+
+
+
+Thomas Schelling on creating his model of segregation
+with coins and chess boards.
+
+Some Fun, Thirty-Five Years Ago
+\cite{schelling2006a}
+
+
+
+
+Jeremy Lin
+
+\wordwikilink{Beep}{http://www.nytimes.com/2012/02/20/business/media/jeremy-lin-media-hype-stumbles-on-race.html}
+
+Fedex guy's prediction (WSJ article)
+
+Draft paper 
+Thaler
+
+%% aside
+%% offensive statements
+%% http://espn.go.com/espn/story/_/id/7591778/espn-statement-offensive-jeremy-lin-comments
+
+
+  \textbf{Homo Economicus}
+
+  What makes people think like Economists?
+  Evidence on Economic Cognition
+  from the 
+  ``Survey of Americans and Economists on the Economy''\cite{caplan2001a}
+
+
+
+
+The maximum rate of mammal evolution
+
+\cite{evans2012a}
+
+
+
+
+contagion:
+salem witch trials
+\url{http://andrewsullivan.thedailybeast.com/2012/01/what-caused-the-salem-witch-trials.html}
+
+individual versus group
+
+
+  
+\url{http://andrewsullivan.thedailybeast.com/2012/02/the-end-of-hacking.html}
+
+
+\textbf{Fish, decisions, ignorance, and democracy}
+
+
+
+Couzin 2011
+
+West 2011
+
+Katz 2011
+
+\cite{couzin2011a}
+
+\cite{west2011a}
+
+\cite{katz2011a}
+
+
+
+
+\wordwikilink{http://en.wikipedia.org/wiki/Moore's\_law}{Moore's law}
+
+eroom's law
+
+%% add to website, intro, outline
+%% in this course, we ask why?
+
+  size distributions
+
+%% \wordwikilink{http://www.nytimes.com/2012/01/15/business/the-1-percent-paint-a-more-nuanced-portrait-of-the-rich.html?\_r=1&hp=&pagewanted=all}{wealth inequality example}
+
+
+
+
+
+
+social contagion and imitation
+
+danescu-niculescu-mizil2011b.pdf
+
+
+cooperation
+
+\cite{szathmary2011a}
+
+To group or not to group?
+
+
+
+\url{http://pre.aps.org/abstract/PRE/v81/i6/e066119}
+\cite{stephens2010a}
+Phys. Rev. E 81, 066119 (2010) [4 pages]
+Statistical mechanics of letters in words
+  
+
+
+Process books found here:
+  
+\url{http://www.pks.mpg.de/~edugalt/physicist-language/}
+
+
+
+  cities
+
+  \url{http://www.theatlanticcities.com/arts-and-lifestyle/2012/01/do-rankings-affect-our-opinions-cities/883/}
+
+
+
+The Size, Scale, and Shape of Cities
+\cite{batty2008a}
+
+
+\url{http://iopscience.iop.org/1742-5468/2011/07/P07013/}
+
+A paradoxical property of the monkey book
+Sebastian Bernhardsson, Seung Ki Baek and Petter Minnhagen
+
+
+
+
+  
+    
+    Influence studies on Twitter:
+    Twitter=quitter? An analysis of Twitter quit smoking social networks.
+    \url{http://www.ncbi.nlm.nih.gov/pubmed/21573238}
+  
+    \wordwikilink{http://www.ncbi.nlm.nih.gov/pubmed/21730101}{Disease tracking on Twitter (H1N1):}
+  
+    \url{http://www.ncbi.nlm.nih.gov/pubmed/22134096}
+  
+
+
+
+  
+%% for language.body.tex
+
+\wordwikilink{http://en.wikipedia.org/wiki/Heaps'\_law}{Heap's law}
+
+Maybe useful:
+\url{http://www.ccs.neu.edu/home/ekanou/ISU535.09X2/Handouts/Review_Material/zipfslaw.pdf}
+
+%% \url{http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0014139}
+
+Connect with power laws
+
+
+
+  \textbf{Information density of languages}
+  
+%% add paper showing languages of different cadences 
+%% have the same amount of information
+%% http://www.time.com/time/health/article/0,8599,2091477,00.html?xid=fblike
+  
+  
+
+  \textbf{Reading speed}
+  
+%% http://persquaremile.com/2011/12/21/which-reads-faster-chinese-or-english/
+  
+  
+
+
+  Aesthetic differences.
+
+http://www.wired.com/wiredscience/2011/12/how-does-the-brain-perceive-art/
+
+
+For bio congation
+
+Add work by Neil and Sornette's paper
+
+\cite{zhao2010b.pdf}
+
+
+\section{Primordial slides}
+
+\section{Language efficiency}
+
+
+  Piantadoso
+  
+
+  \textbf{HOT theory}
+  %% present continuum version from carlson1999a
+
+  \textbf{Follow theoretical argument presented in:}
+    Carlson and Doyle,\cite{carlson1999a}\\
+    \alertg{``Highly optimized tolerance: A mechanism for power laws in design systems,''}\\
+    Phys. Rev. E, 1999, \textbf{60}, pp.\ 1412--1427.
+  
+
+  \textbf{The set up:}
+  
+  
+    Consider: 
+    
+     
+      A spatial region $\Omega$.
+     
+      $P(\vec{x})$ = Probability of event starting at $\vec{x}$.
+     
+      Event starting at $\vec{x}$ is of size $A(\vec{x})$.
+     
+      A constrained resource distributed as $R(\vec{x})$
+      with 
+      $
+      \int_{\Omega} R(\vec{x}) \dee{\vec{x}} = 
+      $
+    
+  
+    
+  
+  
+
+  
+
+
+
+
+  
+
+  \includegraphics[width=0.7\textwidth]{carlson1999a_tab1.pdf}
+
+
+
+
+%%  \textbf{First Returns}
+
+  \textbf{For random walks in 1-$d$:}
+  \includegraphics[width=\textwidth]{figrandomwalk_firstreturn_noname.pdf}
+  
+  
+    A \alertg{return} to origin can only happen when $t = 2n$.
+  
+    In example above, returns occur at $t=8$, 10, and 14.
+  
+    Call $P_{\textrm{fr}(2n)$ the probability of \alertg{first return} at $t=2n$.
+   
+    Probability calculation $\equiv$ Counting problem \\
+    (combinatorics/statistical mechanics).
+  
+    \alertb{Idea:} Transform first return problem into an easier return problem.
+%%      $$P_{\textrm{fr}(2n) = 2 Pr(x_{t} \ge 1, t=1,\ldots,2n-1, \ \mbox{and} \  x_{2n} =0). $$
+  
+  
+
+
+
+%%  \textbf{First Returns}
+  
+    \includegraphics[width=.95\textwidth]{figrandomwalk_firstreturn2_noname.pdf}%
+    \includegraphics[width=.95\textwidth]{figrandomwalk_firstreturn3_noname.pdf}
+    %%    \includegraphics[width=\textwidth]{figrandomwalk_firstreturn4_noname.pdf}
+    
+    
+      Can assume drunkard first lurches to $x=1$.
+     
+      Observe walk first returning at $t=16$ stays at or above $x=1$ for $1 \le t \le 15$
+      (dashed \alert{red} line).
+     
+      Now want walks that can return many times to $x=1$.
+     
+      $P_{\textrm{fr}(2n) = $ \\
+      $2\cdot\frac{1}{2}Pr(x_{t} \ge 1, 1 \le t \le 2n-1, \ \mbox{and} \  x_1 = x_{2n-1} = 1) $
+     
+      The $\frac{1}{2}$ accounts for $x_{2n}=2$ instead of 0.
+     
+      The $2$ accounts for drunkards that first lurch to $x=-1$.
+    
+  
+
+
+  \textbf{Counting first returns:}
+
+  \textbf{Approach:}
+    
+    
+      Move to counting numbers of walks.
+    
+      Return to probability at end.
+    
+      Define 
+      $N(i,j,t)$ as the \# of possible walks between $x=i$ and $x=j$ taking $t$ steps.
+     
+      Consider \alert{all paths} starting at $x=1$ and ending at $x=1$ after $t=2n-2$ steps.
+     
+      \alertb{Idea:} If we can compute the number of walks that hit $x=0$ at least once, then we can
+      subtract this from the total number to find the ones that maintain $x \ge 1$.
+     
+      Call walks that drop below $x=1$ \alertb{excluded walks}.
+     
+      We'll use a method of images to identify these excluded walks.
+    
+  
+
+
+%%  \textbf{First Returns:}
+
+  \textbf{Examples of excluded walks:}
+    \begin{center}
+      \includegraphics[width=.4\textwidth]{figrandomwalk_firstreturn5_noname.pdf}
+      \includegraphics[width=.4\textwidth]{figrandomwalk_firstreturn6_noname.pdf}
+    \end{center}
+  
+
+    \textbf{Key observation for excluded walks:}
+      
+        
+        For any path starting at $x$$=$$1$ that hits 0,
+        there is a unique matching path starting at $x$$=$$-1$.
+         
+        Matching path first mirrors and then tracks after first reaching $x$$=$$0$.
+      
+        \# of $t$-step paths starting and ending at $x$$=$$1$
+        and hitting $x$$=$$0$ at least once\\
+        {= \# of $t$-step paths starting at $x$$=$$-$1 and ending at $x$$=$$1$}
+        {= $N(-1,1,t)$\\}
+      
+        So \alertb{$N_{\textrm{first\ return}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$}
+      
+    
+
+
+
+%% %%   \textbf{First Returns:}
+%% 
+%%   %%     
+%%     
+%%       \includegraphics[width=\textwidth]{figrandomwalk_firstreturn5_noname.pdf}\\
+%%       \bigskip
+%%       \includegraphics[width=\textwidth]{figrandomwalk_firstreturn6_noname.pdf}
+%%     
+%%     
+%%     \textbf{Key observation:}
+%%       
+%%       
+%%         \# of $t$-step paths starting and ending at $x=1$
+%%         and hitting $x=0$ at least once.\\
+%%         {= \# of $t$-step paths starting at $x=-1$ and ending at $x=1$\\}
+%%         {= $N(-1,1,t)$\\}
+%%       
+%%         So \alertb{$N_{\textrm{first\ return}(2n) = N(1,1,2n-2) - N(-1,1,2n-2)$}
+%%         
+%%         For any path starting at $x=1$ that hits 0,
+%%         there is a unique matching path starting at $x=-1$.
+%%          
+%%         Matching path first mirrors and then tracks.
+%%       
+%%     
+%%   %% 
+%% 
+
+
+
+
+
+
+Algorithms.
+
+superconductivity
+
+Add boyd
+
+http://www.nytimes.com/2011/08/16/science/16butterfly.html?src=rechp
+
+
+
+
+  \textbf{Reductionism}
+
+  Great first comment here:
+  http://scholarlykitchen.sspnet.org/2011/07/26/what-happens-if-science-becomes-a-low-yield-activity/
+
+  Use Arbesman's unfortunate (but well done) paper
+  as a set up.
+
+
+
+
+
+
+
+%% %%   \textbf{Spreading:}
+%% 
+%%     
+%%     
+%%       Example: Spreading of buildings in the U.S.:
+%%     
+%% 
+%%   \begin{center}
+%%     \includemovie[
+%%     controls=true,
+%%     toolbar=true,
+%%     poster=walmartspread-frame.jpg,
+%%     ]{100mm}{75mm}{videos/2010/walmartspread.mp4}
+%%   \end{center}
+%% 
+%% 
+
+
+
+
+  
+  Who killed 2/3?
+
+  Antimortem injuries.
+
+  Show autopsy of 2/3.
+
+
+
+    Cities
+
+    Peter Sheridan Dodds, Theoretical Biology's Buzzkill
+    ac
+    %% make this into law and order
+
+    %% changizi's lego scaling
+
+    more idiocy
+%%    \url{http://www.radiolab.org/blogs/radiolab-blogland/2013/jan/22/krulwich-wonders-nature-has-formula-tells-us-when-its-time-die/}
+
+%%    \url{http://www.nytimes.com/1999/01/12/science/of-mice-and-elephants-a-matter-of-scale.html?pagewanted=all}
+
+    really improve these slides
+    statistics section
+    presentation and criticism of west
+    poiseuille flow, diagrams
+    womersley
+
+    add reich
+
+    add prothero 1999
+    add damuth
+
+    add murray's law?
+
+  
+
+      Contagion:
+    Ugander2012a
+    Facebook adoption
+
+    Networks:
+    Ugander2013a
+    Subnetworks
+
+  
+
+  \textbf{Quarters, quarters everywhere:}
+    
+     
+      ``Population density and body size in mammals''\cite{damuth1981a}\\
+      John Damuth, Nature, 1981
+      \includegraphics[width=\textwidth]{damuth1981a_tab1}
+    
+      Mean of the reliable regressions: -0.68.
+    
+      Overall regression (Fig.\ 1) holds up.
+    
+  
+
+  
+%%  Need 1992 papers
+
+
+
+%%   %%     \textbf{Examples of non-disease spreading:}
+%% 
+%%     \textbf{Interesting infections:}
+%%       
+%%       
+%%         \wordwikilink{http://www.youtube.com/watch?v=EGzHBtoVvpc}{Spreading of buildings in the US...}
+%%         \begin{center}
+%%           \includemovie[
+%%           controls=true,
+%%           toolbar=true,
+%%           poster=videos/2010/walmartspread-frame.jpg,
+%%           ]{64mm}{48mm}{videos/2010/walmartspread.mp4}
+%%         \end{center}
+%%        \wordwikilink{http://www.cnnbcvideo.com/?nid=VWB8OWHr.GqH2kYkPxOMwTQ1NDIxODA-}{Viral get-out-the-vote video.}
+%%       
+%%     
+%% 
+%%   
+
+
+  %% add page/cites to papers on SARS
+  %% show how models worked
+
+
+
+
+  %% 1 page each:
+  %% vespignani's gleam
+  %% brockmann's dollar bills
+  %% marta's paper
+  %% simini paper
+
+
+  %% For projects
+
+  %% dragon kings
+
+  %% doyle2011a
+
+  %% add krause, couzin stuff.
+  %% 5 to 10 leaders needed for example.
+  %% Crowd experiments (100, 200 people).
+
+  %% add simini2012a
+  %% migration
+
+
+  %% baby names
+
+
+
+      \textbf{Universality?}
+
+    
+      
+      
+        Dealing with the $k>1$ case:
+        $$
+        n_k
+        =
+        n_{k-1}
+        \frac{A_{k-1}}{\mu + A_k}
+        {
+          =
+          n_{k-1}
+          \frac{A_{k-1}}{A_k}
+          \frac{1}{1 + \frac{\mu}{A_k}}
+          $$
+        }
+                  
+          $$
+          =
+          \alert{n_{k-2}
+            \frac{A_{k-2}}{A_{k-1}}
+            \frac{1}{1 + \frac{\mu}{A_{k-1}}}}
+          \frac{A_{k-1}}{A_k}
+          \frac{1}{1 + \frac{\mu}{A_k}}
+          $$
+          
+          $$
+          =
+          n_{k-2}
+          \frac{A_{k-2}}{\cancel{A_{k_1}}}
+          \frac{1}{1 + \frac{\mu}{A_{k-1}}}
+          \frac{\cancel{A_{k-1}}}{A_k}
+          \frac{1}{1 + \frac{\mu}{A_k}}
+          $$
+                {
+          $$
+          =
+          n_{1}
+          \frac{A_{1}}{A_k}
+          \prod_{j=2}%% {k}
+          \frac{1}{1 + \frac{\mu}{A_j}}
+          $$
+        }
+        {
+          $$
+          =
+          n_{1}
+          \frac{A_{1}}{A_k}
+          \left(1 + \frac{\mu}{A_1}\right)
+          \prod_{j=\alert{1}}%% {k}
+          \frac{1}{1 + \frac{\mu}{A_j}}
+          $$
+        }
+        {
+          $$
+          =
+          \alert{\frac{\mu}{A_k}}
+          \prod_{j=1}^{k}
+          \frac{1}{1 + \frac{\mu}{A_j}}
+          \mbox{\ since $n_1 = \mu/(\mu+A_1)$}
+          $$
+        }
+      
+    
+
+  
+      \textbf{Universality?}
+
+    
+      
+      
+        Time for pure excitement: Find \alert{asymptotic behavior} 
+        of $n_k$ given $A_k \rightarrow k$ as $k \rightarrow \infty$.
+      
+        For large $k$:
+        $$
+        n_k = 
+        \frac{\mu}{A_k}
+        \prod_{j=1}^{k}
+        \frac{1}{1 + \frac{\mu}{A_j}}
+        {
+          =
+          \frac{\mu}{A_k}
+          \prod_{j=1}^{k}
+          \frac{A_j}{A_j + \mu}
+        }
+        $$
+        {
+          $$
+          =
+          \frac{\mu}{\alert{\cancel{A_k}}}
+          \frac{A_1}{(A_1+\mu)}
+          \frac{A_2}{(A_2+\mu)}
+          \cdots
+          \frac{k-1}{(k-1+\mu)}
+          \frac{\alert{\cancel{k}}}{(k+\mu)}
+          $$
+        }
+        $$
+        {
+          \propto
+          \frac{\Gamma(k)}{\Gamma(k + \mu + 1)}
+        }
+        {
+          \sim
+          \frac{\sqrt{2\pi} k^{k+1/2} e^{-k}}
+          {\sqrt{2\pi} (k+\mu+1)^{k+\mu+1+1/2}e^{-(k+\mu+1)}}
+        }
+        $$
+        $$
+        {
+          \alert{ \propto k^{-\mu-1} }
+        }
+        $$
+      
+        Since $\mu$ depends on $A_k$, \alert{details matter...}
+      
+    
+
+  
+      \textbf{Universality?}
+
+    
+      
+      
+        Now we need to find $\mu$.
+      
+        Our assumption again:
+        $
+        \alertb{A = \mu t = \sum_{k=1}^{\infty} N_k(t) A_k}
+        $
+      
+        Since $N_k = n_k t$, we have the simplification
+        $
+        \alertb{
+          \mu = \sum_{k=1}^{\infty} n_k A_k}
+        $
+      
+        Now subsitute in our expression for $n_k$:
+                  
+          $$
+          \mu = 
+          \sum_{k=1}^{\infty} 
+          \alert{
+            \frac{\mu}{A_k}
+            \prod_{j=1}^{k}
+            \frac{1}{1 + \frac{\mu}{A_j}}
+          }
+          A_k
+          $$
+          
+          $$
+          \mu = 
+          \sum_{k=1}^{\infty} 
+          \frac{\mu}{\alert{\cancel{A_k}}}
+          \prod_{j=1}^{k}
+          \frac{1}{1 + \frac{\mu}{A_j}}
+          \alert{\cancel{A_k}}
+          $$
+                
+          $$
+          \alertb{1 \cancel{\mu}} = 
+          \sum_{k=1}^{\infty} 
+          \frac{\alertb{\cancel{\mu}}}{\alert{\cancel{A_k}}}
+          \prod_{j=1}^{k}
+          \frac{1}{1 + \frac{\mu}{A_j}}
+          \alert{\cancel{A_k}}
+          $$
+              
+        Closed form expression for $\mu$.
+      
+        We can solve for $\mu$ in some cases.
+      
+        Our assumption that $A = \mu t$ is okay.
+      
+    
+
+  
+      \textbf{Universality?}
+
+    
+      
+      
+        Turns out we can adjust $A_k$ and tune $\gamma$
+        to be anywhere in $[2,\infty)$.
+      
+        $\gamma = 2$ is the lower limit since
+        $$
+        \mu = 
+        \sum_{k=1}^{\infty} A_k n_k 
+        \sim
+        \sum_{k=1}^{\infty} k n_k
+        $$
+        must be finite.
+      
+        Let's now look at a specific example of $A_k$
+        to see this range of $\gamma$ is possible.
+      
+    
+
+  
+
+
+      \textbf{Homo Economicus}
+
+    What makes people think like Economists?
+    Evidence on Economic Cognition
+    from the 
+    ``Survey of Americans and Economists on the Economy''\cite{caplan2001a}
+
+  
+
+
+
+
+      
+    Into every generation a Slayer is born: one girl in all the world, a
+    Chosen One. She alone will wield the strength and skill to fight the
+    vampires, demons, and the forces of darkness; to stop the spread of
+    their evil and the swell of their numbers. She is the Slayer.
+
+  
+
+  %%   %%   
+  %%   \includemedia[
+  %%   width=0.6\linewidth,height=0.45\linewidth,
+  %%   activate=pageopen,
+  %%   flashvars={
+  %%     modestbranding=1 % no YT logo in control bar
+  %%     &autohide=1       % controlbar autohide
+  %%     &showinfo=0       % no title and other info before start
+  %%     &rel=0            % no related videos after end
+  %%   },
+  %%   url                % Flash loaded from URL
+  %%   ]{}{http://www.youtube.com/v/Mdc3o7wOwNA?rel=0}  
+  %%   
+  %% %%   http://www.youtube.com/watch?v=agzGlbRKzqw
+  %%   
+  %% 
+  
+    Excellent stupidity:
+
+    http://economix.blogs.nytimes.com/2010/04/20/a-tale-of-many-cities/
+
+  
+
+
+      \textbf{Phase diagrams}
+
+    \includegraphics[width=0.9\textwidth]{Phase-diag.jpg}
+
+    \medskip
+
+    Qualitatively distinct macro states.
+
+  
+
+  
+    blasius2009a
+
+    Zipf chess
+
+    http://physics.aps.org/articles/v2/97
+
+    \url{http://iopscience.iop.org/0295-5075/97/6/68002/article}
+
+    \url{http://www.wired.com/wiredscience/2012/04/network-science-of-the-game-of-go/}
+
+    Add Chess 
+
+  
+
+
+
+  
+    \amazonbook{gleick2011a}
+  
+
+  
+    \syllabuslink{\coursewebsite/docs/\courseprefix}
+
+    \posterlink{\coursewebsite/docs/\courseprefix}
+
+    % \reversewords{Try doing this without Perl!}
+
+  
+      \textbf{These slides brought to you by:}
+
+    \includegraphics[width=\textwidth]{sealie-lambie-productions002.jpg}
+
+  
+
+
+
+Test vidoe:
+
+\includemedia[
+width=0.6\linewidth,height=0.45\linewidth,
+activate=pageopen,
+flashvars={
+modestbranding=1 % no YT logo in control bar
+&autohide=1 % controlbar autohide
+&showinfo=0 % no title and other info before start
+&rel=0 % no related videos after end
+&start=5
+&end=10
+}
+]{}{http://www.youtube.com/v/Mdc3o7wOwNA?rel=0}
+
+\end{comment}

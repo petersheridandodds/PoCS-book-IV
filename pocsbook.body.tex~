@@ -1,0 +1,235 @@
+Inspiration:
+On Growth and Form:
+http://www.nature.com/news/the-100-year-old-challenge-to-darwin-that-is-still-making-waves-in-research-1.21806
+
+
+``And what’s more, the Dundee Advertiser loved the book and recommended it to readers. When the author, it noted, wrote of maths, “he never fails to translate his mathematics into English; and he is one of the relatively few men of science who can write in flawless English and who never grudge the effort to make every sentence balanced and good.”''
+
+
+The Unfollower Monks of the Infinitely Many Wrong Paths.
+Our Unguides.
+
+Monk life spans
+
+Monks does suggest men in cowls.
+I would hope you will be able to imagine monks of all kinds
+and that the cowls and the suffering are the key features.
+Octopus monks for example.
+
+Finders and Unfollowers.
+
+Workmonks.
+
+Monkhandling
+
+We will have a lot of fun but do not eat the ... Charlie and the Chocolate Factory
+
+
+
+
+Part A:
+
+The first 40 minutes of the second lecture of PoCS this Fall covers
+1. The definition of Complex Systems (not "A", "The")
+2. Reductionism, the Golden Age thereof,
+3. The Manifesto,
+
+The video is housed within the course's episodes page:
+\url{http://www.uvm.edu/~pdodds/teaching/courses/2015-08UVM-300/content/lectures.html\#episodes-E25}
+and on youtube:
+\url{https://www.youtube.com/watch?v=Q69DXymX9OE}
+
+Manifesto slides are here:
+\url{http://www.uvm.edu/~pdodds/teaching/courses/2015-08UVM-300/content/lectures.html\#slides-manifesto}
+
+Part B:
+
+I came up with the manifesto exactly for the reasons you mentioned today.  People kept coming up saying complex systems
+aren't defined and I would say no, they are, here it is.  And then I was compelled to lay out the bigger framing of how
+science simply must unfold (whether we're octopuses or people).
+
+Part C:
+
+The rest of the lecture above and then the next one are on scaling,
+and travels across all kinds of systems.  Includes the awesome Buckingham $\pi$ Theorem.
+Everything from physical to biological to sociotechnical.
+This is a new structuring of the course I introduced this year
+and it feels very good.  Power law size distributions follow---description
+then a laying out of major mechanisms.
+
+
+
+acknowledgement
+
+The hummingbird.
+
+Cite the tweet.
+
+
+
+
+Why did I write this book?
+
+\begin{enumerate}
+\item 
+  First: Complex Systems absolutely are a thing and can be defined well
+  enough.  We'll get to this soon.
+\item 
+  We now understand that there are universal features and properties
+  of systems---stories---that at least touch all fields dealing
+  with complex systems.
+\item 
+  I want to share what I've gleaned over 20+ years of
+  becoming a scientist wanting to understand the story of everything.
+\end{enumerate}
+
+
+
+The Schelling model remains our archetypal example.  Simple to
+describe micro dynamics leading to interesting/meaningful macro
+phenomena which gives us a new narrative of collective behaviour
+(which we are ill placed to intuit).
+
+Religion:
+
+Successful religions have, ironically, been in part 
+a result of natural selection of stories.
+
+
+Not believing in evolution is an evolutionary outcome.
+
+
+Soon after arriving at the University of Vermont,
+I began constructing my two courses on Complex Systems
+in the 2007:
+\begin{itemize}
+\item 
+  Principles of Complex Systems.
+  \todo{Include logo}
+\item 
+  Complex Networks.
+\end{itemize}
+
+The two, three, no four!, main goals of this book:
+
+What this book won't do for you:
+
+\begin{itemize}
+\item 
+  
+\end{itemize}
+
+
+Success
+Jk Rowling writing with a pen name, did okay.
+Sales exploded when revealed.
+
+\url{http://www.theguardian.com/books/2014/jul/19/jk-rowling-crime-thriller-series-longer-harry-potter}
+Can you see the story?
+
+Diseases, ebola spreading.
+
+Easiest stories to follow.
+
+Braiding conspiracy theories.
+
+
+SimulPast @SimulPast
+Why do we need the science of complexity to tackle the most difficult
+questions?  
+\#ComplexSystems \#ComplexityScience vimeo.com/125538277
+
+We only need a Science of Complexity if such a thing exists.
+Step 1: What we need to understand is complexity.
+Honey and water may have followed different equations.
+
+\chapter{Introduction}
+\label{ch:pocsbook.introduction}
+\chaptertarotcard{overview}
+
+\input{pocs-overview.body}
+
+\chapter{Free Accompanying Manifesto}
+\label{ch:pocsbook.introduction}
+\chaptertarotcard{manifesto}
+
+\input{pocs-manifesto.body}
+
+\chapter{Fundamentals}
+\label{ch:pocsbook.fundamentals}
+
+%% \input{pocs-fundamentals.body}
+
+\chapter{Scaling}
+\label{ch:pocsbook.scaling}
+\chaptertarotcard{scaling}
+
+\input{pocs-scaling.body}
+
+\chapter{Power-Law Size Distributions}
+\label{ch:pocsbook.powerlawsizedistributions}
+\chaptertarotcard{power-law-size-distributions}
+
+%% \input{pocs-power-law-size-distributions.body}
+
+%% \input{pocs-benfordslaw.body}
+
+%% \input{pocs-zipfian-data.body}
+
+\chapter{Mechanisms for Generating Power-Law Size Distributions}
+\label{ch:pocsbook.powerlawsizemechanisms}
+
+%% \input{pocs-power-law-mechanisms-1.body}
+
+%% \input{pocs-power-law-mechanisms-2.body}
+
+\chapter{Robustness}
+\label{ch:pocsbook.robustness}
+\chaptertarotcard{surprise-of-being-robust-yet-fragile}
+
+%% 
+%% \input{pocs-robustness.body}
+%% 
+
+\chapter{Lognormals and other disappointments}
+
+
+\chapter{Complex Networks}
+\label{ch:pocsbook.complexnetworks}
+\chaptertarotcard{complex-networks}
+
+
+%% \input{pocs-networks-overview.body}
+%% 
+%% \input{pocs-models-of-networks.body}
+%% 
+
+\chapter{Biological Contagion}
+\label{ch:pocsbook.biologicalcontagion}
+\chaptertarotcard{unending-pandemics}
+
+%% \input{pocs-biological-contagion.body}
+%% 
+
+\chapter{Social Contagion}
+\label{ch:pocsbook.socialcontagion}
+\chaptertarotcard{social-contagion}
+
+%% \input{pocs-social-contagion.body}
+%% 
+%% \input{pocs-voting.body}
+%% 
+%% \input{pocs-contagious-stories.body}
+
+\chapter{Differential Equations, Algorithms, and Stories}
+\label{ch:pocsbook.stories}
+\chaptertarotcard{john-dory}
+
+\input{pocs-stories.body}
+
+
+\chapter{Complexification}
+\label{ch:pocsbook.complexification}
+
+%% \input{pocs-complexification.body}
+

@@ -1,0 +1,317 @@
+
+I appreciate that you're here reading this sentence.
+We all know there are many other things to do
+these days instead of 
+\strikethrough{listening to others}
+\strikethrough{reading papyrus scripts}
+
+\strikethrough{sending telegrams}
+
+I will do my best to make this fun for all of us. 
+
+
+
+
+In the beginning, there were no words, but there was the start of a story.
+
+
+This is a first edition.
+
+The framing of complex systems has often been confusing
+but it shouldn't be.
+
+One of our great successes in studying complexity
+is fluid mechanics.
+The Navier-Stokes equations were formulated in 18??.
+and 
+From a microscopic description of fluids, we are able
+to derive the partial differential equations
+\footnote{Our predilection for paying tribute to the
+discoverers 
+with eponymous laws.
+Unfortunately, this is often undercut by Stigler's law~\cite{stigler1980a}}
+}
+
+I'll return to fluids later in the book.
+
+
+
+
+Complexify.
+
+
+A key algorithm is not to see everything as algorithms.
+
+Charlotte is playing with bean seeds.  Dormant algorithms,
+waiting to operate in physical space, working with the
+laws of physics.
+
+Crossbreeding of plants and animals = searching for
+better algorithms.  A coarse, rough method for combining
+growing/building/creating algorithms.
+
+
+
+\section{Preface}
+
+Explain my background and motivation.
+
+I want to understand everything.
+
+But my time is limited.
+
+
+Intellectually, I suppose I am by nature a kind of explorer.
+I'm not a charlatan, or a snake oil salesman.  You will find them in the
+uncharted regions of science.
+
+I like the frontier.
+
+There are the ancient questions many have asked and many will ask: 
+Why is anything here?  Why is there a here, why is there a now?
+Why is the universe here?  Why am I here?  What am I?  What is the meaning of life?
+
+But I think these questions are not all eternal.  
+
+We are reaching
+
+
+
+My motivation in creating this narrative, 
+
+
+An application more than a book, an app in the current parlance.
+
+I grew up 20 miles north of a small town in rural Australia
+called Nhill and a few miles south of the plainspokenly named Big
+Desert.
+Nhill means misty swamp in the aboriginal language and is pronounced
+as `nil', which inevitably has lead to a series of Zaltmanesque puns.
+
+
+
+I was accidentally serviceable in understanding mathematics (or maths)
+
+and that carried me a long well into my university days.
+
+A search for meaning.
+
+\section{Introduction}
+
+
+\subsection{The Golden Age of Reductionism}
+
+
+\subsection{The Complexity Manifesto}
+
+
+Words wash around the scaffolds of meaning, of truth,
+of what's possible, what happened, what makes sense.
+Find the shape, sometimes erode, change,
+sometimes just find the shape.
+
+
+
+
+Physics?
+Higher level, complex phenomena is more algorithmic in nature.
+
+Michael Brenner's story on water droplet formation
+and cell tranfer.
+
+There are no if-then statements in simple physics.
+There is not if-then in $e=mc^2$, no regular
+expression pattern matching in the Navier-Stokes equations.
+
+We created computers using physics allowing us to, like biology,
+abstract and lift away from raw physics.
+
+
+\usepackage{lipsum}
+\usepackage[framemethod=default]{mdframed}
+
+\newmdenv[linecolor=red,backgroundcolor=yellow]{myframe}
+
+\begin{document}
+
+\begin{myframe}
+\lipsum[1]
+\end{myframe}
+
+
+
+
+Code that builds its own code.
+
+Code that is modular and evolvable.
+
+Social pheone
+
+
+Appify
+
+
+Why Complexify?
+
+
+Physicists have
+long sort the Grand Unified Theory of Everything.
+
+History of this.
+
+Einstein.
+
+And it would be grand to have, but it would
+tell us nothing about anything interesting.
+
+evolution, about intelligence,
+the life
+
+The whole is greater than the sum of the parts.
+
+More is different.
+
+
+
+water droplet -> hurricane
+dollar bill -> financial collapse 
+...
+whole is more than the sum of the parts,
+and moreover often fundamentally different from each part.
+we love homunculus stories.
+
+\section{The Big Transitions}
+
+\subsection{Big Life}
+
+\subsection{Big Algorithms}
+
+\section{Fluid Mechanics}
+
+\section{Universality and Accidents of History, Inevitability versus Randomness}
+
+\section{Statistical Mechanics}
+
+
+Information
+
+\section{}
+
+The rise of algorithms, life.
+
+Algorithms.
+
+Manners are about algorithms.
+
+\section{The meaning of life}
+
+We create meaning.
+
+
+\section{Social spreading}
+
+Anecdotes about failures to see future talent.
+
+Why do we have such poor intuition?
+
+
+\section{The Unreasonable Ineffectiveness of Mathematicians in the Natural Sciences}
+
+It's about mechanisms.  
+
+\cite{wigner1960a}
+
+\section{Why collective cooperation is such a mystery}
+
+\todo{Lede}
+
+In 19XX, the game theory first ...
+
+\todo{History}
+
+economists 
+have Prisoner's Dilemma to 
+
+
+Theory and methodological approaches.
+
+If you have a favorite theory, one that
+you treasure, that has beautiful internal
+consistency, the last thing you should ever
+do is test it against reality.
+
+The list of ideas about nature that have
+proved to be wrong is vast and spans
+the ludicrous to the commonsensical.
+
+So where do theories come from?
+In a data free environment?
+From what other people have said in the past?
+Because somehow we gloriously intuit
+the truths of the universe while sitting
+at a desk?  
+
+
+The correct models of the real
+world that do survive are adapted
+and refined.
+
+Some ideas about the world move in
+and out of the right and wrong sections.
+Lamarck has seen a resurgence of rightness
+first at the level of bacteria~\cite{bacteria}
+and more recently for people.
+
+Darwin
+
+Science is never purely moving along,
+sorting out the best descriptions.
+There are choices made about what to
+study next that depend on past successes
+as well as the ambient culture.
+
+
+And we have religion.  Even allowing
+that one major religion may be entirely
+correct, then all the others are at best
+on the wrong track and at worst wrong.
+
+
+
+Nature includes people.
+
+
+
+Many mathematical pathways are not human narratives.
+
+\hwlink{http://www.slate.com/blogs/how_not_to_be_wrong/2014/06/03/number_sentences_stephen_colbert_thinks_they_re_silly_they_re_not.html}{Equations
+  as number sentences.}
+Not well done.  Math struggles with stories.
+
+Numbers numb, letters let.
+
+Equations eek.
+
+Equations eke.
+
+
+Universality
+
+
+
+
+Me: ``Evolution is not just the game of survival, it's about flourishing,
+and all points in between.''
+
+Me: ``The game of evolution starts with bare survival but
+through inherent creativity, also leads all the way up to flourishing.''
+
+
+Wellbeing: Flourishing?  And the likelihood?
+Maybe it's about being able create interesting,
+satisfying life stories.
+
+Anecdotes are not data.
+People always attack a universal claim 
+about people with an example of themselves,
+their family, their friends.

@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% models and analyses
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Modelling Complex Networks}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{Some important models:}
+    \begin{enumerate}
+    \item<2-> generalized random networks
+    \item<3-> scale-free networks
+    \item<4-> small-world networks
+    \item<5-> statistical generative models ($p^\ast$)
+    \item<6-> generalized affiliation networks
+    \end{enumerate}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}<1->{1. generalized random networks:}
+    \begin{itemize}
+    \item<2-> Arbitrary degree distribution $P_k$.
+    \item<3-> Wire nodes together randomly.
+    \item<4-> Create ensemble to test deviations from randomness.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{2. `scale-free networks':}
+    \begin{itemize}
+    \item<2-> Introduced by Barabasi and Albert\cite{barabasi1999a}
+    \item<2-> Generative model
+    \item<3-> Preferential attachment model with growth:
+    \item<4->  $P[\rm \mbox{attachment to node}\ i] \propto k_{i}^\alpha$.
+    \item<5-> Produces \alert{$P_k \sim k^{-\gamma}$} when $\alpha=1$.
+    \item<6-> Trickiness: other models generate skewed degree distributions.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}<1->{3. small-world networks}
+    \begin{itemize}
+    \item Introduced by Watts and Strogatz\cite{watts1998a}
+    \end{itemize}
+    \medskip
+    \visible<2->{Two scales:}
+    \begin{itemize}
+    \item<3-> \alert{local regularity} (an individual's friends know each other)
+    \item<4-> \alert{global randomness} (shortcuts).
+    \end{itemize}
+
+    \begin{columns}
+      \column{0.65\textwidth}
+      \begin{itemize}
+      \item<5-> Shortcuts allow disease to jump
+      \item<6-> Number of infectives increases exponentially in time
+      \end{itemize}
+      \column{0.35\textwidth}
+      \begin{overprint}
+        \onslide<1-2| handout:0| trans:0>
+        \onslide<3| handout:0| trans:0>
+        \includegraphics[height=0.3\textheight]{lattice4}
+        \onslide<4-| handout:1| trans:1>
+        \includegraphics[height=0.3\textheight]{latticeshortcut4}
+      \end{overprint}
+    \end{columns}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{5. generalized affiliation networks}
+    \begin{center}
+      \includegraphics[height=0.6\textheight]{bipartite}
+    \end{center}
+  \end{block}
+
+  Bipartite affiliation networks: boards and directors, movies and actors.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{5. generalized affiliation networks}
+    \centering
+    \includegraphics[width=1\textwidth]{bipartite2}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{5. generalized affiliation networks}
+    \includegraphics[width=1\textwidth]{generalcontext2}  
+    \begin{itemize}
+    \item Blau \& Schwartz\cite{blau1984a}, Simmel\cite{simmel1902a}, Breiger\cite{breiger1974a}, Watts \etal\cite{watts2002b}
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% popularity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Popularity}
+
+  \begin{block}<1->{``Collective dynamics of `small-world' networks''\cite{watts1998a}}
+    \begin{itemize}
+    \item 
+      Watts and Strogatz\\
+      Nature, 1998
+    \item 
+      \alert{$\approx 2400$} citations {\tiny(as of Jan 14, 2008)}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<2->{``Emergence of scaling in random networks''\cite{barabasi1999a}}
+    \begin{itemize}
+    \item 
+      Barab\'{a}si and Albert\\
+      Science, 1999
+    \item 
+      \alert{$\approx 2300$} citations {\tiny(as of Jan 14, 2008)}
+    \end{itemize}
+  \end{block}
+
+\end{frame}

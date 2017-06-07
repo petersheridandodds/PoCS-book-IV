@@ -1,0 +1,1304 @@
+\section{Overview}
+
+\begin{frame}
+  \frametitle{Structure detection}
+
+  \begin{columns}
+    \column{0.55\textwidth}
+    \includegraphics[width=\textwidth]{newman2004b_fig8} \\
+    {\small \ding{115} Zachary's karate club\cite{zachary1977a,newman2004b}}
+    \column{0.45\textwidth}
+    \begin{itemize}
+    \item 
+      \alert{The issue:}\\
+      how do we elucidate
+      the internal structure of
+      large networks across many
+      scales?
+    \end{itemize}
+  \end{columns}
+
+  \bigskip
+
+  \visible<2->{
+    \begin{itemize}
+    \item<2-> 
+      \alertb{Possible substructures:}\\
+      hierarchies, cliques, rings, \ldots
+    \item<3-> 
+      \alertb{Plus:}\\
+      All combinations of substructures.
+    \item<4-> 
+      Much focus on hierarchies...
+    \end{itemize}
+  }
+
+\end{frame}
+
+%% review paper
+\framedisplaypaper{fortunato2010a}{1}{fig3}
+
+\section{Methods}
+
+\subsection{Hierarchy\ by\ aggregation}
+
+\begin{frame}
+  \frametitle{Hierarchy by aggregation}
+
+  \begin{block}{Bottom up:}
+    \begin{itemize}
+    \item<1-> 
+      \alertb{Idea:} Extract hierarchical
+      classification scheme for $N$ objects by an agglomeration process.
+    \item<2-> 
+      Need a measure of distance between all pairs of objects.
+    \item<3->
+      Note: evidently works for non-networked data.
+    \item<4->
+      \alert{Procedure:}
+      \begin{enumerate}
+      \item<4-> 
+        Order pair-based distances.
+      \item<5-> 
+        Sequentially add links between nodes based on closeness.
+      \item<6-> 
+        Use additional criteria to determine
+        when clusters are meaningful.
+      \end{enumerate}
+    \item<7->
+      Clusters gradually emerge, likely with clusters inside
+      of clusters.
+    \item<8-> 
+      Call above property \alert{Modularity}.
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchy by aggregation}
+
+  \begin{block}{Bottom up problems:}
+    \begin{itemize}
+    \item<1->
+      Tend to plainly not work on data sets
+      with known modular structures.
+    \item<2->
+      Good at finding cores of well-connected
+      (or similar) nodes...  but fail to
+      cope well with peripheral, in-between nodes.
+      \begin{overprint}
+        \onslide<1 | handout: 0 | trans: 0>
+        \onslide<2->
+        \includegraphics[width=0.9\textwidth]{newman2004b_fig3.pdf}
+      \end{overprint}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Hierarchy\ by\ division}
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \begin{block}{Top down:}
+    \begin{itemize}
+    \item<1-> 
+      \alertb{Idea:}
+      Identify \alertb{global structure first} and recursively
+      uncover more detailed structure.
+    \item<2->
+      \alert{Basic objective:} find dominant components
+      that have significantly more links within than without, as compared
+      to randomized version.
+    \item<3->
+      We'll first work through 
+      \alertb{``Finding and evaluating community structure in networks''}
+      by Newman and Girvan (PRE, 2004).\cite{newman2004b}
+    \item<4->
+      See also 
+      \begin{enumerate}
+      \item<4->
+        \alertb{``Scientific collaboration
+          networks. II. Shortest paths, weighted
+          networks, and centrality''}
+        by Newman (PRE, 2001).\cite{newman2001d,newman2006e}
+      \item<5-> 
+        \alertb{``Community structure in social and biological networks''}
+        by Girvan and Newman (PNAS, 2002).\cite{girvan2002a} 
+      \end{enumerate}
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig1}
+
+  \begin{itemize}
+  \item<1-> 
+    \alertb{Idea:}
+    Edges that \alertb{connect} communities have 
+    \alert{higher betweenness} 
+    than edges \alertb{within} communities.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \begin{block}{One class of structure-detection algorithms:}
+    \begin{enumerate}
+    \item<1-> 
+      Compute edge betweenness for whole network.
+    \item<2-> 
+      \alert{Remove} edge with highest betweenness.
+    \item<3-> 
+      Recompute edge betweenness
+    \item<4->
+      Repeat steps 2 and 3 until all edges are removed.
+    \end{enumerate}
+    \begin{columns}
+      \column{0.5\textwidth}
+      \begin{enumerate}
+      \item<5->[5]
+        Record when components appear as a function
+        of \# edges removed.
+      \item<6->[6]
+        Generate \alert{dendogram} revealing hierarchical structure.
+      \end{enumerate}
+      \column{0.5\textwidth}
+      \begin{overprint}
+        \onslide<1-5 | handout: 0 | trans: 0>
+        \onslide<6->
+        \includegraphics[width=\textwidth]{newman2004b_fig2}\\
+        \uncover<7->{ \small \alert{Red line}
+          indicates appearance of four (4) components
+          at a certain level.
+        }
+      \end{overprint}
+    \end{columns}
+  \end{block}
+
+
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Key element for division approach:}
+    \begin{itemize}
+    \item<1-> 
+      Recomputing betweenness.
+    \item<2-> 
+      \alert{Reason:} Possible to have a low betweenness
+      in links that connect large communities
+      if other links carry majority of shortest paths.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<3->{When to stop?:}
+    \begin{itemize}
+    \item<4-> 
+      How do we know which
+      divisions are meaningful?
+    \item<5-> 
+      \alert{Modularity measure:}
+      difference in fraction of within component
+      nodes to that expected for randomized version:\\
+      \smallskip
+      \uncover<6->{
+      $
+      Q = 
+      \sum_{i}
+      [e_{ii} - a_{i}^2]
+      $\\
+      \smallskip
+      where $e_{ij}$ is the fraction of (undirected) edges
+      travelling between identified communities $i$ and $j$,
+      and $a_i = \sum_{j}e_{ij}$ is the fraction of edges with
+      at least one end in community $i$.
+    }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\insertvideo{Tc7R9oMqLRI}{}{}{Measuring modularity:}
+
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \begin{block}{Test case:}
+    \begin{itemize}
+    \item<1->
+      Generate random community-based networks.
+    \item<2->
+      $N=128$ with four communities of size 32.
+    \item<3->
+      Add edges randomly within and across communities.
+    \item<4->
+      Example:
+      $$ 
+%%      \alert{z_{\textnormal{in}} = \tavg{k}_{\textnormal{in}} = 6}
+      \alert{ \tavg{k}_{\textnormal{in}} = 6}
+      \
+      \mbox{and}
+      \
+%%      \alert{z_{\textnormal{out}} = \tavg{k}_{\textnormal{out}} = 2}.
+      \alert{ \tavg{k}_{\textnormal{out}} = 2}.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig6}
+
+  \begin{itemize}
+  \item<1->
+    Maximum modularity $Q \simeq 0.5$ obtained
+    when four communities are uncovered.
+  \item<2->
+    Further `discovery' of internal structure
+    is somewhat meaningless, as any communities
+    arise accidentally.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig8}
+
+  \begin{itemize}
+  \item<1-> Factions in Zachary's karate club network.\cite{zachary1977a}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Betweenness for electrons:}
+
+    \begin{columns}
+      \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{newman2004b_fig5}
+      \column{0.5\textwidth}
+      \begin{itemize}
+      \item<1->
+        Unit resistors on each edge.
+      \item<2->
+        For every pair of nodes $s$ (source) and $t$ (sink),
+        set up \alert{unit currents} in at $s$ and out at $t$.
+      \item<3->
+        Measure absolute current along each edge $\ell$, $|I_{\ell,st}|$.
+      \end{itemize}
+    \end{columns}
+    \begin{itemize}
+      \item<4->
+        Sum $|I_{\ell,st}|$ over all pairs of nodes
+        to obtain \alertb{electronic betweenness} 
+        for edge $\ell$.
+      \item<5->
+        (Equivalent to \alertb{random walk betweenness}.)
+      \item<6->
+        Contributing electronic betweenness
+        for edge between nodes $i$ and $j$:
+        $$
+        B^{\, \textnormal{elec}}_{ij,st}
+        = 
+        a_{ij} | V_{i,st} - V_{j,st} |.
+        $$
+      \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Electronic betweenness}
+
+  \begin{itemize}
+  \item<1->
+    Define some arbitrary voltage reference.
+  \item<2->
+    Kirchoff's laws: 
+    current flowing out of node $i$ must balance:
+    $$
+    \sum_{j=1}^{N}
+    \frac{1}{R_{ij}}
+    (
+    V_{j} - V_{i}
+    )
+    = \delta_{is} - \delta_{it}.
+    $$
+  \item<3->
+    Between connected nodes, $R_{ij}=1=a_{ij}=1/a_{ij}$.
+  \item<4->
+    Between unconnected nodes, $R_{ij}=\infty=1/a_{ij}$.
+  \item<5->
+    We can therefore write:
+    $$
+    \sum_{j=1}^{N}
+    a_{ij}
+    (
+    V_{i} - V_{j}
+    )
+    = \delta_{is} - \delta_{it}.
+    $$
+  \item<6->
+    Some gentle jiggery pokery on the left hand side:
+    $
+    \sum_{j}
+    a_{ij}
+    (
+    V_{i} - V_{j}
+    )
+    \uncover<7->{
+      \alertb{\ = \ }
+      \alert{
+        V_i
+        \sum_{j}
+        a_{ij}
+      }
+      - 
+      \sum_{j}
+      a_{ij} V_{j}
+    }
+    $ \\
+    $
+    \uncover<8->{
+      \alertb{\ = \ }
+      V_i
+      \alert{k_i}
+      - 
+      \sum_{j}
+      a_{ij} V_{j}
+    }
+    \uncover<9->{
+      \alertb{\ = \ }
+      \sum_{j}
+      \left[
+      \alert{
+        k_i
+        \delta_{ij}
+        V_j
+      }
+      - 
+      a_{ij} V_{j}
+      \right]
+      $  \\
+    }
+    $
+    \uncover<10->{
+      \alertb{\ = \ } 
+      [(\textmatrix{K} - \textmatrix{A}) \vec{V}]_i
+    }
+    $
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Electronic betweenness}
+
+  \begin{itemize}
+  \item<1-> 
+    Write right hand side as
+    $ 
+    [\Iext]_{i,st} = \delta_{is} - \delta_{it},
+    $
+    where $\Iext_{st}$ holds external 
+    source and sink currents.
+  \item<2->
+    Matrixingly then:
+    $$
+    (\textmatrix{K} - \textmatrix{A}) \vec{V} = \Iext_{st}.
+    $$
+  \item<3->
+    $\textmatrix{L} = \textmatrix{K} - \textmatrix{A}$ is a beast of some utility---known as the \alertb{Laplacian}.
+  \item<4->
+    Solve for voltage vector $\vec{V}$ 
+    by \alert{$\textmatrix{L}\textmatrix{U}$ decomposition}
+    (Gaussian elimination).
+  \item<5->
+    Do not compute an inverse!
+  \item<6->
+    \alert{Note:} 
+    voltage offset is arbitrary
+    so no unique solution.
+  \item<7->
+    Presuming network has one component,
+    null space of $\textmatrix{K} - \textmatrix{A}$ is one dimensional.
+  \item<8->
+    In fact,
+    $\mathcal{N}(\textmatrix{K} - \textmatrix{A}) = \{ c \vec{1}, c \in R \}$ since
+    $(\textmatrix{K} - \textmatrix{A}) \vec{1} = \vec{0}$.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Alternate betweenness measures:}
+
+  \begin{block}{Random walk betweenness:}
+    \begin{itemize}
+    \item<1->
+      \alert{Asking too much:} Need full knowledge of network to 
+      travel along shortest paths.
+    \item<2->
+      One of many alternatives: consider all \alert{random walks}
+      between pairs of nodes $i$ and $j$.
+    \item<3->
+      Walks starts at node $i$, traverses the network randomly,
+      ending as soon as it reaches $j$.  
+    \item<4->
+      Record the number of times an edge is followed by a walk.
+    \item<5->
+      Consider all pairs of nodes.
+    \item<6->
+      Random walk betweenness of an edge = 
+      absolute difference in probability a random walk
+      travels one way versus the other along the edge.
+    \item<7->
+      Equivalent to electronic betweenness (see also diffusion).
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchy by division}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig9}
+
+  \begin{itemize}
+  \item 
+    Third column shows what happens if
+    we don't recompute betweenness after
+    each edge removal.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Scientists working on networks (2004)}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig10a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Scientists working on networks (2004)}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig10c}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Scientists working on networks (2004)}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig10b}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dolphins!}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig11}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les Miserables}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig12}
+
+\end{frame}
+
+
+\subsection{Hierarchy\ by\ shuffling}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \begin{itemize}
+  \item<1-> 
+    ``Extracting the hierarchical organization 
+    of complex systems''\\
+    Sales-Pardo \etal, PNAS (2007)\cite{sales-pardo2007a,sales-pardo2007b}
+  \item<2->
+    Consider all partitions of networks into $m$ groups
+  \item<3->    
+    As for Newman and Girvan approach, aim is to find
+    partitions with maximum modularity:
+    $$
+    Q = 
+    \sum_{i}
+    [e_{ii} - (\sum_j e_{ij})^2]
+    =
+    {\textnormal{Tr}} \textmatrix{E} - || \textmatrix{E}^2 ||_1.
+    $$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \begin{itemize}
+  \item<1->
+    Consider \alertb{partition network}, i.e., 
+    the network of all possible partitions.
+  \item<2->
+    \alert{Defn:} Two partitions are connected if
+    they differ only by the 
+    reassignment of a single node.
+  \item<3->
+    Look for local maxima in partition network.
+  \item<4->
+    Construct an \alertb{affinity matrix} with entries $M_{ij}^{\textnormal{aff}}$.
+  \item<5->
+    $A_{ij}^{\textnormal{aff}}$ = $\Prob$ random walker on modularity network
+    ends up at a partition with $i$ and $j$ in the same group.
+  \item<5->
+    C.f. \alert{topological overlap} between $i$ and $j$ = \\
+    \# matching neighbors for $i$ and $j$ divided by 
+    maximum of $k_i$ and $k_j$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \includegraphics[width=\textwidth]{sales-pardo2007a_fig1}
+
+  \begin{itemize}
+  \item 
+    \textbf{A:} 
+    Base network;
+    \textbf{B:} 
+    Partition network;
+    \textbf{C:} 
+    Coclassification matrix;
+    \textbf{D:} 
+    Comparison to random networks (all the same!);
+    \textbf{E:} 
+    Ordered coclassification matrix;
+    \visible<2->{
+    Conclusion: no structure...
+    }
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \begin{itemize}
+  \item<1-> 
+    Method obtains a distribution of classification hierarchies.
+  \item<2->
+    Note: the hierarchy with the highest modularity score
+    isn't chosen.
+  \item<3->
+    Idea is to weight possible hierarchies according
+    to their basin of attraction's size in the partition network.
+  \item<4->
+    \alert{Next step:} Given affinities, now need to
+    sort nodes into modules, submodules, and so on.
+  \item<5->
+    \alert{Idea:} permute nodes to minimize
+    following cost
+    $$
+    C = \frac{1}{N} 
+    \sum_{i=1}^{N}
+    \sum_{j=1}^{N}
+    M_{ij}^{\textnormal{aff}} | i - j|.
+    $$
+  \item<6->
+    Use simulated annealing (slow).
+  \item<7->
+    \alert{Observation:} should achieve same results
+    for more general cost function:
+    $
+    C = \frac{1}{N} 
+    \sum_{i=1}^{N}
+    \sum_{j=1}^{N}
+    M_{ij}^{\textnormal{aff}} f(|i - j|)
+    $
+    where $f$ is a strictly monotonically increasing
+    function of 0, 1, 2, ...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \begin{columns}
+    \column{0.65\textwidth}
+    \includegraphics[width=\textwidth]{sales-pardo2007a_fig2}
+    \column{0.35\textwidth}
+    \begin{itemize}
+    \item 
+      $N=640$,
+    \item 
+      $\tavg{k}=16$, 
+    \item 
+      3 tiered hierarchy.
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}<handout: 0 | trans: 0>
+  \frametitle{Shuffling for structure}
+
+  \begin{itemize}
+  \item<1->
+    Define \alertb{cost matrix} as $\textmatrix{T}$ with
+    entries $T_{ij} = f(|i-j|)$.
+  \item<2->
+    Weird observation: if $T_{ij} = (i-j)^2$
+    then $\textmatrix{T}$ is of \alert{rank 3}, \alertb{independent of $N$}.
+  \item<3->
+    Discovered by numerical inspection \ldots
+  \item<4->
+    The eigenvalues are 
+    \begin{align}
+      \lambda_1 & = -\frac{1}{6}n(n^2-1), \nonumber \\
+      \lambda_2 & = +\sqrt{n S_{n,4}} + S_{n,2}, \ \mbox{and} \nonumber \\
+      \lambda_3 & = -\sqrt{n S_{n,4}} + S_{n,2}. \nonumber
+    \end{align}
+    where
+    \begin{align}
+      S_{n,2} &= \frac{1}{12} n (n^2-1), \ \mbox{and} \nonumber \\
+      S_{n,4} & = \frac{1}{240}n(n^2-1)(3n^2 - 7).
+      \nonumber
+    \end{align}
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}<handout: 0 | trans: 0>
+  \frametitle{Shuffling for structure}
+
+  \begin{itemize}
+  \item<1->
+    Eigenvectors
+    \begin{align}
+      \left(\vec{v}_1\right)_i & = \left( i - \frac{n+1}{2} \right), \nonumber \\
+      \left(\vec{v}_2\right)_i & = \left( i - \frac{n+1}{2} \right)^2  + \sqrt{S_{n,4}/n},
+      \ \mbox{and} \nonumber \\
+      \left(\vec{v}_3\right)_i & = \left( i - \frac{n+1}{2} \right)^2  - \sqrt{S_{n,4}/n}.
+      \nonumber
+    \end{align}
+  \item<2->
+    Remarkably,
+    $$
+    T = 
+    \lambda_1 \hat{v}_1 \hat{v}_1^{\textnormal{T}}
+    +
+    \lambda_2 \hat{v}_2 \hat{v}_2^{\textnormal{T}}
+    +
+    \lambda_3 \hat{v}_3 \hat{v}_3^{\textnormal{T}}.
+    $$
+  \item<3->
+    \alert{The next step:} figure out how to capitalize on this...
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \includegraphics[width=\textwidth]{sales-pardo2007a_tab1}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \includegraphics[width=\textwidth]{sales-pardo2007a_fig3}
+
+  \begin{itemize}
+  \item 
+    Modules found match up with geopolitical units.
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shuffling for structure}
+
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{sales-pardo2007a_fig4}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1->
+      Modularity structure for 
+      metabolic network of E. coli
+      (UCSD reconstruction).
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+
+\subsection{Spectral\ methods}
+
+\begin{frame}
+  \frametitle{General structure detection}
+
+  \begin{itemize}
+  \item<1-> 
+    ``Detecting communities in large networks''\\
+    Capocci \etal (2005)\cite{capocci2005a}
+  \item<2-> 
+    Consider normal matrix $\textmatrix{K}^{-1} A$,
+    random walk matrix $A^{\textnormal{T}} \textmatrix{K}^{-1}$,
+    Laplacian $\textmatrix{K} - \textmatrix{A}$,
+    and $A A^{\textnormal{T}}$.
+  \item<3->
+    Basic observation is that eigenvectors
+    associated with secondary eigenvalues
+    reveal evidence of structure.
+  \item<4->
+    Builds on Kleinberg's HITS algorithm.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{General structure detection}
+
+  \begin{itemize}
+  \item Example network:
+  \end{itemize}
+
+  \includegraphics[width=\textwidth]{capocci2005a_fig1}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+
+  \begin{itemize}
+  \item 
+    Second eigenvector's components:
+  \end{itemize}
+
+  \includegraphics[width=\textwidth]{capocci2005a_fig2}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+
+  \begin{itemize}
+  \item
+    Network of word associations for 10616 words.
+  \item
+    Average in-degree of 7.
+  \item 
+    Using 2nd to 11th evectors of a modified
+    version of $\textmatrix{A} \textmatrix{A}^{\textnormal{T}}$:
+  \end{itemize}
+
+  \includegraphics[width=\textwidth]{capocci2005a_tab1}
+
+\end{frame}
+
+\subsection{Hierarchies\ \&\ Missing\ Links}
+
+\begin{frame}
+  \frametitle{Hierarchies and missing links}
+
+  Clauset \etal, Nature (2008)\cite{clauset2008a}
+
+  \includegraphics[width=0.49\textwidth]{clauset2008a_fig1a}
+  \includegraphics[width=0.49\textwidth]{clauset2008a_fig1b}
+
+  \begin{itemize}
+  \item<1->
+    Idea: Shades indicate probability that nodes in 
+    left and right subtrees of 
+    dendogram are connected.
+  \item<2->
+    Handle: \alert{Hierarchical random graph models}.
+  \item<3->
+    Plan: Infer \alertb{consensus dendogram} for a given real network.
+  \item<4->
+    Obtain probability that links are missing (big problem...).
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchies and missing links}
+
+  \begin{itemize}
+  \item<1->
+    Model also predicts reasonably well
+    \begin{enumerate}
+    \item 
+      average degree,
+    \item 
+      clustering, 
+    \item 
+      and average shortest path length.
+    \end{enumerate}
+  \end{itemize}
+
+  \includegraphics[width=\textwidth]{clauset2008a_tab1}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hierarchies and missing links}
+
+  \includegraphics[width=0.49\textwidth]{clauset2008a_fig2a}
+  \includegraphics[width=0.49\textwidth]{clauset2008a_fig2b}
+
+  \begin{itemize}
+  \item<1->
+    \alertb{Consensus dendogram} for grassland species.
+  \item<2->
+    Copes with disassortative and assortative communities.
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Overlapping\ communities}
+
+\begin{frame}
+  \frametitle{From PoCS:\newline Small-worldness and social searchability}
+
+  \begin{block}{}
+  \alertb{Social networks and identity:}
+
+  \bigskip
+
+  \visible<2->{
+    \alertb{Identity is formed from attributes such as:}
+    \begin{itemize}
+    \item<1-> 
+      Geographic location
+    \item<1-> 
+      Type of employment
+    \item<1-> 
+      Religious beliefs
+    \item<1-> 
+      Recreational activities.
+    \end{itemize}
+  }
+
+  \bigskip
+
+  \visible<3->{
+    \alertb{Groups} are formed by people with at least one similar attribute.
+  }
+
+  \bigskip
+
+  \visible<4->{
+    Attributes $\Leftrightarrow$ 
+    Contexts $\Leftrightarrow$ 
+    Interactions $\Leftrightarrow$ 
+    Networks.
+    }
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Social distance---Bipartite affiliation networks}
+
+  \begin{block}{}
+  \centering
+  \includegraphics[height=0.75\textheight]{bipartite}
+  \end{block}
+
+  %% boards of directors
+  %% movies
+  %% transportation
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Social distance---Context distance}
+
+  \begin{block}{}
+    \centering
+    \includegraphics[width=\textwidth]{bipartite2}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Models}
+
+  \begin{block}{Generalized affiliation networks}
+
+    \medskip
+
+    \includegraphics[width=1\textwidth]{generalcontext2}  
+    \begin{itemize}
+    \item Blau \& Schwartz\cite{blau1984a}, Simmel\cite{simmel1902a},
+      Breiger\cite{breiger1974a}, Watts \etal\cite{watts2002b}; 
+      see also Google+ Circles.
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+  \begin{block}{Dealing with community overlap:}
+    \begin{itemize}
+    \item<+->
+      Earlier structure detection algorithms, agglomerative or divisive, force
+      communities to be purely distinct.
+    \item<+->
+      Overlap: Acknowledge nodes can belong to multiple communities.
+    \item<+->
+      Palla et al.\cite{palla2005a} detect communities as sets of adjacent
+      $k$-cliques (must share $k-1$ nodes).
+    \item<+->
+      One of several issues: how to choose $k$?
+    \item<+->
+      Four new quantities:
+      \begin{itemize}
+      \item<+->
+        $m$, number of a communities a node belongs to.
+      \item<+->
+        $s_{\alpha,\beta}^{\textnormal{ov}}$, number of nodes 
+        shared between
+        two given communities, $\alpha$ and $\beta$.
+      \item<+->
+        $d_{\alpha}^{\textnormal{com}}$, degree of community $\alpha$.
+      \item<+->
+        $s_{\alpha}^{\textnormal{com}}$, community $\alpha$'s size.
+      \end{itemize}
+    \item<+->
+      Associated distributions:\newline
+      $P_{>}(m)$,
+      $P_{>}(s_{\alpha,\beta}^{\textnormal{ov}})$,
+      $P_{>}(d_{\alpha}^{\textnormal{com}})$,
+      and
+      $P_{>}(s_{\alpha}^{\textnormal{com}})$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\framedisplaypaper{palla2005a}{1}{fig1a}
+
+\begin{frame}
+  \begin{center}
+  \includegraphics[width=\textwidth]{palla2005a_fig1bc}\\
+  \includegraphics[width=0.5\textwidth]{palla2005a_fig1caption}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+  \includegraphics[height=\textheight,width=\textwidth,keepaspectratio]{palla2005a_fig2}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=0.495\textwidth]{palla2005a_fig4ab}
+  \includegraphics[width=0.495\textwidth]{palla2005a_fig4cd_caption}
+\end{frame}
+
+\subsection{Link-based\ methods}
+
+\begin{frame}
+
+  \begin{block}{A link-based approach:}
+    \begin{itemize}
+    \item<+-> 
+      What we know now: Many network analyses profit from focusing on links.
+    \item<+-> 
+      Idea: form communities of links rather than communities
+      of nodes.
+    \item<+-> 
+      Observation: Links typically of one flavor, while
+      nodes may have many flavors.
+    \item<+-> 
+      Link communities induce overlapping and
+      still hierarchically structured communities of nodes.
+    \item<+-> 
+      \ [Applause.]
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\framedisplaypaper{ahn2010a}{2}{fig1f}
+
+\begin{frame}
+  \begin{columns}
+    \column{0.49\textwidth}
+    \includegraphics[width=\textwidth]{ahn2010a_fig1abcde}
+    \column{0.49\textwidth}
+    \includegraphics[width=\textwidth]{ahn2010a_fig1f}\\
+    \includegraphics[width=\textwidth]{ahn2010a_fig1caption}
+  \end{columns}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item 
+      Note: See details of paper on how to choose link communities well
+      based on partition density $D$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{ahn2010a_fig2}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item
+      Comparison of structure detection algorithms
+      using four measures over many networks.
+    \item
+      Revealed communities are matched against 
+      `known' communities recorded in network metadata.
+    \item
+      Link approach particularly good for dense,
+      overlapful networks.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \begin{columns}
+    \column{0.49\textwidth}
+    \includegraphics[width=\textwidth]{ahn2010a_fig4abcd}
+    \column{0.49\textwidth}
+    \includegraphics[width=\textwidth]{ahn2010a_fig4e}\\
+    \includegraphics[width=\textwidth]{ahn2010a_fig4caption}
+  \end{columns}
+\end{frame}
+
+\subsection{General\ structure\ detection}
+
+
+\begin{frame}
+  \frametitle{General structure detection}
+
+  \begin{itemize}
+  \item 
+    ``The discovery of structural form''\\
+    Kemp and Tenenbaum, PNAS (2008)\cite{kemp2008a}
+  \end{itemize}
+  
+  \includegraphics[width=\textwidth]{kemp2008a_fig1}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_fig2}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1->
+      Top down description of form.
+    \item<2->
+      Node replacement graph grammar:
+      parent node becomes two child nodes.
+    \item<3->
+      B-D: Growing chains, orders, and trees.
+    \end{itemize}
+  \end{columns}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example learned structures:}
+  
+  \begin{center}
+    \includegraphics[height=0.72\textheight]{kemp2008a_fig3}
+  \end{center}
+
+  \begin{itemize}
+  \item 
+    \small
+    Biological features; 
+    Supreme Court votes; 
+    perceived color differences; 
+    face differences; 
+    \& distances between cities.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_fig5}
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item<1-> 
+      Effect of adding features on detected form.
+      \bigskip
+      \uncover<2->{
+        \begin{tabular}{c}
+          \alert{Straight partition} \\
+          $\Downarrow$ \\
+          \alert{simple tree} \\
+          $\Downarrow$ \\
+          \alert{complex tree}
+        \end{tabular}
+      }
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+
+  \begin{itemize}
+  \item<1->
+    Performance for test networks.
+  \end{itemize}
+  
+  \includegraphics[width=\textwidth]{kemp2008a_figS5}
+
+\end{frame}
+
+
+
+\begin{comment}
+  
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \includegraphics[width=\textwidth]{kemp2008a_fig4}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_figS1}
+    \column{0.5\textwidth}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_figS2}
+    \column{0.7\textwidth}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_tabS1}
+    \column{0.5\textwidth}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_figS3}
+    \includegraphics[width=\textwidth]{kemp2008a_figS4}
+    \column{0.5\textwidth}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_figS7}
+    \column{0.5\textwidth}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{General structure detection}
+  
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{kemp2008a_figS6}
+    \column{0.5\textwidth}
+  \end{columns}
+
+\end{frame}
+
+
+
+%% newman papers
+%% 
+%% Hi Hyokun Yun,
+%% You mention Newman's mixture model, in which I think you refer to:
+%% http://arxiv.org/abs/cond-mat/0205405v1
+%% <http://arxiv.org/abs/cond-mat/0205405v1>(Assortative
+%% mixing in networks).  But Newman released another article (
+%% http://arxiv.org/abs/physics/0605087 (Finding community structure in
+%% networks using the eigenvectors of matrices) except that he factors a
+%% "modularity" matrix instead the original adjacency matrix.  The modularity
+%% matrix is a null model subtracted from the adjacency matrix.
+%% 
+%% If you hadn't already seen this paper, it's very interesting.  There's a lot
+%% of interesting interesting hiding in the eigen-spectrum of the modularity
+
+%% laplacian = admittance
+
+\end{comment}

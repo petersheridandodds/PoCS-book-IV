@@ -1,0 +1,645 @@
+%% hand draw some slides
+
+%% include paper on primes
+
+\section{Introduction}
+
+\framedisplaypaper{ahn2011a}{1}{fig1}
+
+\framedisplaypaper{ahn2011a}{1}{fig2}
+
+\framedisplaypaper{teng2012a}{1}{fig2}
+
+\framedisplaypaper{hidalgo2007a}{2}{fig1b_mod}
+
+\begin{frame}
+  \frametitle{Networks and creativity:}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{guimera2005b_fig2}
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item
+      Guimer\`{a} et al., Science 2005:\cite{guimera2005b}
+      ``Team Assembly Mechanisms Determine Collaboration Network Structure and Team Performance''
+    \item 
+      Broadway musical industry
+    \item 
+      Scientific collaboration in Social Psychology, Economics, Ecology, and Astronomy.
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\framedisplaypaper{goh2007a}{1}{fig2a}
+
+\framedisplaypaper{garcia-perez2014a}{1}{fig1}
+
+\begin{frame}
+  \frametitle{Random bipartite networks:}
+
+  \begin{block}{We'll follow this paper:}
+    \displaypaper{newman2001b}{1}
+  \end{block}
+
+  \begin{center}
+    \includegraphics[height=0.5\textheight]{newman2001b_fig2-tp-5}
+  \end{center}
+
+\end{frame}
+
+\begin{center}
+  \begin{frame}
+    \includegraphics[height=\textwidth]{2014-04-08bipartite-network-example-cropped01-dark-tp-10.png}
+  \end{frame}
+\end{center}
+
+
+\section{Basic\ story}
+
+
+\begin{frame}
+
+  \begin{block}{Basic story:}
+    \begin{itemize}
+    \item<+->
+      An example of two inter-affiliated types:
+      \begin{itemize}
+      \item<+->
+        $\rbone$ = stories, 
+      \item<+->
+        $\rbtwo$ = \wordwikilink{http://tvtropes.org/}{tropes}.
+      \end{itemize}
+    \item<+->
+      Stories contain tropes, tropes are in stories.
+    \item<+->
+      Consider a story-trope system with $N_{\rbone}$ = \# stories and $N_{\rbtwo}$ = \# tropes.
+    \item<+->
+      $m_{\rbone,\rbtwo}$ = number of edges between $\rbone$ and $\rbtwo$.
+    \item<+->
+      Let's have some underlying degree distributions:
+      $P^{(\rbone)}_{k}$
+      and
+      $P^{(\rbtwo)}_{k}$.
+    \item<+->
+      Average number of affiliations:
+      $\tavg{k}_{\rbone}$ and $\tavg{k}_{\rbtwo}$.
+      \begin{itemize}
+      \item<+->
+        $\tavg{k}_{\rbone}$ = average number of tropes per story.
+      \item<+->
+        $\tavg{k}_{\rbtwo}$ = average number of stories containing a given trope.
+      \end{itemize}
+    \item<+->
+      Must have balance:
+      $
+      N_{\rbone} \cdot \tavg{k}_{\rbone}
+      =
+      m_{\rbone,\rbtwo}
+      =
+      N_{\rbtwo} \cdot \tavg{k}_{\rbtwo}.
+      $
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Usual helpers for understanding network's structure:}
+    \begin{itemize}
+    \item 
+      Randomly select an edge connecting 
+      a $\rbone$ to a $\rbtwo$.
+    \item<+->
+      Probability the $\rbone$ contains $k$ other tropes:
+      $$
+      R^{(\rbone)}_{k}
+      =
+      \frac{
+        (k+1)P^{(\rbone)}_{k+1}
+      }
+      {
+        \sum_{j=0}^{N_\rbone}(j+1)P^{(\rbone)}_{j+1}
+      }
+      =
+      \frac{
+        (k+1)P^{(\rbone)}_{k+1}
+      }
+      {
+        \tavg{k}_\rbone
+      }.
+      $$
+    \item<+->
+      Probability the $\rbtwo$ is in $k$ other stories:
+      $$
+      R^{(\rbtwo)}_{k}
+      =
+      \frac{
+        (k+1)P^{(\rbtwo)}_{k+1}
+      }
+      {
+        \sum_{j=0}^{N_\rbtwo}(j+1)P^{(\rbtwo)}_{j+1}
+      }
+      =
+      \frac{
+        (k+1)P^{(\rbtwo)}_{k+1}
+      }
+      {
+        \tavg{k}_\rbtwo
+      }.
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Induced networks of $\rbone$ and $\rbtwo$:}
+    \begin{itemize}
+    \item<+-> 
+      $\Prboneind$ = probability a random $\rbone$ is connected
+      to $k$ stories by sharing at least one $\rbtwo$.
+    \item<+-> 
+      $\Prbtwoind$ = probability a random $\rbtwo$ is connected
+      to $k$ tropes by co-occurring in at least one $\rbone$.
+    \item<+-> 
+      $\Rrboneind$ = probability a random edge leads to a $\rbone$
+      which is connected
+      to $k$ other stories by sharing at least one $\rbtwo$.
+    \item<+-> 
+      $\Rrbtwoind$ = probability a random edge leads to a $\rbtwo$ 
+      which is connected
+      to $k$ other tropes by co-occurring in at least one $\rbone$.
+    \item<+-> 
+      Goal: find these distributions.
+    \item<+-> 
+      Another goal: find the induced distribution of component sizes
+      and a test for the presence or absence of a giant component.
+    \item<+-> 
+      Unrelated goal: be 10\% happier/weep less.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generating\ Function\ Madness}
+
+  \begin{block}<+->{Yes, we're doing it:}
+    \begin{itemize}
+    \item<+-> 
+      $
+      F_{P^{(\rbone)}}(x)
+      =
+      \sum_{k=0}^{\infty}
+      P^{(\rbone)}_{k} x^k
+      $
+    \item<+-> 
+      $
+      F_{P^{(\rbtwo)}}(x)
+      =
+      \sum_{k=0}^{\infty}
+      P^{(\rbtwo)}_{k} x^k
+      $
+    \item<+-> 
+      $
+      F_{R^{(\rbone)}}(x)
+      =
+      \sum_{k=0}^{\infty}
+      R^{(\rbone)}_{k} x^k
+      =
+      \frac{
+        F'_{P^{(\rbone)}}(x)
+      }
+      {
+        F'_{P^{(\rbone)}}(1)
+      }
+      $
+    \item<+-> 
+      $
+      F_{R^{(\rbtwo)}}(x)
+      =
+      \sum_{k=0}^{\infty}
+      R^{(\rbtwo)}_{k} x^k
+      =
+      \frac{
+        F'_{P^{(\rbtwo)}}(x)
+      }
+      {
+        F'_{P^{(\rbtwo)}}(1)
+      }
+      $
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<+->{The usual goodness:}
+    \begin{itemize}
+    \item<+-> 
+      Normalization:
+      $
+      F_{P^{(\rbone)}}(1) 
+      =
+      F_{P^{(\rbtwo)}}(1) 
+      =
+      1
+      $.
+    \item<+->
+      Means:
+      $
+      F'_{P^{(\rbone)}}(1)
+      =
+      \tavg{k}_{\rbone}
+      $
+      and
+      $
+      F'_{P^{(\rbtwo)}}(1)
+      =
+      \tavg{k}_{\rbtwo}.
+      $
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{We strap these in as well:}
+    \begin{itemize}
+    \item<+->
+      $
+      F_{\Prboneind}(x)
+      =
+      \sum_{k=0}^{\infty}
+      \Prboneind x^k
+      $
+    \item<+->
+      $
+      F_{\Prbtwoind}(x)
+      =
+      \sum_{k=0}^{\infty}
+      \Prbtwoind x^k
+      $
+    \item<+->
+      $
+      F_{\Rrboneind}(x)
+      =
+      \sum_{k=0}^{\infty}
+      \Rrboneind x^k
+      $
+    \item<+->
+      $
+      F_{\Rrbtwoind}(x)
+      =
+      \sum_{k=0}^{\infty}
+      \Rrbtwoind x^k
+      $
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<+->{So how do all these things connect?}
+    \begin{itemize}
+    \item<+->
+      We're again performing sums of a randomly chosen number
+      of randomly chosen numbers.
+    \item<+->
+      We use one of our favorite sneaky tricks:
+      $$
+      W 
+      = 
+      \sum_{i=1}^{U} V^{(i)}
+      \rightleftharpoons
+      F_W(x)
+      =
+      F_U(F_V(x)).
+      $$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Induced distributions are not straightforward:}
+    \begin{center}
+      \includegraphics[height=0.5\textheight]{newman2001b_fig7-tp-5_mod}
+    \end{center}
+    \begin{itemize}
+    \item 
+      View this as $\Prboneind$ (the probability a story shares tropes
+      with $k$ other stories).\cite{newman2001b}
+    \item 
+      Result of purely random wiring.
+    \item 
+      Parameters: 
+      $N_\rbone = 10^4$,
+      $N_\rbtwo = 10^5$,\newline
+      $\tavg{k}_\rbone = 1.5$,
+      and
+      $\tavg{k}_\rbtwo = 15$.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Induced distributions for stories:}
+    \begin{itemize}
+    \item<+->
+      Randomly choose a $\rbone$, find its tropes ($U$),
+      and then find how many other stories each of those tropes 
+      are part of ($V$):
+      $$
+      F_{\Prboneind}(x)
+      =
+      F_{P^{(\rbone)}}
+      \left(
+        F_{R^{(\rbtwo)}}(x)      
+      \right)
+      $$
+    \item<+->
+      Find the $\rbone$ at the end of a randomly chosen edge, find its tropes ($U$),
+      and then find how many other stories each of those tropes 
+      are part of ($V$):
+      $$
+      F_{\Rrboneind}(x)
+      =
+      F_{R^{(\rbone)}}
+      \left(
+        F_{R^{(\rbtwo)}}(x)      
+      \right)
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Induced distributions for tropes:}
+    \begin{itemize}
+    \item<+->
+      Randomly choose a $\rbtwo$, find the stories its part of ($U$),
+      and then find how many other tropes are part of those stories ($V$):
+      $$
+      F_{\Prbtwoind}(x)
+      =
+      F_{P^{(\rbtwo)}}
+      \left(
+        F_{R^{(\rbone)}}(x)      
+      \right)
+      $$
+    \item<+->
+      Find the $\rbtwo$ at the end of a randomly chosen edge, 
+      find the
+      stories that use it ($U$),
+      and then find how many other tropes are in those stories
+      ($V$):
+      $$
+      F_{\Rrbtwoind}(x)
+      =
+      F_{R^{(\rbtwo)}}
+      \left(
+        F_{R^{(\rbone)}}(x)      
+      \right)
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Let's do some good:}
+    \begin{itemize}
+    \item<+->
+      Average number of stories connected to a story
+      through trope-space:
+      $$
+      \tavg{k}_{\rbone,\textnormal{ind}}
+      =
+      F'_{\Prboneind}(1)
+      $$
+    \item<+->
+      So:
+      $$
+      \tavg{k}_{\rbone,\textnormal{ind}}
+      =
+      \left.
+      \diff{}{x}
+      F_{P^{(\rbone)}}
+      \left(
+        F_{R^{(\rbtwo)}}(x)      
+      \right)
+      \right|_{x=1}
+      $$
+      $$
+      \uncover<+->{
+      =
+      F'_{R^{(\rbtwo)}}(1)
+      F'_{P^{(\rbone)}}
+      \left(
+        F_{R^{(\rbtwo)}}(1)      
+      \right)
+      }
+      \uncover<+->{
+      =
+      F'_{R^{(\rbtwo)}}(1)
+      F'_{P^{(\rbone)}}(1)
+    }
+      $$
+    \item<+->
+      Similarly, the 
+      average number of tropes connected to a random trope
+      through stories:
+      $$
+      \tavg{k}_{\rbtwo,\textnormal{ind}}
+      =
+      F'_{R^{(\rbone)}}(1)
+      F'_{P^{(\rbtwo)}}(1)
+      $$
+    \item<+->
+      In terms of the underlying distributions, we have:
+      $
+      \tavg{k}_{\rbone,\textnormal{ind}}
+      = 
+      \frac{\tavg{k(k-1)}_{\rbtwo}}
+      {\tavg{k}_{\rbtwo}}
+      \tavg{k}_{\rbone}
+      $
+      and
+      $
+      \tavg{k}_{\rbtwo,\textnormal{ind}}
+      = 
+      \frac{\tavg{k(k-1)}_{\rbone}}
+      {\tavg{k}_{\rbone}}
+      \tavg{k}_{\rbtwo}
+      $
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Next: is this thing connected?}
+    \begin{itemize}
+    \item<+->
+      Always about the edges: when following a random edge toward
+      a $\rbone$, what's the expected number
+      of new edges leading to other stories via tropes?
+    \item<+->
+      We want to determine $\tavg{k}_{R,\rbone,\textnormal{ind}} = F'_{\Rrboneind}(1)$ 
+      (and $F'_{\Rrbtwoind}(1)$ for the trope side of things).
+    \item<+->
+      We compute with joy:
+      $$
+      \tavg{k}_{R,\rbone,\textnormal{ind}}
+      =
+      \left.
+      \diff{}{x}
+        F_{\Rrboneind}(x)
+      \right|_{x=1}
+      =
+      \uncover<+->{
+      \left.
+      \diff{}{x}
+        F_{R^{(\rbone)}}
+        \left(
+          F_{R^{(\rbtwo)}}(x)      
+        \right)
+      \right|_{x=1}
+    }
+    $$
+    $$
+    \uncover<+->{
+      =
+      F'_{R^{(\rbtwo)}}(1)
+        F'_{R^{(\rbone)}}
+        \left(
+          F_{R^{(\rbtwo)}}(1)
+        \right)
+      }
+      \uncover<+->{
+        =
+        F'_{R^{(\rbtwo)}}(1)
+        F'_{R^{(\rbone)}}(1)
+      }
+      $$
+    \item<+->
+      Note symmetry. 
+    \item<+->
+      \$happiness++;
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<+->
+      In terms of the underlying distributions:
+      $$
+      \tavg{k}_{R,\rbone,\textnormal{ind}}
+      =
+      \frac{\tavg{k(k-1)}_{\rbone}}
+      {\tavg{k}_{\rbone}}
+      \frac{\tavg{k(k-1)}_{\rbtwo}}
+      {\tavg{k}_{\rbtwo}}
+      $$
+    \item<+->
+      We have a giant component in \alertb{both} 
+      induced networks when 
+      $$
+      \tavg{k}_{R,\rbone,\textnormal{ind}}
+      \equiv
+      \tavg{k}_{R,\rbtwo,\textnormal{ind}}
+      > 1
+      $$.
+    \item<+->
+      See this as the product of two gain ratios. \newline
+      \visible<+->{\#excellent} 
+      \visible<+->{\#physics}
+    \item<+->
+      We can mess with this condition to make it mathematically pleasant
+      and pleasantly inscrutable:
+      $$
+      \sum_{k=0}^{\infty}
+      \sum_{k'=0}^{\infty}
+      kk'(kk'-k-k') P^{(\rbone)}_{k} P^{(\rbtwo)}_{k'} = 0.
+      $$
+      \visible<+->{\#reallynotthebest}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \begin{block}{To come:}
+    \begin{itemize}
+    \item 
+      Distributions of component size.
+    \item 
+      Simpler computation for the giant component condition.
+    \item 
+      Contagion.
+    \item 
+      Testing real bipartite structures for departure from randomness.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{comment}
+
+
+\begin{frame}
+  \frametitle{}
+
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{newman2001b_fig7-tp-5}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{newman2001b_fig8-tp-5}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{newman2001b_fig9-tp-5}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{newman2001b_fig10-tp-5}
+  \end{center}
+
+\end{frame}
+
+
+\section{Nutshell}
+
+\end{comment}

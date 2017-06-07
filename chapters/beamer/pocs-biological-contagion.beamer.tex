@@ -1,0 +1,1532 @@
+%% Community epidemiology!!!
+
+%% add page/cites to papers on SARS
+%% R_0
+%% show how models worked
+
+%% show how rhodes and anderson's sampling
+%% is just very, very bad
+%% an assignment question perhaps?
+
+%% cites for ferguson et al, germann ..
+%% longini
+%% Longini, I. M. (1988) Math. Biosci. 90, 367–383.
+
+%%% Todo 
+%%% pull inserts out
+%%% make new plots
+
+
+%% to add here
+%% herding models from economics
+%% 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Today's menu
+%% Simple disease spreading models
+%% Epidemic size distributions
+%% 
+%% Simple social contagion models
+%% Threshold models
+%% 
+%% Generalized model of contagion
+%% How many types of contagion are there?
+%% Can we categorize real-world contagions?
+%% 
+%% An online experiment: Contagious tastes
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% + number sections
+%% + colour
+
+%% really a thought piece
+%% with some mathematical frills
+
+%% change sweeping through a population
+
+%% experiments: small world phenomenon, influence
+%% theory: models of cooperation, search in social networks, contagion
+%% collective problem solving
+%% data: e-mail logs from columbia coupled with demographic data
+
+%%%%%%%%%
+%% forest fire models of disease spreading (5 dimensions)
+%% wave equation models
+%% 
+%%%%%%%%%
+
+%% tattoos
+
+%%%%%%%%%%%%%% 3 mins
+%% 1. intro/outline
+%% some big deal pages
+%% 1a. Outline
+
+%%%%%%%%%%%%%% 3 mins
+%% 1+. relationship between search and contagion
+
+%%%%%%%%%%%%%
+%% past work
+
+%%%%%%%%%%%%%% 5 mins
+%% 2a. disease models---independent interaction models
+
+%%%%%%%%%%%%%% 5 mins
+%% 2b. social sciences---threshold models
+%%    1-d iterative maps -> critical mass
+
+%%%%%%%%%%%%%% 2 mins
+%% 2+. morris?
+
+%%%%%%%%%%%%%% 2 mins
+%% 2+. lopez? 
+
+%%%%%%%%%%%%%% 2 mins
+%% 2+. kempe, kleinberg
+
+
+%%%%%%%%%%%%%% 5 mins
+%% 3a. our model---definition
+
+%%%%%%%%%%%%%% 5 mins
+%% 3b. our model---results
+
+%%%%%%%%%%%%%% 5 mins
+%% 3c. our model---what it means
+%% ideas for changing contagions
+
+%%%%%%%%%%%%%% 2 mins
+%% 4. conclusions
+%%    future work
+
+%% overlay
+%% use \textcolor{white}
+
+%% humour...
+%% blue and red stability lines
+%% i imagine those of you hoping for regime change within
+%% the US in the coming year will find this colour
+%% scheme appealing
+%
+%% ipods and muggers
+%
+%% our cooperation model is not cooperating, in fact
+%% it appears to have defected just this morning
+%% 
+%% if you find equations disturbing, then
+%% imagine some TV-like scrambling happening here
+
+%% 30 minute talk
+
+%%%%%%%%%%%%%% 3 mins
+%% 1. intro/outline
+%% some big deal pages
+
+%% Definition
+%% Motivation
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Contagion}
+
+  \begin{block}<+->{A confusion of contagions:}
+    \begin{itemize}
+    \item<+-> 
+      Was Harry Potter some kind of virus?
+    \item<+-> 
+      What about the Da Vinci Code?
+    \item<+-> 
+      Did Sudoku spread like a disease?
+    \item<+-> 
+      Language?  The alphabet?\cite{gleick2011a}
+    \item<+-> 
+      Religion?
+    \item<+-> 
+      Democracy...?
+    \end{itemize}
+  \end{block}
+
+  % often bring natural concepts into
+  % the description of
+  % social and personal ones
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contagion}
+
+  \begin{block}<+->{Naturomorphisms}
+    \begin{itemize}
+    \item<+->
+      ``The feeling was contagious.''
+    \item<+->
+      ``The news spread like wildfire.''
+    \item<+->      
+      \alertb{``Freedom is the most contagious virus known to man.''}\\
+      ---Hubert H. Humphrey, Johnson's vice president
+    \item<+->
+      ``Nothing is so contagious as enthusiasm.''\\
+      ---Samuel Taylor Coleridge
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Social contagion}
+
+  \begin{block}<+->{Optimism according to \wordwikilink{http://en.wikipedia.org/wiki/Ambrose_Bierce}{Ambrose Bierce:}}
+    The doctrine that everything is beautiful, including what is ugly,
+    everything good, especially the bad, and everything right that is
+    wrong. ...  \visible<+->{\alert{It is hereditary, but fortunately not contagious.}}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Social contagion}
+
+  \begin{block}{Eric Hoffer, 1902--1983}
+    \visible<+->{
+      There is a grandeur in the uniformity of the mass.
+      }
+    \visible<+->{
+    \alertb{When a fashion, a dance, a song, a slogan or a joke }
+      }
+    \visible<+->{
+      sweeps like \alert{wildfire} from one
+      end of the continent to the other, 
+    }
+    \visible<+->{
+      and \alertb{a hundred million people roar with laughter}, 
+    }
+    \visible<+->{
+      sway their bodies in unison, 
+      }
+    \visible<+->{
+    \alertb{hum one song} or \alert{break forth in anger and denunciation}, 
+      }
+    \visible<+->{
+    there is the overpowering feeling 
+    that in this country we have come nearer the brotherhood
+    of man than ever before.
+      }
+  \end{block}
+
+  \begin{itemize}
+  \item<+-> \wordwikilink{http://en.wikipedia.org/wiki/Eric_Hoffer}{Hoffer} was an interesting fellow...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The spread of fanaticism}
+
+  \begin{block}{}
+    Hoffer's acclaimed work:
+    \smallskip
+    ``\alert{The True Believer}:\\
+    Thoughts On The Nature Of Mass Movements'' (1951)\cite{hoffer1951a}
+  \end{block}
+
+  \begin{block}<+->{Quotes-aplenty:}
+    \begin{itemize}
+    \item<+->  ``We can be absolutely certain only about things we do not understand.''
+    \item<+-> \alertb{``Mass movements can rise and spread without belief in a God, but never without belief in a devil.''}
+    \item<+-> ``Where freedom is real, equality is the passion of the masses. 
+      \uncover<+->{Where equality is real, freedom is the passion of a small minority.}''
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+ \frametitle{Imitation}
+
+ \begin{columns}
+   \column{0.6\textwidth}
+   \includegraphics[width=\textwidth]{despair_conformity.jpg}\\
+   {\tiny \url{despair.com}}
+   \column{0.4\textwidth}
+   \alertb{
+     ``When people are free to do as they please, they usually imitate each other.''
+     }
+
+     \medskip
+
+     ---Eric Hoffer\\
+     ``The Passionate State of Mind''\cite{hoffer1954a}
+ \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The collective...}
+  
+ \begin{columns}
+   \column{0.6\textwidth}
+   \includegraphics[width=\textwidth]{despair_idiocy.jpg}\\
+   {\tiny \url{despair.com}}
+   \column{0.4\textwidth}
+   \alertb{
+     ``Never Underestimate the Power of Stupid People in Large Groups.''
+     }
+ \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of non-disease spreading:}
+
+  \begin{block}<1->{Interesting infections:}
+  \begin{itemize}
+  \item<1->
+    %% walmart
+    Spreading of certain buildings in the US:
+    \youtubevideo{EGzHBtoVvpc}{}{}
+  \item<2->
+    \wordwikilink{http://www.cnnbcvideo.com/?nid=VWB8OWHr.GqH2kYkPxOMwTQ1NDIxODA-}
+    {2008 Viral get-out-the-vote video.}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\insertvideo{9ihSeSToXOw}{}{}{Marbleization of the US:}
+
+%% zombieland
+%% \insertvideo{HQe2f8L-Rkc}{0}{55}{Rule \#2}
+
+%% outbreak
+\insertvideo{IXYUn5BOgHA}{}{}{Community---S2E6: Epidemiology}
+
+\begin{frame}
+  \frametitle{The most terrifying contagious outbreak?}
+
+  \includegraphics[width=\linewidth]{zombies-ngrams.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Contagion}
+  
+  \begin{block}<+->{Definitions}
+    \begin{itemize}
+    \item<+->
+      (1) The spreading of a quality or quantity
+      between individuals in a population.
+    \item<+->
+      (2) A disease itself:\\ the plague, a blight, the dreaded lurgi, ...
+    \item<+->
+      from Latin: \alert{\textit{con}} = `together with'  + \alert{\textit{tangere}} `to touch.'
+    \item<+-> 
+      Contagion has unpleasant overtones... 
+    \item<+-> 
+      Just \alert{Spreading} might be a more neutral word
+    \item<+-> 
+      But contagion is kind of exciting...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Contagions}
+  
+  \begin{block}<1->{Two main classes of contagion}
+    \begin{enumerate}
+    \item<2-> \alert{Infectious diseases}\visible<4->{:\\
+        tuberculosis, HIV, ebola, SARS, influenza, zombification, ...}
+      \medskip
+    \item<3-> \alert{Social contagion}\visible<5->{:\\ fashion, word
+        usage, rumors, uprisings, religion, stories about zombies, ...}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%
+%% past work
+
+%%%%%%%%%%%%%% 5 mins
+%% 2a. disease models---independent interaction models
+
+\section{Simple\ disease\ spreading\ models}
+
+\subsection{Background}
+
+%% 
+%
+%%   \textbf{I. Simple disease spreading models}
+%
+%%  \alertb{\ding{228} .}
+%%  
+%
+
+
+%%%%%%%%%%%%%% extension of simple model
+
+
+
+%% \begin{frame}
+%%   \frametitle{Mathematical Epidemiology}
+%% 
+%% %%  SIR already talked about
+%% 
+%%   \begin{block}{Mass action compartment models of infectious diseases}
+%%     \bigskip
+%%     \begin{columns}
+%%       \begin{column}{0.4\textwidth}
+%%         \includegraphics[width=\textwidth]{SIRtransitions_std}
+%%       \end{column}
+%%       \begin{column}{0.5\textwidth}
+%%         SIR model of infectious disease dynamics:
+%% 
+%%         \medskip
+%% 
+%%         Three states:\\
+%%         \alertb{S = Susceptible}\\
+%%         \alertb{I = Infective/Infectious}\\
+%%         \alertb{R = Recovered}\\
+%%         (or Removed/Refractory)\\
+%%         \medskip
+%%         $S(t) + I(t) + R(t) = 1$
+%%       \end{column}
+%%     \end{columns}
+%%   \end{block}
+%% 
+%% \end{frame}
+
+
+%%\begin{frame}
+%%  \frametitle{Mathematical Epidemiology}
+%%
+%%  \begin{block}{The basic model of disesase contagion\cite{murray2002a}}
+%%    \bigskip
+%%    \begin{columns}
+%%      \begin{column}{0.5\textwidth}
+%%        \visible<2->{\alert{SIR model}}
+%%
+%%        \medskip
+%%
+%%        \visible<3->{Three states:}\\
+%%
+%%        \medskip
+%%
+%%        \visible<4->{\alertb{S = Susceptible}}\\
+%%        \visible<5->{\alertb{I = Infective/Infectious}}\\
+%%        \visible<6->{\alertb{R = Recovered}}\\
+%%        \visible<7->{(or Removed/Refractory)}
+%%
+%%        \medskip
+%%
+%%        \visible<8->{$S(t) + I(t) + R(t) = 1$}
+%%      \end{column}
+%%      \begin{column}{0.4\textwidth}
+%%        \visible<9->{
+%%          Discrete time automata example:
+%%          \includegraphics[width=\textwidth]{SIRtransitions_std}
+%%        }
+%%      \end{column}
+%%    \end{columns}
+%%  \end{block}
+%%
+%%\end{frame}
+
+
+\begin{frame}
+  \frametitle{Mathematical Epidemiology}
+
+  \begin{block}<1->{The standard \alert{SIR model}\cite{murray2002a}}
+    \begin{itemize}
+    \item<2-> = basic model of disease contagion
+    \item<3-> Three states:
+      \begin{enumerate}
+      \item<4-> \alertb{S = Susceptible}
+      \item<5-> \alertb{I = Infective/Infectious}
+      \item<6-> \alertb{R = Recovered}
+        \uncover<7->{ or Removed or Refractory}
+      \end{enumerate}
+      \item<8-> $S(t) + I(t) + R(t) = 1$
+      \item<9-> Presumes random interactions (mass-action principle)
+      \item<10-> Interactions are independent (no memory)
+      \item<11-> Discrete and continuous time versions
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Mathematical Epidemiology}
+
+  \begin{block}{Discrete time automata example:}
+    \medskip
+    \begin{columns}
+      \begin{column}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{SIRtransitions_std}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \visible<2->{Transition Probabilities:}
+
+        \bigskip
+        \visible<3->{\alertb{$\beta$} for being infected given contact with infected}\\
+        \visible<4->{\alertb{$r$} for recovery}\\
+        \visible<5->{\alertb{$\rho$} for loss of immunity}\\
+      \end{column}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Mathematical Epidemiology}
+
+  \begin{block}{Original models attributed to}
+    \begin{itemize}
+    \item<2-> 1920's: Reed and Frost
+    \item<3-> 1920's/1930's: Kermack and McKendrick\cite{kermack1927a,kermack1932a,kermack1933a}
+    \item<4-> Coupled differential equations with a mass-action principle
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  \begin{block}{Differential equations for continuous model}
+    $$
+    \frac{\dee{}}{\dee{t}} S = - \beta  \alert{I S} + \rho R 
+    $$
+    $$
+    \frac{\dee{}}{\dee{t}} I=  \beta \alert{I S} - r I 
+    $$
+    $$
+    \frac{\dee{}}{\dee{t}} R=  r I - \rho R 
+    $$
+    $\beta$, $r$, and $\rho$ are now \alert{rates}.
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reproduction Number $R_0$}
+
+  \begin{block}<+->{\wordwikilink{http://en.wikipedia.org/wiki/Basic\_reproduction\_number}{Reproduction Number $R_0$}}
+  \begin{itemize}
+  \item<+-> 
+    $R_0$ = expected number of infected individuals resulting
+    from a single initial infective
+  \item<+-> 
+    Epidemic threshold: If $R_0 > 1$, `epidemic' occurs.
+  \item<+-> 
+    Exponential take off: $R_0^{n}$ where $n$ is the number
+    of generations.
+  \item<+-> 
+    Fantastically awful notation convention: $R_0$ and the $R$ in $SIR$.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reproduction Number $R_0$}
+
+  \begin{block}{Discrete version:}
+    \begin{itemize}
+    \item<1-> Set up: One Infective in a randomly mixing population of Susceptibles
+    \item<2-> At time $t=0$, single infective random bumps into a Susceptible
+    \item<3-> Probability of transmission = $\beta$
+    \item<4-> At time $t=1$, single Infective remains infected with probability $1-r$
+    \item<5-> At time $t=k$, single Infective remains infected with probability $(1-r)^k$
+    \end{itemize}
+  \end{block}    
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reproduction Number $R_0$}
+
+  \begin{block}{Discrete version:}
+    \begin{itemize}
+    \item<1-> Expected number infected by original infective:
+      $$
+      R_0 = \beta + (1-r)\beta + (1-r)^2\beta + (1-r)^3\beta + \ldots
+      $$
+      \visible<2->{
+        $$
+        = \beta\left( 1 + (1-r) + (1-r)^2 + (1-r)^3 + \ldots \right)
+        $$
+      }
+      $$
+      \visible<3->{= \beta \frac{1}{1 - (1-r)}}
+      \visible<4->{\alert{= \beta/r}}
+      $$
+    \end{itemize}
+    \visible<5->{
+      For $S(0) \simeq 1 $ initial susceptibles \\
+      ($1-S(0) = R(0)$ = fraction initially immune):
+      $$ R_0 = S(0) \beta/r $$
+    }
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  \begin{block}{For the continuous version}
+    \begin{itemize}
+    \item<1-> Second equation:
+      $$
+      \diff{}{t} I = \beta S I - r I
+      $$
+      \visible<2->{
+        $$
+        \diff{}{t} I = (\beta S -r) I
+        $$}
+    \item<3->
+      Number of infectives grows initially if
+      $$
+      \beta S(0) - r > 0 
+      \visible<4->{
+      \  \alertb{\Rightarrow} \
+        \beta S(0) > r
+      }
+      \visible<5->{
+      \  \alertb{\Rightarrow} \
+      \alert{\beta S(0)/r > 1}
+      }
+      $$
+      where 
+      $S(0) \simeq 1$.
+    \item<6-> Same story as for discrete model.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%% Zombieland
+\changelecturelogotovideo{HQe2f8L-Rkc}{0}{55}
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  \centering 
+
+  Example of epidemic threshold:
+
+  % add figure here
+  \includegraphics[width=0.6\textwidth]{figR0_noname}
+
+  \begin{itemize}
+  \item \visible<2->{Continuous phase transition.}
+  \item \visible<3->{Fine idea from a simple model.}
+  \end{itemize}
+
+\end{frame}
+
+\changelecturelogo{.18}{zombie-pumpkin.png}
+
+\begin{frame}
+  \frametitle{Independent Interaction models}
+
+  \begin{block}<1->{Many variants of the SIR model:} 
+    \begin{itemize}
+    \item<2-> \alert{SIS}: susceptible-infective-susceptible 
+    \item<3-> \alert{SIRS}: susceptible-infective-recovered-susceptible
+    \item<4-> compartment models (age or gender partitions)
+    \item<5-> more categories such as `exposed' (\alert{SEIRS})
+    \item<6-> recruitment (migration, birth)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+
+  \frametitle{Watch someone else pretend to save the world:}
+
+  \includegraphics[height=0.80\textheight]{Contagion-movies-wallpaper.jpg}
+
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{\wordwikilink{http://www.amazon.com/Z-Man-Games-ZMG-71100-Pandemic/dp/B00A2HD40E/}{Save
+        the world yourself:}}
+    \begin{center}
+      \includegraphics[height=0.70\textheight]{pandemic-box-cover-tp-1.pdf}
+    \end{center}
+    \begin{itemize}
+    \item 
+      Also contagious?: Cooperative games ...
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  Neural reboot---Save another pretend world with 
+  \wordwikilink{http://vax.herokuapp.com}{Vax:}
+  \bigskip
+  \includegraphics[width=\textwidth]{vax.jpg}
+\end{frame}
+
+\subsection{Prediction}
+
+\begin{frame}
+  \frametitle{Disease spreading models}
+
+%%  \alertb{\ding{202}} 
+
+  \begin{block}<+->{For novel diseases:}
+    \begin{enumerate}
+    \item<+-> Can we predict the size of an epidemic?
+    \item<+-> How important is the reproduction number $R_0$?
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}<+->{$R_0$ approximately same for all of the following:}
+    \begin{itemize}
+    \item <+->  
+      1918-19 ``Spanish Flu'' $\sim$ 500,000 deaths in US
+    \item <+->  
+      1957-58 ``Asian Flu'' $\sim$ 70,000 deaths in US 
+    \item <+->  
+      1968-69 ``Hong Kong Flu'' $\sim$ 34,000 deaths in US 
+    \item <+->  
+      2003 ``SARS Epidemic'' $\sim$ 800 deaths world-wide
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size distributions}
+
+  \begin{block}<+->{Size distributions are important elsewhere:}
+    \begin{itemize}
+    \item<+-> 
+      earthquakes (Gutenberg-Richter law)
+    \item<+-> 
+      city sizes, forest fires, war fatalities
+    \item<+-> 
+      wealth distributions
+    \item<+-> 
+      `popularity' (books, music, websites, ideas)
+    \item<+-> 
+      \alert{Epidemics?}
+    \end{itemize}
+  \end{block}
+
+  \visible<+->{Power laws distributions are common but not obligatory...}
+
+  \begin{block}<+->{Really, what about epidemics?}
+
+    \begin{itemize}
+    \item <+-> Simply hasn't attracted much attention.
+    \item <+-> Data not as clean as for other phenomena.
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+%% Iceland as Petri dish
+%% map of Iceland
+
+\begin{frame}
+  \frametitle{Feeling Ill in \wordwikilink{http://en.wikipedia.org/wiki/Iceland}{Iceland}}
+ 
+   % time series
+   % distribution
+ 
+   Caseload recorded monthly for range of diseases in Iceland, 1888-1990
+
+   \bigskip
+ 
+   \includegraphics[width=1\textwidth]{figiceland_all_measles03_noname}
+
+   \begin{itemize}
+   \item Treat outbreaks separated in time as `novel' diseases.
+   \end{itemize}
+   
+ 
+   % roughly constant population
+ 
+   % rubella, influenza, measles, pertussis
+ 
+
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Really not so good at all in Iceland}
+
+
+  Epidemic size distributions $N(S)$ for \\ Measles, Rubella, and Whooping Cough.
+
+  \bigskip
+
+  \includegraphics[width=1\textwidth]{figiceland_data_noname}\\
+
+  Spike near $S=0$, relatively flat otherwise.
+
+% time series
+% distribution
+  
+\end{frame}
+
+%%% Todo 
+%%% pull inserts out
+%%% make new plots
+
+\begin{frame}
+  \frametitle{Measles \& Pertussis}
+
+  \includegraphics[width=.48\textwidth]{fig2A} 
+  \includegraphics[width=.45\textwidth]{fig2B} 
+  
+  \visible<2->{
+    \alert{Insert plots:}\\ Complementary cumulative frequency distributions:
+    $$\mbox{N}(\Psi' > \Psi) \propto \Psi^{-\gamma+1}$$
+  }
+
+  \visible<2->{Limited scaling with a possible break.}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Power law distributions}
+
+  \begin{block}<1->{Measured values of $\gamma$:}
+    \begin{itemize}
+    \item <2->{measles: \alert{1.40} (low $\Psi$) and \alert{1.13} (high $\Psi$)}
+    \item <3->{pertussis: \alert{1.39} (low $\Psi$) and \alert{1.16} (high $\Psi$)}
+    \end{itemize}
+  \end{block}
+
+  \begin{itemize}
+  \item<4-> Expect $2 \le \gamma < 3$ (finite mean, infinite variance)
+  \item<5-> When $\gamma < 1$, can't normalize 
+  \item<6-> Distribution is quite \alert{flat}.
+  \end{itemize}
+
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Power law distributions}
+%%  
+%%    $X =$ event size.
+%%  
+%%    Probability distribution function's tail for large $x$:
+%%    $$ \mbox{Pr}(X = x) \propto x^{-\theta-1} $$
+%%    
+%%    Complementary cumulative distribution function:
+%%    $$    \mbox{Pr}(X > x)  = \int_{x}^{\infty} \mbox{Pr}(X=x') \, \dee{x'} \ \ \propto \ \ x^{-\theta} $$
+%%  
+%%  %  \begin{align*}
+%%  %    \mbox{Pr}(X > x) &  = \int_{x}^{\infty} \mbox{Pr}(X=x') \, \dee{x'}\\
+%%  %    & \propto x^{-\theta} 
+%%  %  \end{align*}
+%%  
+%%    Expect $1 \le \theta < 2$ (finite mean, infinite variance)
+%%  
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Iceland data---measles and pertussis}
+%% 
+%%   \raisebox{.4\textheight}{Measles:} 
+%%   \includegraphics[width=.48\textwidth]{fig2A} 
+%% 
+%%   Complementary cdf: $\mbox{Pr}(X > x) \propto x^{-\theta}$
+%%  
+%%   $\theta = 0.40$ and $0.13$,
+%%   both outside of range $1 \le \theta < 2$.
+%% 
+%%   \alertb{$\Rightarrow$ Distribution seems `flat.'}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Resurgence---example of SARS}
+
+  \includegraphics[width=1.0\textwidth]{figSARS_data3_noname}
+
+  \begin{itemize}
+  \item<2-> Epidemic slows...  \\
+    \visible<3->{then an infective moves to a new context.}
+  \item<4->Epidemic discovers new `pools' of susceptibles: \alert{Resurgence}.
+  \item<5-> \alert{Importance of rare, stochastic events.}
+  \end{itemize}
+
+\end{frame}
+
+%% interlude
+%% the dean
+\insertvideo{2CeGQTyj2cg}{0}{43}{Community---S2E6: Epidemiology}
+
+
+%% %%
+%%
+%% \begin{frame}
+%%  \frametitle{Compartment models}
+%
+%%   {\small
+%%   \[
+%%   \begin{array}{l}
+%%     \frac{\dee{S}}{\dee{t}} = - \beta  I S \\
+%%     \\
+%%     \frac{\dee{I}}{\dee{t}} =  \beta I S - r I \\
+%%     \\
+%%     \frac{\dee{R}}{\dee{t}} =  r I \\
+%%     \\
+%%     \mbox{\alertr{Reproduction number}:} \\
+%%     \\
+%%     \mbox{\alertr{$R_0 = S(0) \beta/r$}} \\
+%%   \end{array}
+%%   % state transition diagram
+%%   \raisebox{-4cm}{\includegraphics[width=0.3\textwidth}]{SIRtransitions_std}
+%%   \raisebox{-2cm}{\includegraphics[width=0.3\textwidth}]{figR0_noname}
+%%   \]
+%% }
+%% 
+%%   \centering
+%%   \alertb{Epidemic threshold: If $R_0 > 1$, `epidemic' occurs.}\\
+%%   \ding{228} Fine idea from a simple model.
+%% 
+
+
+\subsection{More\ models}
+
+\begin{frame}
+  \frametitle{The challenge}
+
+  \begin{block}{So...  can a simple model produce}
+    \begin{enumerate}
+    \item \alert{broad epidemic distributions} \\
+      and
+    \item \alert{resurgence} ?
+    \end{enumerate}
+  \end{block}
+  
+  
+\end{frame}
+
+
+%% problems with unipartite networks
+
+\begin{frame}
+  \frametitle{Size distributions}
+
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=1\textwidth]{fig4A}      
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      Simple models typically produce
+      \alert{bimodal} or \alert{unimodal} size distributions.
+    \end{column}
+  \end{columns}
+
+  \begin{itemize}
+  \item<2-> This \alert{includes} network models:\\ random, small-world, scale-free, ...
+  \item<3-> Exceptions:
+    \begin{enumerate}
+    \item<4-> Forest fire models
+    \item<5-> Sophisticated metapopulation models
+    \end{enumerate}
+  \end{itemize}
+ 
+\end{frame}
+
+\changelecturelogowithlink{.18}{http://xkcd.com/793/}{xkcd-793-physicists.png}
+
+%% 
+
+\begin{frame}
+  \frametitle{Burning through the population}
+
+  \begin{block}<1-> {Forest fire models:\cite{rhodes1996a} }
+    \begin{itemize}
+    \item<2-> Rhodes \& Anderson, 1996
+    \item<3-> The physicist's approach:\\
+      \alert{``if it works for magnets, it'll work for people...''} 
+    \end{itemize}
+   \end{block}
+
+   \begin{block}<4->{A bit of a stretch:}
+     \begin{enumerate}
+     \item<5->
+       Epidemics $\equiv$ forest fires\\ spreading on
+       3-d and 5-d lattices.
+     \item<6-> 
+       Claim Iceland and Faroe Islands exhibit power law
+       distributions for outbreaks.
+     \item<7-> 
+       Original forest fire model not completely understood.
+     \end{enumerate}
+   \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Size distributions}
+
+  \includegraphics[width=\textwidth]{rhodes1996afig1.pdf}
+
+  From Rhodes and Anderson, 1996.
+  
+\end{frame}
+
+\changelecturelogo{.18}{icons-lightbulb-tp.pdf}
+
+\begin{frame}
+  \frametitle{Sophisticated metapopulation models:}
+
+   % Longini has a hard `g'
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1->  
+      Multiscale models suggested earlier by others but not formalized
+      (Bailey\cite{bailey1975a}, Cliff and Haggett\cite{cliff1981a}, Ferguson et al.)
+    \item<1-> 
+      Community based mixing (two scales)---Longini.\cite{longini1988a}
+    \item<1-> 
+      Eubank et al.'s 
+      EpiSims/\wordwikilink{http://en.wikipedia.org/wiki/Transims}{TRANSIMS}---city simulations.\cite{eubank2004a}
+    \item<1-> 
+      Spreading through countries---Airlines: Germann et al., Colizza et al.\cite{colizza2007a}
+    \end{itemize}
+    \begin{columns}
+      \column{0.02\textwidth}
+      \column{0.60\textwidth}
+      \includegraphics[width=\textwidth]{gleam.jpg}
+      \column{0.35\textwidth}
+      \begin{itemize}
+      \item<1-> 
+        \wordwikilink{http://www.gleamviz.org}{GLEAM}: 
+        Global pandemic simulations by Vespignani et al.
+      \end{itemize}
+    \end{columns}
+
+  \end{block}
+
+\end{frame}
+
+%% the military
+\insertvideo{2CeGQTyj2cg}{44}{95}{Community---S2E6: Epidemiology}
+
+\begin{frame}
+  \frametitle{Size distributions}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1-> 
+      Vital work but perhaps hard to generalize from...
+    \item<2-> 
+      $\Rightarrow$ Create a simple model involving multiscale travel
+    \item<3-> Very big question: \alertr{What is $N$?}
+    \item<4-> Should we model SARS in Hong Kong as spreading 
+      in a neighborhood, in Hong Kong, Asia, or the world?
+    \item<5-> For simple models, we need to know the final size beforehand...
+    \end{itemize}
+  \end{block}
+ 
+\end{frame}
+
+\subsection{Toy\ metapopulation\ models}
+
+ \begin{frame}
+  \frametitle{Improving simple models}
+
+  \begin{block}{Contexts and Identities---Bipartite networks}
+    \medskip
+    \centering
+    \includegraphics[height=0.5\textheight]{bipartite}
+  \end{block}
+
+  \begin{itemize}
+  \item<2-> boards of directors
+  \item<3-> movies
+  \item<4-> transportation modes (subway)
+  \end{itemize}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Improving simple models}
+ 
+  \begin{block}<1->{Idea for social networks: incorporate \alertb{identity}}
+  \end{block}
+ 
+   \begin{block}<2->{Identity is formed from attributes such as:}
+   \begin{itemize}
+   \item<3-> Geographic location
+   \item<4-> Type of employment
+   \item<5-> Age
+   \item<6-> Recreational activities
+   \end{itemize}
+   \end{block}
+ 
+   \begin{block}<7->{Groups are crucial...}
+     \begin{itemize}
+     \item<8-> formed by people with at least one similar attribute
+     \item<9-> 
+       Attributes $\Leftrightarrow$ 
+       Contexts $\Leftrightarrow$ 
+       Interactions $\Leftrightarrow$ 
+       Networks.\cite{watts2002b}
+     \end{itemize}
+   \end{block}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Infer interactions/network from identities}
+ 
+   \includegraphics[width=1\textwidth]{bipartite2}
+
+   \medskip
+   Distance makes sense in identity/context space.
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized context space}
+ 
+   \centering
+   \includegraphics[width=1\textwidth]{generalcontext2}
+
+   \bigskip
+
+   (Blau \& Schwartz\cite{blau1984a}, Simmel\cite{simmel1902a}, Breiger\cite{breiger1974a})
+\end{frame}
+
+%% 
+%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% describe metapopulation model
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\begin{frame}
+  \frametitle{A toy agent-based model:}
+
+  \begin{block}{``Multiscale, resurgent epidemics in a hierarchical metapopulation model''}
+    D.~J.~Watts, R.~Muhamad, D.~C.~Medina, and P~.S~.Dodds\\
+    Proc. Natl. Acad. Sci.\\
+    pp.~11157--11162, \textbf{102}, 2005.
+  \end{block}
+  
+
+  \begin{block}<1->{Geography: allow people to move between contexts}
+    \begin{itemize}
+    \item<2->
+      Locally: standard SIR model with random mixing    
+    \item<3->
+      discrete time simulation
+    \item<4->
+      $\beta$ = infection probability 
+    \item<5-> 
+      $\gamma$ = recovery probability
+    \item<6-> 
+      \alertb{  $P$ = probability of travel}
+    \item<7-> 
+       \alertb{  \alert{Movement distance:} $\mbox{Pr}(d) \propto \exp(-d/\xi)$ }
+    \item<8-> 
+       $\xi$ = typical travel distance
+   \end{itemize} 
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A toy agent-based model}
+
+  \begin{block}{Schematic:}
+    \begin{center}
+      \includegraphics[width=1\textwidth]{geogspread-fig1}    
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+\subsection{Model\ output}
+
+\begin{frame}
+  \frametitle{Model output}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1->
+      Define $P_0$ = Expected number of infected individuals
+      \alert{leaving} initially infected context.
+    \item<2->
+      Need \alertb{$P_0 > 1$} for disease to spread (independent of $R_0$).
+    \item<3->
+      Limit epidemic size by
+      \alertb{restricting frequency of travel and/or range}
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model output}
+  
+  \begin{block}<1->{Varying $\xi$:}
+    \centering
+    \includegraphics[width=.7\textwidth]{fig3cropB}     
+  \end{block}
+
+  \begin{itemize}
+  \item 
+    Transition in expected final size based on typical
+    movement distance \visible<2->{\alert{(sensible)}}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model output}
+
+  \begin{block}<1->{Varying $P_0$:}
+    \centering
+    \includegraphics[width=.7\textwidth]{fig3cropA} 
+  \end{block}
+
+  \begin{itemize}
+  \item 
+    Transition in expected final size based on typical
+    number of infectives leaving first group \visible<2->{\alert{(also sensible)}}
+  \item<3->
+    Travel advisories: $\xi$ has larger effect than $P_0$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example model output: size distributions}
+
+  \includegraphics[width=.48\textwidth]{fig4B}
+  \includegraphics[width=.48\textwidth]{fig4C}
+
+  \begin{itemize}
+  \item<3-> Flat distributions are possible for certain $\xi$ and $P$.
+  \item<4-> Different $R_0$'s may produce similar distributions
+  \item<5-> Same epidemic sizes may arise from different $R_0$'s
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model output---resurgence}
+
+   \alert{Standard model:}
+   \bigskip
+   \bigskip
+   \includegraphics[width=1\textwidth]{fig4D}
+
+% \begin{tabular}{>{\PBS\raggedright\hspace{0pt}}m{0.2\textwidth}m{0.8\textwidth}}
+%   \includegraphics[width=.7\textwidth]{fig4D}\\
+% \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model output---resurgence}
+
+    \alert{Standard model with transport:}
+    \bigskip
+
+    \includegraphics[width=1\textwidth]{fig4E} 
+
+    \includegraphics[width=1\textwidth]{fig4G} 
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The upshot}
+
+  \alert{Simple multiscale population structure}\\
+  \visible<2->{
+    +\\
+    \alert{{stochasticity}}
+  }
+  \visible<3->{
+
+    \bigskip 
+
+    leads to 
+
+    \bigskip 
+
+  \alertb{resurgence}
+
+  +
+
+  \alertb{broad epidemic size distributions}
+  }
+
+\end{frame}
+
+\subsection{Conclusions}
+
+ \begin{frame}
+   \frametitle{Conclusions}
+   
+   \begin{block}{}
+     \begin{itemize}
+     \item<1-> 
+       For this model, epidemic size is highly unpredictable
+     \item<2-> 
+       Model is more complicated than SIR but still simple
+     \item<3-> 
+       We haven't even included normal social responses 
+       such as travel bans and self-quarantine.
+     \item<4-> 
+       The reproduction number $R_0$ is not terribly useful.
+     \item<5-> 
+       $R_0$, however measured, is not informative
+       about 
+       \begin{enumerate}
+       \item<6-> 
+         how likely the observed epidemic size was,
+       \item<7-> 
+         and how likely future epidemics will be.
+       \end{enumerate}
+     \item<8-> 
+       Problem: $R_0$ summarises \alertb{one} epidemic after the fact
+       and enfolds movement, the price of bananas, everything.
+     \end{itemize}
+   \end{block}
+
+ \end{frame}   
+ 
+ \begin{frame}
+   \frametitle{Conclusions}
+
+   \begin{block}{}
+     \begin{itemize}
+     \item<1-> Disease spread highly sensitive to population structure
+     \item<2-> \alertb{Rare events may matter enormously}\\
+       \visible<3->{(e.g., an infected individual taking
+         an international flight)}
+     \item<4-> \alertb{More support for controlling population movement}\\
+       \visible<5->{(e.g., travel advisories, quarantine)}
+     \end{itemize}
+   \end{block}
+ 
+ \end{frame}
+
+\begin{frame}
+ \frametitle{Conclusions}
+
+ \begin{block}<1->{What to do:}
+   \begin{itemize}
+   \item<1-> Need to separate movement from disease
+   \item<2-> $R_0$ needs a friend or two.
+   \item<3-> Need $R_0>1$ and $P_0>1$ and $\xi$ sufficiently large\\
+     for disease to have a chance of spreading
+   \end{itemize}
+ \end{block}
+
+ \begin{block}<4->{More wondering:}
+   \begin{itemize}
+   \item<4-> Exactly how important are rare events in disease spreading?
+   \item<5-> Again, what is $N$?
+   \end{itemize}
+ \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simple disease spreading models}
+
+  \begin{block}<1->{Valiant attempts to use SIR and co. elsewhere:}
+    \begin{itemize}
+    \item<2-> Adoption of ideas/beliefs (Goffman \& Newell, 1964)\cite{goffman1964a}
+    \item<3-> Spread of rumors (Daley \& Kendall, 1965)\cite{daley1965a}
+    \item<4-> Diffusion of innovations (Bass, 1969)\cite{bass1969a}
+    \item<5-> Spread of fanatical behavior (Castillo-Ch\'{a}vez \& Song, 2003)
+    \item<6-> Spread of Feynmann diagrams (Bettencourt et al., 2006)
+    \end{itemize}
+  \end{block}
+
+  % (religion, beliefs, rumors)
+
+\end{frame}
+
+\subsection{Predicting\ social\ catastrophe}
+
+\begin{frame}
+  \frametitle{Predicting social catastrophe isn't easy...}
+
+  \begin{block}{``Greenspan Concedes Error on Regulation''}
+    \begin{itemize}
+    \item<2->
+      \ldots humbled Mr.\ Greenspan admitted that he had put too much
+      faith in the self-correcting power of free markets \ldots
+%      and had failed
+%      to anticipate the self-destructive power of wanton mortgage
+%      lending.
+    \item<3->
+      ``Those of us who have looked to the self-interest of lending
+      institutions to protect shareholders' equity, myself included,
+      are in a state of shocked disbelief''
+    \item<4-> 
+      Rep.\ Henry
+      A.\ Waxman: ``Do you feel
+      that your ideology pushed you to make decisions that you wish
+      you had not made?''
+    \item<5-> 
+      Mr. Greenspan conceded: ``Yes, I've found a flaw. I don't know
+      how significant or permanent it is. But I've been very
+      distressed by that fact.''
+    \end{itemize}
+  \end{block}
+
+  \wordwikilink{http://www.nytimes.com/2008/10/24/business/economy/24panel.html}{New York Times, October 23, 2008}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Economics, Schmeconomics}  
+
+  \begin{block}<1->{Alan Greenspan (September 18, 2007):}
+    \medskip
+    \begin{columns}
+      \column{0.7\textwidth}
+      \uncover<2->{``I've been dealing with these big mathematical models of
+        forecasting the economy ...}
+
+      \medskip
+      \uncover<3->{\alertb{If I could figure out a way to determine whether or
+          not people are more fearful or changing to more euphoric,}} 
+
+      \medskip
+      \uncover<4->{I don't need any of this other stuff.}
+
+      \medskip
+      \uncover<5->{\alertb{
+          I could forecast the economy better than
+          any way I know.''}
+      }
+      \column{0.3\textwidth}
+      \includegraphics[width=\textwidth]{Greenspan.jpg}\\
+      \tiny{\url{http://wikipedia.org}}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Economics, Schmeconomics}  
+
+  \begin{block}<1->{Greenspan continues:}
+    \uncover<2->{``The trouble is that we can't figure that out. I've been in the
+      forecasting business for 50 years.}
+    \uncover<3->{
+      \alertb{I'm no better than I ever was,}}
+    \uncover<4->{
+      \alertb{and nobody else is.}
+    }
+    \uncover<5->{
+      Forecasting 50 years ago was as good or as bad as
+      it is today.}
+    \uncover<6->{
+      \alertb{And the reason is that human nature hasn't changed.}
+    }
+     \uncover<7->{
+       We can't improve ourselves.''
+     }
+  \end{block}
+
+  \visible<8->{
+    \begin{block}<8->{Jon Stewart:}
+      \medskip
+      \begin{columns}
+        \column{0.7\textwidth}
+        ``You just bummed the @*!\# out of me.''
+        \column{0.3\textwidth}
+        \includegraphics[width=\textwidth]{jon_stewart_header_01.jpg}\\
+        \tiny{\url{wildbluffmedia.com}}
+      \end{columns}
+    \end{block}
+  }
+
+%% full URL:
+%% http://www.wildbluffmedia.com/2007/10/04/jon-stewart-launching-new-comedy-series-with-demitri-martin/
+
+  \medskip
+
+  \visible<8->{
+    \begin{itemize}
+    \item From \wordwikilink{http://www.thedailyshow.com}{the Daily Show} (September 18, 2007)
+    \item The full inteview is \wordwikilink{http://thedailyshow.cc.com/videos/cenrt5/alan-greenspan}{here}.
+    \end{itemize}
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Economics, Schmeconomics}  
+
+  \begin{block}{James K.\ Galbraith:}
+    \begin{itemize}
+    \item<2->
+      [NYT] But there are at least 15,000 professional economists in this
+      country, and you're saying only two or three of them foresaw the
+      mortgage crisis?
+      \visible<3->{\alertb{[JKG] Ten or 12 would be closer than two or three.}}
+    \item<4->
+      [NYT] What does that say about the field of economics, which claims to be a
+      science? 
+      \visible<5->{
+        \alertb{[JKG] It's an enormous blot on the reputation of the
+          profession.}
+      }
+      \visible<6->{
+        \alertb{There are thousands of economists. Most of them teach.}
+      }
+      \visible<7->{
+        \alertb{And most of them teach a theoretical framework that has been shown to be
+          fundamentally useless.}
+      }
+    \end{itemize}
+  \end{block}
+
+  From the \wordwikilink{http://www.nytimes.com/2008/11/02/magazine/02wwln-Q4-t.html}{New York Times, 11/02/2008}
+
+\end{frame}
+
+

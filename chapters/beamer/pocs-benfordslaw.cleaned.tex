@@ -1,0 +1,158 @@
+%% Fix this up...
+%% 
+%% Do my own analysis
+%% and add more to the small (d+1)/d stuff
+
+\section{Benford's\ Law}
+
+k{http://en.wikipedia.org/wiki/Benford's\_law}{Benford's Law}---The Law of First Digits}
+
+  
+    
+     
+      $$ 
+      P(\mbox{first digit} = d) 
+      \propto
+      \log_b \left( 1 + \frac{1}{d} \right)
+      $$
+      for certain sets of `naturally' occurring numbers in base $b$
+     
+      Around 30.1\% of first digits are \alertb{`1'}, \\
+      compared to only 4.6\% for \alertb{`9'}.
+     
+      First observed by \alertb{Simon Newcomb}\cite{newcomb1881a} in 1881\\
+      \alertg{``Note on the Frequency of Use of the Different Digits in Natural Numbers''}
+     
+      Independently discovered in 1938 by \wordwikilink{http://en.wikipedia.org/wiki/Frank\_Benford}{Frank Benford}.
+    
+      Newcomb almost always noted but Benford gets the stamp,
+      according
+      to 
+      \wordwikilink{http://en.wikipedia.org/wiki/Stigler's\_law\_of\_eponymy}{Stigler's
+        Law of Eponymy.}
+    
+  
+
+{block}{Observed for}
+    
+    
+        Fundamental constants (electron mass, charge, etc.)
+    
+        Utility bills 
+    
+        Numbers on tax returns (ha!)
+    
+        Death rates 
+    
+        Street addresses 
+    
+        Numbers in newspapers 
+    
+  
+
+  
+    
+    
+      Cited as 
+      \wordwikilink{http://www.newscientist.com/article/mg20227144.000-statistics-hint-at-fraud-in-iranian-election.html}{evidence of fraud} 
+      in the 2009 Iranian elections.
+    
+  
+
+{block}{Real data:}
+  \includegraphics[width=\textwidth]{benford1.jpg}
+
+  {\small From `The First-Digit Phenomenon' by T. P. Hill (1998)\cite{hill1998a}}
+  
+
+%%   %%     %%       \includegraphics[width=\textwidth]{benford1.jpg}    
+%%     %%     %%       
+%%     %%  
+% , American Scientist, July-August 1998
+
+% (From "The First-Digit Phenomenon" by T. P. Hill, American Scientist, July-August 1998)
+% Benford's Law predicts a decreasing frequency of first digits, from 1 through 9. Every entry in data sets developed by Benford for numbers appearing on the front pages of newspapers, by Mark Nigrini of 3,141 county populations in the 1990 U.S. Census and by Eduardo Ley of the Dow Jones Industrial Average from 1990-93 follows Benford's Law within 2 percent.
+
+{block}{Physical constants of the universe:}
+
+    \medskip
+
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{500px-Benford-physical.png}
+    \end{center}
+  
+
+   Taken from \wordwikilink{http://en.wikipedia.org/wiki/Benford's\_law}{here}.
+
+{block}{Population of countries:}
+
+    \medskip
+
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{Benfords_law_illustrated_by_world's_countries_population.png}
+    \end{center}
+  
+
+   Taken from \wordwikilink{http://en.wikipedia.org/wiki/Benford's\_law}{here}.
+
+{block}{}
+  
+   
+    $$ 
+    P(\mbox{first digit} = d) \propto
+    \log_b \left( 1 + \frac{1}{d} \right) 
+    $$
+    {
+      $$ 
+      \propto
+      \log_b \left( \frac{d + 1}{d} \right) 
+      $$
+    }
+    {
+      $$ 
+      \propto
+      \log_b \left(d + 1 \right) 
+      -
+      \log_b \left(d \right) 
+      $$
+    }
+  
+    Observe this distribution if numbers are distributed uniformly in log-space:
+    $$
+    P(\ln{x})\, \dee{(\ln{x})} \propto 1 \cdot \dee{(\ln{x})} 
+    {= x^{-1}\, \dee{x}}
+    $$
+  
+    Power law distributions at work again...  
+  
+    Extreme case of \alertb{$\gamma \simeq 1$}.
+  
+  
+
+cludegraphics[width=\textwidth]{BenfordBroad.png}
+
+   \bigskip
+
+   \includegraphics[width=\textwidth]{BenfordNarrow.png}
+
+   Taken from \wordwikilink{http://en.wikipedia.org/wiki/Benford's\_law}{here}.
+
+ford}
+  %% 
+  %%   \textbf{Not to be confused with \alert{Benford's Law of controversy:}}
+  %%       
+  %%        {
+  %%           {
+  %%           ``Passion is inversely proportional to \\
+  %%           the amount of real information available.''}
+  %%         }
+  %%       
+  %%   
+  %% 
+  %%   {Gregory Benford, Sci-Fi writer \& Astrophysicist}
+  %% 
+  %% \end{frame}
+
+
+
+

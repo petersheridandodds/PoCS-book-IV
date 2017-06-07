@@ -1,0 +1,588 @@
+\section{Background}
+
+%% HITS:
+%% \wikilink{http://www.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture4/lecture4.html}
+
+
+  \textbf{How big is my node?}
+
+  
+   
+    \alert{Basic question:} 
+    how `important' are specific nodes and edges in a network?
+   
+    An \alertb{important node} or \alertb{edge} might:
+    
+     
+      \alert{handle} a relatively large amount of the network's traffic
+      (e.g., cars, information);
+     
+      \alert{bridge} two or more distinct groups (e.g., liason, interpreter);
+    
+      be a \alert{source} of important ideas, knowledge, or judgments
+      (e.g., supreme court decisions, an employee who `knows where everything is').
+    
+   
+    So how do we quantify such a slippery concept as importance?
+   
+    We generate ad hoc, reasonable
+    measures, and examine their utility...
+  
+
+
+  \textbf{Centrality}
+
+  
+  
+    One possible reflection of importance is
+    \alertb{centrality}.
+  
+    Presumption is that nodes or edges 
+    that are (in some sense) in the middle of
+    a network are important for the network's function.
+  
+    Idea of centrality comes
+    from social networks literature\cite{wasserman1994a}.
+  
+    Many flavors of centrality...
+    
+     
+      Many are topological and quasi-dynamical;
+     
+      Some are based on dynamics (e.g., traffic).
+    
+  
+    We will define and examine a few...
+  
+    (Later: see centrality useful in identifying communities
+    in networks.)
+  
+
+
+\section{Centrality measures}
+
+\subsection{Degree centrality}
+
+  \textbf{Centrality}
+
+  \textbf{Degree centrality}
+    
+    
+      Naively estimate importance by \alertb{node degree}.\cite{wasserman1994a}
+     
+      \alert{Doh:} 
+      assumes linearity\\
+      (If node $i$ has twice as many friends as node $j$,
+      it's twice as important.)
+     
+      \alert{Doh:} 
+      doesn't take in any non-local information.
+    
+  
+
+
+\subsection{Closeness centrality}
+
+%% very quick
+  \textbf{Closeness centrality}
+
+  
+  
+    \alert{Idea:} 
+    Nodes are more central if they
+    can reach other nodes `easily.'
+  
+    Measure average shortest path
+    from a node to all other nodes.
+  
+    Define \alertb{Closeness Centrality} for node $i$ as
+    $$
+    \frac{N-1}
+    {
+      \sum_{j, j\ne i} (\textnormal{shortest distance from $i$ to $j$}).
+    }
+    $$
+  
+    Range is 0 (no friends) to 1 (single hub).
+  
+    Unclear what the exact values of this measure tells us because
+    of its ad-hocness.
+  
+    General problem with simple centrality measures:
+    what do they exactly mean?
+  
+    Perhaps, at least, we obtain an ordering
+    of nodes in terms of `importance.'
+  
+
+
+\subsection{Betweenness}
+
+  \textbf{Betweenness centrality}
+
+  
+   \alert{Betweenness centrality} 
+    is based 
+    on coherence of shortest paths in a network.
+   
+    \alertb{Idea:} 
+    If the quickest way between any two
+    nodes on a network disproportionately 
+    involves certain nodes, then they are
+    `important' in terms of global cohesion.
+  
+    For each node $i$, 
+    \alertb{count how many shortest paths pass through $i$.}
+   
+    In the case of ties, 
+    divide
+    counts between paths.
+   
+    Call frequency of shortest paths passing
+    through node $i$ the betweenness of $i$, $B_i$.
+   
+    Note: Exclude shortest paths between $i$ and other nodes.
+   
+    Note: works for weighted and unweighted networks.
+  
+
+
+
+  
+   
+    Consider a network with $N$ nodes and $m$ edges (possibly weighted).
+   
+    \alert{Computational goal:} Find 
+    $\binom{N}{2}$
+    \wordwikilink{http://en.wikipedia.org/wiki/Shortest_path_problem}{shortest paths} between all pairs of nodes.
+   
+    Traditionally use \wordwikilink{http://en.wikipedia.org/wiki/Floyd-Warshall_algorithm}{Floyd-Warshall} algorithm.
+   
+    Computation time grows as $O (N^3)$.
+  
+    See also: 
+    
+     
+      \wordwikilink{http://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}{Dijkstra's algorithm} for finding shortest path between two specific nodes,
+     
+      and \wordwikilink{http://en.wikipedia.org/wiki/Johnson\%27s_algorithm}{Johnson's algorithm} which outperforms Floyd-Warshall for sparse networks:
+      $O (mN + N^2 \log N)$.
+    
+   
+    Newman (2001)\cite{newman2001d,newman2004b} and Brandes (2001)\cite{brandes2001a} 
+    independently derive equally fast algorithms that also compute betweenness.
+  Computation times grow as:
+      
+       $O (mN)$ for unweighted graphs;
+       and $O (mN + N^2 \log N)$ for weighted graphs.
+      
+  
+
+
+  \textbf{Shortest path between node $i$ and all others:}  
+
+    
+     
+      Consider unweighted networks.
+     
+      Use \alert{breadth-first search:}
+    
+       
+        Start at node $i$, giving it a distance $d=0$ from itself.
+      
+        Create a list of all of $i$'s neighbors and label them
+        being at a distance $d=1$.
+      
+        Go through list of most recently visited nodes
+        and find all of their neighbors.
+      
+        Exclude any nodes already assigned a distance.
+      
+        Increment distance $d$ by 1.
+      
+        Label newly reached nodes as being at distance $d$.
+      
+        Repeat steps 3 through 6 until all nodes are visited.
+      
+    
+      Record which nodes link to which nodes moving
+      out from $i$ (former are `predecessors' with respect
+      to $i$'s shortest path structure).
+    
+      Runs in \alertb{$O (m)$} time and gives $N-1$ shortest paths.
+    
+      Find all shortest paths in \alertb{$O (mN)$} time\\
+    
+      Much, much better than naive estimate of $O (mN^2)$.
+    
+  
+
+  \textbf{Newman's Betweenness algorithm:\cite{newman2001d}}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig4}
+  
+
+  \textbf{Newman's Betweenness algorithm:\cite{newman2001d}}
+  
+  
+  
+    Set all nodes to have a value $c_{ij}=0$, $j=1,...,N$\\
+    ($c$ for count).
+  
+    Select one node $i$.
+  
+    Find \alert{shortest paths} to all other $N-1$ nodes using
+    breadth-first search.
+  
+    Record \# equal shortest paths reaching each node.
+  
+    Move through nodes according to their distance from
+    $i$, starting with the furthest.
+  
+    Travel \alertb{back towards $i$ from each starting node $j$}, 
+    along shortest path(s), adding
+    1 to every value of $c_{i \ell}$ at each node $\ell$ along the way.
+  
+    Whenever more than one possibility exists,
+    apportion \alertb{according to total number of short paths}
+    coming through predecessors.
+  
+    Exclude starting node $j$ and $i$ from increment.
+  
+    Repeat steps 2--8 for every node $i$\\ 
+    and obtain
+    \alertb{betweenness} as 
+    \alert{$ B_j = \sum_{i=1}^N c_{ij}. $}
+  
+
+
+  \textbf{Newman's Betweenness algorithm:\cite{newman2001d}}
+
+  
+   
+    For a \alert{pure tree network}, $c_{ij}$ is the
+    number of nodes beyond $j$ from $i$'s vantage point.
+   
+    Same algorithm for computing drainage area in
+    river networks (with 1 added across the board).
+   
+    For \alert{edge betweenness}, use exact same
+    algorithm but now 
+    
+     
+      $j$ indexes edges,
+     
+      and we add one to each edge as we traverse it.
+    
+   
+    For both algorithms, computation
+    time grows as 
+    $$O (mN). $$
+%%    
+%%     For sparse networks with relatively
+%%     small average degree, we have 
+%%     a fairly digestible time growth of 
+%%     $$O (N^2).$$
+  
+  
+
+  \textbf{Newman's Betweenness algorithm:\cite{newman2001d}}
+
+  \includegraphics[width=\textwidth]{newman2004b_fig4}
+  
+
+\subsection{Eigenvalue centrality}
+
+  \textbf{Important nodes have important friends:}
+
+  
+   
+    Define $x_i$ as the `importance' of node $i$.
+   
+    \alertb{Idea:} $x_i$ depends (somehow) on $x_j$\\
+    \qquad if $j$ is a neighbor of $i$.
+   
+    \alert{Recursive:} importance is transmitted
+    through a network.
+   
+    Simplest possibility is a linear combination:
+    $$
+    x_i \propto \sum_{j} a_{ji} x_j
+    $$
+   
+    Assume further that constant of proportionality, $c$,
+    is independent of $i$.
+   
+    Above gives 
+    $
+    \vec{x} = c \m{A}^{\textnormal{T}} \vec{x}
+    {
+      \quad \textnormal{or} \quad
+      \boxed{\alertb{\m{A}^{\textnormal{T}} \vec{x}} = c^{-1} \vec{x} \alertb{= \lambda \vec{x}}}.}
+    $
+  
+    Eigenvalue equation based on adjacency matrix...
+  
+    Note: Lots of despair over size of the largest eigenvalue.\cite{wasserman1994a}
+    {Lose sight of original assumption's non-physicality.}
+  
+
+
+  \textbf{Important nodes have important friends:}
+
+  
+  
+    So...  solve $\m{A}^{\textnormal{T}} \vec{x} = \lambda \vec{x}$.
+  
+    But which eigenvalue and eigenvector?
+  
+    \alertb{We, the people, would like:}
+    
+    
+      A unique solution. {\alert{\faCheck}}
+    
+      $\lambda$ to be real. {\alert{\faCheck}}
+    
+      Entries of $\vec{x}$ to be real. {\alert{\faCheck}}
+    
+      Entries of $\vec{x}$ to be non-negative. {\alert{\faCheck}}
+    
+      $\lambda$ to actually mean something...  
+      {
+        \alert{(maybe too much)}
+      }
+    
+      Values of $x_i$ to mean something\\
+      (what does an observation that $x_3 = 5 x_7$ mean?)\\
+      (maybe only ordering is informative...)\\
+      {
+        \alert{(maybe too much)}
+      }
+    
+      $\lambda$ to equal 1 would be nice...
+      {
+        \alert{(maybe too much)}
+      }
+    
+      Ordering of $\vec{x}$ entries to be robust
+      to reasonable modifications of linear assumption
+      {
+        \alert{(maybe too much)}
+      }
+    
+  
+    {
+      We rummage around in bag of tricks and pull out
+      the Perron-Frobenius theorem...
+    }
+  
+
+
+
+  \textbf{\wordwikilink{http://en.wikipedia.org/wiki/Perron-Frobenius_theorem}{Perron-Frobenius theorem:}}
+
+  \textbf{If an $N$$\times$$N$ matrix $A$ has non-negative entries then:}
+    
+     
+      $A$ has a real eigenvalue $\lambda_1 \ge |\lambda_i|$ for $i=2,\ldots,N$.
+     
+      $\lambda_1$ corresponds to left and right 1-d eigenspaces
+      for which we can choose a basis vector that has non-negative entries.
+     
+      The dominant real eigenvalue $\lambda_1$ is bounded
+      by the minimum and maximum row sums of $A$:
+      $$
+      \min_{i} \sum_{j=1}^{N} a_{ij}
+      \le 
+      \lambda_1
+      \le 
+      \max_{i} \sum_{j=1}^{N} a_{ij}
+      $$
+     
+      All other eigenvectors have one or more negative entries.
+     
+      {
+        The matrix $A$ can make toast.
+      }
+     
+      Note: Proof is relatively short for symmetric
+      matrices that are strictly positive\cite{ninio1976a}
+      and just non-negative\cite{lin1977a}.
+    
+  
+
+
+  \textbf{Other Perron-Frobenius aspects:}
+
+  
+  
+    Assuming our network is 
+    \wordwikilink{http://en.wikipedia.org/wiki/Irreducible_(mathematics)}{irreducible},
+    meaning there is only one component, is reasonable:
+    {just consider one component at a time if more than
+      one exists.}
+  
+    Irreducibility means largest eigenvalue's eigenvector
+    has strictly non-negative entries.
+  
+    Analogous to notion of ergodicity: every state is reachable.
+  
+    (Another term: \alert{Primitive} graphs and matrices.)
+  
+
+
+
+\subsection{Hubs and Authorities}
+
+  \textbf{Hubs and Authorities}
+
+  
+   Generalize eigenvalue centrality to 
+    allow nodes to have two attributes:
+    
+     
+      \alert{Authority:} 
+      how much knowledge, information, etc.,
+      held by a node on a topic.
+     
+      \alert{Hubness (or Hubosity or Hubbishness or Hubtasticness):}
+      how well a node `knows' where to find
+      information on a given topic.
+    
+   Original work due to 
+    the legendary Jon Kleinberg.\cite{kleinberg1998a}
+  
+    Best hubs point to best authorities.
+  
+    \alert{Recursive:} 
+    Hubs authoritatively link to hubs, 
+    authorities hubbishly link to other authorities.
+  
+    \alertb{More:} look for dense links
+    between sets of `good' hubs pointing to sets of 
+    `good' authorities.
+  
+    Known as the
+    \wordwikilink{http://en.wikipedia.org/wiki/HITS_algorithm}{HITS algorithm}\\
+    (Hyperlink-Induced Topics Search).
+  
+
+
+  \textbf{Hubs and Authorities}
+
+  
+  
+    Give each node two scores:
+    
+     
+      \alert{$x_i$} = \alert{authority score} for node $i$
+     
+      \alert{$y_i$} = \alert{hubtasticness score} for node $i$
+    
+  
+    As for eigenvector centrality, we connect
+    the scores of neighboring nodes.
+  
+    New story I: a good authority is linked to by good hubs.
+  
+    Means
+    \alert{$x_i$} should \alertb{increase} as
+    \alert{$\sum_{j=1}^{N} a_{ji} y_j$} \alertb{increases}.
+  
+    \alertb{Note:} indices are $ji$ meaning
+    $j$ has a directed link to $i$.
+  
+    New story II: good hubs point to good authorities.
+  
+    Means
+    \alert{$y_i$} should \alertb{increase} as
+    \alert{$\sum_{j=1}^{N} a_{ij} x_j$} \alertb{increases}.
+  
+    Linearity assumption:
+    $$
+    \vec{x} \propto A^{T} \vec{y}
+    \ \textnormal{and} \
+    \vec{y} \propto A \vec{x}
+    $$
+  
+
+
+  \textbf{Hubs and Authorities}
+  
+  
+  
+    So let's say we have
+    $$
+    \vec{x} = c_1 A^{T} \vec{y}
+    \ \textnormal{and} \
+    \vec{y} = c_2 A \vec{x}
+    $$
+    where $c_1$ and $c_2$ must be positive.
+  
+    Above equations combine to give
+    $$
+    \alertb{\vec{x}} = c_1 A^{T} c_2 A \vec{x}
+    { 
+      =
+      \alertb{\lambda A^{T} A \vec{x}}.
+    }
+    $$
+    where $\lambda = c_1c_2 > 0$.
+  
+    \alert{It's all good:} we have the heart
+    of singular value decomposition before us...
+  
+  
+
+  \textbf{We can do this:}
+
+  
+  
+    $A^{T} A$ is symmetric.
+  
+    $A^{T} A$ is semi-positive definite
+    so its eigenvalues are all $\ge 0$.
+  
+    $A^{T} A$'s eigenvalues are 
+    the square of $A$'s singular values.
+  
+    $A^{T} A$'s eigenvectors
+    form a joyful orthogonal basis.
+  
+    Perron-Frobenius tells us that 
+    only the dominant eigenvalue's eigenvector
+    can be chosen to have non-negative entries.
+  
+    So: linear assumption leads to a solvable system.
+  
+    What would be very good: find networks where
+    we have independent measures of node `importance'
+    and see how importance is actually distributed.
+  
+
+
+
+\begin{comment}
+  
+\section{Appendix}
+
+  \textbf{Perron-Frobenius}
+
+  
+   
+    Simple proof for symmetric matrices
+  
+
+
+
+\section{Summary}
+
+  
+
+  
+   
+  
+
+
+
+\end{comment}

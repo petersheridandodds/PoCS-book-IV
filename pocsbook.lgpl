@@ -1,0 +1,677 @@
+############################### PERL CODE ################################
+sub latex_syllabuslink {
+  $link = "\\wordwikilink{$_[0]syllabus.pdf}{Syllabus}";
+  return $link;
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_posterlink {
+  $link = "\\wordwikilink{$_[0]poster.pdf}{Poster}";
+  return $link;
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlbibf {
+  # finds a bibtex entry and breaks out some
+  # some basic information, storing as sandbox variables
+  $bibentry = `bibf $_[0]`;
+
+  $bibentry =~ m/author =.*?\{(.*?)\}/;
+  @authors = split(" and ",$1);
+  foreach $i (0..$#authors) {
+    $authors[i] =~ m/^(.*?),(.*)$/;
+    $firstnames[i] = $2;
+    $lastnames[i] = $1;
+    $names[i] = "$2 $1";
+  }
+  if ($#authors==0) { # single author
+    $bibauthor = $names[0];
+    $bibauthorlastname = $lastnames[0];
+  } elsif ($#authors==1) { # two authors
+    $bibauthor = "$lastnames[0] and $lastnames[1]";
+  } elsif ($#authors==2) { # three authors
+    $bibauthor = "$lastnames[0], $lastnames[1], and $lastnames[2]";
+  } else {
+    $bibauthor = $lastnames[0]." et al.";
+  }
+
+  $bibentry =~ m/title =.*?\{(.*?)\}/;
+  $bibtitle = $1;
+
+  $bibentry =~ m/year =.*?\{(.*?)\}/;
+  $bibyear = $1;
+
+  $bibentry =~ m/asin =.*?\{(.*?)\}/;
+  if ($1 eq '') {
+    $bibasin = "asin-not-found";
+  }
+  else {
+    $bibasin = $1;
+  }
+
+  return;
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlbibauthor {return $bibauthor;}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlbibauthorlastname {return $bibauthorlastname;}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlbibtitle {return $bibtitle;}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlbibyear {return $bibyear;}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlbibasin {return $bibasin;}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perlamazonbook {
+  $bookdisplay = "
+  %%\\begin{columns}
+%%    \\column{0.15\\textwidth}
+  \\href{http://www.amazon.com/dp/$bibasin/}{
+    \\begin{marginfigure}[]
+      \\includegraphics[width=\\textwidth]{$bibasin.01.LZZZZZZZ.jpg}
+    \\end{marginfigure}
+  }
+%%    \\column{0.85\\textwidth}
+    \\wordwikilink{}{``$bibtitle''}\\newline
+    by $bibauthor ($bibyear).\\cite{$_[0]}
+%%  \\end{columns}
+  ";
+
+  return $bookdisplay;
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perldisplaypaper {
+  if (lc $bibtype eq "article") {
+    $reference = "$bibjournal, \\textbf{$bibvolume}, $bibpages,";
+  }
+  elsif (lc $bibtype eq "inproceedings") {
+    $reference = "$bibbooktitle, \\textbf{$bibvolume}, $bibpages,";
+  }
+  elsif (lc $bibtype eq "incollection") {
+    $reference = "$bibbooktitle, \\textbf{$bibvolume}, $bibpages,";
+  }
+  elsif (lc $bibtype eq "misc") {
+    $reference = "$bibnote,";
+  }
+
+  $paperdisplay = "
+  %% \\begin{columns}
+%%    \\column{0.02\\textwidth}
+%%    \\column{0.15\\textwidth}
+    \\fcolorbox{gray}{white}{\\href{\\papersdir/everything/$_[0].pdf}{\\includegraphics[page=$_[1],width=1.0\\linewidth]{figures/others-papers/everything/$_[0].pdf}}}
+    %%    \\href{\\papersdir/everything/$_[0].pdf}{\\includegraphics[page=$_[1],width=1.0\\linewidth]{figures/others-papers/everything/$_[0].pdf}}
+    %%   \\includegraphics[page=$_[2],width=0.495\\linewidth]{figures/others-papers/everything/$_[0].pdf}
+%%    \\column{0.02\\textwidth}
+%%    \\column{0.79\\textwidth}
+    \\wordwikilink{\\papersdir/everything/$_[0].pdf}{``$bibtitle''}\\newline
+    $bibauthor,\\newline
+    $reference $bibyear.\\cite{$_[0]}
+%%    \\column{0.02\\textwidth}
+%%  \\end{columns}
+  ";
+
+  return $paperdisplay;
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_perldisplaypaperfullauthor {
+  if (lc $bibtype eq "article") {
+    $reference = "$bibjournal, \\textbf{$bibvolume}, $bibpages,";
+  }
+  elsif (lc $bibtype eq "inproceedings") {
+    $reference = "$bibbooktitle, \\textbf{$bibvolume}, $bibpages,";
+  }
+  elsif (lc $bibtype eq "incollection") {
+    $reference = "$bibbooktitle, \\textbf{$bibvolume}, $bibpages,";
+  }
+  elsif (lc $bibtype eq "misc") {
+    $reference = "$bibnote,";
+  }
+
+  $paperdisplay = "
+  %% \\begin{columns}
+%%     \\column{0.02\\textwidth}
+%%    \\column{0.15\\textwidth}
+    \\fcolorbox{gray}{white}{\\href{\\papersdir/everything/$_[0].pdf}{\\includegraphics[page=$_[1],width=1.0\\linewidth]{figures/others-papers/everything/$_[0].pdf}}}
+    %%    \\href{\\papersdir/everything/$_[0].pdf}{\\includegraphics[page=$_[1],width=1.0\\linewidth]{figures/others-papers/everything/$_[0].pdf}}
+    %%   \\includegraphics[page=$_[2],width=0.495\\linewidth]{figures/others-papers/everything/$_[0].pdf}
+%%    \\column{0.02\\textwidth}
+%%    \\column{0.79\\textwidth}
+    \\wordwikilink{\\papersdir/everything/$_[0].pdf}{``$bibtitle''}\\newline
+    $bibfullauthor.\\newline
+    $reference $bibyear.\\cite{$_[0]}
+%%    \\column{0.02\\textwidth}
+%%  \\end{columns}
+  ";
+
+  return $paperdisplay;
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_dealtarotcards {
+  $heightfactor = $_[0];
+  $cardlist = $_[1];
+  $cardlist =~ s/^\s+//;
+  $cardlist =~ s/\s+$//;
+  $cardlist =~ s/\n//msg;
+  $cardlist =~ s/\s//msg;
+  $cardlist =~ s/,$//;
+  @cardrefs = split (",",$cardlist);
+
+  $tarotcarddisplay = "
+%%  \\begin{columns}
+%%  \\column{0.65\\textwidth}
+  \\begin{center}
+  \\raggedright
+  ";
+  $i = 1;
+  foreach $cardref (@cardrefs[0..$#cardrefs-1]) {
+    $i = $i + 1;
+    $tarotcarddisplay = $tarotcarddisplay."\\includegraphics< $i ->[height=$heightfactor\\textwidth]{tarot-card-$cardref.jpg}
+    \\
+    ";
+  }
+  $tarotcarddisplay = $tarotcarddisplay."    \\end{center}
+%%  \\column{0.02\\textwidth}
+%%  \\column{0.30\\textwidth}
+  ";
+
+  $i=0;
+  foreach $cardref (@cardrefs[0..$#cardrefs]) {
+    $i = $i + 1;
+    $tarotcarddisplay = $tarotcarddisplay."
+    \\includegraphics< $i >[width=\\textwidth]{tarot-card-$cardref.jpg}
+    ";
+  }
+
+  $tarotcarddisplay = $tarotcarddisplay."
+%%    \\column{0.03\\textwidth}
+%%  \\end{columns}
+";
+
+return $tarotcarddisplay;
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_dealnewtarotcard {
+  $heightfactor = $_[0];
+  $cardlist = $_[1];
+  $cardlist =~ s/^\s+//;
+  $cardlist =~ s/\s+$//;
+  $cardlist =~ s/\n//msg;
+  $cardlist =~ s/\s//msg;
+  $cardlist =~ s/,$//;
+  @cardrefs = split (",",$cardlist);
+
+  $tarotcarddisplay = "
+%%  \\begin{columns}
+%%  \\column{0.65\\textwidth}
+  \\begin{center}
+  \\raggedright
+  ";
+  foreach $cardref (@cardrefs[0..$#cardrefs-2]) {
+    $tarotcarddisplay = $tarotcarddisplay."\\includegraphics<1->[height=$heightfactor\\textwidth]{tarot-card-$cardref.jpg}
+    \\
+    ";
+  }
+  $tarotcarddisplay = $tarotcarddisplay."\\includegraphics<2->[height=$heightfactor\\textwidth]{tarot-card-$cardrefs[$#cardrefs-1].jpg}
+  \\
+  ";
+
+  $tarotcarddisplay = $tarotcarddisplay."    \\end{center}
+%%    \\column{0.02\\textwidth}
+%%    \\column{0.30\\textwidth}
+    \\includegraphics<1>[width=\\textwidth]{tarot-card-$cardrefs[$#cardrefs-1].jpg}
+    \\includegraphics<2->[width=\\textwidth]{tarot-card-$cardrefs[$#cardrefs].jpg}
+%%    \\column{0.03\\textwidth}
+%%  \\end{columns}
+";
+
+return $tarotcarddisplay;
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+sub latex_showtarotcards {
+  $heightfactor = $_[0];
+  $cardlist = $_[1];
+  $cardlist =~ s/^\s+//;
+  $cardlist =~ s/\s+$//;
+  $cardlist =~ s/\n//msg;
+  $cardlist =~ s/\s//msg;
+  $cardlist =~ s/,$//;
+  @cardrefs = split (",",$cardlist);
+
+  $tarotcarddisplay = "
+%%  \\begin{columns}
+%%  \\column{0.65\\textwidth}
+  \\begin{center}
+  \\raggedright
+  ";
+  foreach $cardref (@cardrefs[0..$#cardrefs-1]) {
+    $tarotcarddisplay = $tarotcarddisplay."\\includegraphics<1->[height=$heightfactor\\textwidth]{tarot-card-$cardref.jpg}
+    \\
+    ";
+  }
+  $tarotcarddisplay = $tarotcarddisplay."    \\end{center}
+%%    \\column{0.02\\textwidth}
+%%    \\column{0.30\\textwidth}
+    \\includegraphics<1->[width=\\textwidth]{tarot-card-$cardrefs[$#cardrefs].jpg}
+%%    \\column{0.03\\textwidth}
+  \\end{columns}
+";
+
+return $tarotcarddisplay;
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlbibf ('waldrop1993a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('waldrop1993a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0671872346/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0671872346.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Complexity: The Emerging Science at the Edge of Order and Chaos''}\newline
+    by  M. Mitchell Waldrop (1993).\cite{waldrop1993a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('johnson2009a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('johnson2009a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/1851686304/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{1851686304.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Simply Complexity: A Clear Guide to Complexity Theory''}\newline
+    by  Neil F. Johnson (2009).\cite{johnson2009a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('mitchell2009a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('mitchell2009a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0195124413/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0195124413.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Complexity: A Guided Tour''}\newline
+    by  Melanie Mitchell (2009).\cite{mitchell2009a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('gleick2011a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('gleick2011a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/1400096235/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{1400096235.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``The Information: A History, A Theory, A Flood''}\newline
+    by  James Gleick (2011).\cite{gleick2011a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('zipf1949a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('zipf1949a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/161427312X/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{161427312X.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Human Behaviour and the Principle of Least-Effort''}\newline
+    by  G. K. Zipf (1949).\cite{zipf1949a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('schelling1978a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('schelling1978a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0393329461/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0393329461.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Micromotives and Macrobehavior''}\newline
+    by  Thomas C. Schelling (1978).\cite{schelling1978a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('ball2004a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('ball2004a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0374530416/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0374530416.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Critical Mass: How One Thing Leads to Another''}\newline
+    by  Philip Ball (2004).\cite{ball2004a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('miller2007a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('miller2007a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0691127026/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0691127026.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Complex Adaptive Systems: An introduction to computational models of social life''}\newline
+    by John H. Miller and Scott E. Page and  (2007).\cite{miller2007a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('sornette2006a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('sornette2006a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/3540308822/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{3540308822.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Critical Phenomena in Natural Sciences''}\newline
+    by  Didier Sornette (2003).\cite{sornette2006a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('boccara2010a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('boccara2010a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/1441965610/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{1441965610.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Modeling Complex Systems''}\newline
+    by  Nino Boccara (2004).\cite{boccara2010a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('barenblatt1996a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('barenblatt1996a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0521435226/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0521435226.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Scaling, self-similarity, and intermediate asymptotics''}\newline
+    by  G. I. Barenblatt (1996).\cite{barenblatt1996a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('campbell1991a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('campbell1991a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0385418868/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0385418868.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``The Power of Myth''}\newline
+    by Campbell and  (1991).\cite{campbell1991a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('campbell2008a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('campbell2008a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/1577315936/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{1577315936.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``The Hero with a Thousand Faces''}\newline
+    by  Joseph Campbell (2008).\cite{campbell2008a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('snyder2005a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('snyder2005a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/1932907009/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{1932907009.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``Save the Cat!''}\newline
+    by  Blake Snyder (2005).\cite{snyder2005a}
+%%  \end{columns}
+  
+
+############################### PERL CODE ################################
+latex_perlbibf ('booker2005a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+############################### PERL CODE ################################
+latex_perlamazonbook ('booker2005a');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATEX RESULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%\begin{columns}
+%%    \column{0.15\textwidth}
+  \href{http://www.amazon.com/dp/0826452094/}{
+    \begin{marginfigure}[]
+      \includegraphics[width=\textwidth]{0826452094.01.LZZZZZZZ.jpg}
+    \end{marginfigure}
+  }
+%%    \column{0.85\textwidth}
+    \wordwikilink{}{``The Seven Basic Plots: Why We Tell Stories''}\newline
+    by  Christopher Booker (2005).\cite{booker2005a}
+%%  \end{columns}
+  
+

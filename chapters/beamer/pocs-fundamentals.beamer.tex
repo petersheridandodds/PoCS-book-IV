@@ -1,0 +1,1269 @@
+\section{Data}
+
+\changelecturelogo{0.18}{MacGillivray_William_John_Dory_cut.png}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+  }
+\end{frame}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+  }
+\end{frame}
+
+\begin{frame}
+
+  \wordwikilink{http://www.economist.com/node/15557443}{Data, Data, Everywhere---the Economist, Feb 25, 2010}
+
+  \begin{columns}
+    \column{0.45\textwidth}
+    \includegraphics[width=\textwidth]{201009SRC696-economist.png}
+    \begin{itemize}
+    \item 
+      Exponential growth: $\sim$ 60\% per year.
+    \end{itemize}
+    \column{0.55\textwidth}
+    \begin{block}{Big Data Science:}
+    \begin{itemize}
+    \item 
+      2013: year traffic on Internet estimate to reach 2/3 Zettabytes \\
+      (1ZB = $10^3$EB = $10^6$PB = $10^9$TB)
+    \item 
+      Large Hadron Collider: 40 TB/second.\\
+    \item 
+      2016---Large Synoptic Survey Telescope:\\
+      140 TB every 5 days.
+    \item 
+      Facebook: $\sim$ 250 billion photos (mid 2013)
+    \item 
+      Twitter: $\sim$ 500 billion tweets (mid 2013)
+    \end{itemize}
+    \end{block}      
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[plain]
+  \frametitle{No really, that's a lot of data}
+
+  \includegraphics[width=1.2\textwidth]{201009SRC722-economist.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Big Data---Culturomics:}
+
+  \small{``Quantitative analysis of culture using millions of
+    digitized books'' by Michel et al., Science, 2011\cite{michel2011a}}
+
+  \includegraphics[width=0.45\textwidth]{michel2011a_fig3a.pdf} 
+  \includegraphics[width=0.45\textwidth]{michel2011a_fig3e.pdf} \\
+  \includegraphics[width=0.45\textwidth]{michel2011a_fig3f.pdf}
+  \includegraphics[width=0.35\textwidth]{michel2011a_fig4f.pdf}
+
+  {\small
+    \wordwikilink{http://www.culturomics.org/}{http://www.culturomics.org/}\\
+    \wordwikilink{http://ngrams.googlelabs.com/}{Google Books ngram viewer}
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Basic Science $\simeq$ Describe + Explain:}
+
+  \begin{columns}
+    \column{0.4\textwidth}
+    \includegraphics[width=\textwidth]{lordkelvin-aip.jpg}
+    \column{0.6\textwidth}
+    \begin{block}{Lord Kelvin (possibly):}
+      \begin{itemize}
+      \item<+->
+        \alertg{``To measure is to know.''}
+      \item<+-> 
+        \alertg{``If you cannot measure it, you cannot improve it.''}
+      \end{itemize}
+    \end{block}
+    \begin{block}<+->{Bonus:}
+      \begin{itemize}
+      \item<+->
+        \visible<+->{
+          \alertg{``X-rays will prove to be a hoax.''}
+        }
+      \item<+->
+        \visible<+->{
+          \alertg{``There is nothing new to be discovered in physics now, 
+            All that remains is more and more precise measurement.''}
+        }
+      \end{itemize}
+    \end{block}
+
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The Newness of being a Scientist (1833 on):}
+
+  \includegraphics[width=\textwidth]{2013-01-14ngrams-scientist.jpg}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<+-> 
+      Etymology 
+      \wordwikilink{http://en.wikipedia.org/wiki/Scientist\#Historical\_development\_and\_etymology\_of\_the\_term}{here}.
+    \item<+-> 
+      ``Scientists are the people who ask a question about a phenomenon and proceed to \alertg{systematically} go about answering the question themselves. They are by nature curious, creative and well organized.''
+    \end{itemize}
+  \end{block}
+
+  
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Outreach}
+%% 
+%%   \begin{center}
+%%     \includegraphics[height=0.8\textheight]{complexity-society-frontpage.pdf}
+%%   \end{center}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Outreach}
+%% 
+%%   ``The society objectives are to promote the \alertb{theory of complexity} in
+%%   education, government, the health service and business as well as the
+%%   beneficial application of complexity in a wide variety of social,
+%%   economic, scientific and technological contexts such as sources of
+%%   competitive advantage, business clusters and knowledge management.''
+%% 
+%%   \medskip
+%% 
+%%   \visible<2->{
+%%     ``Complexity includes ideas such as complex adaptive systems,
+%%     self-organisation, co-evolution, agent based computer models, chaos,
+%%     networks, emergence, and fractals.''
+%%   }
+%% 
+%% \end{frame}
+
+%% \changelecturelogo{0.18}{MacGillivray_William_John_Dory_cut.png}
+%% \changelecturelogo{0.18}{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard1_polaroid-logo.png}
+
+\changelecturelogo{0.18}{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard0_polaroid-logo.png}
+
+\section{Emergence}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard0_polaroid.png}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard1_polaroid.png}
+\end{frame}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+  }
+
+\end{frame}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+  }
+\end{frame}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+  }
+\end{frame}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+    emergence-of-stories,
+  }
+\end{frame}
+
+
+%% \changelecturelogo{0.18}{MacGillivray_William_John_Dory_cut.png}
+
+\changelecturelogo{0.18}{2014-08-16pocsmap-emergence-reductionism-manifesto_postcard1_polaroid-logo.png}
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}{The Wikipedia on \alertb{Emergence}:
+      \hfill
+      \includegraphics[width=.07\textwidth]{wikipedia-tp.pdf}
+    }
+    ``In philosophy, systems theory and the sciences, emergence refers to
+    the way complex systems and patterns arise out of a multiplicity of
+    relatively simple interactions. 
+    \visible<2->{... \alertb{emergence is central
+        to the physics of complex systems and yet very controversial}.''}
+  \end{block}
+
+\begin{block}<3->{}
+    The philosopher G. H. Lewes first
+    used the word explicity in 1875.
+\end{block}
+
+\end{frame}
+
+\begin{frame}<1 | handout:0 | trans:1>
+  \frametitle{Fireflies $\Rightarrow$ Synchronized Flashes:}
+
+  \localvideo{fireflies-strogatz.mov}
+
+  \small
+
+  Film: Sir David Attenborough, BBC.
+
+  Voiceover: Steve Strogatz on 
+  \wordwikilink{http://www.radiolab.org/2007/aug/14/}{Radiolab's Emergence, S1E3}.
+
+\end{frame}
+
+\begin{frame}
+%%  \frametitle{Emergence:}
+
+  \begin{block}{Emergence:}
+    Tornadoes, financial collapses, human emotion aren't
+    found in water molecules, dollar bills, or carbon atoms.
+    %%      There's no tornado in a water molecule, no financial
+    %%      collapse in a single dollar bill,
+    %%      no human emotion in a carbon atom;
+    %%      these are `emergent' properties.
+  \end{block}
+
+  \begin{block}<2->{Examples:}
+    \begin{itemize}
+    \item<2-> 
+      Fundamental particles $\Rightarrow$ Life, the Universe, and Everything
+    \item<2-> 
+      Genes $\Rightarrow$ Organisms
+    \item<2->
+      Neurons etc. $\Rightarrow$ Brain $\Rightarrow$ Thoughts
+    \item<2-> 
+      People $\Rightarrow$ Religion, Collective behaviour
+    \item<2->
+      People $\Rightarrow$ The Web
+    \item<2->
+      People $\Rightarrow$ Language, and rules of language
+    \item<2->
+      ? $\Rightarrow$ time; 
+      ? $\Rightarrow$ gravity;
+      ? $\Rightarrow$ reality.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<3->{}
+    \alertb{``The whole is more than the sum of its parts''}
+    --Aristotle
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}{\wordwikilink{http://en.wikipedia.org/wiki/Thomas\_Schelling}{Thomas Schelling}
+      \smallskip
+      (Economist/Nobelist):}
+    \medskip
+    \begin{columns}
+      \column{0.3\textwidth}
+      \includegraphics[width=\textwidth]{eggs1.jpg}\\
+      \includegraphics[width=\textwidth]{eggs2.jpg}\\
+      \includegraphics[width=\textwidth]{eggs3.jpg}\\
+      \wordwikilink{http://www.youtube.com/watch?v=JjfihtGefxk}{[youtube]}
+      \column{0.7\textwidth}
+      \begin{center}
+      \includegraphics[width=0.7\textwidth]{thomas_schelling_nobelprice_eco_2005.png}
+      \begin{itemize}
+      \item 
+        ``Micromotives and Macrobehavior''\cite{schelling1978a}
+        \begin{itemize}
+        \item
+          Segregation\cite{schelling1971a,schelling2006a}
+        \item
+          Wearing hockey helmets\cite{schelling1973a}
+        \item
+          Seating choices
+        \end{itemize}
+      \end{itemize}
+      \end{center}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}{
+      \wordwikilink{http://en.wikipedia.org/wiki/Friedrich_Hayek}{Friedrich Hayek} 
+      \smallskip
+      (Economist/Philospher/Nobelist):
+    }
+    \begin{itemize}
+    \item<1-> Markets, legal systems, political systems are emergent and not designed.
+    \item<2->   
+      `Taxis' = made order (by God, Sovereign, Government, ...)
+    \item<3->
+      `Cosmos' = grown order
+    \item<4->
+      Archetypal limits of \alertb{hierarchical} and \alertr{decentralized} structures.
+    \item<5->
+      \alertb{Hierarchies} arise once problems are solved.\cite{dodds2003c}
+    \item<6->
+      \alertr{Decentralized structures} help solve problems.
+    \item<7->
+      Dewey Decimal System versus tagging.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}{
+      \wordwikilink{http://en.wikipedia.org/wiki/James\_Samuel\_Coleman}{James Coleman} 
+      \smallskip
+      in \textit{Foundations of Social Theory}:}
+    \includegraphics[width=0.9\textwidth]{coleman.pdf}
+  \end{block}
+
+  \bigskip
+
+  \begin{block}{}
+  \begin{itemize}
+  \item 
+    Understand macrophenomena arises from microbehavior
+    which in turn depends on macrophenomena.\cite{coleman1994a}
+  \item<2->
+    More on Coleman 
+    \wordwikilink{http://en.wikipedia.org/wiki/James_Samuel_Coleman}{here}.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The emergence of taste:}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item 
+      Molecules $\Rightarrow$ Ingredients $\Rightarrow$ Taste 
+    \item 
+      See Michael Pollan's
+      \wordwikilink{http://www.nytimes.com/2007/01/28/magazine/28nutritionism.t.html}{article on nutritionism} in the New York Times, January 28, 2007.
+
+      \medskip
+
+      \includegraphics[width=0.7\textwidth]{2007-01-28unhappymeals.jpg}\\
+      {\tiny \wordwikilink{nytimes.com}{nytimes.com}}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reductionism}
+
+  \begin{block}{Reductionism and food:}
+    \begin{itemize}
+%    \item 
+%      {\small \alertb{\textit{Unhappy Meals}}, Michael Pollan, NY Times, January 2007}
+    \item<2-> 
+      \alertb{Pollan:}
+      ``even the simplest food is a
+      hopelessly complex thing to study, a virtual wilderness of chemical
+      compounds, many of which exist in complex and dynamic relation to one
+      another...''
+    \item<3->
+      ``So ... break the
+      thing down into its component parts and study those one by one, even
+      if that means ignoring complex interactions and contexts, as well as
+      the fact that the whole may be more than, or just different from, the
+      sum of its parts. This is what we mean by reductionist science.''
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reductionism}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<1-> ``people don't eat nutrients, they eat foods, and foods can behave
+    very differently than the nutrients they contain.''
+  \item<2-> Studies suggest diets high in fruits and vegetables help prevent cancer.
+  \item<3-> So...  find the nutrients responsible and eat more of them
+  \item<4-> But ``in the case of \alertb{beta
+    carotene ingested as a supplement}, scientists have discovered that it
+    actually \alertr{increases the risk of certain cancers}. Oops.''
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reductionism}
+
+  \begin{columns}
+    \column{0.7\textwidth}
+    \begin{block}{\alertg{Thyme's known antioxidants:}}
+      4-Terpineol, alanine, anethole, apigenin, ascorbic acid, beta
+      carotene, caffeic acid, camphene, carvacrol, chlorogenic acid,
+      chrysoeriol, eriodictyol, eugenol, ferulic acid, gallic acid,
+      gamma-terpinene isochlorogenic acid, isoeugenol, isothymonin,
+      kaempferol, labiatic acid, lauric acid, linalyl acetate, luteolin,
+      methionine, myrcene, myristic acid, naringenin, oleanolic acid,
+      p-coumoric acid, p-hydroxy-benzoic acid, palmitic acid, rosmarinic
+      acid, selenium, tannin, thymol, tryptophan, ursolic acid, vanillic
+      acid.
+    \end{block}
+    \column{0.3\textwidth}
+    \includegraphics[width=\textwidth]{thyme-lrg.jpg}\\
+    {\mbox{} \hfill \tiny [cnn.com]}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reductionism}
+
+  \begin{block}{}
+  ``It would be great to know how this all works, but \alertb{in the meantime} we
+  can enjoy thyme in the knowledge that it probably doesn't do any harm
+  (since people have been eating it forever) and that it may actually do
+  some good (since people have been eating it forever) and that even if
+  it does nothing, we like the way it tastes.''
+
+  \bigskip
+
+  \visible<2->{
+    \alertb{Gulf between theory and practice (see baseball and bumblebees).}
+  }
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+%%  \frametitle{Emergent Catastrophic Failure:}
+\frametitle{This is a Collateralized Debt Obligation:}
+
+  \includegraphics[width=\textwidth]{2011-10-25flickr-hotdog-2527649390_600d768d96_b-cropped-transparent.png}
+
+  %% http://www.flickr.com/photos/68662010@N00/2527649390/sizes/l/in/photostream/
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{center}
+    
+    \begin{itemize}
+    \item 
+    ``The Universe is made of stories, not of atoms.''
+    \end{itemize}
+
+    \includegraphics[height=0.5\textheight]{universe-is-made-of-stories.jpg}
+
+    \begin{itemize}
+    \item<+->
+      From ``The Speed of Darkness'' (1968) by
+      \wordwikilink{http://en.wikipedia.org/wiki/Muriel\_Rukeyser}{Muriel Rukeyser}
+    \item<+->
+      Quoted by Metatron in Supernatural, Meta Fiction, S9E18.
+    \end{itemize}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+%%  \frametitle{\wordwikilink{http://en.wikipedia.org/wiki/Terry\_Pratchett}{Pratchett} on stories:}
+  \frametitle{\wordwikilink{http://en.wikipedia.org/wiki/Terry\_Pratchett}{(Sir Terry) Pratchett's}
+    \wordwikilink{http://wiki.lspace.org/wiki/Narrativium}{Narrativium}:
+%%    and 
+%%    \wordwikilink{http://wiki.lspace.org/wiki/Narrative\_Causality}{Narrative Causality}:
+  }
+
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[width=\textwidth]{4463841109_f3dbc05754_pratchett.jpg}
+    \column{0.7\textwidth}
+    \begin{block}<+->{}
+        \begin{itemize}
+        \item<+-> 
+          ``The most common element on the disc, although not
+          included in the list of the standard five: earth, fire, air,
+          water and surprise. It ensures that everything runs properly
+          as a story.''
+        \item<+->
+          ``A little narrativium goes a long way: the simpler the story,
+          the better you understand it. Storytelling is the opposite of
+          reductionism: 26 letters and some rules of grammar are no story
+          at all.''
+        \end{itemize}
+      \end{block}
+    \end{columns}
+
+%%     \begin{block}<+->{}
+%%       \begin{itemize}
+%%       \item
+%%         ``Heroes only win when outnumbered, and things which have a
+%%         one-in-a-million chance of succeeding often do so.''
+%%       \end{itemize}
+%%     \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}<+->{Higher complexity:}
+    \begin{itemize}
+    \item 
+      Many system scales (or levels) \\ 
+      that
+      interact with each other.
+    \item<+->
+      Potentially much harder to explain/understand.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<+->{Even mathematics:\cite{foote2007a}}
+    \begin{columns}
+      \column{0.02\textwidth}
+      \column{0.2\textwidth}
+      \includegraphics[width=0.97\textwidth]{kurt_godel.jpg}
+      \column{0.6\textwidth}
+      \wordwikilink{http://bit.ly/VdbsWU}{G\"{o}del's Theorem}:\\
+      we can't prove every theorem that's true \ldots
+%%      \column{0.2\textwidth}
+%%      \includegraphics[width=0.97\textwidth]{hofst.jpg}
+    \end{columns}
+  \end{block}
+
+  \begin{block}<+->{}
+    \begin{itemize}
+    \item 
+      Suggests a \alertb{strong form of emergence}:
+      \uncover<+->{
+        Some phenomena cannot be analytically deduced
+        from elementary aspects of a system.
+      }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}{}
+    Roughly speaking, there are \alertg{two types} of \alertb{emergence}:  
+  \end{block}
+
+  \begin{block}<2->{\alertb{I. Weak emergence:}}
+    System-level phenomena is
+    different from that of its constituent parts
+    yet can be connected theoretically.
+  \end{block}
+
+  \begin{block}<3->{\alertb{II. Strong emergence:}}
+    System-level 
+    phenomena fundamentally cannot
+    be deduced from how parts interact.
+  \end{block}
+
+%%   \smallskip
+%%   \visible<4->{
+%%     Strong emergence could be called \alertr{magic}...\\
+%%     See Bedau (1997)\cite{bedau1997a}
+%%     }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Emergence:}
+
+  \begin{block}{}
+    \begin{itemize}
+      %% \item<+->
+      %%   Complex Systems enthusiasts often decry \alertb{reductionist} approaches \ldots
+      %% \item<+->
+      %%   But reductionism seems to be misunderstood.
+    \item<+->
+      \alertb{Reductionist} techniques can explain weak emergence.
+    \item<+->
+      \alertb{Magic} explains strong emergence.\cite{bedau1997a}
+    \item<+->
+      But: maybe \alertb{magic} should be interpreted
+      as an \alertb{inscrutable yet real mechanism} that cannot
+      ever be \alertr{simply described}.    
+    \item<+->
+      Gulp.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+
+  \includemedia[
+  label=audio.radiolab-limits,
+  activate=pageopen,
+  addresource=sound/2010/radiolab041610c.mp3,
+  flashvars={
+    source=sound/2010/radiolab041610c.mp3
+    &autoPlay=0
+    &showinfo=1
+  },
+  transparent
+  ]{\color{grey}\framebox[\linewidth][c]{Limits of Science | Radiolab}}{APlayer.swf}
+  
+  \begin{block}{}
+    \begin{columns}
+      \column{0.02\textwidth}
+      \column{0.18\textwidth}
+      \includegraphics[width=\textwidth]{radiolab-limits-150430.jpg}
+      \column{0.78\textwidth}
+      Listen to Steve Strogatz, Hod Lipson, and Michael Schmidt (Cornell) in the 
+      \wordwikilink{http://www.radiolab.org/2010/apr/05/limits-of-science/}{last piece}
+      (11:16) on Radiolab's show 
+      \wordwikilink{http://www.radiolab.org/2010/apr/05/}{`Limits'} (April 5, 2010).
+      %% (51:40)
+      \column{0.02\textwidth}
+    %% \url{http://blogs.wnyc.org/radiolab/2010/04/05/limits/}
+    \end{columns}
+    \bigskip
+    \includegraphics[width=\textwidth]{radiolab-limits-science-tp-1.pdf}
+
+    Pair with some 
+    \wordwikilink{https://www.youtube.com/watch?v=z7VYVjR_nwE}{slow tv}
+
+    Bonus: 
+    \wordwikilink{http://www.youtube.com/watch?v=6XSncCrQzwk}{Mike Schmidt's talk on Eureqa}
+    at \newline
+    \wordwikilink{http://www.uvm.edu/~tedxuvm/?Page=archive/2011/default.php}{UVM's 2011 TEDx event ``Big Data, Big Stories.''}
+
+\end{block}
+
+\end{frame}
+
+
+\changelecturelogo{0.18}{MacGillivray_William_John_Dory_cut.png}
+
+\section{Self-Organization}
+
+\begin{frame}
+  \frametitle{Definitions}
+
+  \begin{block}<+->{}
+    ``\wordwikilink{http://en.wikipedia.org/wiki/Self-organization}{Self-organization} 
+    is a process in which the internal organization 
+    of a system, normally an open system, increases in complexity without 
+    being guided or managed by an outside source.''
+    \uncover<+->{(also: Self-assembly)}
+  \end{block}
+
+  \medskip
+
+%%   \begin{block}<2->{}
+%%     \begin{itemize}
+%%     \item<2-> 
+%%       Self-organization refers to a broad array of decentralized processes 
+%%       that lead to emergent phenomena.
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+%% 
+
+%% \begin{frame}
+%%   \frametitle{
+
+   \begin{block}<+->{Examples:}
+     \begin{itemize}
+     \item
+       Molecules/Atoms liking each other $\rightarrow$ \\
+       \mbox{} \hfill Gases, liquids, and solids.
+     \item
+       Spin alignment $\rightarrow$ Magnetization.
+     \item 
+       Protein folding.
+     \item 
+       Imitation $\rightarrow$ Herding, flocking, mobs, \ldots
+     \end{itemize}
+
+     \medskip
+
+     \visible<+->{
+       Fundamental question: how likely is `complexification'?
+     }
+   \end{block}
+
+ \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Buzzword Definitions}
+%% 
+%%   \alertb{Emergence but no Self-Organization?}
+%% 
+%%   \bigskip
+%% 
+%%   \visible<2->{
+%%     H$_2$0 molecules $\Rightarrow$ Water
+%%   }
+%% 
+%%   \bigskip
+%%   
+%%   \visible<3->{
+%%     Random walks $\Rightarrow$ Normal distributions
+%%   }
+%%   
+%% \end{frame}
+%% 
+%% 
+%% \begin{frame}
+%%   \frametitle{Buzzword Definitions}
+%% 
+%%   \alertb{Self-organization but no Emergence?}
+%% 
+%%   \medskip
+%% 
+%%   \visible<2->{
+%%     Water above and near the freezing point.
+%%   }
+%% 
+%%   \medskip
+%% 
+%%   \visible<3->{
+%%     Emergence may be limited to a low scale of a system.
+%%   }
+%% 
+%% \end{frame}
+
+%% \begin{frame}
+%%  \frametitle{Economics}
+%%Eric Beinhocker (\textit{The Origin of Wealth}):
+%%
+%%{\small
+%%
+%%\begin{tabular}{lll}
+%% & Complexity Economics  &  Traditional Economics \\
+%%Dynamic & 
+%%Open, dynamic, non-linear systems, far from equilibrium & 
+%%Closed, static, linear systems in equilibrium \\
+%%Agents  &
+%%Modelled individually; use inductive rules of thumb to make decisions; have incomplete information; are subject to errors and biases; learn to adapt over time  &
+%%Modelled collectively; use complex deductive calculations to make decisions; have complete information; make no errors and have no biases; have no need for learning or adaptation (are already perfect) \\
+%%Networks  &  
+%%Explicitly model bi-lateral interactions between individual agents; networks of relationships change over time &
+%%Assume agents only interact indirectly through market mechanisms (e.g. auctions) \\
+%%Emergence   &    
+%%No distinction between micro/macro economics; 
+%%macro patterns are emergent result of micro level behaviours and interactions.  &  
+%%Micro-and macroeconomics remain separate disciplines \\
+%%Evolution   &    
+%%The evolutionary process of differentiation, selection and amplification provides the system with novelty and is responsible for its growth in order and complexity  &
+%%No mechanism for endogenously creating novelty, or growth in order and complexity \\
+%%\end{tabular}
+%%
+%%}
+%% 
+%% \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Economics}
+%% 
+%%   Eric Beinhocker (\textit{The Origin of Wealth}):\cite{beinhocker2006a}
+%% 
+%%   \begin{block}{\alertb{Dynamic:}}
+%%     \begin{itemize}
+%%     \item 
+%%       \tc{red}{Complexity Economics:}
+%%       Open, dynamic, non-linear systems, far from equilibrium
+%%     \item 
+%%       \tc{red}{Traditional Economics:}
+%%       Closed, static, linear systems in equilibrium
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Economics}
+%% 
+%%   \begin{block}{\alertb{Agents:}}
+%%     \begin{itemize}
+%%     \item 
+%%       \tc{red}{Complexity Economics:}
+%%       
+%%       Modelled individually; use inductive rules of thumb to make
+%%       decisions; have incomplete information; are subject to errors
+%%       and biases; learn to adapt over time
+%% 
+%%     \item \tc{red}{Traditional Economics:} 
+%%       Modelled collectively; use
+%%       complex deductive calculations to make decisions; have complete
+%%       information; make no errors and have no biases; have no need for
+%%       learning or adaptation (are already perfect)
+%%     \end{itemize}
+%%     
+%%   \end{block}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Economics}
+%% 
+%%   \begin{block}{\alertb{Networks:}}
+%%     \begin{itemize}
+%%     \item 
+%%       \tc{red}{Complexity Economics:}
+%%       Explicitly model bi-lateral interactions between individual agents; networks of relationships change over time
+%%     \item 
+%%       \tc{red}{Traditional Economics:}
+%%       Assume agents only interact indirectly through market mechanisms (e.g. auctions)
+%%     \end{itemize}
+%%   \end{block}
+%%   
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Economics}
+%% 
+%%   \begin{block}{\alertb{Emergence:}}
+%%     \begin{itemize}
+%%     \item
+%%       \tc{red}{Complexity Economics:}
+%%       No distinction between micro/macro economics; 
+%%       macro patterns are emergent result of micro level behaviours and interactions
+%%     \item
+%%       \tc{red}{Traditional Economics:}
+%%       Micro-and macroeconomics remain separate disciplines
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+%% 
+%% \begin{frame}
+%%   \frametitle{Economics}
+%% 
+%%   \begin{block}{\alertb{Evolution:}}
+%%     \begin{itemize}
+%%     \item 
+%%       \tc{red}{Complexity Economics:}
+%%       
+%%       The evolutionary process of differentiation, selection and
+%%       amplification provides the system with novelty and is
+%%       responsible for its growth in order and complexity
+%% 
+%%     \item 
+%% 
+%%       \tc{red}{Traditional Economics:}
+%%   
+%%       No mechanism for endogenously creating novelty, or growth in
+%%       order and complexity
+%% 
+%%     \end{itemize}
+%%     
+%%   \end{block}
+%%   
+%% \end{frame}
+
+
+
+\section{Modeling}
+
+%% \begin{frame}
+%%   \frametitle{Models}
+%% 
+%%   \begin{block}{\alertb{Nino Boccara} in \textit{Modeling Complex Systems}:}
+%%     ``Finding the emergent global behavior of a large
+%%     system of interacting agents using methods is usually
+%%     hopeless, and researchers therefore must rely on
+%%     computer-based models.''
+%%   \end{block}
+%% 
+%%   \begin{block}{Focus is on (toy) dynamical systems models:}
+%%     \begin{itemize}
+%%     \item<+-> 
+%%       Differential and difference equation models.
+%%     \item<+-> 
+%%       Cellular automata.
+%%     \item<+-> 
+%%       Past: Simulations done on simple 2-d lattics.
+%%     \item<+-> 
+%%       2000--: Simulations on complex networks.
+%%     \end{itemize}
+%%   \end{block}
+%% 
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{block}{Tools and techniques:}
+    \begin{itemize}
+    \item<2-> 
+      Differential equations, difference equations, linear algebra,
+      stochastic models.
+    \item<3-> 
+      Statistical techniques for comparisons and descriptions.
+    \item<4-> 
+      Methods from statistical mechanics and computer science.
+    \item<5-> 
+      Machine learning (but beware the black box).
+    \item<6-> 
+      Computer modeling, everything from
+      \begin{itemize}
+      \item 
+        Artisanal toy models (e.g., using \wordwikilink{http://ccl.northwestern.edu/netlogo/}{Netlogo})
+      \item 
+        to kitchen sink models.
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<7->{Key advance (to repeat):}
+    \begin{itemize}
+    \item<7-> Representation of \alertb{complex interaction patterns}
+      as \alertb{complex networks}.
+    \item<8-> The driver: \alertr{Massive amounts of Data}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rather silly but great example of real science:}
+
+  \wordwikilink{http://www.sciencemag.org/content/early/2010/11/10/science.1195421}{``How Cats Lap: {W}ater Uptake by \textit{{F}elis catus}''}\\
+  Reis et al., \textit{Science}, 2010.
+
+  \medskip
+
+  \includegraphics[width=\textwidth]{12cats_graphic-popup-v2.jpg}
+
+  Amusing interview \wordwikilink{http://video.nytimes.com/video/2010/11/11/science/1248069317702/how-cats-lap.html}{here}
+
+\end{frame}
+
+\section{Statistical\ Mechanics}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+    emergence-of-stories,
+    mechanics-statistical,
+  }
+\end{frame}
+
+\begin{frame}
+  
+  \showtarotcards{0.30}{
+    overview,
+    manifesto,
+    scaling,
+    power-law-size-distributions,
+    random-walks,
+    variable-transformation,
+    rich-get-richer,
+    efficient-language,
+    data-poor,
+    pouring-data,
+    emergence-of-structure,
+    emergence-of-destruction,
+    emergence-of-thinking,
+    emergence-of-stories,
+    mechanics-statistical,
+    thresholds-of-percolation,
+  }
+\end{frame}
+
+
+\begin{frame}
+%%  \frametitle{Models}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1-> 
+      Statistical Mechanics is \alertr{``a science of collective behavior.''}
+    \item<1->
+      \alertb{Simple rules} give rise to \alertb{collective phenomena.}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Percolation:}
+    \includegraphics[width=\textwidth]{loandhi.png}
+    
+    Snared from 
+    \wordwikilink{http://wwwf.imperial.ac.uk/~mgastner/percolation/percolation.html}{Michael Gastner's page on percolation}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  %% \frametitle{The stuff of statistical mechanics:}
+  \small
+
+    \begin{block}{\normalsize \wordwikilink{http://en.wikipedia.org/wiki/Ising_model}{The Ising Model} of a ferromagnet:}
+      \small
+      \begin{columns}
+        \column{0.02\textwidth}
+        \column{0.27\textwidth}
+        \includegraphics[width=\textwidth]{2013-01-21ising-model-sketch-crop-tp-1.pdf}\\
+        \includegraphics[width=\textwidth]{2013-01-22ising-model-sketch-crop-tp-1.pdf}
+        \column{0.69\textwidth}
+        \begin{itemize}
+        \item<+-> 
+          Each atom is assumed to have a local spin 
+          that can be \alertr{up} or \alertr{down}: $ S_i = \pm 1$.
+        \item<+-> 
+          Spins are assumed to be arranged on a lattice.
+        \item<+-> 
+          In isolation, spins like to align with each other.
+        \item<+-> 
+          Increasing temperature breaks these alignments.
+        \item<+-> 
+          The \wordwikilink{http://en.wikipedia.org/wiki/Drosophila}{drosophila} of statistical mechanics.
+        \item<+-> 
+          Criticality: Power-law distributions at critical points.
+        \end{itemize}
+        \column{0.02\textwidth}
+      \end{columns}
+    \end{block}
+    \begin{block}<+->{Example 2-d Ising model simulation:}
+      \small
+      \wordwikilink{http://dtjohnson.net/projects/ising}{http://dtjohnson.net/projects/ising}
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Phase diagrams}
+
+  \includegraphics[height=0.7\textheight]{Phase-diag.png}
+
+  \medskip
+
+  Qualitatively distinct macro states.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Phase diagrams}
+
+  Oscillons, bacteria, traffic, snowflakes, ...
+
+  \medskip
+  
+  \includegraphics[width=0.45\textwidth]{osc1.pdf}
+  \includegraphics[width=0.45\textwidth]{osc2.pdf}
+
+  \medskip
+
+  Umbanhowar et al., \textit{Nature}, 1996\cite{umbanhowar1996a}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Phase diagrams}
+
+  \begin{center}
+    \includegraphics[height=0.8\textheight]{oscillon_phasediagram.pdf}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Phase diagrams}
+
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{bacteria_phase_diagram.jpg}
+  \end{center}
+
+  {\tiny $W_0$ = initial wetness, $S_0$ = initial nutrient supply\\
+    \url{http://math.arizona.edu/~lega/HydroBact.html}}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ising model}
+
+  \begin{block}{Analytic issues:}
+    \begin{itemize}
+    \item<1-> 1-d: simple (Ising \& Lenz, 1925)
+    \item<2-> 2-d: hard (Onsager, 1944)
+    \item<3-> 3-d: extremely hard...
+    \item<4-> 4-d and up: simple.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Statistics}
+
+  \begin{block}{Historical surprise:}
+  \begin{itemize}
+  \item<+-> Origins of Statistical Mechanics are in the studies of people...
+    (Maxwell and co.)
+  \item<+-> Now physicists are using their techniques to study everything else
+    including people...
+  \item<+-> See Philip Ball's ``Critical Mass''\cite{ball2004a}
+  \end{itemize}
+  \end{block}
+
+  \begin{block}<+->{Beyond Statistical Mechanics:}
+    \begin{itemize}
+    \item<+->
+      Analytic approaches have their limits,
+      especially in evolutionary, algorithm-rich systems.
+    \item<+->
+      Algorithmic methods and simulation techniques will continue
+      to rise in importance.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\section{Nutshell}
+
+\begin{frame}
+  \frametitle{Nutshell}
+
+  \begin{block}{}
+  \begin{itemize}
+  \item<+->
+    The central concepts \alertg{Complexity} and
+    \alertg{Emergence} are \alertb{not precisely defined}.
+  \item<+->
+    There is \alertb{no general theory of Complex Systems}.
+  \item<+->
+    But the problems exist...\\
+    \qquad \qquad Complex (Adaptive) Systems abound...
+  \item<+->
+    Framing from the Manifesto: Science's focus is moving to Complex Systems 
+    \alertg{because it finally can}.
+  \item<+->
+    \alertb{We use whatever tools we need.}
+%%  \item<+->
+%%    Reality is theoretically weak.
+  \item<+->
+    Science $\simeq$ Describe + Explain.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+

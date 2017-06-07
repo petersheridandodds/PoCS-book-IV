@@ -1,0 +1,1078 @@
+\section{Directed\ random\ networks}
+
+  \textbf{Random directed networks:}
+
+  \small
+      
+    \includegraphics[width=\textwidth]{network-local-undirected-tp-10.pdf}\\
+    \includegraphics[width=\textwidth]{directed-network-node-example-tp-5.pdf}
+    
+    
+    
+      So far, we've studied networks with undirected, unweighted edges.
+    
+      Now consider directed, unweighted edges.
+   
+    Nodes have $\kin$ and $\kout$ incoming 
+    and outgoing edges, otherwise random.
+    
+    
+   
+    Network defined by joint in- and out-degree distribution: $P_{\kin,\kout}$
+   
+    Normalization: 
+    $
+    \sum_{\kin=0}^\infty
+    \sum_{\kout=0}^\infty
+    P_{\kin,\kout}
+    = 
+    1
+    $
+   
+    Marginal in-degree and out-degree distributions:
+    $$
+    P_{\kin} 
+    = 
+    \sum_{\kout=0}^\infty
+    P_{\kin,\kout}
+    \ \mbox{and} \
+    P_{\kout} 
+    = 
+    \sum_{\kin=0}^\infty
+    P_{\kin,\kout}
+    $$
+   
+    Required balance: 
+    $$
+    \tavg{\kin}
+    =
+    \sum_{\kin=0}^\infty
+    \sum_{\kout=0}^\infty
+    \kin
+    P_{\kin,\kout}   
+    = 
+    \sum_{\kin=0}^\infty
+    \sum_{\kout=0}^\infty
+    \kout
+    P_{\kin,\kout}
+    =
+    \tavg{\kout}
+    $$
+%%   
+%%    Apart from $\tavg{\kin}=\tavg{\kout}$,
+%%    $P_{\kin}$ and $P_{\kout}$ are unconnected.
+    %%   
+    %%    Possible to consider undirected network version
+    %%    by ignoring directions (but non-functional).
+  
+
+
+  \textbf{Directed network structure:}
+
+      
+    \begin{center}
+      \includegraphics[width=\textwidth]{boguna2005a_fig1-tp-5}
+    \end{center}
+    \small
+    From Bogu\~{n}\'{a} and Serano.\cite{boguna2005a}
+    
+    \small
+    
+     
+      GWCC = Giant Weakly Connected Component (directions removed);
+     
+      GIN = Giant In-Component;
+     
+      GOUT = Giant Out-Component;
+     
+      GSCC = Giant Strongly Connected Component;
+     
+      DC = Disconnected Components (finite).
+    
+  
+  
+  
+    When moving through a family of increasingly connected directed
+    random networks, GWCC usually appears before GIN, GOUT, and GSCC which
+    tend to appear together.\cite{newman2001b,boguna2005a}
+  
+
+
+
+\section{Mixed\ random\ networks}
+
+\subsection{Definition}
+
+  \textbf{Mixed random networks:}
+  
+  \textbf{Important observation:}
+    
+    
+      Directed and undirected random networks are separate families\ldots
+    
+      \ldots and analyses are also disjoint.
+    
+      Need to examine a larger family of random networks
+      with mixed directed and undirected edges.
+    
+  
+
+      
+    
+          
+      \includegraphics[width=\textwidth]{mixed-networks-node-example-tp-5.pdf}
+      
+      
+      
+        Consider nodes with three types of edges:
+        
+        
+          $\kbid$ undirected edges,
+        
+          $\kin$ incoming directed edges,
+        
+          $\kout$ outgoing directed edges.
+        
+      
+        Define a node by generalized degree:
+        $$
+        \veck = [\ \kbid \ \  \kin \ \ \kout\ ]^{\textnormal{T}}.
+        $$
+      
+      
+
+  \textbf{Mixed random networks:}
+  
+  
+  
+    Joint degree distribution:
+    $$
+    P_{\veck}
+    \ \mbox{where} \
+    \veck = [\ \kbid \ \  \kin \ \ \kout\ ]^{\textnormal{T}}.
+    $$
+  
+    As for directed networks, require in- and out-degree
+    averages to match up:
+        $$
+    \tavg{\kin}
+    =
+    \sum_{\kbid=0}^\infty
+    \sum_{\kin=0}^\infty
+    \sum_{\kout=0}^\infty
+    \kin
+    P_{\veck}
+    = 
+    \sum_{\kbid=0}^\infty
+    \sum_{\kin=0}^\infty
+    \sum_{\kout=0}^\infty
+    \kout
+    P_{\veck}
+    =
+    \tavg{\kout}
+    $$
+  
+    Otherwise, no other restrictions and connections are random.
+  
+    Directed and undirected random networks are disjoint subfamilies:
+    $$
+    \mbox{Undirected:} \
+    P_{\veck}
+    =
+    P_{\kbid} \delta_{\kin,0} \delta_{\kout,0},
+    $$
+    $$
+    \mbox{Directed:} \
+    P_{\veck}
+    =
+    \delta_{\kbid,0} P_{\kin,\kout}.
+    $$
+  
+  
+
+\subsection{Correlations}
+
+  \textbf{Correlations:}
+  
+  
+  
+    Now add correlations (two point or Markovian):
+    
+    
+    $
+    \Probbid(\veck\,|\, \veck')
+    $
+    = 
+    probability that an undirected edge leaving 
+    a degree $\veck'$ nodes arrives at a degree $\veck$ node.
+     
+    $
+    \Probin(\veck\,|\, \veck')
+    $
+    = probability that an edge leaving 
+    a degree $\veck'$ nodes arrives at a degree $\veck$ node
+    is an in-directed edge
+    relative to the destination node.
+     
+    $
+    \Probout(\veck\,|\, \veck')
+    $
+    = probability that an edge leaving 
+    a degree $\veck'$ nodes arrives at a degree $\veck$ node
+    is an out-directed edge
+    relative to the destination node.
+    
+  
+    Now require more refined (detailed) balance.
+  
+    Conditional probabilities cannot be arbitrary.
+    
+     
+      $\Probbid(\veck\,|\, \veck')$ must be related
+      to $\Probbid(\veck'\,|\, \veck)$.
+    
+      $\Probout(\veck\,|\, \veck')$ 
+      and $\Probout(\veck\,|\, \veck')$ 
+      must be connected.
+    
+    
+
+
+  \textbf{Correlations---Undirected edge balance:}
+
+  
+   
+    Randomly choose an edge, and randomly choose one end.
+   
+    Say we find a degree $\veck$ node at this end,
+    and a degree $\veck'$ node at the other end.
+   
+    Define probability this happens as $\Probbid(\veck, \veck')$.
+   
+    Observe we must have $\Probbid(\veck, \veck') = \Probbid(\veck', \veck)$.
+  
+
+              
+        \includegraphics[width=\textwidth]{mixed-networks-undirected-edge-correlations-tp-5.pdf}
+        
+        
+        
+          Conditional probability connection:        
+        
+        {
+        $$
+        \begin{array}{ccl}
+          \Probbid(\veck, \veck')
+          &
+          = 
+          &
+          \Probbid(\veck\, |\, \veck') 
+          \frac{\kbid' P(\veck')}{\tavg{\kbid'}}
+          \\
+          \interleave
+          & & \\
+          \Probbid(\veck', \veck)
+          &
+          = 
+          &
+          \Probbid(\veck'\, |\, \veck) 
+          \frac{\kbid P(\veck)}{\tavg{\kbid}}.
+        \end{array}
+        $$
+      }
+      
+
+  \textbf{Correlations---Directed edge balance:}
+
+    
+     
+      The quantities
+              
+        $$
+        \frac{\kout P(\veck)}{\tavg{\kout}}
+        \ \mbox{and} \
+        \frac{\kin P(\veck)}{\tavg{\kin}}
+        $$
+      give the probabilities
+      that in starting at a random end
+      of a randomly selected edge,
+      we begin at a degree $\veck$ node
+      and then
+      find ourselves travelling:
+        
+        \includegraphics[width=\textwidth]{mixed-networks-directed-edge-correlations-tp-5.pdf}
+            
+       
+        along an outgoing edge, or
+       
+        against the direction of an incoming edge.
+      
+    
+      We therefore have
+      $$
+      \Probdir(\veck,\veck')
+      =
+      \Probin(\veck\, |\, \veck') 
+      \frac{\kout' P(\veck')}{\tavg{\kout'}}
+      =
+      \Probout(\veck'\, |\, \veck) 
+      \frac{\kin P(\veck)}{\tavg{\kin}}.
+      $$
+    
+      Note that 
+      $
+      \Probdir(\veck,\veck')
+      $ 
+      and
+      $
+      \Probdir(\veck',\veck)
+      $
+      are in general not related if $\veck \ne \veck'$.
+    
+
+
+\section{Mixed\ Random\ Network\ Contagion}
+
+\subsection{Spreading\ condition}
+
+  \textbf{Global spreading condition:\cite{dodds2011b}}
+
+  \textbf{When are cascades possible?:}
+    
+    
+      Consider uncorrelated mixed networks first.
+    
+      Recall our first result for undirected random networks,
+      that edge gain ratio must exceed 1:
+      $$
+      \mathbf{R}
+      =
+      \sum_{\kbid=0}^{\infty}
+      \frac{\kbid P_{\kbid}}{\tavg{\kbid}}
+      \bullet
+      (\kbid-1)
+      \bullet
+      B_{\kbid,1}
+      >
+      1.
+      $$
+    
+      Similar form for purely directed networks:
+      $$
+      \mathbf{R}
+      =
+      \sum_{\kin=0}^{\infty}
+      \sum_{\kout=0}^{\infty}
+      \frac{\kin P_{\kin,\kout}}{\tavg{\kin}}
+      \bullet
+      \kout
+      \bullet
+      B_{\kin,1}
+      >
+      1.
+      $$
+    
+      Both are composed of 
+      (1) probability of connection
+      to a node of a given type;
+      (2) number of newly infected edges if successful;
+      and 
+      (3) probability of infection.
+    
+  
+
+  \textbf{Global spreading condition:}
+  
+  \textbf{Local growth equation:}
+    
+    
+      Define number of infected edges leading
+      to nodes a distance $d$ away from the original seed
+      as $f(d)$.
+    
+      Infected edge growth equation:
+      $$
+      f(d+1) = \mathbf{R} f(d).
+      $$
+    
+      Applies for discrete time and continuous time contagion
+      processes.
+    
+      Now see $B_{\kbid,1}$ is the probability that an infected edge
+      eventually infects a node.
+    
+      Also allows for recovery of nodes (SIR).
+    
+
+    
+  
+
+
+
+  \textbf{Global spreading condition:}
+
+  \textbf{Mixed, uncorrelated random netwoks:}
+  
+   
+    Now have two types of edges spreading infection: directed and undirected.
+   
+    Gain ratio now more complicated: 
+    
+     
+      Infected directed edges can lead to infected directed or undirected edges.
+     
+      Infected undirected edges can lead to infected directed or undirected edges.
+    
+  
+    Define 
+    $
+    f^{\textnormal{(\bidmark)}}(d)
+    $
+    and 
+    $
+    f^{\textnormal{(\outmark)}}(d)
+    $
+    as the expected number of infected undirected and directed 
+    edges leading to nodes a distance $d$ from seed.
+  
+  
+
+
+\begin{frame}[plain]
+%%  \textbf{Global spreading condition:}
+
+  
+  
+    Gain ratio now has a matrix form:
+    $$
+    \left[
+      \begin{array}{c}
+        f^{\textnormal{(\bidmark)}}(d+1) \\
+        f^{\textnormal{(\outmark)}}(d+1)
+      \end{array}
+    \right]
+    =
+    \mathbf{R} 
+    \left[
+      \begin{array}{c}
+        f^{\textnormal{(\bidmark)}}(d) \\
+        f^{\textnormal{(\outmark)}}(d)
+      \end{array}
+    \right]
+    $$
+  
+    Two separate gain equations:
+  
+  {
+    \small
+    $$
+    f^{\textnormal{(\bidmark)}}(d+1) 
+    =
+    \sum_{\veck}
+    \left[
+    \alertb{
+      \frac{\kbid P_{\veck}}{\tavg{\kbid}}
+      \bullet
+      (\kbid-1)
+      B_{\kbid+\kin,1}
+    }
+    f^{\textnormal{(\bidmark)}}(d) 
+    +
+    \alertb{
+      \frac{\kin P_{\veck}}{\tavg{\kin}}
+      \bullet
+      \kbid
+      \bullet
+      B_{\kbid+\kin,1}
+    }
+    f^{\textnormal{(\outmark)}}(d) 
+    \right]
+    $$
+    }
+    {
+      $$
+      f^{\textnormal{(\outmark)}}(d+1) 
+      =
+      \sum_{\veck}
+      \left[
+      \alertb{
+        \frac{\kbid P_{\veck}}{\tavg{\kbid}}
+        \bullet
+        \kout
+        B_{\kbid+\kin,1}
+      }
+      f^{\textnormal{(\bidmark)}}(d) 
+      +
+      \alertb{
+        \frac{\kin P_{\veck}}{\tavg{\kin}}
+        \bullet
+        \kout
+        \bullet
+        B_{\kbid+\kin,1}
+      }
+      f^{\textnormal{(\outmark)}}(d) 
+      \right]
+    $$
+    }
+    
+  
+    Gain ratio matrix:
+    $$
+    \mathbf{R}
+    =
+    \sum_{\veck}
+    \left[
+      \begin{array}{ll}
+        \frac{\kbid P_{\veck}}{\tavg{\kbid}}
+        \bullet
+        (\kbid-1)
+        &
+        \frac{\kin P_{\veck}}{\tavg{\kin}}
+        \bullet
+        \kbid
+        \\
+        \frac{\kbid P_{\veck}}{\tavg{\kbid}}
+        \bullet
+        \kout
+        &
+        \frac{\kin P_{\veck}}{\tavg{\kin}}
+        \bullet
+        \kout
+      \end{array}
+    \right]
+    \bullet
+    B_{\kbid+\kin,1}
+    $$
+  
+    Spreading condition:
+    max eigenvalue of $\mathbf{R} > 1$.
+%%    $
+%%     \max{|\mu|} : 
+%%     \mu 
+%%     \in 
+%%     \sigma
+%%     \left(
+%%       \mathbf{R}
+%%     \right)  
+%%     > 1
+%%     $.
+  
+
+
+
+  \textbf{Global spreading condition:}
+
+  
+  
+    Useful change of notation for making results more general:
+    write 
+    \alertb{
+      $
+      \Probbid(\veck\,|\, \ast)
+      =
+      \frac{\kbid P_{\veck}}{\tavg{\kbid}}
+      $
+    }
+    and
+    \alertb{
+      $
+      \Probin(\veck\,|\, \ast)
+      =
+      \frac{\kin P_{\veck}}{\tavg{\kin}}
+      $
+    }
+    where
+    $\ast$ indicates the starting node's degree
+    is irrelevant (no correlations).
+
+  Also write
+  \alertb{
+    $
+    B_{\kbid\kin,\ast}
+    $
+  }
+  to indicate a more general infection probability,
+  but one that does not depend on the edge's origin.
+
+  Now have, for the example of mixed, uncorrelated random networks:
+  $$
+  \mathbf{R} 
+  =
+  \sum_{\veck}
+  \left[
+    \begin{array}{ll}
+      \Probbid(\veck\,|\, \ast)
+      \bullet
+      (\kbid-1)
+      &
+      \Probin(\veck\,|\, \ast)
+      \bullet
+      \kbid
+      \\
+      \Probbid(\veck\,|\, \ast)
+      \bullet
+      \kout
+      &
+      \Probin(\veck\,|\, \ast)
+      \bullet
+      \kout
+      \end{array}
+    \right]
+    \bullet
+    B_{\kbid\kin,\ast}
+    $$
+   
+
+
+
+
+  \textbf{Summary of contagion conditions for uncorrelated networks:}
+  
+    
+      I. Undirected, Uncorrelated---$f(d+1) = \mathbf f(d)$:
+      $$
+      \mathbf{R} = 
+      \sum_{\kbid}
+      \Probbid(\kbid\, |\, \ast)
+      \bullet
+      (\kbid-1)
+      \bullet
+      B_{\kbid,\ast}
+      $$
+    
+      II. Directed, Uncorrelated---$f(d+1) = \mathbf f(d)$:
+      $$
+      \mathbf{R} = 
+      \sum_{\kin,\kout}
+      \Probin(\kin,\kout\, |\, \ast)
+      \bullet
+      \kout
+      \bullet
+      B_{\kin,\ast}
+      $$
+    
+      III. Mixed Directed and Undirected, Uncorrelated---
+      $$
+      \left[
+        \begin{array}{c}
+          f^{\textnormal{(\bidmark)}}(d+1) \\
+          f^{\textnormal{(\outmark)}}(d+1)
+        \end{array}
+      \right]
+      =
+      \mathbf{R} 
+      \left[
+        \begin{array}{c}
+          f^{\textnormal{(\bidmark)}}(d) \\
+          f^{\textnormal{(\outmark)}}(d)
+        \end{array}
+      \right]
+      $$
+      $$
+      \mathbf{R} 
+      = 
+      \sum_{\veck}
+      \left[
+        \begin{array}{ll}
+          \Probbid(\veck\,|\, \ast)
+          \bullet
+          (\kbid-1)
+          &
+          \Probin(\veck\,|\, \ast)
+          \bullet
+          \kbid
+          \\
+          \Probbid(\veck\,|\, \ast)
+          \bullet
+          \kout
+          &
+          \Probin(\veck\,|\, \ast)
+          \bullet
+          \kout
+        \end{array}
+      \right]
+      \bullet
+      B_{\kbid\kin,\ast}
+      $$
+    
+  
+
+
+
+  \textbf{Correlated version:}
+  
+  
+  
+    Now have to think of transfer of infection
+    from edges emanating from degree $\veck'$
+    nodes 
+    to edges emanating from 
+    degree $\veck$ nodes.
+  
+    Replace 
+    $\Probin(\veck\,|\, \ast)$ with
+    $\Probin(\veck\,|\, \veck')$ and so on.
+  
+    Edge types are now more diverse beyond
+    directed and undirected as originating node
+    type matters.
+  
+    Sums are now over $\veck'$.
+  
+
+
+
+  \small
+  \textbf{Summary of contagion conditions for correlated networks:}
+    
+    
+      IV. Undirected, Correlated---$f_{\kbid}(d+1) = 
+      \sum_{\kbid'}
+      R_{\kbid\kbid'} 
+      f_{\kbid'}(d)
+      $
+      $$
+      R_{\kbid\kbid'} =
+      \Probbid(\kbid\, |\, \kbid')
+      \bullet
+      (\kbid-1)
+      \bullet
+      B_{\kbid\kbid'}
+      $$
+    
+      V. Directed, Correlated---$f_{\kin\kout}(d+1) = 
+      \sum_{\kin',\kout'}
+      R_{\kin\kout\kin'\kout'} 
+      f_{\kin'\kout'}(d)
+      $ 
+      $$
+      R_{\kin\kout\kin'\kout'} 
+      =
+      \Probin(\kin,\kout\, |\, \kin',\kout')
+      \bullet
+      \kout
+      \bullet
+      B_{\kin\kout\kin'\kout'} 
+      $$ 
+    
+    VI. Mixed Directed and Undirected, Correlated---
+    $$
+    \left[
+    \begin{array}{c}
+    f_{\veck}^{\textnormal{(\bidmark)}}(d+1) \\
+    f_{\veck}^{\textnormal{(\outmark)}}(d+1)
+    \end{array}
+    \right]
+    =
+    \sum_{k'}
+    \textbf{R}_{\veck\veck'}
+    \left[
+    \begin{array}{c}
+    f_{\veck'}^{\textnormal{(\bidmark)}}(d) \\
+    f_{\veck'}^{\textnormal{(\outmark)}}(d)
+    \end{array}
+    \right]
+    $$
+    $$
+    \textbf{R}_{\veck\veck'}
+    = 
+    \left[
+    \begin{array}{ll}
+      \Probbid(\veck\,|\, \veck')
+      \bullet
+      (\kbid-1)
+      &
+      \Probin(\veck\,|\, \veck')
+      \bullet
+      \kbid
+      \\
+      \Probbid(\veck\,|\, \veck')
+      \bullet
+      \kout
+      &
+      \Probin(\veck\,|\, \veck')
+      \bullet
+      \kout
+    \end{array}
+    \right]
+    \bullet
+    B_{\veck\veck'}
+    $$
+  
+
+
+
+  \small
+  \textbf{Summary of triggering probabilities for uncorrelated networks:\cite{dodds2011c}}
+    
+    
+    I. Undirected, Uncorrelated---
+    $
+    \probfc = 
+    \sum_{\kbid'}
+    \Probbid(\kbid'\, | \, \cdot)
+    B(1,\kbid')
+    \left[
+      1
+      -
+      (1-\probfc)^{\kbid'-1}
+    \right]
+    $
+    $$
+    \Strig
+    =
+    \sum_{\kbid'}
+    P(\kbid')
+    \left[
+      1 - (1-\probfc)^{\kbid'}
+    \right]
+    $$
+  
+    II. Directed, Uncorrelated---
+    $
+    \probfc = 
+    \sum_{\kin',\kout'}
+    \Probbid(\kin',\kout' | \, \cdot)
+    B(1,\kin')
+    \left[
+      1
+      -
+      (1-\probfc)^{\kout'}
+    \right]
+    $
+    $$
+    \Strig
+    =
+    \sum_{\kin',\kout'}
+    P(\kin',\kout')
+    \left[
+      1 - (1-\probfc)^{\kout'}
+    \right]
+    $$
+  
+  
+
+  \small
+  \textbf{Summary of triggering probabilities for uncorrelated networks:}
+    
+  
+    III. Mixed Directed and Undirected, Uncorrelated---
+    $$
+    \probfc^{(u)} 
+    = 
+    \sum_{\veck'}
+    \Probbid(\veck' | \, \cdot)
+    B(1,\veck')
+    \left[
+      1
+      -
+      (1-\probfc^{(u)})^{\kbid'-1}
+      (1-\probfc^{(o)})^{\kout'}
+    \right]
+    $$
+    $$
+    \probfc^{(o)} 
+    = 
+    \sum_{\veck'}
+    \Probin(\veck' | \, \cdot)
+    B(1,\veck')
+    \left[
+      1
+      -
+      (1-\probfc^{(u)})^{\kbid'}
+      (1-\probfc^{(o)})^{\kout'}
+    \right]
+    $$
+    $$
+    \Strig
+    =
+    \sum_{\veck'}
+    P(\veck')
+    \left[
+      1 - (1-\probfc^{(u)})^{\kbid'}(1-\probfc^{(o)})^{\kout'}
+    \right]
+    $$
+  
+  
+
+
+  \small
+  \textbf{Summary of triggering probabilities for correlated networks:}
+    
+    
+    IV. Undirected, Correlated---
+    $
+    \probfc_{\kbid} = 
+    \sum_{\kbid'}
+    \Probbid(\kbid'\, | \, \kbid)
+    B(1,\kbid')
+    \left[
+      1
+      -
+      (1-\probfc_{\kbid'})^{\kbid'-1}
+    \right]
+    $
+    $$
+    \Strig
+    =
+    \sum_{\kbid'} 
+    P(\kbid')
+    \left[
+      1 - (1-\probfc_{\kbid'})^{\kbid'}
+    \right]
+    $$
+    
+    V. Directed, Correlated---
+    $
+    \probfc_{\kin\kout} = 
+    \sum_{\kin',\kout'}
+    \Probbid(\kin',\kout' | \, \kin,\kout)
+    B(1,\kin')
+    \left[
+      1
+      -
+      (1-\probfc_{\kin'\kout'})^{\kout'}
+    \right]
+    $
+    $$
+    \Strig
+    =
+    \sum_{\kin',\kout'} 
+    P(\kin',\kout')
+    \left[
+      1 - (1-\probfc_{\kin'\kout'})^{\kout'}
+    \right]
+    $$
+    
+  
+
+
+  \small
+  \textbf{Summary of triggering probabilities for correlated networks:}
+    
+    
+      VI. Mixed Directed and Undirected, Correlated---
+      $$
+      \probfc^{(u)}_{\veck} 
+      = 
+      \sum_{\veck}
+      \Probbid(\veck' | \, \veck)
+      B(1,\veck')
+      \left[
+        1
+        -
+        (1-\probfc^{(u)}_{\veck'})^{\kbid'-1}
+        (1-\probfc^{(o)}_{\veck'})^{\kout'}
+      \right]
+      $$
+      $$
+      \probfc^{(o)}_{\veck} 
+      = 
+      \sum_{\veck'}
+      \Probin(\veck' | \, \veck)
+      B(1,\veck')
+      \left[
+        1
+        -
+        (1-\probfc^{(u)}_{\veck'})^{\kbid'}
+        (1-\probfc^{(o)}_{\veck'})^{\kout'}
+      \right]
+      $$
+      $$
+      \Strig
+      =
+      \sum_{\veck'} 
+      P(\veck')
+      \left[
+        1 - (1-\probfc^{(u)}_{\veck'})^{\kbid'}
+        (1-\probfc^{(o)}_{\veck'})^{\kout'}
+      \right]
+      $$
+    
+  
+
+\subsection{Full\ generalization}
+
+  \textbf{Full\ generalization:}
+
+      
+    \includegraphics[width=\columnwidth]{figgeneralcontagion-schematic005.pdf}
+    
+    $$
+    f_{\vec{\alpha}}(d+1) 
+    = 
+    \sum_{\vec{\alpha}'}
+    R_{\vec{\alpha} \vec{\alpha}'}
+    f_{\vec{\alpha}'}(d)
+    $$
+    $
+    R_{\vec{\alpha} \vec{\alpha}'}
+    $
+    is the gain ratio matrix
+    and has the form:
+    $$
+    R_{\vec{\alpha} \vec{\alpha}'}
+    =
+    P_{\vec{\alpha} \vec{\alpha}'}
+    \bullet
+    k_{\vec{\alpha} \vec{\alpha}'}
+    \bullet
+    B_{\vec{\alpha} \vec{\alpha}'}.
+    $$
+  
+  
+  
+    $P_{\vec{\alpha} \vec{\alpha}'}$
+    = conditional probability that
+    a type $\lambda'$ edge emanating from a type $\nu'$ 
+    node leads to a type $\nu$ node.
+  
+    $k_{\vec{\alpha} \vec{\alpha}'}$
+    = potential  number of newly 
+    infected edges of type $\lambda$ 
+    emanating from nodes of type $\nu$.
+  
+    $B_{\vec{\alpha} \vec{\alpha}'}$
+    = probability that
+    a type $\nu$ node is eventually infected by
+    a single infected type $\lambda'$ link arriving from a 
+    neighboring node of type $\nu'$.
+  
+    Generalized contagion condition:
+    $$
+    \max{|\mu|} : 
+    \mu 
+    \in 
+    \sigma
+    \left(
+      \mathbf{R}
+    \right)  
+    > 1
+    $$
+  
+
+  
+
+%% \subsection{Triggering\ probabilities}
+%% 
+%% %% 
+%% 
+
+\section{Nutshell}
+
+  \textbf{Nutshell:}
+  
+  
+  
+    Mixed, correlated random networks with undirected and directed
+    edges form natural inclusive generalization of
+    purely undirected and purely directed random networks.
+  
+    Spreading conditions and triggering probabilities
+    of contagion processes can be determined using
+    a direct, physical approach.
+  
+    These conditions can be generalized to arbitrary random networks
+    with arbitrary node and edge types.
+  
+  

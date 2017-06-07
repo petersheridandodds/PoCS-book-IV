@@ -1,0 +1,1889 @@
+\begin{frame}[plain]
+  \frametitle{Piracy on the high $\chi$'s:}
+  
+  \begin{block}{}
+    \displaypaper{willett2014a}{1}
+  \end{block}
+
+  \begin{columns}
+    \column{0.025\textwidth}  
+    \column{0.50\textwidth}  
+    \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{willett2014a_fig1}
+    \column{0.025\textwidth}  
+    \column{0.45\textwidth}  
+    \small
+    $$
+    \partialdiff{z(x,t)}{t}
+    =
+    U
+    -
+    KA^{m}
+    \left|
+      \partialdiff{z(x,t)}{x}
+    \right|^{n}
+    $$
+    $$
+    z(x)
+    =
+    z_{\textnormal{b}}
+    +
+    \left(
+      \frac{U}
+      {K A_{0}^{m}}
+    \right)^{1/n}
+    \chi
+    $$
+    $$
+    \chi
+    =
+    \int_{x_{\textnormal{b}}}^{x}
+    \left(
+      \frac{A_{0}}
+      {A(x')}
+    \right)^{m/n}
+    \dee x'
+    $$
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Piracy on the high $\chi$'s:}
+
+  \youtubevideo{FnroL1_-l2c}{}{}
+
+  \bigskip
+
+  More: \wordwikilink{http://www.sciencedaily.com/releases/2014/03/140306142759.htm}{How
+    river networks move across a landscape} (Science Daily)
+  
+\end{frame}
+
+\section{Horton\ \texorpdfstring{$\Leftrightarrow$}{is\ equivalent\ to}\ Tokunaga}
+
+\begin{frame}[label=]
+  \frametitle{Can Horton and Tokunaga be happy?}
+
+  \begin{block}<1->{Horton and Tokunaga seem different:}
+    \begin{itemize}
+      \item<2-> In terms of network achitecture, 
+        Horton's laws appear to contain less
+        detailed information than Tokunaga's law.
+      \item<3-> Oddly, Horton's laws have \alert{four} parameters
+        and Tokunaga has \alert{two} parameters.
+      \item<4-> $R_n$, $R_a$, $R_\msl$, and $R_\okell$ \alert{versus} $T_1$ and $R_T$.
+        One simple redundancy: $R_\msl = R_\okell$.\\
+        \insertassignmentquestionsoft{1}{1}
+      \item<5-> To make a connection, clearest approach
+        is to start with Tokunaga's law...
+      \item<6-> Known result: Tokunaga $\rightarrow$ Horton\cite{tokunaga1966a,tokunaga1978a,tokunaga1984a,peckham1995a,dodds1999a}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Let us make them happy}
+
+  \alert{We need one more ingredient:}
+
+  \begin{block}<2->{Space-fillingness}
+    \begin{itemize}
+    \item<3-> A network is \alert{space-filling}
+      if the average distance between adjacent streams
+      is roughly constant.
+    \item<4-> Reasonable for river and cardiovascular networks
+    \item<5-> For river networks:\\
+      \alert{Drainage density $\rhodd$} = inverse of typical distance between
+      channels in a landscape.
+    \item<6-> In terms of basin characteristics:
+      $$
+      \rhodd \simeq \frac{\sum \mbox{stream segment lengths}}{\mbox{basin area}}
+      \uncover<7->{= \frac{\sum_{\om=1}^{\Om} n_\om \bar{\okell}_\om} { a_\Om}}
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{More with the happy-making thing}
+
+  \begin{block}<1->{Start with Tokunaga's law: $T_k = T_1 R_T^{k-1}$}
+    \begin{itemize}
+    \item<2-> 
+      Start looking for Horton's stream number law: \alert{$n_{\om}/n_{\om+1} = R_n$}.
+    \item<3->
+      Estimate $n_\om$, the number of streams of order $\om$ in terms 
+      of other $n_{\om'}$, $\om'>\om$.
+    \item<4-> 
+      Observe that each stream of order $\om$ terminates by either:
+      \begin{columns}
+        \column{0.25\textwidth}
+        \begin{overprint}
+          \onslide<1-4| handout:0 | trans:0>
+          \onslide<5-| handout:1 | trans:1>
+          \includegraphics[width=\textwidth]{figstream_gen01_ok}
+        \end{overprint}
+        \begin{overprint}
+          \onslide<1-5| handout:0 | trans:0>
+          \onslide<6-| handout:1 | trans:1>
+          \includegraphics[width=\textwidth]{figstream_abs01_ok}
+        \end{overprint}
+        \column{0.75\textwidth}
+        \begin{enumerate}
+        \item<5-> Running into another stream of order $\om$ and 
+          generating a stream of order $\om+1$...
+          \uncover<7->{
+            \begin{itemize}
+            \item  \alert{$2n_{\om+1}$ streams of order $\om$ do this}
+            \end{itemize}
+          }
+        \item<6-> Running into and being absorbed by a stream
+          of higher order $\om'>\om$...
+          \uncover<8->{
+            \begin{itemize}
+            \item \alert{$n_{\om'} T_{\om'-\om}$ streams of order $\om$ do this}
+            \end{itemize}
+          }
+        \end{enumerate}
+      \end{columns}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{More with the happy-making thing}
+
+  \begin{block}<1->{Putting things together:}
+    \begin{itemize}
+    \item<1->
+      $$
+      n_\om
+      =
+      \underbrace{\alert{2}n_{\om+1}}_{\textnormal{generation}}
+      +
+      \uncover<2->{
+      \sum_{\om'=\om+1}^{\Om}
+      \underbrace{\alert{T_{\om'-\om}} n_{\om'}}_{\textnormal{absorption}}
+      }
+      $$
+    \item<3->
+      Use Tokunaga's law and manipulate expression
+      to find Horton's law for stream numbers follows
+      and hence obtain $R_n$.
+    \item<3->
+      \insertassignmentquestionsoft{1}{1}
+    \item<4->
+      Solution:
+      $$
+      R_n
+      =
+      \frac{
+      (2+R_T+T_1)
+      \pm 
+      \sqrt{
+        (2+R_T+T_1)^2-8R_T
+        }
+      }
+      {2}
+      $$
+      (The larger value is the one we want.)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Finding other Horton ratios}
+
+  \begin{block}{Connect Tokunaga to $R_\okell$}
+    \begin{itemize}
+    \item<1-> 
+      Now use uniform drainage density $\rhodd$.
+    \item<2-> 
+      Assume side streams are roughly separated
+      by distance $1/\rhodd$.
+    \item<3-> For an order $\om$ \alert{stream segment},
+      expected length is 
+      $$
+      \bar{\okell}_\om
+      \simeq
+      \rhodd^{-1}
+      \left(
+        1 + \sum_{k=1}^{\om-1} T_k
+      \right)
+      $$
+    \item<4-> Substitute in Tokunaga's law $T_k = T_1 R_T^{k-1}$:
+      $$
+      \bar{\okell}_\om
+      \simeq
+      \rhodd^{-1}
+      \left(
+        1 + T_1 \sum_{k=1}^{\om-1} R_T^{\ k-1}
+      \right)
+      \uncover<5->{
+      \propto
+      R_T^{\ \om}
+      }
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton and Tokunaga are happy}
+
+  \begin{block}<1->{Altogether then:}
+  \begin{itemize}
+  \item<1-> 
+      $$ \Rightarrow \bar{\okell}_\om/\bar{\okell}_{\om-1} = R_T
+      \uncover<2->{
+        \Rightarrow \alert{R_\okell = R_T} 
+      }
+      $$
+    \item<3->
+      Recall $R_\msl = R_\okell$ so 
+      $$ 
+      \alert{\boxed{R_\msl = R_\okell =  R_T}}
+      $$
+    \item<4->
+      And from before:
+      $$
+      \alert{\boxed{
+          R_n
+          =
+          \frac{
+            (2+R_T+T_1)
+            +
+            \sqrt{
+              (2+R_T+T_1)^2-8R_T
+            }
+          }
+          {2}
+        }
+      }
+      $$
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Horton and Tokunaga are happy}
+
+  \begin{block}<1->{Some observations:}
+    \begin{itemize}
+    \item<1->
+      $R_n$ and $R_\msl$ depend on $T_1$ and $R_T$.
+    \item<2->
+      Seems that $R_a$ must as well...
+    \item<3-> Suggests Horton's laws must contain some redundancy
+    \item<4-> We'll in fact see that $R_a = R_n$.
+    \item<5-> Also: Both Tokunaga's law and Horton's laws
+      can be generalized to relationships between
+      non-trivial statistical distributions.\cite{dodds2001b,dodds2001c}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton and Tokunaga are happy}
+  
+  \begin{block}<1->{The other way round}
+    \begin{itemize}
+    \item<1-> Note: We can invert the expresssions
+      for $R_n$ and $R_\msl$ to find Tokunaga's
+      parameters in terms of Horton's parameters.
+    \item<2-> 
+      $$
+      R_T = R_\msl,
+      $$
+    \item<2->
+      $$
+      T_1  =  R_n - R_\msl - 2 + 2R_\msl/R_n.
+      $$
+    \item<3-> 
+      Suggests we should be able to argue that Horton's laws
+      imply Tokunaga's laws (if drainage density is uniform)...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton and Tokunaga are friends}
+
+  \begin{block}<1->{From Horton to Tokunaga\cite{dodds1999a}}
+    \begin{columns}
+      \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{hort2tok_abc_PRE_ok}
+      \column{0.5\textwidth}
+      \begin{itemize}
+      \item<2-> Assume Horton's laws hold for number and length
+      \item<3-> Start with picture showing an order $\om$ stream
+        and order $\om-1$ generating and side streams.
+      \item<4-> Scale up by a factor of $R_\msl$, orders increment
+        to $\om+1$ and $\om$.
+      \item<5-> Maintain drainage density by adding new order $\om-1$ streams
+      \end{itemize}
+    \end{columns}
+      
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton and Tokunaga are friends}
+
+  \begin{block}<1->{\ldots and in detail:}
+    \begin{itemize}
+    \item<1-> Must retain same drainage density.
+    \item<2-> Add an extra $(R_\msl-1)$ first order streams
+      for each original tributary.
+    \item<3-> Since by definition, an order $\om+1$ stream segment
+      has $T_{\om}$ order 1 side streams, we have: 
+      \uncover<4->{
+        $$
+        T_{k} = (R_\msl-1)
+        \left( 
+          1 + 
+          \sum_{i=1}^{k-1} T_{i}  
+        \right).
+        $$
+      }
+    \item<5->
+      For large $\om$, Tokunaga's law is the solution---let's check...
+    \end{itemize}
+
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Horton and Tokunaga are friends}
+
+  \begin{block}{Just checking:}
+    \begin{itemize}
+    \item<1-> Substitute Tokunaga's law $T_i=T_1 R_T^{\ i-1} = T_1 R_\msl^{\ i-1}$ into
+      $$
+      T_{k} = (R_\msl-1)
+      \left(
+        1 +
+        \sum_{i=1}^{k-1} T_{i}  
+      \right)
+      $$
+    \item<2->
+        $$ 
+        T_{k} 
+        = 
+        (R_\msl-1)
+        \left(
+          1 + 
+          \sum_{i=1}^{k-1} 
+          T_1 R_\msl^{\ i-1}
+        \right) 
+        $$
+        \uncover<3->{ 
+          $$ 
+          = (R_\msl-1) 
+          \left( 1 + 
+            T_1\frac{R_\msl^{\ k-1}-1}{R_\msl - 1} 
+          \right) 
+          $$
+        }
+        $$ 
+        \uncover<4->{
+          \simeq 
+          (R_\msl-1) T_1 \frac{R_\msl^{\ k-1}}{R_\msl - 1} 
+        }
+        \uncover<5->{ 
+          = T_1 R_\msl^{k-1}  \quad \mbox{... yep.}
+        }
+        $$
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+%%% NOTE: I guess with more work we can derive T_1 from R_n and R_l
+
+\section{Reducing\ Horton}
+
+\begin{frame}[label=]
+  \frametitle{Horton's laws of area and number:}
+
+  \begin{block}{}
+    \begin{center}
+      \includegraphics[width=.3\textwidth]{fignalomega_mispi10} 
+      \includegraphics[width=.3\textwidth]{fignalomega_nile} 
+      \includegraphics[width=.3\textwidth]{fignalomega_amazon} \\
+      \includegraphics[width=.3\textwidth]{fignflipaomega_mispi10} 
+      \includegraphics[width=.3\textwidth]{fignflipaomega_nile} 
+      \includegraphics[width=.3\textwidth]{fignflipaomega_amazon} 
+    \end{center}
+    \begin{itemize}
+    \item<1-> 
+       In bottom plots, stream number graph has been flipped vertically.
+    \item<+-> 
+      Highly suggestive that $R_n \equiv R_a$...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Measuring Horton ratios is tricky:}
+  
+  \begin{itemize}
+  \item<1-> How robust are our estimates of ratios?
+  \item<2-> Rule of thumb: discard data for two smallest
+    and two largest orders.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Mississippi:}
+
+  \settablerowcolours
+  \begin{tabular}{cccccc}
+    $\omega$ range & $R_n$ & $R_a$ & $R_\msl$ & $R_{\okell}$ & $R_a/R_n$ \\
+    $[2,3]$ & 5.27 & 5.26 & 2.48 & 2.30 & 1.00 \\
+    $[2,5]$ & 4.86 & 4.96 & 2.42 & 2.31 & 1.02 \\
+    $[2,7]$ & 4.77 & 4.88 & 2.40 & 2.31 & 1.02 \\
+    $[3,4]$ & 4.72 & 4.91 & 2.41 & 2.34 & 1.04 \\
+    $[3,6]$ & 4.70 & 4.83 & 2.40 & 2.35 & 1.03 \\
+    $[3,8]$ & 4.60 & 4.79 & 2.38 & 2.34 & 1.04 \\
+    $[4,6]$ & 4.69 & 4.81 & 2.40 & 2.36 & 1.02 \\
+    $[4,8]$ & 4.57 & 4.77 & 2.38 & 2.34 & 1.05 \\
+    $[5,7]$ & 4.68 & 4.83 & 2.36 & 2.29 & 1.03 \\
+    $[6,7]$ & 4.63 & 4.76 & 2.30 & 2.16 & 1.03 \\
+    $[7,8]$ & 4.16 & 4.67 & 2.41 & 2.56 & 1.12 \\
+    mean $\mu$ & 4.69 & 4.85 & 2.40 & 2.33 & 1.04 \\
+    std dev $\sigma$ & 0.21 &  0.13 & 0.04 & 0.07 & 0.03 \\
+    $\sigma/\mu$ & 0.045 &  0.027 & 0.015 & 0.031 & 0.024 \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[label=]
+   \frametitle{Amazon:}
+
+  \settablerowcolours
+   \begin{tabular}{cccccc}
+     $\omega$ range & $R_n$ & $R_a$ & $R_\msl$ & $R_{\okell}$ & $R_a/R_n$ \\
+     $[2,3]$ & 4.78 & 4.71 & 2.47 & 2.08 & 0.99 \\
+     $[2,5]$ & 4.55 & 4.58 & 2.32 & 2.12 & 1.01 \\
+     $[2,7]$ & 4.42 & 4.53 & 2.24 & 2.10 & 1.02 \\
+     $[3,5]$ & 4.45 & 4.52 & 2.26 & 2.14 & 1.01 \\
+     $[3,7]$ & 4.35 & 4.49 & 2.20 & 2.10 & 1.03 \\
+     $[4,6]$ & 4.38 & 4.54 & 2.22 & 2.18 & 1.03 \\
+     $[5,6]$ & 4.38 & 4.62 & 2.22 & 2.21 & 1.06 \\
+     $[6,7]$ & 4.08 & 4.27 & 2.05 & 1.83 & 1.05 \\
+     mean $\mu$ & 4.42 & 4.53 & 2.25 & 2.10 & 1.02 \\
+     std dev $\sigma$ & 0.17 &  0.10 & 0.10 & 0.09 & 0.02 \\
+     $\sigma/\mu$ & 0.038 &  0.023 & 0.045 & 0.042 & 0.019 \\
+   \end{tabular}
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Reducing Horton's laws:}
+  
+  \begin{block}<1->{Rough first effort to show $R_n \equiv R_a$:}
+    \begin{itemize}
+    \item<2-> 
+      $a_\Omega \propto$ sum of all stream segment lengths in a order $\Om$ basin
+      (assuming uniform drainage density)
+    \item<3->
+      So:
+      $$ a_\Omega \simeq \sum_{\om=1}^{\Om} n_\om \bar{\okell}_\om/\rhodd $$
+      $$
+      \uncover<4->{
+        \propto \sum_{\om=1}^{\Om}
+       } 
+       \uncover<5->{
+         \underbrace{R_n^{\ \Om-\om} \cdot \overbrace{1}^{\alert{n_\Omega}}}_{\alert{n_\om}}
+       }
+       \uncover<6->{
+         \underbrace{\bar{\okell}_1 \cdot R_\okell^{\ \om-1}}_{\alert{\bar{\okell}_\om}}
+       }
+       $$
+     \uncover<7->{
+       $$
+       = 
+       \frac{R_n^{\ \Om}}{R_\okell} \bar{\okell}_1
+       \sum_{\om=1}^{\Om} 
+       \left(
+       \frac{R_\okell}{R_n}
+       \right)^\om
+       $$
+       }
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Reducing Horton's laws:}
+
+  \begin{block}<1->{Continued ...}
+    \begin{itemize}
+    \item<1->
+      $$
+      \alert{a_\Om} \propto \frac{R_n^\Om}{R_\okell} \bar{\okell}_1
+      \sum_{\om=1}^{\Om} 
+       \left(
+         \frac{R_\okell}{R_n}
+       \right)^\om
+      $$
+      \uncover<2->{
+        $$
+        =
+        \frac{R_n^\Om}{R_\okell}
+        \bar{\okell}_1
+        \frac{R_\okell}{R_n}
+        \frac
+        {1-(R_\okell/R_n)^\Om}
+        {1-(R_\okell/R_n)}
+        $$
+      }
+      \uncover<3->{
+        $$
+        \sim
+        \alert{R_n^{\Om-1}}
+        \bar{\okell}_1
+        \frac
+        {1}
+        {1-(R_\okell/R_n)}
+        \mbox{\ as $\Om \nearrow$}
+        $$
+      }
+    \item<4->{
+        So, $a_\Om$ is growing like $R_n^{\ \Om}$ and therefore:
+        $$
+        \alert{\boxed{R_n \equiv R_a}}
+        $$
+      }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Reducing Horton's laws:}
+
+  \begin{block}{Not quite:}
+    \begin{itemize}
+    \item<1-> ... But this only a rough argument
+      as Horton's laws do not imply a strict hierarchy
+    \item<2-> Need to account for sidebranching.
+    \item<3-> 
+      \insertassignmentquestionsoft{2}{2}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Equipartitioning:}
+
+  \begin{block}{Intriguing division of area:}
+  \begin{itemize}
+  \item<1->
+    Observe: Combined area of basins of order $\om$ 
+    independent of $\om$.
+  \item<2->
+    Not obvious: basins of low orders not necessarily contained
+    in basis on higher orders.
+  \item<3->
+    Story: $$ {R_n \equiv R_a} 
+    \Rightarrow \boxed{n_\om \bar{a}_\om = \mbox{const}} $$
+  \item<4->
+    Reason:
+    $$ n_\om \propto (R_n)^{-\om} $$
+    $$ \bar{a}_\om \propto (R_a)^{\om} \propto n_\om^{-1}$$
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Equipartitioning:}
+  \begin{block}{Some examples:}
+    \begin{center}
+      \includegraphics[width=0.4\textwidth]{figequipart_mispi}
+      \includegraphics[width=0.4\textwidth]{figequipart_amazon} \\
+      \includegraphics[width=0.4\textwidth]{figequipart_nile}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+
+%% \end{comment}
+
+%% \begin{comment}
+
+\neuralreboot{5mUs70SqD4o}{}{}{Fwoompff}
+
+\section{Scaling\ relations}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{The story so far:}
+    \begin{itemize}
+    \item<2-> Natural branching networks are \alert{hierarchical},
+      \alert{self-similar} structures
+    \item<3-> Hierarchy is \alert{mixed}
+    \item<4-> Tokunaga's law describes detailed architecture: $T_k = T_1R_T^{k-1}$.
+    \item<5-> We have connected Tokunaga's and Horton's laws
+    \item<6-> Only two Horton laws are independent ($R_n = R_a$)
+    \item<7-> Only \alert{two} parameters are \alert{independent}: $(T_1,R_T) \Leftrightarrow (R_n,R_\okell)$
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{A little further...}
+    \begin{itemize}
+    \item<2-> Ignore stream ordering for the moment
+    \item<3-> Pick a random location on a branching network $p$.
+    \item<4-> Each point $p$ is associated with a basin and a longest stream length
+    \item<5-> \alert{Q:} What is probability that the $p$'s drainage basin
+      has area $a$?
+      \uncover<7->{
+        $ \alert{P(a) \propto a^{-\tau}} \mbox{\ \ for large $a$}$
+      }
+    \item<6-> \alert{Q:} What is probability that the longest stream from
+      $p$ has length $\msl$?
+      \uncover<8->{
+        $ \alert{P(\msl) \propto \msl^{-\gamma}} \mbox{\ \ for large $\msl$}$
+      }
+    \item<9->
+      Roughly observed: $1.3 \lesssim \tau \lesssim 1.5$
+      and  $1.7 \lesssim \gamma \lesssim 2.0$
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Probability distributions with power-law decays}
+    \begin{itemize}
+    \item<2-> We see them everywhere:
+      \begin{itemize}
+      \item<3-> Earthquake magnitudes (Gutenberg-Richter law)
+      \item<4-> City sizes (Zipf's law)
+      \item<5-> Word frequency (Zipf's law)\cite{zipf1949a}
+      \item<6-> Wealth (maybe not---at least heavy tailed)
+      \item<7-> Statistical mechanics (phase transitions)\cite{goldenfeld1992a}
+      \end{itemize}
+    \item<8-> A big part of the story of complex systems
+    \item<9-> Arise from \alert{mechanisms}: growth, randomness, optimization, ...
+    \item<10-> Our task is always to illuminate the mechanism...
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Connecting exponents}
+    \begin{itemize}
+    \item<2-> We have the detailed picture of branching networks (Tokunaga and
+      Horton)
+    \item<3-> Plan: Derive $P(a) \propto a^{-\tau}$ and $P(\msl) \propto \msl^{-\gamma}$
+      starting with Tokunaga/Horton story\cite{tarboton1990a,devries1994a,dodds1999a}
+    \item<4-> Let's work on $P(\msl)$...
+    \item<5-> Our first fudge: assume Horton's laws hold throughout a basin of
+      order $\Omega$.
+    \item<6-> (We know they deviate from strict laws for low $\om$ and high $\om$
+      but not too much.)
+    \item<7-> Next: place stick between teeth.  
+      \uncover<8->{Bite stick.}  
+      \uncover<9->{Proceed.}  
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<2-> Often useful to work with \alert{cumulative distributions},
+      especially when dealing with power-law distributions.
+    \item<3-> The complementary cumulative distribution turns out
+      to be most useful:
+      $$
+      P_> (\msl_\ast) = 
+      P (\msl > \msl_\ast) =
+      \int_{\msl=\msl_{\ast}}^{\msl_{\max}} P(\msl) {\textnormal{d}}{\msl}
+      $$
+    \item<4->
+      $$
+      P_> (\msl_\ast) =  1 - P(\msl < \msl_\ast)
+      $$
+    \item<5-> Also known as the exceedance probability.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+      \item<1->
+        The connection between $P(x)$ and $P_>(x)$ 
+        when $P(x)$ has a power law tail is simple:
+      \item<2->
+        Given $P(\msl) \sim \msl^{-\gamma}$ large $\msl$ then
+        for large enough $\msl_\ast$
+        $$ 
+        P_> (\msl_\ast) = 
+        \int_{\msl=\msl_{\ast}}^{\msl_{\max}} P(\msl)\, {\textnormal{d}}{\msl}
+        $$
+        \uncover<3->{
+          $$
+          \sim
+          \int_{\msl=\msl_{\ast}}^{\msl_{\max}} \alert{\msl^{-\gamma}} {\textnormal{d}}{\msl}
+          $$
+        }
+        \uncover<4->{
+          $$
+          = 
+          \left.
+            \frac{\msl^{-(\gamma-1)}}
+            {-(\gamma-1)}
+          \right|_{\msl=\msl_{\ast}}^{\msl_{\max}}
+          $$
+        }
+        \uncover<5->{
+          $$
+          \propto
+          \msl_\ast^{\alert{-(\gamma-1)}}
+          \mbox{\quad for $ \msl_{\max} \gg \msl_\ast$}
+          $$
+        }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1-> \alert{Aim:} determine probability of randomly choosing
+      a point on a network with main stream length $> \msl_\ast$
+    \item<2-> Assume some spatial sampling resolution $\Delta$
+    \item<3-> Landscape is broken up into grid of $\Delta \times \Delta$ sites
+    \item<4-> Approximate $P_> (\msl_\ast)$ as 
+      $$
+      P_> (\msl_\ast)
+      =
+      \frac
+      {N_> (\msl_\ast; \Delta)}
+      {N_> (0; \Delta)}.
+      $$
+      where $N_> (\msl_\ast; \Delta)$ is the number of sites
+      with main stream length $> \msl_\ast$.
+    \item<5-> Use Horton's law of stream segments: $\bar{\okell}_\om/\bar{\okell}_{\om-1} = R_\okell$...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1-> Set $\msl_\ast = \bar{\msl}_\om$ for some $1 \ll \om \ll \Om$.
+    \item<2->
+      $$
+      P_> (\bar{\msl}_\om)
+      =
+      \frac
+      {N_> (\bar{\msl}_\om; \Delta)}
+      {N_> (0; \Delta)}
+      \uncover<3->{
+        \simeq
+        \frac
+        {
+          \sum_{\om'=\om+1}^{\Om} n_{\om'}
+          \bar{\okell}_{\om'}/\only<1-3 | handout:0 | trans:0>{\Delta}\only<4- | handout:1 | trans:1>{\alert{\cancel{\Delta}}}
+        }
+        {
+          \sum_{\om'=1}^{\Om} n_{\om'} \bar{\okell}_{\om'}/\only<1-3 | handout:0 | trans:0>{\Delta}\only<4- | handout:1 | trans:1>{\alert{\cancel{\Delta}}}
+        }
+      }
+      $$
+    \item<4->
+      $\Delta$'s cancel
+    \item<5-> 
+      Denominator is $a_\Om \rhodd$, a constant.
+    \item<6->
+      So...  \uncover<8->{using Horton's laws...}
+      $$
+      P_> (\bar{\msl}_\om)
+      \propto
+      \sum_{\om'=\om+1}^{\Om} n_{\om'} \bar{\okell}_{\om'}
+      \uncover<7->{
+        \simeq
+        \sum_{\om'=\om+1}^{\Om} 
+        \uncover<8->{\alert{(1\cdot R_n^{\, \Om-\om'})}}
+        \uncover<9->{\alert{(\bar{\okell}_{1} \cdot R_\okell^{\, \om'-1})}}
+      }
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1-> We are here:
+      $$
+      P_> (\bar{\msl}_\om)
+      \propto
+      \sum_{\om'=\om+1}^{\Om} 
+      (1 \cdot R_n^{\, \Om-\om'})
+      (\bar{\okell}_1 \cdot R_\okell^{\, \om'-1})
+      $$
+    \item<2-> Cleaning up irrelevant constants:
+      $$
+      P_> (\bar{\msl}_\om)
+      \propto
+      \sum_{\om'=\om+1}^{\Om} 
+      \left(
+        \frac{R_\okell}{R_n}
+      \right)^{\om'}
+      $$
+    \item<3-> Change summation order by substituting $\om'' = \Om - \om'$.
+    \item<4-> Sum is now from $\om''=0$ to $\om'' = \Om - \om - 1$
+      \uncover<5->{(equivalent to $\om' = \Om$ down to $\om' = \om + 1$)}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1->
+      $$
+      P_> (\bar{\msl}_\om)
+      \propto
+      \sum_{\om''=0}^{\Om-\om-1} 
+      \left(
+        \frac{R_\okell}{R_n}
+      \right)^{\Om-\om''}
+      \uncover<2->{
+        \propto
+        \sum_{\om''=0}^{\Om-\om-1} 
+        \left(
+          \frac{R_n}{R_\okell}
+        \right)^{\om''}
+        }
+      $$
+    \item<3-> Since $R_n > R_\okell$ and $1 \ll \om \ll \Om$,
+      \uncover<4->{
+        $$
+        P_> (\bar{\msl}_\om)
+        \propto
+        \left(
+          \frac{R_n}{R_\okell}
+        \right)^{\Om-\om}
+        \uncover<5->{
+          \alert{
+            \propto
+            \left(
+              \frac{R_n}{R_\okell}
+            \right)^{-\om}
+          }
+        }
+        $$
+        again using $\sum_{i=0}^{n-1} a^{i} = (a^{\, n}-1)/(a-1)$
+      }
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1-> Nearly there:
+      $$
+      P_> (\bar{\msl}_\om)
+      \propto
+      \left(
+        \frac{R_n}{R_\okell}
+      \right)^{-\om}
+      \uncover<2->{
+        =
+        e^{-\om \ln (R_n/R_\okell)}
+      }
+      $$
+    \item<3-> 
+      Need to express right hand side in terms of $\bar{\msl}_\om$.
+    \item<4-> 
+      Recall that $\bar{\msl}_\om \simeq \bar{\msl}_1 R_\msl^{\, \om-1}$.
+    \item<5->
+      $$
+      \bar{\msl}_\om \propto R_\msl^{\, \om} = R_\okell^{\, \om} = e^{\, \om\ln{R_\okell}}
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1-> Therefore:
+      $$
+      P_> (\bar{\msl}_\om)
+      \propto
+      e^{-\om \ln (R_n/R_\okell)}
+      \uncover<2->{
+        =
+        % ^{\bar{\msl}_\om} ? overbrace
+        \left(
+          \alert{e^{\, \om \ln R_\okell}}
+        \right)^{-\ln (R_n/R_\okell)/\ln(R_\okell)}
+      }
+      $$
+      \item<3->
+        $$
+        \propto
+        \alert{\bar{\msl}_\om}^{\, -\ln(R_n/R_\okell)/\ln R_\okell}
+        $$
+      \item<4->
+        $$
+        =
+        \bar{\msl}_\om^{\, -(\ln R_n - \ln R_\okell)/\ln R_\okell}
+        $$
+      \item<5->
+        $$
+        =
+        \bar{\msl}_\om^{\, - \alert{\ln R_n/\ln R_\okell} + 1}
+        $$
+      \item<6->
+        $$
+        =
+        \bar{\msl}_\om^{\, -\alert{\gamma} + 1}
+        $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Finding $\gamma$:}
+    \begin{itemize}
+    \item<1-> And so we have:
+      $$
+      \boxed{\alert{\gamma = \ln R_n / \ln R_\okell}}
+      $$
+    \item<2-> Proceeding in a similar fashion, we can
+      show 
+      $$
+      \boxed{\alert{\tau = 2 - \ln R_\okell / \ln R_n = 2 - 1/\gamma}}
+      $$
+      \insertassignmentquestionsoft{2}{2}
+    \item<3-> Such connections between exponents are 
+      called \alertb{scaling relations}
+    \item<4-> Let's connect to one last relationship: Hack's law
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scaling laws}
+
+  \begin{block}<1->{Hack's law:\cite{hack1957a}}
+    \begin{itemize}
+    \item<1-> 
+      $$
+      \boxed{\alert{
+          \msl \propto a^{h}
+        }}
+      $$
+    \item<2->
+      Typically observed that $0.5 \lesssim h \lesssim 0.7$.
+    \item<3-> Use Horton laws to connect $h$ to Horton ratios:
+      $$
+      \bar{\msl}_\om \propto R_\okell^{\, \om}
+      \mbox{\ and \ }
+      \bar{a}_\om \propto R_n^{\, \om}
+      $$
+    \item<4->
+      Observe:
+      $$
+      \bar{\msl}_{\om} \propto e^{\, \om \ln R_\okell}
+      \uncover<5->{
+        \propto \left(e^{\, \om \ln R_n} \right)^{ \ln R_\okell / \ln R_n}
+      }
+      $$
+      $$
+      \uncover<6->{
+        \propto 
+        \left(
+          R_n^{\, \om }
+        \right)^{\ln R_\okell / \ln R_n}
+      }
+      \uncover<7->{
+        \propto
+        \bar{a}_\om^{\ \ln R_\okell / \ln R_n}
+      }
+      \uncover<8->{
+        \Rightarrow \boxed{\alert{ h = \ln R_\okell / \ln R_n}}
+      }
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Connecting exponents}
+  
+  \begin{block}{Only 3 parameters are independent: \\ e.g., take $d$, $R_n$, and $R_\okell$}
+    \begin{center}
+      \settablerowcolours
+      \begin{tabular}{cl} %\hline
+        \tbf{relation:} & \tbf{scaling relation/parameter:\cite{dodds1999a}}  \\
+        $\msl \sim L^{{d}}$ & \alert{$d$}  \\
+        $T_{k} = T_1 (R_T)^{k-1}$ & $T_1 = \alert{R_n} - \alert{R_\okell} 
+        - 2 + 2\alert{R_\okell}/\alert{R_n}$ \\
+        &  $R_T  = \alert{R_\okell}$  \\
+        $n_{\om}/n_{\om+1} = R_n$ & \alert{$R_n$}  \\
+        $\bar{a}_{\om+1}/\bar{a}_{\om} = R_a$ & $R_a = \alert{R_n}$  \\
+        $\bar{\msl}_{\om+1}/\bar{\msl}_{\om} = R_{\msl}$ & $ {R_\msl} = \alert{R_\okell}$  \\
+        $\msl \sim a^h$ & $h = \log \alert{R_{\okell}}/ \log \alert{R_n}$  \\
+        $a \sim L^D$ & $D = d/h$  \\
+        $L_\perp \sim L^H$ & $H = d/h - 1$ \\
+        $P(a) \sim a^{-\tau}$ & $\tau = 2 - h$  \\
+        $P(\msl)\sim \msl^{-\gamma}$ & $\gamma = 1/h$  \\
+        $\Lambda \sim a^\beta$ & $\beta = 1 + h$  \\
+        $\lambda \sim L^\varphi$ & $\varphi = d$ \\
+      \end{tabular}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scheidegger's model}
+
+  \begin{block}<1->{Directed random networks\cite{scheidegger1967a,scheidegger1991a}}
+    \includegraphics[width=0.8\textwidth]{scheidmodel-tp-2}
+    \begin{itemize}
+    \item<1->
+      $$P(\searrow) = P (\swarrow) = 1/2$$
+    \item<1->
+      Functional form of all scaling laws exhibited
+      but exponents differ from real world\cite{takayasu1988a,takayasu1989a,takayasu1989b}
+    \item<1->
+      Useful and interesting test case
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{A toy model---Scheidegger's model}
+%%  \frametitle{Fluctuations in Hack's law}
+
+  \begin{block}<1->{Random walk basins:}
+    \begin{itemize}
+    \item<1->Boundaries of basins are random walks
+    \end{itemize}
+    \includegraphics[width=0.9\textwidth]{randwalkriver2}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scheidegger's model}
+%%  \frametitle{Fluctuations in Hack's law}
+
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{randwalkriver_rot}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scheidegger's model}
+
+  \begin{block}<1->{Prob for first return of a random walk in (1+1) dimensions (from CSYS/MATH 300):}
+  \begin{itemize}
+    \item<2->
+      $$P(n) \sim \frac{1}{2\sqrt{\pi}}\  n^{-3/2}.$$
+      and so $P(\msl) \propto \msl^{-3/2}$.
+    \item<3->
+      Typical area for a walk of length $n$ is $\propto n^{3/2}$:
+      $$ \msl \propto a^{\, 2/3}.$$
+    \item<4->
+      Find $\tau=4/3$, $h=2/3$, $\gamma = 3/2$, $d=1$.
+    \item<5->
+      Note $\tau = 2 - h$ and $\gamma = 1/h$.
+    \item<6->
+      $R_n$ and $R_\ell$ have not been derived analytically.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Equipartitioning reexamined:}
+
+  \begin{block}{Recall this story:}
+    \begin{center}
+      \includegraphics[width=0.4\textwidth]{figequipart_mispi}
+      \includegraphics[width=0.4\textwidth]{figequipart_amazon}\\
+      \includegraphics[width=0.4\textwidth]{figequipart_nile}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Equipartitioning}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1->
+      What about 
+      $$ P(a) \sim a^{-\tau} \qquad ? $$
+    \item<2->
+      Since $\tau > 1$, suggests no equipartitioning:
+      $$ aP(a) \sim a^{-\tau+1} \neq \mbox{const} $$
+    \item<3->
+      $P(a)$ overcounts basins within basins...
+    \item<4->
+      while
+      stream ordering separates basins...
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\neuralreboot{D0LMc8tGMNk}{}{}{Feline elevation}
+
+\section{Fluctuations}
+
+\begin{frame}[label=]
+    \frametitle{Fluctuations}
+
+    \begin{block}<1->{Moving beyond the mean:}
+      \begin{itemize}
+      \item<2-> Both Horton's laws and Tokunaga's law
+        relate average properties, e.g.,
+        $$ \bar{\okell}_\om / \bar{\okell}_{\om-1} = R_\okell$$
+      \item<3-> Natural generalization to consider
+        relationships between \alert{probability distributions}
+      \item<4-> Yields rich and full description of 
+        branching network structure
+      \item<5-> See into the heart of randomness...
+      \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{A toy model---Scheidegger's model}
+
+  \begin{block}<1->{Directed random networks\cite{scheidegger1967a,scheidegger1991a}}
+    \includegraphics[width=0.8\textwidth]{scheidmodel-tp-2}
+    \begin{itemize}
+    \item<1->
+      $$P(\searrow) = P (\swarrow) = 1/2$$
+    \item<1->
+      Flow is directed downwards
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% \begin{comment}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Horton's laws}
+
+  \begin{itemize}
+  \item<1->
+    $\bar{\msl}_\om \propto (R_\msl)^\omega \alert{\Rightarrow}
+    N(\msl|\om) = (R_nR_\msl)^{-\om} F_\msl(\msl / R_\msl^{\om}) $
+  \item<2->
+    $\bar{a}_\om \propto (R_a)^\omega \alert{\Rightarrow}
+    N(a|\om) = (R_n^2)^{-\om} F_a(a / R_n^{\om}) $
+  \end{itemize}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{overprint}
+      \onslide<1-2| handout:0 | trans:0>
+      \onslide<3-| handout:1 | trans:1>
+      \includegraphics[width=\textwidth]{figlw_collapse_mispi2}
+    \end{overprint}
+    \column{0.5\textwidth}
+    \begin{overprint}
+      \onslide<1-3| handout:0 | trans:0> 
+      \onslide<4-| handout:1 | trans:1>
+      \includegraphics[width=\textwidth]{figlw_collapse_mispi2a}
+    \end{overprint}
+  \end{columns}
+
+  \begin{itemize}
+  \item<4-> Scaling collapse works well for intermediate orders
+  \item<5-> All \alert{moments} grow exponentially with order
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Horton's laws}
+
+  \begin{itemize}
+  \item How well does overall basin fit internal pattern?
+  \end{itemize}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figlw_blownup}    
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item<2->
+      Actual length = \alert{4920 km} (at 1 km res)
+    \item<3->
+      Predicted Mean length = \alert{11100 km}
+    \item<4->
+      Predicted Std dev = \alert{5600 km}
+    \item<5->
+      Actual length/Mean length = \alert{44 \%}
+    \item<6->
+      Okay.
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Horton's laws}
+
+  Comparison of predicted versus measured main stream lengths
+  for large scale river networks (in $10^3$ km):
+  \begin{center}
+    \settablerowcolours
+    \begin{tabular}{lccccc}
+      \hline
+      basin: &  $\msl_\Om$ & $\bar{\msl}_\Omega$ & 
+      $\sigma_\msl$ & $\msl_\Om/\bar{\msl}_\Omega$ & $\sigma_\msl/\bar{\msl}_\Omega$ \\ \hline
+      Mississippi & 4.92 & 11.10 & 5.60 & 0.44 & 0.51 \\
+      Amazon &  5.75 & 9.18 & 6.85 & 0.63 & 0.75 \\
+      Nile & 6.49 & 2.66 & 2.20 & 2.44 & 0.83 \\
+      Congo & 5.07 & 10.13 & 5.75 & 0.50 & 0.57 \\ 
+      Kansas & 1.07 & 2.37 & 1.74 & 0.45 & 0.73 \\ \hline\hline
+      & $a_\Om$ & $\bar{a}_\Omega$ & $\sigma_a$ & $a_\Om/\bar{a}_\Omega$ & $\sigma_a/\bar{a}_\Omega$ \\ \hline
+      Mississippi & 2.74 & 7.55 & 5.58 & 0.36 & 0.74 \\
+      Amazon & 5.40 & 9.07 & 8.04 & 0.60 & 0.89 \\
+      Nile & 3.08 & 0.96 & 0.79 & 3.19 & 0.82 \\
+      Congo & 3.70 & 10.09 & 8.28 & 0.37 & 0.82 \\
+      Kansas & 0.14 & 0.49 & 0.42 & 0.28 & 0.86 \\
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+
+%% \begin{frame}[label=]
+%%   \frametitle{Generalizing Horton's laws}
+%% 
+%%   \begin{center}
+%%     \includegraphics[angle=90,width=.7\textwidth]{figlw_collapse_mispi}    
+%%   \end{center}
+%% 
+%% \end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Combining stream segments distributions:}
+
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{network1}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1-> Stream segments sum to give main stream lengths
+    \item<1-> $$ \msl_\om = \sum_{\mu=1}^{\mu=\om} \okellsnum{\mu} $$
+    \item<2-> $P(\msl_\om)$ is a convolution of distributions
+      for the $\okell_\om$
+    \end{itemize}
+    
+  \end{columns}
+
+\end{frame}
+
+
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Horton's laws}
+
+  \begin{itemize}
+  \item<1-> Sum of variables 
+  $ \msl_\om = \sum_{\mu=1}^{\mu=\om} \okellsnum{\mu} $
+  leads to convolution of distributions:
+  $$N(\msl|\om) = N(\okell|1) \ast N(\okell|2) \ast\cdots\ast N(\okell|\om)$$
+  \end{itemize}
+  \uncover<2->{
+    \begin{columns}
+      \column{0.4\textwidth}
+                                %    \includegraphics[angle=90,width=\textwidth]{figellw_collapse_mispi2b}
+      \includegraphics[width=\textwidth]{figellw_collapse_mispi2a}
+      \column{0.6\textwidth}
+      $$N(\okell|\om) = \frac{1}{R_n^{\om}R_\msl^{\om}}
+      F\left(  \okell / R_\msl^\om  \right) $$
+      $$ F(x) = e^{-x/\xi} $$
+      Mississippi: $\xi \simeq 900$ m.
+    \end{columns}
+  }
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Horton's laws}
+
+  \begin{itemize}
+  \item Next level up: Main stream length distributions must
+    combine to give overall distribution for stream length
+  \end{itemize}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{figlw_powerlawsum_mispi}    
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1-> 
+      $ P(\msl) \sim \msl^{-\gamma} $ 
+    \item<2-> 
+      Another round of convolutions\cite{dodds2001b}
+    \item<2-> 
+      Interesting...
+    \end{itemize}
+
+  \end{columns}
+  
+%%  check this 
+%%  and $ P(\msl_\omega) \sim \msl_\omega^{-1-\gamma}$
+
+\end{frame}
+
+
+%% \begin{frame}[label=]
+%%   \frametitle{Generalizing Horton's laws}
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=0.6\textwidth]{figmoments_l_mispi_noname}
+%%   \end{center}
+%% \end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Horton's laws}
+
+  \begin{columns}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item 
+      Number and area distributions for the Scheidegger model\cite{dodds2001b}
+    \item 
+      $P(n_{1,6})$ versus $P(a_{\, 6})$
+      for a randomly selected $\om=6$ basin.
+    \end{itemize}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{figsche_number_area2_noname}
+  \end{columns}
+
+\end{frame}
+
+
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+  
+  Scheidegger:\\
+  \includegraphics[width=.48\textwidth]{figsche_Tok_omega_uncollapse_noname}
+  \includegraphics[width=.48\textwidth]{figsche_Tok_omega_collapse_noname} 
+
+  \begin{itemize}
+  \item Observe exponential distributions for $T_{\mu,\nu}$
+  \item Scaling collapse works using $R_\okell$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+  
+  Mississippi:\\
+  \includegraphics[width=.48\textwidth]{figtokdist_order1_b_noname} 
+  \includegraphics[width=.48\textwidth]{figtokdist_order1_collapse_b_noname}
+
+  \begin{itemize}
+  \item Same data collapse for Mississippi...
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  So
+  \[
+  P(\Tmunu) = (R_\okell)^{\mu-\nu-1}
+  P_t\left[ \Tmunu / (R_\okell)^{\mu-\nu-1}  \right]
+  \]
+  where
+  \[
+  P_t(z) = \frac{1}{\xi_t} e^{-z/\xi_t}.
+  \]
+
+  \[ \boxed{P(\okellsnum{\mu}) \Leftrightarrow P(\Tmunu)} \]
+
+  \begin{itemize}
+  \item Exponentials arise from randomness.
+  \item Look at joint probability $P(\okellsnum{\mu},\Tmunu)$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{block}{Network architecture:}
+    \begin{columns}
+      \column{0.4\textwidth}
+      \begin{itemize}
+      \item 
+        Inter-tributary lengths exponentially distributed
+      \item 
+        Leads to random spatial distribution of stream segments
+      \end{itemize}
+      \column{0.6\textwidth}
+      \includegraphics[width=\textwidth]{tokfluct}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item<1->
+    Follow streams segments down stream from their beginning
+  \item<2->
+    Probability (or rate) of an order $\mu$ stream segment terminating is \alert{constant}:
+    $$
+    \tilde{p}_{\mu} \simeq 1/(R_\okell)^{\mu-1}\xi_\okell 
+    $$
+  \item<3-> 
+    Probability decays exponentially with stream order
+  \item<4->
+    Inter-tributary lengths exponentially distributed
+  \item<5->
+    $\Rightarrow$ random spatial distribution of stream segments
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item<1-> Joint distribution for generalized version
+    of Tokunaga's law:
+    $$
+    P(\okellsnum{\mu},\Tmunu) = \tilde{p}_{\mu}
+    \binom{\okellsnum{\mu} - 1}{\Tmunu}
+    p_{\nu}^{\Tmunu}
+    ( 1 - p_\nu - \tilde{p}_{\mu})^{\okellsnum{\mu} - \Tmunu - 1}
+    $$
+    where 
+    \begin{itemize}
+    \item<1-> $p_\nu = $ probability of absorbing an order $\nu$ side stream
+    \item<2-> $\tilde{p}_{\mu} = $ probability of an order $\mu$ stream terminating 
+    \end{itemize}
+  \item<3-> Approximation: depends on distance units of $s_\mu$
+  \item<3-> In each unit of distance along stream, there is 
+    one chance of a side stream entering or the stream terminating.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item<1-> 
+    Now deal with this thing:
+    $$
+    P(\okellsnum{\mu},\Tmunu) = \tilde{p}_{\mu}
+    \binom{\okellsnum{\mu} - 1}{\Tmunu}
+    p_{\nu}^{\Tmunu}
+    ( 1 - p_\nu - \tilde{p}_{\mu})^{\okellsnum{\mu} - \Tmunu - 1}
+    $$
+  \item<2->
+    Set $(x,y) = (\okellsnum{\mu}, \Tmunu)$ and $q = 1 - p_\nu - \tilde{p}_{\mu}$,
+    approximate liberally.
+  \item<3->
+    Obtain
+    $$
+    P(x,y) = N x^{-1/2} \left[ F(y/x) \right]^{x}
+    $$
+    where
+    $$
+    F(v) = \rbfrac{1-v}{q}^{-(1-v)} \rbfrac{v}{p}^{-v}.
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item Checking form of $P(\okellsnum{\mu},\Tmunu)$ works:
+  \end{itemize}
+
+  Scheidegger:
+
+    \includegraphics[width=0.48\textwidth]{figsche_Tell_f_theory_noname}
+    \includegraphics[width=0.48\textwidth]{figsche_Tell_f_theory2_noname}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item Checking form of $P(\okellsnum{\mu},\Tmunu)$ works:
+  \end{itemize}
+
+  Scheidegger:
+  
+    \includegraphics[width=0.48\textwidth]{figsche_Tell_theory_noname}
+    \includegraphics[width=0.48\textwidth]{figsche_ellT_theory_noname} 
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item Checking form of $P(\okellsnum{\mu},\Tmunu)$ works:
+  \end{itemize}
+
+  Scheidegger:
+
+      \includegraphics[width=0.48\textwidth]{figsche_Tell_otrib_uncollapse_noname}
+      \includegraphics[width=0.48\textwidth]{figsche_Tell_otrib_collapse_noname}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Generalizing Tokunaga's law}
+
+  \begin{itemize}
+  \item Checking form of $P(\okellsnum{\mu},\Tmunu)$ works:
+  \end{itemize}
+
+  Mississippi:
+  
+      \includegraphics[width=0.48\textwidth]{figtokdistdata_mispi10_3_noname}
+      \includegraphics[width=0.48\textwidth]{figtokdistdata_mispi10_3coll_noname}
+
+\end{frame}
+
+
+\section{Models}
+
+\begin{frame}
+
+  \showtarotcards{0.35}{
+%%  \dealnewtarotcard{0.35}{
+    john-dory,
+    overview,
+    complex-networks,
+    random-networks,
+    scale-free-networks,
+    small-world-networks,
+    theory-six-degrees,
+    landscapes-of-forking-paths,
+    networks-of-blood,
+    trees-of-reality,
+    orders-of-streams,
+    laws-of-branching,
+    unknown-mechanism,
+%%    law-of-optimal-forks,
+}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Models}
+
+  \begin{block}<1->{Random subnetworks on a Bethe lattice\cite{shreve1967a}}
+    \begin{columns}
+      \column{0.4\columnwidth}
+      \includegraphics[width=\textwidth]{shreve}
+      \column{0.6\columnwidth}
+      \begin{itemize}
+      \item<2-> Dominant theoretical concept for several decades.
+      \item<3-> Bethe lattices are fun and tractable.
+      \item<4-> Led to idea of ``Statistical inevitability'' of river network statistics\cite{kirchner1993a}
+      \item<5-> But Bethe lattices unconnected with surfaces.
+      \item<6-> In fact, Bethe lattices $\simeq$ infinite dimensional spaces (oops).
+      \item<7-> So let's move on...
+      \end{itemize}
+    \end{columns}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scheidegger's model}
+
+  \begin{block}<1->{Directed random networks\cite{scheidegger1967a,scheidegger1991a}}
+    \includegraphics[width=0.8\textwidth]{scheidmodel-tp-2}
+    \begin{itemize}
+    \item<1->
+      $$P(\searrow) = P (\swarrow) = 1/2$$
+    \item<1->
+      Functional form of all scaling laws exhibited
+      but exponents differ from real world\cite{takayasu1988a,takayasu1989a,takayasu1989b}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Optimal channel networks}
+
+  \begin{block}<1->{Rodr\'iguez-Iturbe, Rinaldo, et al.\cite{rodriguez-iturbe1997a}}
+    \begin{itemize}
+    \item<2-> 
+      Landscapes $h(\vec{x})$ evolve such that
+      energy dissipation $\dot{\varepsilon}$ is minimized, where 
+      $$
+      \uncover<3->{
+      \dot{\varepsilon} 
+        \propto \int \mbox{d}\vec{r} \; (\mbox{flux}) \times (\mbox{force}) 
+      }
+      \uncover<4->{
+        \sim  \sum_i a_i \nabla h_i 
+      }
+      \uncover<5->{
+        \sim  \sum_i a_i^\gamma 
+      }
+      $$
+    \item<6->
+      Landscapes obtained numerically give exponents near that of real networks.
+    \item<7->
+      \alert{But:}
+      numerical method used matters.
+    \item<8->
+      \alert{And:}
+      Maritan et al.\ find basic universality
+      classes are that of Scheidegger, self-similar,
+      and a third kind of random network\cite{maritan1996b}
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Theoretical networks}
+
+  \begin{block}{Summary of universality classes:}
+    \begin{center}
+      \settablerowcolours
+      \begin{tabular}{ccc}
+        \hline\hline
+        \textbf{network} & h & d \\
+        \hline
+        Non-convergent flow      & 1     & 1 \\
+        Directed random          & 2/3   & 1 \\
+        Undirected random        & 5/8 & 5/4 \\
+        Self-similar             & 1/2 & 1 \\
+        OCN's (I)                & 1/2 & 1 \\
+        OCN's (II)               & 2/3 & 1 \\
+        OCN's (III)              & 3/5 & 1 \\
+        Real rivers              & 0.5--0.7 & 1.0--1.2 \\
+        \hline\hline
+      \end{tabular}
+
+      $ h \Rightarrow \msl \propto a^h$ (Hack's law).
+
+      $ d \Rightarrow \msl \propto L_\parallel^d$ (stream self-affinity).
+
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+
+
+%% \begin{frame}[label=]
+%%   \frametitle{Summary}
+%% 
+%%   \begin{itemize}
+%%   \item<1-> Generalized Horton and Tokunaga imply randomness in spatial structure.
+%%   \item<2-> Fluctuations on order of system size.
+%%   \item<3-> Strong deviations from Hack's law at large and small scales for basins of all sizes.
+%%   \item<4-> Large scale deviations may persist over 1 to 2 orders of magnitude
+%%   in area.
+%%   \item<5-> Increased resolution will not help.
+%%   \item<6-> Intermediate scaling is approximate.
+%%   \item<7-> Universality classes indeterminate.
+%%   \item<8-> Fluctuations may be used to distinguish networks.
+%%   \item<9-> Unlikely structures suggest geology is at work.
+%%   \end{itemize}
+%% 
+%% \end{frame}
+
+
+
+\section{Nutshell}
+
+\begin{frame}[label=]
+  \frametitle{Nutshell}
+
+  \begin{block}{Branching networks II Key Points:}
+    \begin{itemize}
+    \item<1->
+      Horton's laws and Tokunaga law all fit together.
+    \item<2->
+      For 2-d networks, these laws are `planform' laws and ignore slope.
+    \item<3->
+      Abundant scaling relations can be derived.
+    \item<4->
+      Can take $R_n$, $R_\ell$, and $d$ as three independent parameters
+      necessary to describe all 2-d branching networks.
+    \item<5->
+      For scaling laws, only $h = \ln R_\ell/ \ln R_n$ and $d$ are needed.
+    \item<5->
+      Laws can be extended nicely to laws of distributions.
+    \item<6->
+      Numerous models of branching network evolution exist: nothing rock solid yet.
+    \end{itemize}
+    
+  \end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% to do (maybe)
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+
+\section{Cardiovascular\ networks}
+
+%% kassab's paper?
+%% too much!
+
+\begin{comment}
+
+%% outtakes
+
+\begin{frame}[label=]
+  \frametitle{}
+
+  \textsl{Menu:}\\
+
+  $\bullet$ Some simple models and theories.
+
+  $\bullet$ Unification of scaling laws.
+
+  $\bullet$ Fluctuations about Hack's law.
+
+  $\bullet$ Deviations I: Hack's law at small scales.
+
+  $\bullet$ Deviations II: Hack's law at intermediate scales.
+
+  $\bullet$ Network componentry\\
+  (generalization of Horton's laws).
+
+  $\bullet$ Network architecture\\
+  (generalization of Tokunaga's law).
+
+  $\bullet$ Deviations III: Hack's law at large scales.
+
+  $\bullet$ Run out of steam.
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{}
+
+\textsl{Tokunaga's law:}
+
+\parbox{.48\textwidth}{
+Average number of streams of order $\nu$
+that enter as tributaries to 
+streams of order $\mu$:
+\[ \Tmunu \]
+\vspace{5mm}
+
+Self-similarity:
+\[
+\Tmunu = T_{\mu-\nu} = T_{k}.
+\]
+\vspace{5mm}
+
+Tokunaga's law:
+\[
+T_{k} = T_1 (R_\okell)^{k-1}.
+\]
+}
+\parbox{.48\textwidth}{
+  \begin{center}
+    \includegraphics[width=.0435\textwidth]{network3}
+
+    \includegraphics[width=.27\textwidth]{network2}
+
+    \includegraphics[width=.3435\textwidth]{network1}
+  \end{center}
+}
+
+\end{frame}
+  
+\end{comment}

@@ -1,0 +1,510 @@
+\section{Single Source}
+
+%% \subsection{History}
+%% 
+%% %%   \textbf{History in brief}
+%%   
+%%   \textbf{Seeking optimal universality:}
+%%     
+%%      Two major real-world branching networks
+%%       
+%%        \alert{Blood networks}
+%%        \alertb{River networks}
+%%       
+%%      Blood networks argued
+%%       to lead to 
+%%       $$B \propto M^{\alpha}$$
+%%       where
+%%       
+%%        
+%%         $B$ = basal metabolic rate and $M$ = body mass
+%%        
+%%       $\alpha=2/3$ or $3/4$ or something else...\cite{kleiber1961a,west1997a,banavar1999a,dodds2001d}
+%%       
+%%      River basins may or may not scale allometrically.
+%%     
+%%       Recall: Hack's law\cite{hack1957a}
+%%       $$\ell \propto a^h$$
+%%       If $h>1/2$ then basins elongate.
+%%     
+%%     
+%%   
+%%   
+%% %% 
+%% \subsection{Minimal volume calculation}
+%% 
+%% %%   \textbf{Geometric argument}
+%% 
+%%   
+%%    
+%%     Consider \alert{one source supplying many sinks} in a $d$ dimensional volume
+%%   
+%%     Material draw by sinks is invariant.
+%%    
+%%     See network as a bundle of virtual vessels:
+%%     %%               
+%%               
+%%       \begin{center}
+%%         \includegraphics[angle=-90,width=0.8\textwidth]{virtualvessels4.pdf}
+%%       \end{center}
+%%       %%    
+%%     \alert{The simplest question}: how does number  of sustainable
+%%     sinks $N_{\textnormal{sinks}}$
+%%     scale with volume $V$ for the most efficient network design?
+%%    
+%%     Or: what is highest $\alpha$ for $N_{\textnormal{sinks}} \propto V^{\alpha}$?
+%%    
+%%     Covered in PoCS CSYS 300: we will recap and refine here.
+%%   
+%% 
+%% %   
+%% %    Assume some cap on flow speed of material, $v_{\textnormal{max}}$
+%% 
+%% %% 
+%% %%   \textbf{Geometric argument}
+%% 
+%%   
+%%    Consider families of systems that grow allometrically.
+%%    Family = a basic shape $\Omega$ indexed by volume $V$.
+%%   \begin{center}
+%%     \includegraphics[angle=-90,width=0.8\textwidth]{shapescaling}    
+%%   \end{center}
+%%   \bigskip
+%%    Orient shape to have dimensions $L_1 \times L_2 \times  ... \times L_d$
+%%    In 2-d,
+%%     $L_1 \propto A^{\gamma_1}$ and $L_2 \propto A^{\gamma_2}$
+%%     where $A$ = area.
+%%    In general, have $d$ lengths which scale
+%%     as $L_i \propto V^{\gamma_i}$.
+%%    For above example, width grows faster than
+%%     height: $\gamma_1 > \gamma_2$.
+%%   
+%% 
+%% %% 
+%% %%   \textbf{Geometric argument}
+%% 
+%%   \textbf{Some generality:}
+%%     
+%%      Consider $d$ dimensional spatial regions living in 
+%%       $D$ dimensional ambient spaces.  {Notation: \alert{$\volume{V}$}.}
+%%      River networks: \alertb{$d=2$ and $D=3$}
+%%      Cardiovascular networks: \alertb{$d=3$ and $D=3$}
+%%     
+%%       \alert{Star-convexity of $\volume{V}$:} A spatial
+%%       region is star-convex if from at least one point, all other
+%%       points in the region can be reached by travelling along straight lines
+%%       while remaining within the region.
+%%     
+%%       Assume source can be located at a point which has direct line of
+%%       sight to all sources.
+%%     
+%%       We can generalize to a much broader class of shapes...
+%%     
+%%     
+%%   
+%% 
+%% %% 
+%% 
+%% %%   \textbf{Geometric argument}
+%% 
+%%   
+%%    Reminder of best and worst configurations
+%%     \begin{center}
+%%       \includegraphics[angle=-90,width=0.8\textwidth]{efficientnetworks5.pdf}
+%%     \end{center}
+%%     \bigskip
+%%    \alert{Basic idea:}
+%%     Minimum volume of material in system $V_{\textnormal{net}} \propto$ sum of distance
+%%     from the source to the sinks.
+%%    See what this means for sink density $\rho$ if sinks do not
+%%     change their feeding habits with overall size.
+%%   
+%% 
+%% 
+
+  \textbf{Geometric argument}
+
+  
+   
+    Consider \alert{one source} supplying \alert{many sinks} in a \alertb{$d$-dim.} volume
+    in a \alertb{$D$-dim.} ambient space.
+  
+    Assume \alertb{sinks are invariant}.
+  
+    Assume \alert{$\rho = \rho(V)$}.
+   
+    See network as a bundle of virtual vessels:
+    \begin{center}
+              
+        
+        \includegraphics[angle=-90,width=0.8\textwidth]{virtualvessels4.pdf}
+          \end{center}
+   
+    \alert{Q:} how does the number of sustainable
+    sinks $N_{\textnormal{sinks}}$
+    scale with volume $V$ for the most efficient network design?
+   
+    \alert{Or:} what is the highest $\alpha$ for $N_{\textnormal{sinks}} \propto V^{\alpha}$?
+  
+
+
+  \textbf{Geometric argument}
+
+  
+   Allometrically growing regions:
+%   Family = a basic shape $\Omega$ indexed by volume $V$.
+  \begin{center}
+    \includegraphics[angle=-90,width=0.8\textwidth]{shapescaling}    
+  \end{center}
+  \bigskip
+%   Orient shape to have dimensions $L_1 \times L_2 \times  ... \times L_d$
+%   In 2-d,
+%    $L_1 \propto A^{\gamma_1}$ and $L_2 \propto A^{\gamma_2}$
+%    where $A$ = area.
+   Have $d$ length scales which scale
+    as 
+    {
+      $$
+      \alertb{L_i} \propto \alertb{V}^{\alertb{\gamma_i}}
+      \mbox{\ where $\gamma_1 + \gamma_2 + \ldots + \gamma_d = 1$.}
+      $$
+    }
+   
+    For \alert{isometric} growth, $\gamma_i = 1/d$.
+  
+    For \alert{allometric} growth, 
+    we must have at least two of the $\{\gamma_i\}$ being different
+%   For above example, width grows faster than
+%    height: $\gamma_1 > \gamma_2$.
+  
+
+
+
+  \textbf{Geometric argument}
+
+  
+   Best and worst configurations (Banavar et al.)
+    \begin{center}
+      \includegraphics[angle=-90,width=0.8\textwidth]{efficientnetworks5.pdf}
+    \end{center}
+    \bigskip
+   \alert{Rather obviously:}\\
+    $\min V_{\textnormal{net}} \propto \sum$
+    distances
+    from source to sinks.
+
+%   See what this means for sink density $\rho$ if sinks do not
+%    change their feeding habits with overall size.
+  
+
+
+  \textbf{Minimal network volume:}
+
+  Real supply networks are close to optimal:
+
+  \includegraphics[width=\textwidth]{gastner2006a_fig1.pdf}
+
+  \bigskip
+
+  {\small (2006)
+    Gastner and Newman\cite{gastner2006a}:
+    ``Shape and efficiency in spatial distribution networks'' }
+
+
+  \textbf{Minimal network volume:}
+
+  \textbf{Add one more element:}
+    
+     Vessel cross-sectional area
+      may vary with distance from the source.
+    
+      Flow rate increases as cross-sectional area decreases.
+     e.g., a collection network may
+      have vessels tapering as they approach
+      the central sink.
+    
+      Find that vessel volume $v$ must scale
+      with vessel length $\ell$ to affect overall
+      system scalings.
+    
+      Consider vessel radius $r \propto (\ell+1)^{-\epsilon}$,
+      tapering from $r=r_{\max}$ where $\epsilon \ge 0$.
+    
+      Gives
+      $
+      v \propto \ell^{1-2\epsilon}
+      $ if $\epsilon < 1/2$
+    
+      Gives
+      $
+      v \propto 1 - \ell^{-(2\epsilon-1)} \rightarrow 1$ for large $\ell$
+      if $\epsilon > 1/2$
+    
+      Previously, we looked at $\epsilon=0$ only.
+    
+  
+
+  \textbf{Minimal network volume:}
+
+  For $0 \le \epsilon < 1/2$, approximate network volume by integral over region:
+  $$ 
+  \alertb{\min V_{\textnormal{net}}}  \propto 
+  \int_{\volume{V}} \alertb{\rho} \, ||\vec{x}||^{1-2\epsilon} \, \dee{\vec{x}} 
+  $$
+  %%   {
+  %%     $$
+  %%     \rightarrow 
+  %%     \rho V^{1+\gamma_{\max}}
+  %%     \int_{\volume{c}} (c_1^{2} u_1^2 + \ldots + c_k^{2} u_k^2 )^{(1-2\epsilon)/2}
+  %%     \dee{\vec{u}}
+  %%     $$
+  %%   }
+  {\insertassignmentquestionsoft{02}{2}}
+  {
+    $$
+    \propto
+    \alert{ \rho V^{1+\gamma_{\max}(1-2\epsilon)} } 
+    $$
+  }
+  {
+    For $\epsilon > 1/2$, find simply that 
+    $$
+    \alertb{\min V_{\textnormal{net}}}  
+    \propto 
+    \rho V
+    $$
+  }
+  
+  
+    So if supply lines can taper fast enough and without
+    limit, minimum network volume can be made negligible.
+%  
+%    \alert{The problem:} must eventually reach a limiting speed
+%    or size (e.g., blood velocity and cells).
+  
+
+  \textbf{Geometric argument}
+
+  \textbf{For $0 \le \epsilon < 1/2$:}
+    
+     
+      $
+      \boxed{\alert{
+          \min V_{\textnormal{net}} 
+          \propto
+          \rho V^{1+\gamma_{\max}(1-2\epsilon)} 
+        }}
+      $
+     
+      If scaling is \alertb{isometric}, we have $\gamma_{\max} = 1/d$:
+      $$
+      \min V_{\textnormal{net/iso}} 
+      \propto
+      \rho V^{1+(1-2\epsilon)/d}
+      $$
+     
+      If scaling is \alertb{allometric}, we have
+      $\gamma_{\max} = \gamma_{\textnormal{allo}} > 1/d$:
+      and 
+      $$
+      \min V_{\textnormal{net/allo}} 
+      \propto
+      \rho V^{1+(1-2\epsilon)\gamma_{\textnormal{allo}}}
+      $$
+     
+      Isometrically growing volumes 
+      \alert{require less network volume} 
+      than allometrically growing volumes:
+      $$
+      \frac{\min V_{\textnormal{net/iso}}}{\min V_{\textnormal{net/allo}}} \rightarrow 0 
+      \mbox{\ as $V \rightarrow \infty$}
+      $$
+        
+  
+
+  \textbf{Geometric argument}
+
+  \textbf{For $0 \le \epsilon < 1/2$:}
+    
+     
+      $
+      \boxed{\alert{
+          \min V_{\textnormal{net}} 
+          \propto
+          \rho V
+        }}
+      $
+     
+      Network volume scaling is now independent 
+      of overall shape scaling.
+    
+  
+
+  \medskip
+
+  \textbf{Limits to scaling}
+    
+     
+      Can argue that $\epsilon$ must effectively be 0
+      for real networks over large enough scales.
+     
+      Limit to how fast material can move,
+      and how small material packages can be.
+     
+      e.g., blood velocity and blood cell size.
+    
+  
+
+
+\subsection{Blood networks}
+
+  \textbf{Blood networks}
+
+  
+   Velocity at capillaries and 
+    aorta approximately constant across body size\cite{weinstein2006a}: 
+    $\epsilon = 0$.
+   \alert{Material costly} $\Rightarrow$ expect lower optimal bound of 
+    $V_{\textnormal{net}} \propto \rho V^{(d+1)/d}$ to be followed closely.
+  
+    For cardiovascular networks, \alert{$d=D=3$}.
+  
+    Blood volume scales linearly with blood 
+    volume\cite{stahl1967a}, $V_{\textnormal{net}} \propto V$.
+  
+    Sink density must $\therefore$ decrease as volume increases:
+    $$
+    \alertb{\rho \propto V^{-1/d}}.
+    $$
+  
+    Density of suppliable sinks \alert{decreases} with organism size.
+        
+
+
+
+  \textbf{Blood networks}
+
+  
+   Then $P$, the rate of overall energy 
+    use in $\Omega$, can at most scale with volume as
+    $$
+    P \propto \rho V 
+    {
+      \propto \rho \, M
+    }
+    {
+      \propto M^{\, (d-1)/d}
+    }
+    $$
+   
+    For $d=3$ dimensional organisms, we have 
+    $$\alertb{\boxed{ P \propto M^{\, 2/3}}}$$
+   
+    Including other constraints may raise scaling exponent
+    to a higher, less efficient value.
+      
+
+
+  \textbf{Recap:}
+
+  
+   
+    The exponent $\alpha = 2/3$ works for all birds and
+    mammals up to 10--30 kg
+   For mammals $>$ 10--30 kg, maybe we have a new scaling regime
+   Economos: limb length break in scaling around 20 kg
+   White and Seymour, 2005: unhappy with large herbivore measurements.
+Find $\alpha \simeq 0.686 \pm 0.014$
+  
+
+
+%% %%   \textbf{Prefactor:}
+%% 
+%%   \textbf{Stefan-Boltzmann law:}
+%%     
+%%     
+%%       $$\diff{E}{t} = \sigma S T^4$$
+%%       where $S$ is surface and $T$ is temperature.
+%%      
+%%       Very rough estimate of prefactor based on scaling
+%%       of normal mammalian body temperature and surface
+%%       area $S$:
+%%       $$B \simeq 10^5M^{2/3} \mbox{erg/sec}.$$
+%%     
+%%       Measured for $M \leq 10$ kg:
+%%       $$B=2.57\times 10^5M^{2/3} \mbox{erg/sec}.$$
+%%     
+%%   
+%% 
+%% 
+\subsection{River networks}
+
+  \textbf{River networks}
+
+  
+   View river networks as collection networks.
+   Many sources and one sink.
+   $\epsilon$?
+   Assume $\rho$ is constant over time and $\epsilon=0$:
+    $$V_{\textnormal{net}} \propto \rho V^{(d+1)/d} = \mbox{constant} \times V^{\, 3/2} $$
+   Network volume grows faster than
+    basin `volume' (really area).
+   \alert{It's all okay:}\\ 
+    Landscapes are $d$=2 surfaces living in $D$=3 dimension.
+  
+    Streams can grow not just in width but in depth...
+  
+    If $\epsilon > 0$, $V_{\textnormal{net}}$ will grow more slowly
+    but 3/2 appears to be confirmed from real data.
+  
+
+
+%% %%   \textbf{Hack's law}
+%% 
+%%   
+%%    Volume of water in river network can be calculated 
+%%     by adding up basin areas
+%%    Flows sum in such a way that 
+%%     $$ V_{\textnormal{net}} = \sum_{\mbox{\scriptsize all pixels}} a_{\mbox{\scriptsize pixel $i$}} $$
+%%    Hack's law again:
+%%     $$
+%%     \ell \sim a^{\, h}
+%%     $$
+%%    
+%%     Can argue     
+%%     $$ V_{\textnormal{net}} \propto V_{\textnormal{basin}}^{1+h} = a_{\textnormal{basin}}^{1+h}$$
+%%     where 
+%%     $h$ is Hack's exponent.
+%%    
+%%     $\therefore$ minimal volume calculations gives 
+%%     $$
+%%     \boxed{
+%%       h=1/2
+%%     }
+%%     $$
+%%   
+%% 
+%% %% 
+%% %%   \textbf{Real data:}
+%% 
+%%   %%     
+%%     
+%%      Banavar et al.'s approach\cite{banavar1999a} is okay 
+%%       because $\rho$ \alertb{really is constant}.
+%%      \alert{The irony:} shows optimal basins are isometric
+%%      Optimal Hack's law: $\msl \sim a^{h}$ with
+%%       $h=1/2$ 
+%%      {(Zzzzz)}
+%%     
+%%     
+%%     %%       
+%%       \includegraphics[width=\textwidth]{banavar1999fig2.png}\\
+%%       {\small From Banavar et al. (1999)\cite{banavar1999a}}
+%%     %%   %% %% 
+%% %%   \textbf{Even better---prefactors match up:}
+%% 
+%%   \begin{center}
+%%     \includegraphics[width=0.8\textwidth]{figwatervolume02_noname.pdf}
+%%   \end{center}
+%% 
+%% 

@@ -1,0 +1,1881 @@
+% simple disease spreading
+% general disease spreading
+
+\section{Basic\ Contagion\ Models}
+
+  \textbf{Contagion models}
+
+  \textbf{Some large questions concerning network contagion:}
+    
+     
+      For a given \alertb{spreading mechanism}
+      on a given network,
+      what's the \alert{probability}
+      that there will be \alertb{global spreading}?
+     If spreading does take off, how far will it go?
+     
+      How do the \alert{details} of the \alertb{network}
+      affect the outcome?
+     
+      How do the \alert{details} of the \alertb{spreading mechanism}
+      affect the outcome?
+     
+      What if the \alertb{seed} is one or many nodes?
+    
+  
+
+  
+   
+    \alert{Next up}: We'll look at some fundamental
+    kinds of spreading on generalized random networks.
+  
+
+
+  \textbf{Spreading mechanisms}
+
+      
+    \includegraphics[angle=-90,width=\textwidth]{rn_spread03}
+    
+    
+    
+      \alert{General spreading mechanism}:\\
+      State of node $i$ depends on
+      history of $i$ and $i$'s neighbors' states.
+     
+      \alert{Doses} of entity may be stochastic and history-dependent.
+     
+      May have \alertb{multiple, interacting entities} spreading at once.
+    
+  
+
+  \textbf{Spreading on Random Networks}
+
+  
+   
+    For random networks, we know local structure is pure branching.
+   
+    Successful spreading is $\therefore$ contingent on 
+    \alert{single edges} infecting nodes.
+              
+        
+                  
+          
+          \alertb{Success}\\
+          \includegraphics[angle=-90,width=\textwidth]{rn_spread01}
+                
+        
+                  
+          
+          \alertb{Failure:}\\
+          \includegraphics[angle=-90,width=\textwidth]{rn_spread02}
+                
+         
+    Focus on \alert{binary} case with edges and nodes
+    either infected or not.
+  
+    \alert{First big question:} for a given network
+    and contagion process, can global spreading from
+    a single seed occur?
+  
+
+
+\section{Global\ spreading\ condition}
+
+  \textbf{Global spreading condition}
+
+  
+  
+    We need to find:\cite{dodds2011b}\\
+    $\alertb{\gainratio}$ = the average \# of infected
+    edges that one random infected edge brings about.
+  
+    Call $\alertb{\gainratio}$ the \alertb{gain ratio}.
+   
+    Define \alertb{$\infprob_{k1}$} as the probability that
+    a node of degree $k$ is infected by
+    a single infected edge.
+  
+    $$
+    \gainratio
+    =
+    \sum_{k=0}^{\infty}
+    {
+      \underbrace{
+        \frac{kP_k}{\tavg{k}}
+      }_{
+        \mbox{ \scriptsize
+          \begin{tabular}{l}
+            prob. of\\
+            connecting to \\
+            a degree $k$ node\\
+          \end{tabular}
+        }
+      }
+    }
+    {
+      \bullet
+      \underbrace{
+        (k-1)
+      }_{
+        \mbox{\scriptsize
+          \begin{tabular}{l}
+            \# outgoing \\
+            infected \\
+            edges
+          \end{tabular}
+        }
+      }
+    }
+    {
+      \bullet
+      \underbrace{
+        \infprob_{k1}
+      }_{
+        \mbox{\scriptsize
+          \begin{tabular}{l}
+            Prob. of \\
+            infection
+          \end{tabular}
+        }
+      }
+    }
+    $$
+    $$
+    {
+      +
+      \sum_{k=0}^{\infty}
+      \overbrace{
+        \frac{kP_k}{\tavg{k}}
+      }
+    }
+    {
+      \bullet
+      \underbrace{0}_{
+        \mbox{\scriptsize
+          \begin{tabular}{l}
+            \# outgoing \\
+            infected \\
+            edges
+          \end{tabular}
+        }
+      }
+    }
+    {
+      \bullet
+      \underbrace{
+        (1-\infprob_{k1})
+      }_{
+        \mbox{\scriptsize
+          \begin{tabular}{l}
+            Prob. of \\
+            no infection
+          \end{tabular}
+        }
+      }
+    }
+    $$      
+      
+    
+  \textbf{Global spreading condition}
+
+  
+   
+    Our global spreading condition is then:
+    $$
+    \boxed{
+      \alertb{
+        \gainratio
+        =
+        \sum_{k=0}^{\infty}
+        \frac{kP_k}{\tavg{k}}
+        \bullet
+        (k-1)
+        \bullet
+        \infprob_{k1}
+        > 1.
+        }
+      }
+    $$
+  
+    \alert{Case 1:}
+    {
+      If $\infprob_{k1}=1$ 
+    }
+    {
+      then
+      $$
+      \gainratio = 
+        \sum_{k=0}^{\infty}
+        \frac{kP_k}{\tavg{k}}
+        \bullet
+        (k-1)
+        =
+        \frac{\tavg{k(k-1)}}{\tavg{k}} > 1.
+      $$
+    }
+  
+    \alert{Good:} This is just our giant component condition again.
+  
+
+  \textbf{Global spreading condition}
+
+  
+   
+    \alert{Case 2:}
+    {
+      If $\infprob_{k1}=\beta<1$ 
+    }
+    {
+      then
+      $$
+      \gainratio = 
+      \sum_{k=0}^{\infty}
+      \frac{kP_k}{\tavg{k}}
+      \bullet
+      (k-1)
+      \bullet
+      \beta > 1.
+      $$
+    }
+   
+    A fraction (1-$\beta$) of edges do not transmit 
+    infection.
+   
+    Analogous phase transition to giant component case
+    but \alertb{critical value} of $\tavg{k}$ is \alertb{increased}.
+   
+    Aka \wordwikilink{http://en.wikipedia.org/wiki/Percolation\_theory}{bond percolation}.
+   
+    Resulting degree distribution $\tilde{P}_k$:
+    $$
+    \tilde{P}_k
+    =
+    \beta^k
+    \sum_{i=k}^{\infty}
+    \binom{i}{k}
+    (1-\beta)^{i-k}
+    P_i.
+    $$
+    \insertassignmentquestionsoft{07}{7}
+   
+    We can show $F_{\tilde{P}}(x) = F_{P}(\beta x + 1 - \beta)$.
+  
+
+
+\section{Social\ Contagion\ Models}
+
+  \textbf{Global spreading condition}
+
+  
+  
+    \alert{Cases 3, 4, 5, ...:}
+    {
+      Now allow $\infprob_{k1}$ to depend on $k$
+    }
+  
+    \alertb{Asymmetry}: Transmission along an edge depends on
+    node's degree at other end.
+  
+    Possibility: $\infprob_{k1}$ increases with $k$...
+    {\alert{unlikely}}.
+  
+    Possibility: $\infprob_{k1}$ is not monotonic in $k$...
+    {\alert{unlikely}}.
+  
+    Possibility: $\infprob_{k1}$ decreases with $k$...
+    {\alert{hmmm}}.
+  
+    $\infprob_{k1} \searrow$ is a plausible representation
+    of a simple kind of social contagion.
+  
+    \alert{The story:}\\
+    More well connected people are harder to influence.
+  
+
+
+  \textbf{Global spreading condition}
+
+  
+   
+    \alert{Example:} $\infprob_{k1}=1/k$.
+   
+    $$
+    \gainratio
+    =
+    \sum_{k=\alert{1}}^{\infty}
+    \frac{kP_k}{\tavg{k}}
+    \bullet
+    (k-1)
+    \bullet
+    \infprob_{k1}
+    {
+      =
+      \sum_{k=1}^{\infty}
+      (k-1)
+      \bullet
+      \frac{kP_k}{\tavg{k}}
+      \bullet
+      \frac{1}{k}
+    }
+    $$
+    $$
+    {
+      =
+      \sum_{k=1}^{\infty}
+      \frac{P_k}{\tavg{k}}
+      \bullet
+      (k-1)
+    }
+    {
+      =
+      1 - \frac{1-P_0}{\tavg{k}}
+    }
+    $$
+  
+    Since $\gainratio$ is always less than $1$, no spreading
+    can occur for this mechanism.
+  
+    Decay of $\infprob_{k1}$ is too fast.
+  
+    Result is independent of degree distribution.
+  
+
+
+  \textbf{Global spreading condition}
+
+  
+   
+    \alert{Example:} $\infprob_{k1}=H(\frac{1}{k}-\phi)$\\
+    where $0<\alert{\phi} \le 1$ is a \alert{threshold}
+    and $H$ is the \wordwikilink{http://en.wikipedia.org/wiki/Heaviside_step_function}{Heaviside function}.
+   
+    Infection only occurs for nodes with \alertb{low} degree.
+   
+    Call these nodes \alert{vulnerables}:\\ 
+    they flip
+    when \alertb{only one} of their friends flips.
+   
+    $$
+    \gainratio
+    =
+    \sum_{k=\alert{1}}^{\infty}
+    \frac{kP_k}{\tavg{k}}
+    \bullet
+    (k-1)
+    \bullet
+    \infprob_{k1}
+    {
+      =
+      \sum_{k=1}^{\infty}
+      \frac{kP_k}{\tavg{k}}
+      \bullet
+      (k-1)
+      \bullet
+      H\left(
+        \frac{1}{k}-\phi
+      \right)
+    }
+    $$
+    $$
+    {
+      =
+      \sum_{k=1}^{\alert{\lfloor \frac{1}{\phi} \rfloor}}
+      (k-1)
+      \bullet
+      \frac{kP_k}{\tavg{k}}
+    \mbox{\quad where $\lfloor \cdot \rfloor$ means floor.}
+    }
+    $$
+  
+
+  \textbf{Global spreading condition}
+
+  
+  
+    The uniform threshold model global spreading condition:
+    $$
+    \gainratio
+    =
+    \sum_{k=1}^{{\lfloor \frac{1}{\phi} \rfloor}}
+    (k-1)
+    \bullet
+    \frac{kP_k}
+    {\tavg{k}} 
+    > 1.
+    $$
+   
+    As \alert{$\phi \rightarrow 1$}, all nodes become resilient and $r \rightarrow 0$.
+   
+    As \alert{$\phi \rightarrow 0$}, all nodes become vulnerable and the contagion
+    condition matches up with the giant component condition.
+  
+    \alert{Key}: If we fix $\phi$ and then vary $\tavg{k}$, we
+    may see \alertb{two} phase transitions.
+   Added to our standard giant component transition,
+    we will see a cut off in spreading as nodes become more connected.
+  
+
+
+  Virtual contagion:
+  \wordwikilink{http://en.wikipedia.org/wiki/Corrupted_Blood_incident}{Corrupted Blood},
+  a 2005 virtual plague in World of Warcraft:
+  
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{WoW_Corrupted_Blood_Plague.jpg}
+  \end{center}
+
+
+\subsection{Network\ version}
+
+  \textbf{Social Contagion}
+
+  \textbf{Some important models (recap from CSYS 300)}
+    
+     Tipping models---Schelling (1971)\cite{schelling1971a,schelling1973a,schelling1978a}
+      
+      
+        Simulation on checker boards.
+      
+        Idea of thresholds.
+      
+     Threshold models---Granovetter (1978)\cite{granovetter1978a}
+     Herding models---Bikhchandani et al. (1992)\cite{bikhchandani1992a,bikhchandani1998a}
+      
+      
+        Social learning theory, Informational cascades,...
+      
+    
+  
+
+
+  \textbf{Threshold model on a network}
+
+  Original work:
+
+  \bigskip
+
+  \alert{``A simple model of global cascades on random networks''}\\
+  D. J. Watts.  Proc. Natl. Acad. Sci., 2002\cite{watts2002a}
+
+  \bigskip
+
+  
+   Mean field Granovetter model $\rightarrow$ network model
+   Individuals now have a limited view of the world
+  
+
+
+  \textbf{Threshold model on a network}
+
+  
+   Interactions between individuals 
+    now represented by a network
+   Network is \alert{sparse}
+   Individual $i$ has $k_i$ contacts
+   Influence on each link is \alert{reciprocal} and of \alert{unit weight}
+   Each individual $i$ has a fixed threshold $\phi_i$
+   Individuals repeatedly poll contacts on network
+   Synchronous, discrete time updating 
+   Individual $i$ becomes active when\\
+    number of active contacts $a_i \ge \phi_i k_i$
+   Activation is permanent (SI)
+  
+
+
+%%  \textbf{Word-of-mouth contagion:}
+%%  
+
+
+  \textbf{Threshold model on a network}
+
+      
+    \setlength\fboxsep{0pt}
+    \setlength\fboxrule{0.5pt}
+    \fbox{\includegraphics[angle=0,width=1\textwidth]{contagioncondition3a}}%
+    
+    \setlength\fboxsep{0pt}
+    \setlength\fboxrule{0.5pt}
+    \fbox{\includegraphics[angle=0,width=1\textwidth]{contagioncondition3b}}%
+    
+    \setlength\fboxsep{0pt}
+    \setlength\fboxrule{0.5pt}
+    \fbox{\includegraphics[angle=0,width=1\textwidth]{contagioncondition3c}}%
+  
+  
+   All nodes have threshold $\phi=0.2$.
+  
+
+
+%% previous work
+%% definition of vulnerables
+%% global condition
+
+
+
+  \textbf{The most gullible}
+
+  \textbf{Vulnerables:}
+    
+     Recall definition: individuals who can be activated by
+    just one contact being active are \alert{vulnerables}.
+     The vulnerability condition for node $i$:
+      $1/k_i \ge \phi_i$.
+    
+      Means \# contacts  $k_{i} \le \lfloor 1/\phi_i \rfloor$.
+    
+      \alert{Key:} For global spreading events (cascades) on random networks, must have a
+      \tc{blue}{\textit{global component of vulnerables}}\cite{watts2002a}
+     For a uniform threshold $\phi$, our global spreading condition
+      tells us when such a component exists:
+      $$
+      \gainratio
+      =
+      \sum_{k=1}^{{\lfloor \frac{1}{\phi} \rfloor}}
+      \frac{kP_k}{\tavg{k}} 
+      \bullet
+      (k-1)
+      > 1.
+      $$
+    
+  
+
+
+  \textbf{Example random network structure:}
+
+      
+    \includegraphics[width=\textwidth]{2011-04-04random-network-contagion-sketch_3a-tp-5.pdf}
+    
+    
+     
+      $\Omega_{\textnormal{crit}}$ = critical mass = global vulnerable component
+     
+      $\Omega_{\textnormal{trig}}$ = triggering component
+     
+      $\Omega_{\textnormal{final}}$ = potential extent of spread
+     
+      $\Omega$ = entire network
+    
+    \bigskip
+  $$
+  \Omega_{\textnormal{crit}} 
+  \subset
+  \Omega_{\textnormal{trig}};
+  \
+  \Omega_{\textnormal{crit}} 
+  \subset
+  \Omega_{\textnormal{final}};
+  \
+  \mbox{and}
+  \
+  \Omega_{\textnormal{trig}},
+  \Omega_{\textnormal{final}} 
+  \subset
+  \Omega.
+  $$
+
+
+%%
+%%   %%     \textbf{Cascade window}
+%%     
+%%     \textbf{When does a global cluster of vulnerables exist?}
+%%       
+%%        $z$ = average number of contacts per individual.
+%%       
+%%       
+%%        
+%%         \tc{blue}{Low $z$:} No cascades in poorly connected networks.\\
+%%         No global clusters of any kind.
+%%        
+%%         \tc{blue}{High $z$:} Giant component exists but not enough vulnerables.
+%%        
+%%         \tc{blue}{Intermediate $z$:} Global cluster of vulnerables exists.\\
+%%         Cascades are possible in \tc{red}{``Cascade window.''}
+%%       
+%%     
+%%
+%%  
+%% previous work
+%% explanation of cascade window
+
+
+%% previous work
+%% cascade window 1
+%% figure of basic cascade window outline
+
+  \textbf{Global spreading events on random networks}
+
+      
+    \setlength\fboxsep{0pt}
+    \setlength\fboxrule{0.5pt}
+    \fbox{\includegraphics[width=\textwidth]{watts2002a_fig2b}}\\
+    \small{( n.b., $z = \tavg{k}$)}
+    
+    
+    
+      \alert{Top curve:} final fraction infected if successful.
+    
+      \alert{Middle curve:} chance of starting a global spreading event (cascade).
+     
+      \alert{Bottom curve:} fractional size of vulnerable subcomponent.\cite{watts2002a}
+    
+  
+  
+   
+    Global spreading events occur only if size of vulnerable subcomponent $>0$.\\
+   
+    System is robust-yet-fragile just below upper boundary\cite{carlson1999a,carlson2000a,sornette2003a}
+   
+    `Ignorance' facilitates spreading.
+  
+
+
+  \textbf{Cascades on random networks}
+
+      
+    \includegraphics[width=\textwidth]{2011-04-04random-network-contagion-sketch_3c-tp-5.pdf}
+    
+     
+      Above lower phase transition
+    
+    
+    \includegraphics[width=\textwidth]{2011-04-04random-network-contagion-sketch_3b-tp-5.pdf}
+    
+     
+      Just below upper phase transition
+    
+  
+
+
+  \textbf{Cascades on random networks}
+
+          
+      \setlength\fboxsep{0pt}
+      \setlength\fboxrule{0.5pt}
+      \fbox{\includegraphics[width=\textwidth]{watts2002a_fig2a}}\\
+      \small{( n.b., $z = \tavg{k}$)}
+      
+      
+       Time taken for cascade to spread through network.\cite{watts2002a}
+       Two phase transitions.
+      
+    
+    
+     Largest vulnerable component = \alert{critical mass}.
+     Now have endogenous mechanism for spreading from
+      an individual to the critical mass and then beyond.
+    
+
+
+  \textbf{Cascade window for random networks}
+
+  \begin{center}
+    \setlength\fboxsep{0pt}
+    \setlength\fboxrule{0.5pt}
+    \fbox{\includegraphics[width=.6\textwidth]{figtransitions_random01_noname}}\\
+  \end{center}
+  \small{( n.b., $z = \tavg{k}$)}
+  
+   Outline of cascade window for random networks. 
+  
+
+
+  \textbf{Cascade window for random networks}
+
+  \includegraphics[angle=-90,width=\textwidth]{figcascadewindow_cut4.pdf}
+
+
+
+
+\subsection{All-to-all\ networks}
+
+  \textbf{Social Contagion}
+  
+  \textbf{Granovetter's Threshold model---recap}
+          
+      \includegraphics[width=\textwidth]{figthreshold_eg3_noname}
+      
+      
+       Assumes deterministic response functions
+       $\phi_\ast$ = threshold of an individual.
+       $f(\phi_\ast)$ = distribution of thresholds in a population.
+       $F(\phi_\ast)$ = cumulative distribution = $\int_{\phi_\ast'=0}^{\phi_\ast} f(\phi_\ast') \dee{\phi_\ast'}$
+       $\phi_t$ = fraction of people `rioting' at time step $t$.
+      
+      
+  
+
+  \textbf{Social Sciences---Threshold models}
+ 
+   
+   
+   At time $t+1$, fraction rioting
+   = fraction with $\phi_\ast \le \phi_t$.
+   
+   \[ \phi_{t+1} = \int_{0}^{\phi_t} f(\phi_\ast) \dee{\phi_\ast}
+   = \left. F(\phi_\ast) \right|_{0}^{\phi_t} = F(\phi_t) \]
+   
+   $\Rightarrow$ Iterative maps of the unit interval $[0, 1]$.
+   
+
+
+  \textbf{Social Sciences---Threshold models}
+
+  Action based on perceived behavior of others.
+
+  \includegraphics[width=1\textwidth]{figthreshold_noname}
+
+  
+   Two states: S and I
+   Recover now possible (SIS)
+   $\phi$ = fraction of contacts `on' (e.g., rioting)
+   Discrete time, synchronous update (strong assumption!)
+   This is a \alert{Critical mass model}
+  
+
+
+
+%% %%   \textbf{Social Sciences---Threshold models}
+%% 
+%%   \includegraphics[width=.45\textwidth]{figthreshold3_noname}
+%%   \includegraphics[width=.45\textwidth]{figthresholdF3b_noname}
+%% 
+%%   
+%%    Critical mass model
+%%   
+%% 
+%% 
+  \textbf{Social Sciences---Threshold models}
+
+  \includegraphics[width=.45\textwidth]{figthreshold2_noname}
+  \includegraphics[width=.45\textwidth]{figthresholdF2b_noname}\\
+
+  
+   Example of single stable state model
+  
+
+
+
+  \textbf{Social Sciences---Threshold models}
+
+  \textbf{Implications for collective action theory:}
+    
+     Collective uniformity $\not\Rightarrow$ individual uniformity
+     Small individual changes $\Rightarrow$ large global changes
+    
+  
+
+  \textbf{Next:}
+    
+     Connect mean-field model to network model.
+     Single seed for network model: $1/N \rightarrow 0$.
+     Comparison between network and mean-field model
+      sensible for vanishing seed size for the latter.
+    
+  
+
+
+
+  \textbf{All-to-all versus random networks}
+  \centering
+  \includegraphics[height=.8\textheight]{figcascwind5_noname}\\
+
+  
+
+
+%% %%%%%%%%%%%%%%
+%%   %% initiators %
+%% %%%%%%%%%%%%%%
+%% 
+%%   %% cascade window
+%%   %% comparison between different types of initiators
+%%   %% 
+%% %%
+%% %%   \textbf{cascade initiators, $\phi=0.18$}
+%%   Activate random individuals:\\
+%%   \centering
+%%   \includegraphics[width=0.62\textwidth]{figtest_nw_threshold_cwi04c_noname}\\
+%%   Cascade initiators for $k_{\textnormal{init}}=1$, 2, 3, 4, 6, and 9.
+%%   %% 
+%%   %% 
+%% 
+%%   %% cascade window
+%%   %% comparison between different types of initiators
+%% 
+%%   %%  
+%% %% %%
+%% %%   \textbf{cascade initiators, $\phi=0.18$}
+%%   \centering
+%%   \includegraphics[width=0.65\textwidth]{figtest_nw_threshold_cwi04i_noname}\\
+%%   Averagely connected nodes versus nodes in top 10 percent.
+%%   
+%%   
+%%   
+%%   
+%%   %% average degree of everyone versus initiators
+%%   
+%%   \centering
+%% %% 
+%% %%   \textbf{cascade initiators---average degree}
+%%   \includegraphics[width=0.6\textwidth]{figtest_network_threshold2_19x1e_noname}\\
+%%   \tc{blue}{dashed line:} mean degree of all individuals with $k>0$.\\
+%%   \tc{blue}{solid line:} mean degree of cascade initiators.
+%%   
+%%   
+%% %% 
+%% 
+%% %% distribution of initiator degrees
+%% 
+%% %%
+%% %% %% %%    \textbf{cascade initiators---degree distributions}
+%% %%   \[
+%% %%   \begin{array}{l}
+%% %%     P_{k,\textnormal{init}}  = [1 - (1-S)^k] \cdot P_k\\
+%% %%     \\
+%% %%     \qquad = P({\textnormal{cascade}} | k) \cdot P_k \\
+%% %%     \\
+%% %%     \\
+%% %%     S = \mbox{size of} \\
+%% %%     \qquad \mbox{vulnerable cluster} \\
+%% %%   \end{array}
+%% %%   \ \ \raisebox{-5cm}{
+%% %%     \includegraphics[width=0.5\textwidth]{figtest_nw_thr2_06fh7_noname}
+%% %%   }
+%% %%   \]
+%% %% 
+%% %% 
+%% %% 
+%% %% 
+%% %%   %% %%
+%% %% %% %%    \textbf{cost/benefit analysis}
+%% %%   Sampling individuals $\propto$ number sampled $n$.\\
+%% %%   Triggering relatively very costly $\rightarrow$ trigger one individual only.\\
+%% %%   Choose most connected individual from $n$ samples.
+%% %%   \includegraphics[width=0.45\textwidth]{figtest_nw_thr2_06fcost3_noname}
+%% %%   \includegraphics[width=0.45\textwidth]{figtest_nw_thr2_06fcost4_noname}\\
+%% %%   $\bullet$ $n \nearrow$ as cost $\searrow$.\\
+%% %%   $\bullet$ Chosen individual's degree increases slowly with $n$.
+%% %%   
+%% %% 
+%% %% 
+%% 
+%% 
+%% %% %% mean degree of early adopters
+%% %% %% + way disease spreads
+%% %% 
+%% %%   %% %%
+%% 
+%% %%   \textbf{Early Adopters---Mean degree + Rate of adoption}
+%% 
+%%   \raisebox{-4cm}{    
+%%     \includegraphics[width=0.62\textwidth]{figtest_nw_thr2_06eh2_6_noname}
+%%   }
+%%   \begin{tabular}{l}
+%%     \tc{red}{---} vulnerables  \\
+%%     \tc{blue}{---} non-vulnerables \\
+%%     --- total
+%%   \end{tabular}
+%% 
+%% \end{frame} 
+%% 
+%% %% % SIR comparison
+%% %% 
+%% %%
+%% 
+%% %%   \textbf{Comparison to disease spreading models}
+%%   
+%%   \raisebox{-4cm}{    
+%%     \includegraphics[width=0.45\textwidth]{figtest_nw_SIR_01e2_noname}
+%%   }
+%%   \begin{tabular}{l}
+%%     SIR model on random graph \\
+%%     \\
+%%     early adopters \textit{always}\\
+%%     above average \\
+%%   \end{tabular}
+%% 
+%%   Probability of connecting
+%%   to a $k$ degree node $\propto k P_k$.
+%%   
+%% 
+%% %%   \textbf{Early adopters---degree distributions}
+%% 
+%%   \begin{tabular}{ccccc}
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_1_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_2_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_3_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_4_mod_noname}\\
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_5_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_6_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_7_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_8_mod_noname}\\
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_9_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_10_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_11_mod_noname}&
+%%     \includegraphics[width=0.2\textwidth]{figtest_nw_thr2_06e_12_mod_noname}\\
+%% %%    \includegraphics{figtest_nw_thr2_06e_13_mod_noname.ps,width=0.2\textwidth}&
+%% %%    \includegraphics{figtest_nw_thr2_06e_14_mod_noname.ps,width=0.2\textwidth}&
+%% %%    \includegraphics{figtest_nw_thr2_06e_15_mod_noname.ps,width=0.2\textwidth}
+%% %%    & 
+%%   \end{tabular}
+%% $$P_{k,t} \mbox{\ versus\ } k$$
+%% 
+%% %% 
+%%    %%
+%% 
+%% %%     \textbf{The multiplier effect}
+%%   
+%%     \centering
+%%     \includegraphics[width=0.9\textwidth]{fignw_threshold_gamma_multiplier13_avg_noname}
+%%     
+%%     Gamma distributed degrees (skewed)
+%% %    \includegraphics[width=0.48\textwidth]{fignw_threshold_ramify_multiplier20_21comb3mod_noname}
+%% %% 
+%% %% 
+%% 
+%% %% 
+%% %%%%%%%%%%%%%%%
+%% %% 1c  unconnected, room for a general model
+%% %%    rumours don't spread like SIR models
+%% %%    diseases aren't like threshold models
+%% 
+%% 
+%% %%%%%%%%%%%%%% extensions
+%% %%%%%%%%%%%%%% threshold model
+%% %%%%%%%%%%%%%% 1. group structure
+%% 
+%% %%   \textbf{Special subnetworks can act as triggers}
+%% 
+%%   \includegraphics[width=0.8\textwidth]{betheladder5}
+%%   
+%%    $\phi=1/3$ for all nodes
+%%   
+%%   
+%%   
+%% 
+\neuralreboot{LMiYjkG4onM}{}{}{Pangolin happiness:}
+
+\section{Theory}
+
+  \textbf{Threshold contagion on random networks}
+
+  \textbf{\alert{Three key pieces} to describe analytically:}
+    
+    
+      The fractional size of the largest subcomponent of vulnerable nodes, 
+      \alertb{$\Svuln$}.
+    
+      The chance of starting a global spreading event, \alertb{$\Ptrig = \Strig$}.
+    
+      The expected final size of any successful spread, \alertb{$S$}.
+      
+       n.b., the distribution of $S$ is almost always bimodal.
+      
+
+    
+  
+
+
+  \textbf{Example random network structure:}
+
+      
+    \includegraphics[width=\textwidth]{2011-04-04random-network-contagion-sketch_3a-tp-5.pdf}
+    
+    
+     
+      $\Omega_{\textnormal{crit}}$ = $\Omega_{\textnormal{vuln}}$ = critical mass = global vulnerable component
+     
+      $\Omega_{\textnormal{trig}}$ = triggering component
+     
+      $\Omega_{\textnormal{final}}$ = potential extent of spread
+     
+      $\Omega$ = entire network
+    
+    \bigskip
+  $$
+  \Omega_{\textnormal{crit}} 
+  \subset
+  \Omega_{\textnormal{trig}};
+  \
+  \Omega_{\textnormal{crit}} 
+  \subset
+  \Omega_{\textnormal{final}};
+  \
+  \mbox{and}
+  \
+  \Omega_{\textnormal{trig}},
+  \Omega_{\textnormal{final}} 
+  \subset
+  \Omega.
+  $$
+
+\subsection{Spreading\ possibility}
+
+  \textbf{Threshold contagion on random networks}
+
+  
+   
+    \alert{First goal:} 
+    Find the largest component of vulnerable nodes.
+   
+    Recall that for finding the giant component's size, 
+    we had to solve:
+    $$
+    {
+      F_{\pi}(x)
+      =
+      x F_{P}
+      \left(
+        F_{\rho} (x)
+      \right)
+    }
+    \mbox{\ \  and \ }
+    {
+      F_{\rho}(x)
+      =
+      x F_{R}
+      \left(
+        F_{\rho} (x)
+      \right)
+    }
+    $$
+   
+    We'll find a similar result for 
+    the subset of nodes that are vulnerable.
+   
+    This is a node-based percolation problem.
+   
+    For a general monotonic threshold distribution \alert{$f(\phi)$},
+    a degree $k$ node is vulnerable with probability
+    $$
+    \infprob_{k1} = \int_{0}^{1/k} f(\phi) \dee{\phi}.
+    $$
+  
+
+
+  \textbf{Threshold contagion on random networks}
+
+  
+  
+    Everything now revolves around the \alert{modified} generating function:
+    $$
+    F_P^{(\vuln)}(x) 
+    = 
+    \sum_{k=0}^{\infty}
+    \infprob_{k1}
+    P_k
+    x^k.
+    $$
+  
+    Generating function for friends-of-friends distribution is
+    related in same way as before:
+    $$
+    F_R^{(\vuln)}(x) 
+    = 
+    \frac{
+      \diff{}{x}{F}_P^{(\vuln)}(x)}
+    {\diff{}{x} {F}_P^{(\vuln)}(x)|_{x=1}}.
+    $$
+  
+
+
+  \textbf{Threshold contagion on random networks}
+
+  
+   Functional relations for component size g.f.'s
+    are almost the same...
+    $$
+    {
+      {F}_{\pi}^{(\vuln)}(x)
+      =
+    }
+    {
+      \underbrace{
+        1-{F}_P^{(\vuln)}(1)
+      }_{
+        \mbox{
+          \scriptsize
+          \begin{tabular}{l}
+            central node \\
+            is not \\
+            vulnerable
+          \end{tabular}
+        }
+      }
+      +
+    }
+    {
+      x {F}_{P}^{(\vuln)}
+      \left(
+        {F}_{\rho}^{(\vuln)} (x)
+      \right)
+    }
+    $$
+    $$
+    {
+      {F}_{\rho}^{(\vuln)}(x)
+      =
+    }
+    {
+      \underbrace{
+        1-{F}_R^{(\vuln)}(1)
+      }_{
+        \mbox{
+          \scriptsize
+          \begin{tabular}{l}
+            first node \\
+            is not \\
+            vulnerable
+          \end{tabular}
+        }
+      }
+      +
+    }
+    {
+      x {F}_{R}^{(\vuln)}
+      \left(
+        {F}_{\rho}^{(\vuln)} (x)
+      \right)
+    }
+    $$
+  
+    Can now solve as before to find $S_{\textnormal{vuln}} = 1 - F_\pi^{(\vuln)}(1)$.
+  
+
+
+\neuralreboot{jofNR_WkoCE}{60}{120}{Vulpine vocalization:}
+
+\subsection{Spreading\ probability}
+
+  \textbf{Threshold contagion on random networks}
+
+  
+   \alert{Second goal:}
+    Find probability of triggering largest vulnerable 
+    component.
+   
+    Assumption is \alert{first node} is \alertb{randomly chosen}.
+  
+    \alertb{Same set up} as for vulnerable component except
+    now we don't care if the initial node is vulnerable or not:
+    $$
+    {F}_{\pi}^{(\textnormal{trig)}}(x)
+    =
+    x \alert{{F}_{P}}
+    \left(
+      {F}_{\rho}^{(\vuln)} (x)
+    \right)
+    $$
+    $$
+    {F}_{\rho}^{(\vuln)}(x)
+    =
+    1-{F}_R^{(\vuln)}(1)
+    +
+    x {{F}_{R}^{(\vuln)}}
+    \left(
+      {F}_{\rho}^{(\vuln)} (x)
+    \right)
+    $$
+  
+    Solve as before to find $\Ptrig =  \Strig = 1 - F_\pi^{(\textnormal{trig)}}(1)$.
+  
+
+\begin{frame}[plain]
+  \includegraphics[width=\textwidth]{2014-03-17advice-animals-cheezburger.jpg}
+
+\subsection{Final\ size}
+
+  \textbf{Threshold contagion on random networks}
+
+  
+  
+    \alert{Third goal:} Find expected fractional size of spread.
+  
+    Not obvious even for uniform threshold problem.
+  
+    Difficulty is in figuring out if and when
+    nodes that need $\ge 2$ hits switch on.
+  
+    Problem \alertb{solved} for infinite seed case by Gleeson and Cahalane:\\
+    ``Seed size strongly affects cascades on random networks,'' 
+    Phys.\ Rev.\ E, 2007.\cite{gleeson2007a}
+  
+    Developed further by Gleeson
+    in ``Cascades on correlated and modular random networks,'' 
+    Phys.\ Rev.\ E, 2008.\cite{gleeson2008a}
+  
+
+
+  \textbf{Expected size of spread}
+
+  \textbf{Idea:}
+    
+     
+      Randomly turn on a fraction $\phi_0$ of nodes at time $t=0$
+     
+      Capitalize on local branching network structure of random
+      networks (again)
+     
+      Now think about what must happen for
+      a specific node $i$ to become active at time $t$:
+    [$\bullet$]
+      \alertb{$t=0$:} $i$ is one of the seeds (prob = $\phi_0$)
+    [$\bullet$]
+      \alertb{$t=1$:} $i$ was not a seed but enough of $i$'s friends switched
+      on at time $t=0$ so that $i$'s threshold is now exceeded.
+    [$\bullet$] 
+      \alertb{$t=2$:} enough of $i$'s friends and friends-of-friends switched
+      on at time $t=0$ so that $i$'s threshold is now exceeded.
+    [$\bullet$] 
+      \alertb{$t=n$:} enough nodes within $n$ hops of $i$ 
+      switched on at $t=0$ and their effects have propagated to reach $i$.
+    
+  
+
+
+
+  \textbf{Expected size of spread}
+
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread2.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread3.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread4.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread5.pdf}
+
+
+  \textbf{Expected size of spread}
+
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread_circ1.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread_circ2.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread_circ3.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread_circ4.pdf}
+  \includegraphics[angle=-90,width=\textwidth]{figfullspread_circ5.pdf}
+
+
+
+  \textbf{Expected size of spread}
+
+  \textbf{Notes:}
+    
+     
+      Calculations presume
+      nodes do not become inactive (strong restriction, liftable)
+    
+      Not just for threshold model---works
+      for a wide range of contagion processes.
+    
+      We can analytically determine the entire time evolution,
+      not just the final size.
+    
+      We can in fact determine \\
+      $\Prob$(node of degree $k$ switches on at time $t$).
+    
+      Even more, we can compute:
+      $\Prob$(specific node $i$ switches on at time $t$).
+    
+      Asynchronous updating can be handled too.
+    
+  
+
+
+
+  \textbf{Expected size of spread}
+
+  \textbf{Pleasantness:}
+    
+     
+      \alertb{Taking off from a single seed story} is about \alert{expansion} away from
+      a node.
+     
+      \alertb{Extent of spreading story} is about \alert{contraction} at
+      a node.
+    
+    \includegraphics[width=\textwidth]{contraction-expansion-tp-10}
+  
+
+
+  \textbf{Expected size of spread}
+
+  
+  
+    \alert{Notation:}
+    $ \phi_{k,t} = 
+    \Prob(\mbox{a degree $k$ node is active at time $t$}) $.
+  
+    \alert{Notation:}
+    $\infprob_{k j} = \Prob$ (a degree $k$ node becomes active
+    if $j$ neighbors are active).
+   
+    Our starting point: $ \phi_{k,0} = \phi_0$.
+  
+    $ 
+    \alertb{\binom{k}{j}
+      \phi_0^{\, j}
+      (1-\phi_0)^{k-j} }
+    $ 
+    =
+    $\Prob$ ($j$ of a degree $k$ node's neighbors were seeded at time $t=0$).
+   
+    Probability a degree $k$ node was a seed at $t=0$ is $\alert{\phi_0}$ (as above).
+   
+    Probability a degree $k$ node was not a seed at $t=0$ is $\alert{(1-\phi_0)}$.
+   
+    Combining everything, we have:
+    $$ 
+    \phi_{k,1}
+    = 
+    \alert{\phi_{0}}
+    + 
+    \alert{(1-\phi_{0})}
+    \sum_{j=0}^{k}
+    \alertb{\binom{k}{j}
+    \phi_0^{\, j}
+    (1-\phi_0)^{k-j} }
+  \infprob_{k j}.
+    $$
+  
+
+
+  \textbf{Expected size of spread}
+
+  
+  
+    For general $t$, we need to know
+    the probability an edge coming into a degree $k$ node
+    at time $t$ is active.
+  
+    \alert{Notation:} call this probability $\theta_t$.
+  
+    We already know $\theta_0 = \phi_0$.
+  
+    Story analogous to $t=1$ case.  For specific node $i$:
+    $$
+    \phi_{i,t+1}
+    = 
+    \alert{\phi_{0}}
+    + 
+    \alert{(1-\phi_{0})}
+    \sum_{j=0}^{k_i}
+    \alertb{\binom{k_i}{j}
+    \theta_t^{\, j}
+    (1-\theta_t)^{k_i-j}}
+    \infprob_{k_i j}.
+    $$
+  
+    Average over all nodes with degree $k$ to obtain expression for $\phi_{t+1}$:
+    $$
+    \phi_{t+1}
+    = 
+    \alert{\phi_{0}}
+    + 
+    \alert{(1-\phi_{0})}
+    \sum_{k=0}^{\infty} P_k 
+    \sum_{j=0}^{k}
+    \alertb{\binom{k}{j}
+    \theta_t^{\, j}
+    (1-\theta_t)^{k-j}}
+    \infprob_{kj}.
+    $$
+  
+    So we need to compute $\theta_t$...  {\alertb{massive excitement...}}
+  
+  
+
+  \textbf{Expected size of spread}
+  
+  \textbf{First connect $\theta_0$ to $\theta_1$:}
+    
+    
+      $
+      \theta_{1}
+      =
+      \phi_0 +
+      $
+      $$
+      (1-\phi_0)
+      \sum_{k=1}^{\infty}
+      \alert{\frac{k P_k}{\tavg{k}}}
+      \alertb{\sum_{j=0}^{k-1}}
+      \binom{k-1}{j}
+      \theta_{0}^{\ j}
+      (1-\theta_{0})^{k-1-j}
+      \infprob_{kj}
+      $$
+    
+      $ \alert{\frac{kP_k}{\tavg{k}}} = Q_k$ = $\Prob$ (edge connects to a degree $k$ node).
+    
+      \alertb{$\sum_{j=0}^{k-1}$} piece gives $\Prob$ (degree node $k$ activates
+      if $j$ of its $k-1$ incoming neighbors are active).
+    
+      $\phi_0$ and $(1-\phi_0)$ terms account for state of node at time $t=0$.
+    
+      See this all generalizes to give $\theta_{t+1}$ in terms of $\theta_{t}$...
+    
+  
+
+  \textbf{Expected size of spread}
+  
+  \textbf{Two pieces: edges first, and then nodes}
+    
+    
+      $
+      \theta_{t+1}
+      =
+      \underbrace{\phi_0}_{\alertb{\mbox{exogenous}}} 
+      $
+      $$
+      +
+      (1-\phi_0)
+      \underbrace{
+      \sum_{k=1}^{\infty}
+      \frac{k P_k}{\tavg{k}}
+      \sum_{j=0}^{k-1}
+      \binom{k-1}{j}
+      \theta_{t}^{\ j}
+      (1-\theta_{t})^{k-1-j}
+      \infprob_{kj}
+      }_{\alertb{\mbox{social effects}}}
+      $$
+      with $\theta_0 = \phi_0$.
+    
+      $ 
+      \phi_{t+1}
+      = 
+      $
+      $$
+      \underbrace{\phi_0}_{\alertb{\mbox{exogenous}}} 
+      + 
+      (1-\phi_{0})
+      \underbrace{
+      \sum_{k=0}^{\infty}
+      P_k
+      \sum_{j=0}^{k}
+      \binom{k}{j}
+      \theta_t^{\, j}
+      (1-\theta_t)^{k-j} 
+      \infprob_{kj}
+      }_{\alertb{\mbox{social effects}}}.
+      $$
+    
+  
+
+%% not true:
+%%   
+%%    
+%%     \alert{Observe:} $\theta_{t+1}$ is an increasing function of $\theta_{t}$
+%%    
+%%     $\Rightarrow$ Stable attracting fixed point(s) must exist: $\theta_t \rightarrow \theta_\infty$
+%%   
+
+
+
+  \textbf{Comparison between theory and simulations}
+
+      
+    \includegraphics[width=\textwidth]{gleeson2007a_fig1.pdf}
+    
+    {\small From Gleeson and Cahalane\cite{gleeson2007a}}
+    
+    
+     
+      Pure random networks with simple threshold responses
+     
+      $R$ = uniform threshold (our $\phi_\ast$);
+      $z$ = average degree; $\rho = \phi$; $q = \theta$; $N=10^5$.
+     
+      $\phi_0 = 10^{-3}$, $0.5 \times 10^{-2}$,
+      and 
+      $10^{-2}$.
+    
+      Cascade window is for $\phi_0 = 10^{-2}$ case.
+    
+      Sensible expansion of cascade window as $\phi_0$ increases.
+    
+  
+  \textbf{Notes:}
+
+    
+    
+      Retrieve cascade condition for 
+      spreading from a single seed in limit $\phi_0 \rightarrow 0$.
+     
+      Depends on map $\theta_{t+1} = G(\theta_{t};\phi_0)$.
+     
+      First: if self-starters are present, some activation is assured:
+      $$
+      G(0;\phi_0) = 
+      \sum_{k=1}^{\infty} 
+      \frac{kP_k}{\tavg{k}}
+      \bullet
+      \infprob_{k0} > 0.
+      $$
+      meaning $\infprob_{k0}>0$ for at least one value of $k \ge 1$.
+     
+      If $\theta=0$ is a fixed point of $G$ (i.e., $G(0;\phi_0) = 0$)
+      then spreading occurs if
+      $$
+      G'(0;\phi_0) = 
+      \sum_{k=0}^{\infty} 
+      \frac{k P_k}{\tavg{k}}
+      \bullet
+      (k-1) 
+      \bullet
+      \infprob_{k1} > 1.
+      $$
+      \insertassignmentquestionsoft{08}{8}
+    
+
+  \textbf{Notes:}
+
+  \textbf{In words:}    
+    
+     
+      If $G(0;\phi_0) > 0$, spreading must occur because
+      some nodes turn on for free.
+     
+      If $G$ has an \alert{unstable fixed point} at $\theta = 0$,
+      then cascades are also always possible.
+    
+  
+
+  \textbf{Non-vanishing seed case:}
+    
+     
+      Cascade condition is more complicated for
+      $\phi_0 > 0$.
+     
+      If $G$ has a \alert{stable fixed point} at $\theta = 0$,
+      and an \alert{unstable fixed point} for some $0 < \theta_\ast < 1$,
+      then for $\theta_0  > \theta_\ast$, spreading takes off.
+    
+      Tricky point: $G$ depends on $\phi_0$, so as we change
+      $\phi_0$, we also change $G$.
+    
+  
+
+
+  \textbf{General fixed point story:}
+
+      
+    \includegraphics[angle=0,width=\textwidth]{figGfunction01.pdf}
+    
+    \includegraphics[angle=0,width=\textwidth]{figGfunction02.pdf}
+    
+    \includegraphics[angle=0,width=\textwidth]{figGfunction03.pdf}
+  
+  
+   
+    Given $\theta_0 (= \phi_0)$, $\theta_\infty$ will be 
+    the nearest stable fixed point, either above or below.
+   
+    n.b., adjacent fixed points must have opposite stability types.
+   
+    \alert{Important:}
+    Actual form of $G$ depends on $\phi_0$.  
+  
+    So choice of $\phi_0$ dictates both $G$ and starting
+    point---can't start anywhere for a given $G$.
+  
+
+
+  \textbf{Comparison between theory and simulations}
+
+      
+    \includegraphics[width=\textwidth]{gleeson2007a_fig2.pdf}
+
+    {\small From Gleeson and Cahalane\cite{gleeson2007a}}
+    
+    
+     
+      Now allow thresholds to be distributed
+      according to a Gaussian with mean $R$.
+     
+      $R$ = \alert{0.2}, \alertb{0.362}, and 0.38; $\sigma = 0.2$.
+    
+      $\phi_0 = 0$ but some nodes have thresholds $\le 0$
+      so effectively $\phi_0 > 0$.
+    
+      Now see a (nasty) discontinuous phase transition
+      for low $\tavg{k}$.
+    
+  
+  \textbf{Comparison between theory and simulations}
+
+      
+    \includegraphics[width=\textwidth]{gleeson2007a_fig3.pdf}
+
+    {\small From Gleeson and Cahalane\cite{gleeson2007a}}
+    
+    
+     
+      Plots of stability points for $\theta_{t+1} = G(\theta_t; \phi_0)$.
+     
+      n.b.: 0 is not a fixed point here: $\theta_0 = 0$ always takes off.
+     
+      Top to bottom: $R$ = 0.35, 0.371, and 0.375.
+     
+      n.b.: higher values of $\theta_0$ for (b) and (c)
+      lead to higher fixed points of $G$.
+     
+      Saddle node bifurcations 
+      appear and merge (b and c).
+    
+  
+
+  \textbf{Spreadarama}
+
+  \textbf{Bridging to single seed case:}
+    
+     
+      Consider largest vulnerable component
+      as initial set of seeds.
+    
+      Not quite right as spreading must move
+      through vulnerables.
+    
+      But we can usefully think of the vulnerable
+      component as activating at time $t=0$
+      because order doesn't matter.
+    
+      Rebuild $\phi_t$ and $\theta_t$ expressions...
+    
+  
+
+
+  \textbf{Spreadarama}
+
+  \textbf{Two pieces modified for single seed:}
+    
+    
+      $
+      \theta_{t+1}
+      =
+      \thetavuln 
+      \ +
+      $
+      $$
+      (1-\thetavuln)
+      \sum_{k=1}^{\infty}
+      \frac{k P_k}{\tavg{k}}
+      \sum_{j=0}^{k-1}
+      \binom{k-1}{j}
+      \theta_{t}^{\ j}
+      (1-\theta_{t})^{k-1-j}
+      \infprob_{kj}
+      $$
+      with $\theta_0 = \thetavuln$ = $\Prob$ an edge leads
+      to the giant vulnerable component (if it exists).
+    
+      $ 
+      \phi_{t+1}
+      = 
+      \Svuln
+      \ + 
+      $
+      $$
+      (1-\Svuln)
+      \sum_{k=0}^{\infty}
+      P_k
+      \sum_{j=0}^{k}
+      \binom{k}{j}
+      \theta_t^{\, j}
+      (1-\theta_t)^{k-j} 
+      \infprob_{kj}.
+      $$
+    
+  
+
+
+
+  \textbf{Time-dependent solutions}
+
+  \textbf{Synchronous update}
+    
+     Done: Evolution of $\phi_t$ and $\theta_t$
+      given exactly by the maps we have
+      derived.
+    
+  
+
+  \textbf{Asynchronous updates}
+    
+     
+      Update nodes with probability $\alpha$.
+     
+      As $\alpha \rightarrow 0$, updates become
+      effectively independent.
+     
+      Now can talk about $\phi(t)$ and $\theta(t)$.
+    
+  
+
+
+\begin{comment}
+  
+\section{Appendix}
+
+  \textbf{Threshold contagion on random networks}
+
+  
+   
+    \alert{First goal:} 
+    Find the largest component of vulnerable nodes.
+   
+    Recall that for finding the giant component's size, 
+    we had to solve:
+    $$
+    {
+      F_{\pi}(x)
+      =
+      x F_{P}
+      \left(
+        F_{\rho} (x)
+      \right)
+    }
+    \mbox{\ \  and \ }
+    {
+      F_{\rho}(x)
+      =
+      x F_{R}
+      \left(
+        F_{\rho} (x)
+      \right)
+    }
+    $$
+   
+    We'll find a similar result for 
+    the subset of nodes that are vulnerable.
+   
+    This is a node-based percolation problem.
+   
+    For a general monotonic threshold distribution \alert{$f(\phi)$},
+    a degree $k$ node is vulnerable with probability
+    $$
+    \infprob_{k1} = \int_{0}^{1/k} f(\phi) \dee{\phi}.
+    $$
+  
+
+
+  \textbf{Threshold contagion on random networks}
+
+  
+  
+    Everything now revolves around the \alert{modified} generating function:
+    $$
+    F_P^{(\vuln)}(x) 
+    = 
+    \sum_{k=0}^{\infty}
+    \infprob_{k1}
+    P_k
+    x^k.
+    $$
+  
+    Generating function for friends-of-friends distribution is
+    related in same way as before:
+    $$
+    F_R^{(\vuln)}(x) 
+    = 
+    \frac{
+      \diff{}{x}{F}_P^{(\vuln)}(x)}
+    {\diff{}{x} {F}_P^{(\vuln)}(x)|_{x=1}}.
+    $$
+  
+
+
+  \textbf{Threshold contagion on random networks}
+
+  
+   Functional relations for component size g.f.'s
+    are almost the same...
+    $$
+    {
+      {F}_{\pi}^{(\vuln)}(x)
+      =
+    }
+    {
+      \underbrace{
+        1-{F}_P^{(\vuln)}(1)
+      }_{
+        \mbox{
+          \scriptsize
+          \begin{tabular}{l}
+            central node \\
+            is not \\
+            vulnerable
+          \end{tabular}
+        }
+      }
+      +
+    }
+    {
+      x {F}_{P}^{(\vuln)}
+      \left(
+        {F}_{\rho}^{(\vuln)} (x)
+      \right)
+    }
+    $$
+    $$
+    {
+      {F}_{\rho}^{(\vuln)}(x)
+      =
+    }
+    {
+      \underbrace{
+        1-{F}_R^{(\vuln)}(1)
+      }_{
+        \mbox{
+          \scriptsize
+          \begin{tabular}{l}
+            first node \\
+            is not \\
+            vulnerable
+          \end{tabular}
+        }
+      }
+      +
+    }
+    {
+      x {F}_{R}^{(\vuln)}
+      \left(
+        {F}_{\rho}^{(\vuln)} (x)
+      \right)
+    }
+    $$
+  
+    Can now solve as before to find $S_{\textnormal{vuln}} = 1 - F_\pi^{(\vuln)}(1)$.
+  
+
+
+  \textbf{Threshold contagion on random networks}
+
+  
+   \alert{Second goal:}
+    Find probability of triggering largest vulnerable 
+    component.
+   
+    Assumption is \alert{first node} is \alertb{randomly chosen}.
+  
+    \alertb{Same set up} as for vulnerable component except
+    now we don't care if the initial node is vulnerable or not:
+    $$
+    {F}_{\pi}^{(\textnormal{trig)}}(x)
+    =
+    x \alert{{F}_{P}}
+    \left(
+      {F}_{\rho}^{(\vuln)} (x)
+    \right)
+    $$
+    $$
+    {F}_{\rho}^{(\vuln)}(x)
+    =
+    1-{F}_R^{(\vuln)}(1)
+    +
+    x {{F}_{R}^{(\vuln)}}
+    \left(
+      {F}_{\rho}^{(\vuln)} (x)
+    \right)
+    $$
+  
+    Solve as before to find $\Ptrig =  \Strig = 1 - F_\pi^{(\textnormal{trig)}}(1)$.
+  
+
+\end{comment}

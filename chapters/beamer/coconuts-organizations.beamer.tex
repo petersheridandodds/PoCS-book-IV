@@ -1,0 +1,1063 @@
+\section{Overview}
+
+\begin{frame}
+  \frametitle{Overview}
+
+  \begin{block}{The basic idea/problem/motivation/history:}
+    \begin{itemize}
+    \item<1-> 
+      Organizations as information exchange entities.
+    \item<2-> 
+      Catastrophe recovery.
+    \item<3-> 
+      Solving ambiguous, ill-defined problems.
+    \item<4->
+      Robustness as `optimal' design feature.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<5->{A model of organizational networks:}
+    \begin{itemize}
+    \item<5->
+      Network construction algorithm.
+    \item<6->
+      Task specification.
+    \item<7->
+      Message routing algorithm.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<8->{Results:}
+    \begin{itemize}
+    \item<8->
+      Performance measures.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Toyota}
+
+%%   Toyota-Aisin example.
+%%  eye-sheen
+%% 
+%%  1997
+%%  brake valve part, only supplier
+%%  4 hours supply (just in time)
+%%  
+%%  14000 cars per day
+%%  
+%%  months of delay predicted
+%%  6 months before new machines would arrive
+%%  
+%%  recovered in about 5 days
+%%  
+%%  sewing machine maker with no experience in car parts
+%%  spent about 500 man hours refitting a milling machine
+%%  to produce 40 valves a day
+%%  36 suppliers
+%%  150 subcontractors
+%%  50 supply lines
+%%  
+%%  result of strengths of ties across a hierarchy
+%% 
+%%  wrote manuals on how to deal with such a crisis
+%%  
+%% scary for other companies
+
+\begin{frame}
+  \frametitle{February, 1997:}
+
+  \begin{block}<1->{Aisin (eye-sheen), maker of brake valve parts for Toyota, burns to ground.\cite{nishiguchi2000a}}
+    \begin{itemize}
+    \item<2->
+      4 hours supply (``just in time'').
+    \item<3->
+      14,000 cars per day $\rightarrow$ 0 cars per day.
+    \item<4->
+      6 months before new machines would arrive.
+    \item<5-> 
+      \uncover<5->{
+        Recovered in 5 days.}
+    \end{itemize}
+  \end{block}
+
+  \begin{itemize}
+  \item 
+    For more see Nishiguchi and Beaudet\cite{nishiguchi2000a}\\
+    ``Fractal Design: Self-organizing Links in Supply Chain''\\
+    in ``Knowledge Creation: A New Source of Value''
+  \end{itemize}
+  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{February, 1997:}
+
+  \begin{block}{Some details:}
+    \begin{itemize}
+    \item<+->
+      36 suppliers, 150 subcontractors
+    \item<+-> 
+      50 supply lines
+    \item<+-> 
+      Sewing machine maker with no experience in car parts
+      spent about 500 man hours refitting a milling machine
+      to produce 40 valves a day.
+    \item<+->
+      Recovery depended on horizontal links which
+      arguably provided:
+      \begin{enumerate}
+      \item<+-> 
+        robustness
+      \item<+->
+        searchability
+      \end{enumerate}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some things fall apart:}
+  \includegraphics[width=\textwidth]{lehmann-brothers-bag.jpg}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{lehmann-brothers-bag-zoom.jpg}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rebirth:}
+  \includegraphics[width=\textwidth]{despicable_me_bank_of_evil_formerly_lehman_brothers.png}
+\end{frame}
+
+\subsection{Ambiguous\ problems}
+
+\begin{frame}
+  \frametitle{Motivation}
+
+  \begin{block}{Recovery from catastrophe involves solving problems that are:}
+    \begin{itemize}
+    \item<2-> 
+      Unanticipated,
+    \item<3-> 
+      Unprecedented,
+    \item<4->
+      Ambiguous (nothing is obvious),
+    \item<5-> 
+      Distributed (knowledge/people/resources),
+    \item<6-> 
+      Limited by existing resources,
+    \item<7-> 
+      Critical for survival.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<8->{Frame:}
+    \begin{itemize}
+    \item<8-> 
+      Collective solving of ambiguous problems
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivation}
+
+  \begin{block}{Ambiguity:}
+    \begin{itemize}
+    \item<1->
+      Question much less answer is not well understood.
+    \item<2->
+      Back and forth search process rephrases question.
+    \item<3->
+      Leads to iterative process of query reformulation.
+    \item<4->
+      Ambiguous tasks are inherently not decomposable.
+    \item<5->
+      How do individuals collectively work
+      on an ambiguous organization-scale problem?
+    \item<6->
+      How do we define ambiguity?
+    \end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Let's modelify:}
+
+  \begin{block}{Modeling ambiguous problems is hard\ldots}
+    \begin{itemize}
+    \item<2->
+      Model response instead\ldots
+    \item<3-> 
+      Individuals need novel information and must communicate with others
+      outside of their usual contacts.
+    \item<4->  
+      Creative search is intrinsically inefficient.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<5->{Focus on robustness:}
+    \begin{enumerate}
+    \item<6-> 
+      Avoidance of individual failures.
+    \item<7->
+      Survival of organization even when failures do occur.
+    \end{enumerate}
+   \end{block}
+
+\end{frame}
+
+\subsection{Models\ of\ organizations:}
+
+\begin{frame}
+  \frametitle{Why organizations exist:}
+
+  \begin{block}{\wordwikilink{http://en.wikipedia.org/wiki/Ronald\_Coase}{Ronald Coase}, 1937, ``The Nature of the Firm''\cite{coase1937a}}
+    \begin{itemize}
+    \item<1-> 
+      Notion of \wordwikilink{http://en.wikipedia.org/wiki/Transaction\_cost}{Transaction Costs}.
+    \item<1-> 
+      More efficient for individuals to cooperate outside of the market.
+    \end{itemize}
+  \end{block}
+
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{coase}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Real organizations---Extremes}
+
+  \begin{block}<1->{Hierarchy:}
+    \begin{itemize}
+    \item 
+      Maximum efficiency,
+    \item 
+      Suited to static environment,
+    \item 
+      Brittle.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}<2->{Market:}
+    \begin{itemize}
+    \item
+      Resilient,
+    \item
+      Suited to rapidly changing environment,
+    \item
+      Requires costless interactions.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Real organizations\ldots}
+
+  \begin{block}{But real, complex organizations are in the middle\ldots}
+    \begin{center}
+      \includegraphics[width=\textwidth]{orgnetworkrange}
+    \end{center}
+    \begin{itemize}
+    \item
+      \alertb{``Heterarchies''} (D. Stark, 1999)\cite{stark1999a}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Organizations as efficient hierarchies}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1->
+      Economics: \alertb{Organizations $\equiv$ Hierarchies.}
+    \item<1->
+      e.g., Radner (1993)\cite{radner1993a}, Van Zandt (1998)\cite{vanzandt1998a}
+    \item<1->
+      Hierarchies performing associative operations:
+      \begin{center}
+        \includegraphics[width=0.8\textwidth]{associativenet}
+      \end{center}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal network topologies for local search}
+
+  %% queueing, point of collapse,
+  %% average search time + congestion,
+  %% simulated annealing
+
+  \begin{block}{Guimer\`{a} et al., 2002\cite{guimera2002b}}
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{mb}
+    \includegraphics[width=0.45\textwidth]{md}
+    \begin{itemize}
+    \item<1->
+      Parallel search and congestion.
+    \item<1->
+      Queueing and network collapse.
+    \item<1-> 
+      Exploration of random search mechanisms.
+    \end{itemize}
+  \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimal network topologies for local search}
+
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{r1}
+    \column{0.4\textwidth}
+    \begin{itemize}
+    \item<1->
+      Betweenness: $\beta$.
+    \item<1->
+      Polarization: 
+      $$\pi = \frac{\max \beta}{\tavg{\beta}}-1.$$
+    \item<1->
+      $L$ = number of links.
+    \end{itemize}
+  \end{columns}
+
+  \bigskip
+
+
+  \begin{itemize}
+  \item<1-> 
+    Goal: minimize average search time.
+  \item<1-> 
+    Few searches $\Rightarrow$ hub-and-spoke network.
+  \item<1-> 
+    Many searches $\Rightarrow$ decentralized network.
+  \end{itemize}
+
+\end{frame}
+
+%% \begin{frame}
+%%  \frametitle{Organizations as efficient hierarchies}
+%%
+%%  Goh?
+%%
+%%\end{frame}
+
+\section{Modelification}
+
+\subsection{Goals}
+
+\begin{frame}
+  \frametitle{Desirable organizational qualities:}
+
+  \begin{block}{}
+    \begin{enumerate}
+    \item<1->
+      Low cost (requiring few links).
+    \item<2->
+      Scalability.
+    \item<3->
+      Ease of construction---existence is plausible.
+    \item<4->
+      Searchability.
+    \item<5-> 
+      \alert{`Ultra-robustness'}:
+      \begin{enumerate}
+      \item<6->[I]
+        \alertb{Congestion robustness}\\
+        (Resilience to failure due to information exchange);
+      \item<7->[II] 
+        \alertb{Connectivity robustness}\\
+        (Recoverability in the event of failure).
+      \end{enumerate}
+    \end{enumerate}
+  \end{block}
+
+\end{frame}
+
+
+%%\begin{frame}
+%%  \frametitle{Searchability}
+%%
+%%  Guimer\`{a} \textit{et al.}, 2002
+%%
+%%  Optimal network topologies for searching
+%%  using only local information.
+%%
+%%  \hspace{3ex}
+%%  Low cost searches $\Rightarrow$ hub-based networks.
+%%
+%%  \hspace{3ex}
+%%  High cost searches $\Rightarrow$ featureless networks.
+%%  
+%%\end{frame}
+
+\begin{frame}
+  \frametitle{Searchability}
+
+  \begin{block}{Small world problem:}
+    \begin{itemize}
+    \item<1->
+      Can individuals pass a message
+      to a target individual using only personal connections?
+    \item<1->
+      Yes, large scale networks searchable 
+      if nodes have \alertb{identities}.
+    \item<1->
+      ``Identity and Search in Social Networks,''
+      Watts, Dodds, \& Newman, 2002.\cite{watts2002b}
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+%%%%%%%%%%%
+%% model
+%%%%%%%%%%%
+
+\subsection{Model}
+
+\begin{frame}
+  \frametitle{Model}
+
+  \begin{block}{Organizational network robustness:}
+    ``Information exchange and the robustness of organizational networks,''\\
+    Dodds, Watts, and Sabel, 2003.\cite{dodds2003c}\\
+    Proc. Natl. Acad. Sci., edited by 
+    \wordwikilink{http://en.wikipedia.org/wiki/Harrison\_White}{Harrison White}
+  \end{block}
+
+  \begin{block}<2->{Formal organizational structure:}
+    \begin{itemize}
+    \item<2->
+      \alertb{Underlying hierarchy:}
+      \begin{itemize}
+      \item
+        branching ratio $b$
+      \item
+        depth $L$
+      \item
+        $N = (b^L-1)/(b-1)$ nodes
+      \item
+        $N-1$ links
+      \end{itemize}
+    \item<3->
+      \alertb{Additional informal ties:}
+      \begin{itemize}
+      \item 
+        Choose $m$ links according to a
+        two parameter probability distribution
+      \item 
+        $ 0 \le m \le (N-1)(N-2)/2 $
+      \end{itemize}
+    \end{itemize}
+    
+  \end{block}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Model---underlying hierarchy}
+
+  \begin{block}{Model---formal structure:}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{networkvariation8}
+    \end{center}
+    $$ 
+    b=3, \quad  L=3, \quad N=13
+    $$
+  \end{block}
+
+\end{frame}
+
+%%\begin{frame}
+%%  \frametitle{Model---underlying hierarchy}
+%%  \begin{center}
+%%    \includegraphics[width=0.75\textwidth]{networkvar1}
+%%  \end{center}
+%%  \Large \[ b=3, \quad  L=4, \quad N=40\]
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Model---addition of links}
+
+  \begin{block}{Team-based networks ($m=12$):}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{networkvariation10}
+    \end{center}
+  \end{block}
+    
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model---addition of links}
+
+  \begin{block}{Random networks ($m=12$):}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{networkvariation11}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model---addition of links}
+
+  \begin{block}{Random interdivisional networks ($m=6$):}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{networkvariation12}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model---addition of links}
+
+  \begin{block}{Core-periphery networks ($m=6$):}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{networkvariation13}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model---addition of links}
+
+  \begin{block}{Multiscale networks $(m=12)$:}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{networkvariation14}
+    \end{center}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Model---construction}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{linkaddition3}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model---construction}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1-> 
+      Link addition probability:
+      $$
+      P(D,d_1,d_2) 
+      \propto 
+      e^{-D/\lambda} e^{-f(d_1,d_2)/\zeta}
+      $$
+    \item<1-> 
+      First choose $(D,d_1,d_2)$.
+    \item<1-> 
+      Randomly choose $(y,x_1,x_2)$ given $(D,d_1,d_2)$.
+    \item<1-> 
+      Choose links without replacement.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model---construction}
+
+  \begin{block}{Requirements for $f(d_1,d_2)$:}
+    \begin{enumerate}
+    \item<2-> 
+      $f \geq 0$ for $d_1+d_2 \geq 2$
+    \item<3->
+      $f$ increases monotonically with $d_1$, $d_2$.
+    \item<4->
+      $f(d_1,d_2) = f(d_2,d_1)$.
+    \item<5->
+      $f$ is maximized when $d_1=d_2$.
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}<6->{Simple function satisfying 1--4:}
+    $$
+    f(d_1,d_2) = (d_1^2 + d_2^2-2)^{1/2}
+    $$
+    $$
+    \Rightarrow
+    P(y,x_1,x_2) \propto e^{-D/\lambda} e^{-(d_1^2 + d_2^2-2)^{1/2}/\zeta} 
+    $$  
+  \end{block}
+
+\end{frame}
+
+%%\begin{frame}
+%%  \frametitle{Model---limiting cases}
+%%
+%%\vfill
+%%
+%%  \hspace{3ex}
+%%  $\lambda$ large, $\zeta=0$: team-based networks
+%%
+%%  \hspace{3ex}
+%%  $\lambda$ large, $\zeta$ large: random networks
+%%
+%%  \hspace{3ex}
+%%  $\lambda=0$, $\zeta$ large: random interdivisional networks
+%%
+%%  \hspace{3ex}
+%%  $\lambda$ small, $\zeta$ small: core-periphery networks
+%%
+%%  \hspace{3ex}
+%%  $\lambda$, $\zeta$ intermediate: multiscale networks
+%%
+%%\vfill
+%%\end{frame}
+
+\begin{frame}
+  \frametitle{Model---limiting cases}
+
+  \vfill
+  \begin{center}
+    \includegraphics[width=\textwidth]{networkspace}
+  \end{center}
+  \vfill
+\end{frame}
+
+
+
+%%%%%%%%%%%%%
+%% testing %%
+%%%%%%%%%%%%%
+
+\subsection{Testing}
+
+\begin{frame}
+  \frametitle{Message passing pattern}
+
+  \begin{itemize}
+  \item<1->
+    Each of $T$ time steps,  each node generates a message with probability $\mu$.
+  \item<2-> 
+    Recipient of message chosen based on distance from sender.
+  \item<3-> 
+    $$
+    P(\mbox{recipient at distance}\ d) \propto e^{-d/\xi}.
+    $$
+  \end{itemize}
+  \begin{enumerate}
+  \item<3-> 
+    $\xi$ = measure of uncertainty;
+  \item<3-> 
+    $\xi=0$: local message passing;
+  \item<3->  
+    $\xi=\infty$: random message passing.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Message passing pattern:}
+
+  \begin{block}{Distance $d_{12}$ between two nodes $x_1$ and $x_2$:}
+    \bigskip
+    \begin{columns}
+      \column{0.6\textwidth} 
+      \includegraphics[width=\textwidth]{linkaddition3}
+      \column{0.4\textwidth} 
+      $$
+      d_{12} = \max(d_1,d_2) =3
+      $$
+    \end{columns}
+    \bigskip
+    \begin{itemize}    
+    \item 
+      Measure unchanged with presence of informal ties.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Message passing pattern}
+
+  \begin{block}{Simple message routing algorithm:} 
+    \begin{itemize}
+    \item<1->
+      Look ahead one step:
+      always choose neighbor closest to recipient node.
+    \item<2->
+      \alertb{Pseudo-global knowledge:}
+      \begin{enumerate}
+      \item 
+        Nodes understand hierarchy.
+      \item 
+        Nodes know only local informal ties.
+      \end{enumerate}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Message passing pattern}
+
+  \begin{block}{Interpretations:}
+    \begin{enumerate}
+    \item<1->
+      Sender knows specific recipient.
+    \item<2->
+      Sender requires certain kind of recipient.
+    \item<3->
+      Sender seeks specific information but recipient unknown.
+    \item<4->
+      Sender has a problem but information/recipient unknown.
+    \end{enumerate}
+
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Message passing pattern}
+
+  \begin{block}{Performance:}
+  \begin{itemize}
+  \item<1->
+    Measure Congestion Centrality $\rho_i$,
+    fraction of messages passing through node $i$.
+  \item<2->
+    Similar to betweenness centrality.
+  \item<3->  
+    However: depends on 
+    \begin{enumerate}
+    \item<3->
+      Search algorithm;
+    \item<4->
+      Task specification ($\mu$, $\xi$).
+    \end{enumerate}
+  \item<5->  
+    Congestion robustness comes from
+    minimizing $\rho_{\textnormal{max}}$.
+  \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Message passing pattern}
+%% 
+%%   Two message routing algorithms: $C_1$ and $C_2$ search.
+%% 
+%%   $C_1$: Look ahead one step---choose neighbor closest to recipient node.
+%% 
+%%   $C_2$: Look ahead two steps---choose neighbor with neighbor closest to recipient node.
+%% 
+%%   Nodes understand hierarchy but know only local informal ties.
+%% 
+%%   Examine $C_1$ only.
+%% 
+%% \end{frame}
+
+\subsection{Results}
+
+%%%%%%%%%%%%%
+%% results %%
+%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Performance testing:}
+
+  \begin{block}{Parameter settings (unless varying):}
+    \begin{itemize}
+    \item<1->
+      Underlying hierarchy:
+      $b=5$, $L=6$, $N=3096$;
+    \item<2->
+      Number of informal ties:
+      $m=N$.
+    \item<3->
+      Link addition algorithm:
+      $\lambda=\zeta=0.5$.
+    \item<4->
+      Message passing:
+      $\xi=1$, $\mu=10/N$, $T=1000$.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results---congestion robustness}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{figmsdomain_rhomax30_1234_5C_noname}
+    %%    \includegraphics[width=0.65\textwidth]{figmsdomain_rhomax30_1234_5C_noname}
+  \end{center}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Results}
+%%   \begin{center}
+%%     \includegraphics[width=0.5\textwidth]{figmsdomain_rhomax30_1234_3_3d_noname}
+%%   \end{center}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Results---varying number of links added:}
+
+  \begin{columns}
+    \column{0.75\textwidth}
+    \includegraphics[width=\textwidth]{figzl_linkadd_rhomax2_32_noname}
+    \column{0.25\textwidth}
+    \begin{itemize}
+    \item[] 
+        {\Large$\diamond$}=TB
+    \item[]
+        $\bigtriangledown$=R
+    \item[]
+        $\bigtriangleup$=RID 
+    \item[]
+        {\small$\bigcirc$}=CP
+    \item[]
+        $\Box$=MS 
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results---varying message passing pattern}
+
+  \begin{columns}
+    \column{0.75\textwidth}
+    \includegraphics[width=\textwidth]{figzl_rhomax_xi_31_noname}
+    \column{0.25\textwidth}
+    \begin{itemize}
+    \item[] 
+        {\Large$\diamond$}=TB
+    \item[]
+        $\bigtriangledown$=R
+    \item[]
+        $\bigtriangleup$=RID 
+    \item[]
+        {\small$\bigcirc$}=CP
+    \item[]
+        $\Box$=MS 
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Results---Maximum firm size}
+
+  \begin{itemize}
+  \item<1->
+    Congestion may increase with size
+    of network.
+  \item<2-> 
+    Fix rate of message passing ($\mu$)
+    and
+    Message pattern ($\xi$).
+  \item<3->
+    Fix branching ratio of hierarchy  and add more levels.
+  \item<4-> 
+    Individuals have limited capacity 
+    $\Rightarrow$ limit to firm size.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Results---Scalability}
+
+  \begin{columns}
+    \column{0.75\textwidth}
+    \includegraphics[width=\textwidth]{figrhomaxNscaling33_6lin_noname}
+    \column{0.25\textwidth}
+    \begin{itemize}
+    \item[] 
+        {\Large$\diamond$}=TB
+    \item[]
+        $\bigtriangledown$=R
+    \item[]
+        $\bigtriangleup$=RID 
+    \item[]
+        {\small$\bigcirc$}=CP
+    \item[]
+        $\Box$=MS 
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results---Scalability}
+
+  \begin{columns}
+    \column{0.75\textwidth}
+    \includegraphics[width=\textwidth]{figrhomaxNscaling33_10log2_noname}
+    \column{0.25\textwidth}
+    \begin{itemize}
+    \item[] 
+        {\Large$\diamond$}=TB
+    \item[]
+        $\bigtriangledown$=R
+    \item[]
+        $\bigtriangleup$=RID 
+    \item[]
+        {\small$\bigcirc$}=CP
+    \item[]
+        $\Box$=MS 
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Connectivity Robustness}
+
+  \begin{block}<1->{Inducing catastrophic failure:}
+    \begin{itemize}
+    \item<1->
+      Remove $N_r$ nodes and measure relative size
+      of largest component $C = S/(N-N_r)$.
+    \item<2-> 
+      Four deletion sequences:
+      \begin{enumerate}
+      \item 
+        Top-down;
+      \item 
+        Random;
+      \item 
+        Hub;
+      \item 
+        Cascading failure.
+      \end{enumerate}
+    \item<3->
+      Results largely independent of sequence.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results---Connectivity Robustness}
+
+  \begin{columns}
+    \column{0.75\textwidth}
+    \includegraphics[width=\textwidth]{figrobustness51_mod}
+    \column{0.25\textwidth}
+    \begin{itemize}
+    \item[] 
+        {\Large$\diamond$}=TB
+    \item[]
+        $\bigtriangledown$=R
+    \item[]
+        $\bigtriangleup$=RID 
+    \item[]
+        {\small$\bigcirc$}=CP
+    \item[]
+        $\Box$=MS 
+    \end{itemize}
+  \end{columns}
+
+    
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summary of results}
+
+  \small
+  \begin{tabular}{l|lll}
+    Feature & Congestion  & Connectivity & Scalability \\ 
+    & Robustness & Robustness &  \\\hline
+    \\
+    Core-periphery & good & average &average \\
+    \\
+    Random & poor & good & poor \\
+    \\
+    Rand. Interdivisional & poor & good & poor \\
+    \\
+    Team-based & poor & poor & poor\\
+    \\
+    \alertb{Multiscale} & \alertb{good} & \alertb{good} &\alertb{good} \\
+  \end{tabular}
+  
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}
+  \frametitle{Conclusary moments}
+
+  \begin{block}{Multi-scale networks:}
+    \begin{enumerate}
+    \item<1->
+      Possess good Congestion Robustness and
+      Connectivity Robustness $\Rightarrow$ Ultra-robust;
+    \item<2->
+      Scalable;
+    \item<3->
+      Relatively insensitive to parameter choice;
+    \end{enumerate}
+    \begin{itemize}
+    \item<4->
+      Above suggests existence of multi-scale structure is plausible.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusary moments}
+
+  \begin{block}{}
+    \begin{itemize}
+    \item<1->
+      Foregoing is an attempt to model what organizations
+      might look like beyond simple hierarchies (2003).
+    \item<2->
+      Possible work: develop `bottom up' model of organizational
+      networks based on social search, identity 
+      (emergent searchability).
+    \item<3->
+      Balance of \alertb{generalists versus specialists}---how many
+      middle managers does an organization need?
+    \item<4->
+      Still a need for data on real organizations\ldots
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+
+
+

@@ -1,0 +1,1477 @@
+%% something i completely agree with from socnet (mason porter):
+%%
+%% The term 'scale free' is a very unfortunate (and misleading) term that was spread based on the terminology choice of some individuals.  (Some people on this mailing
+%% list who know me are probably laughing their heads off and expecting me to go into one of my usual rants.  I'll spare you this time.)  It is used to refer to networks
+%% with degree distributions given by power laws (or, for real data, have power law tails) because a commonality of these sorts of scaling laws (which is different from
+%% scales, by the way, despite the similar terminology) one finds in fractal structures.  The thing is that networks with those degree distributions _can_ have scales,
+%% as discussed in gory detail by John Doyle and collaborators.  It's better to just state the power law aspect of it when one's network has that feature and not comment
+%% on whether or not there are scales unless one goes beyond the degree distribution.
+%% 
+%% One of Doyle's papers that discusses this is here: http://arxiv.org/abs/cond-mat/0501169
+%% 
+%% I hope this helps.
+
+\section{Original model}
+
+\subsection{Introduction}
+
+\begin{frame}[label=]
+ \frametitle{Scale-free networks}
+ 
+ \begin{itemize}
+ \item<1-> 
+   Networks with power-law degree distributions
+   have become known as \alert{scale-free} networks.
+ \item<2->
+   Scale-free refers specifically to the \alert{degree distribution}
+   having a \alert{power-law decay} in its tail:
+   $$
+   \uncover<3->{
+     P_k \sim k^{-\gamma} 
+     \mbox{\ for `large' $k$}
+   }
+   $$
+ \item<4->
+   One of the seminal works in complex networks:\\
+   Laszlo Barab\'{a}si and Reka Albert, Science, 1999:\\
+   \alertb{``Emergence of scaling in random networks''}\cite{barabasi1999a}\\
+ \item<5->
+   Somewhat misleading nomenclature...
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Scale-free networks}
+
+  \begin{itemize}
+  \item<1->
+    Scale-free networks are \alert{not fractal} in any sense.
+  \item<2->
+    Usually talking about networks whose links are
+    \alertb{abstract}, 
+    \alert{relational}, 
+    \alertb{informational}, 
+    \ldots (non-physical)
+  \item<3->
+    Primary example: hyperlink network of the Web
+  \item<4->
+    Much arguing about whether or networks are `scale-free' or not\ldots
+  \end{itemize}
+
+\end{frame}
+
+\input{nw_powerlaw_graphviz03giants}
+
+\begin{frame}[label=]
+ \frametitle{Scale-free networks}
+
+ \begin{block}<1->{The big deal:}
+   \begin{itemize}
+   \item<1->
+     We move beyond describing of networks
+     to finding \alert{mechanisms} for why
+     certain networks are the way they are.
+   \end{itemize}
+ \end{block}
+
+ \begin{block}<2->{A big deal for scale-free networks:}
+   \begin{itemize}
+   \item<2->
+     How does the exponent $\gamma$ depend on the mechanism?
+   \item<3->
+     Do the mechanism details matter?
+   \end{itemize}
+ \end{block}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Heritage}
+
+  \begin{block}{Work that presaged scale-free networks}
+    \begin{itemize}
+    \item <1->
+      1924: \alert{G. Udny Yule}\cite{yule1924a}:\\ \# Species per Genus
+    \item <2->
+      1926: \alert{Lotka}\cite{lotka1926a}:\\ \# Scientific papers per author
+    \item <3-> 
+      1953: \alert{Mandelbrot}\cite{mandelbrot1953a}):\\
+      Zipf's law for word frequency through optimization
+    \item <4->
+      1955: \alert{Herbert Simon}\cite{simon1955a,zipf1949a}:\\ Zipf's law, 
+      city size, income, publications, and species per genus
+    \item <5->
+      1965/1976: \alert{Derek de Solla Price}\cite{price1965a,price1976a}:\\ Network of Scientific Citations
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Model details}
+
+\begin{frame}[label=]
+ \frametitle{BA model}  
+ 
+ \begin{itemize}
+ \item<1-> 
+   Barab\'{a}si-Albert model = BA model.
+ \item<2-> 
+   Key ingredients:\\
+   \alert{Growth} and \alertb{Preferential Attachment} (PA).
+ \item<3-> 
+   \alert{Step 1}: start with $m_0$ disconnected nodes.
+ \item<4-> 
+   \alert{Step 2}: 
+   \begin{enumerate}
+   \item<5->  
+     \alertb{Growth}---a new node appears at each time step $t=0,1,2, \ldots$.
+   \item<6-> 
+     Each new node makes $m$ links to nodes already present.
+   \item<7-> 
+     \alertb{Preferential attachment}---Probability 
+     of connecting to $i$th node is $\propto k_i$.
+   \end{enumerate}
+ \item<8->
+   In essence, we have a \alert{rich-gets-richer} scheme.
+ \end{itemize}
+
+\end{frame}
+
+\subsection{Analysis}
+
+\begin{frame}[label=]
+ \frametitle{BA model}  
+ 
+ \begin{itemize}
+ \item<1->
+   \alert{Definition:} $A_k$ is the \alertb{attachment kernel}
+   for a node with degree $k$.
+ \item<2->
+     For the original model:
+     $$ A_k = k$$
+ \item<3->
+   \alert{Definition:} $P_{\textnormal{attach}}(k,t)$ 
+   is the attachment probability.
+ \item<4->
+     For the original model:
+     $$
+     P_{\textnormal{attach}}(\mbox{node $i$},t)
+     =
+     \frac{k_i(t)}
+     {
+     \sum_{j=1}^{N(t)} k_j(t)
+     }
+     \uncover<6->{
+       =
+       \frac{k_i(t)}
+       {
+         \sum_{k=m}^{k_{\textnormal{max}}(t)} k N_k(t)
+       }
+     }
+     $$
+     \uncover<5->{
+       where $N(t) = m_0 + t$ is \# nodes at time $t$\\
+     }
+     \uncover<7->{
+       \ \ and $N_k(t)$ is \# degree $k$ nodes at time $t$.
+     }
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Approximate analysis}  
+
+ \begin{itemize}
+ \item<1->
+   When $(N+1)$th node is added, 
+   the expected increase in the degree of node $i$ is 
+   $$
+   E(k_{i,N+1} - k_{i,N}) 
+   \simeq 
+   m
+   \frac{k_{i,N}}
+   {
+     \sum_{j=1}^{N(t)} k_j(t)
+   }.
+   $$
+ \item<2->
+   Assumes probability of being connected to is \alert{small}.
+ \item<3->
+   Dispense with Expectation by assuming (hoping)
+   that over longer time frames, degree growth will
+   be smooth and stable.
+ \item<4->
+   Approximate 
+   $k_{i,N+1} - k_{i,N}$ with $\diff{}{t} k_{i,t}$:
+   \uncover<5->{
+     $$
+     \alertb{
+       \diff{}{t} k_{i,t}
+       =
+       m
+       \frac{k_{i}(t)}
+       {
+         \sum_{j=1}^{N(t)} k_j(t)
+       }
+     }
+   $$
+   where $t = N(t) - m_0$.
+   }
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Approximate analysis}  
+
+ \begin{itemize}
+ \item<1->
+   Deal with denominator: each added node brings $m$ new edges.
+   $$
+   \uncover<2->{
+     \therefore 
+     \sum_{j=1}^{N(t)} k_j(t)
+     =
+     2 t m
+   }
+   $$
+ \item<3->
+   The node degree equation now simplifies:
+   $$
+   \diff{}{t} k_{i,t}
+   =
+   m
+   \frac{k_{i}(t)}
+   {
+     \sum_{j=1}^{N(t)} k_j(t)
+   }
+   \uncover<4->{
+     =
+     m
+     \frac{k_{i}(t)}
+     {
+       2 m t
+     }
+   }
+   \uncover<5->{
+     =
+     \frac{1}
+     {
+       2 t
+     }
+     k_{i}(t)
+   }
+   $$
+ \item<6->
+   Rearrange and solve:
+   $$
+   \frac{\dee{k_{i}(t)}}
+   {k_{i}(t)}
+   =
+   \frac{\dee{t}}
+   {2t}
+   \uncover<7->{
+     \Rightarrow
+     \boxed{\alert{k_i(t) = c_i \,  t^{1/2}.}}
+   }
+   $$
+ \item<8->
+   Next find $c_i$ \ldots
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Approximate analysis}  
+
+ \begin{itemize}
+ \item<1->
+   Know $i$th node appears at time 
+   $$
+   t_{i,\textnormal{start}} = \left\{
+     \begin{array}{ll}
+       i-m_0 & \mbox{for $i>m_0$} \\
+       0 & \mbox{for $i \le m_0$}
+     \end{array}
+   \right.
+   $$
+ \item<2->
+   So for $i>m_0$ (exclude initial nodes),
+   we must have
+   $$
+   k_i(t) 
+   = 
+   m 
+   \left(
+   \frac{t}{t_{i,\textnormal{start}}}
+   \right)^{1/2}
+   \
+   \mbox{for $t \ge t_{i,\textnormal{start}}$}.
+   $$
+ \item<3-> 
+   All node degrees grow as \alert{$t^{1/2}$}
+   \uncover<4->{but
+   later nodes have larger $t_{i,\textnormal{start}}$ which
+   \alertb{flattens out} growth curve.}
+ \item<5-> 
+   Early nodes do \alert{best} (First-mover advantage).
+ \end{itemize}
+ 
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Approximate analysis}  
+
+ \begin{columns}
+   \column{0.6\textwidth}
+   \includegraphics[width=\textwidth]{figsfn_deggrowth_noname}
+   \column{0.4\textwidth}
+   \begin{itemize}
+   \item $m = 3$
+   \item $t_{i,\textnormal{start}} = 1, 2, 5, \mbox{\ and\ } 10$.
+   \end{itemize}
+ \end{columns}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Degree distribution}
+ 
+ \begin{itemize}
+ \item<1-> 
+   So what's the \alert{degree distribution} at time $t$?
+ \item<2-> 
+   Use fact that birth time for added nodes
+   is distributed uniformly:
+   $$
+   P(t_{i,\textnormal{start}}) \dee{t_{i,\textnormal{start}}}
+   \simeq
+   \frac{\dee{t_{i,\textnormal{start}}}}
+   {t+m_0}
+   $$
+ \item<3->
+   Using
+   $$
+   k_i(t) 
+   = 
+   m 
+   \left(
+   \frac{t}{t_{i,\textnormal{start}}}
+   \right)^{1/2}
+   \alert{\Rightarrow}
+   t_{i,\textnormal{start}}
+   = \frac{m^2 t}{k_i(t)^2}.
+   $$
+   \uncover<4->{
+     and by understanding that later arriving nodes have lower degrees,
+     we can say this:
+     $$
+     \Prob(k_i < k)
+     =
+     \Prob(t_{i,\textnormal{start}} > \frac{m^2 t}{k^2}).
+     $$
+   }
+
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+  \frametitle{Degree distribution}
+
+  \begin{itemize}
+  \item<1-> 
+    Using the uniformity of start times:
+    $$
+    \Prob(k_i < k)
+    =
+    \Prob(t_{i,\textnormal{start}} > \frac{m^2 t}{k^2})
+    \simeq
+    \frac{\alert{t-\frac{m^2 t}{k^2}}}{\alertb{t+m_0}}.
+    $$
+  \item<2-> 
+    Differentiate to find $\Prob(k)$:
+    $$
+    \Prob(k)
+    = 
+    \diff{}{k} \Prob(k_i < k)
+    \uncover<3->{
+      =
+      \frac{2m^2 t }{(t+m_0) k^3}
+    }
+    $$
+    $$
+    \uncover<4->{
+      \sim 
+      \alert{2m^2} \alertb{k^{-3}}
+      \mbox{\ as $m\rightarrow \infty$}.
+    }
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Degree distribution}
+
+ \begin{itemize}
+  \item<1-> 
+    We thus have a very specific prediction of 
+    \alertb{$\Prob(k) \sim k^{-\gamma}$} with \alert{$\gamma=3$}.
+  \item<2-> 
+    Typical for real networks: \alert{$2 < \gamma < 3$}.
+  \item<3-> 
+    Range true more generally for events with size
+    distributions that have power-law tails.
+  \item<4->
+    \alert{$2 < \gamma < 3$}: finite mean and `infinite' variance
+    \uncover<7->{\alert{(wild)}}
+  \item<5->
+    In practice, $\gamma < 3$ means variance is governed
+    by upper cutoff.
+  \item<6->
+    \alert{$\gamma > 3$}: finite mean and variance 
+    \uncover<8->{\alert{(mild)}}
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Examples}  
+
+  \rowcolors[]{1}{blue!20}{blue!10} 
+  \begin{center}
+    \begin{tabular}{rl}
+      WWW & $\gamma \simeq 2.1$ for in-degree \\
+      WWW & $\gamma \simeq 2.45$ for out-degree \\
+      Movie actors & $\gamma \simeq 2.3$ \\
+      Words (synonyms) & $\gamma \simeq 2.8$ \\
+    \end{tabular}
+  \end{center}
+
+  \uncover<2->{
+    The Internet\alert{s} is a different business...
+  }
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Real data}  
+
+ From Barab\'{a}si and Albert's original paper\cite{barabasi1999a}:
+
+ \includegraphics[width=\textwidth]{barabasi1999a_fig1}
+ 
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Things to do and questions}  
+
+ \begin{itemize}
+ \item<1-> Vary attachment kernel.
+ \item<2-> Vary mechanisms:
+   \begin{enumerate}
+   \item<3-> Add edge deletion
+   \item<4-> Add node deletion
+   \item<5-> Add edge rewiring
+   \end{enumerate}
+ \item<6-> Deal with directed versus undirected networks.
+ \item<7-> \alert{Important Q.}:
+   Are there distinct universality classes for these networks?  
+ \item<8->
+   \alert{Q.}:
+   How does changing the model affect $\gamma$?
+ \item<9->
+   \alert{Q.}:
+   Do we need preferential attachment and growth?
+ \item<10->
+   \alert{Q.}:
+   Do model details matter?
+ \item<11->
+   The answer is (surprisingly) \alert{yes}.
+ \end{itemize}
+
+\end{frame}
+
+\subsection{A more plausible mechanism}
+
+\begin{frame}[label=]
+ \frametitle{Preferential attachment}  
+ 
+ \begin{itemize}
+ \item<1-> 
+   Let's look at preferential attachment \alert{(PA)}
+   a little more closely.
+ \item<2-> 
+   PA implies arriving nodes have \alert{complete knowledge}
+   of the existing network's degree distribution.
+ \item<3->
+   For example: If \alertb{$P_{\textnormal{attach}}(k) \propto k$}, we need to determine
+   the constant of proportionality.
+ \item<4->
+   We need to know what everyone's degree is...
+ \item<5->
+   PA is $\therefore$ an \alertb{outrageous} assumption of
+   node capability.
+ \item<6->
+   But a \alert{very simple mechanism} saves the day\ldots
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Preferential attachment through randomness}  
+
+ \begin{itemize}
+ \item<1-> Instead of attaching preferentially, allow
+   new nodes to attach randomly.
+ \item<2-> Now add an \alert{extra step}: new nodes
+   then connect to some of their friends' friends.
+ \item<3-> Can also do this \alert{at random}.
+ \item<4-> We know that friends are \alertb{weird}...
+ \item<5-> Assuming the existing network is random,
+   we know probability of a \alert{random friend} having
+   degree \alertb{$k$} is 
+   $$Q_k \propto kP_k$$
+ \item<6-> So \alert{rich-gets-richer} scheme can
+   now be seen to work in a natural way.
+ \end{itemize}
+
+\end{frame}
+
+\subsection{Robustness}
+
+\begin{frame}[label=]
+ \frametitle{Robustness}  
+
+ \begin{itemize}
+ \item<1->
+   We've looked at some aspects of 
+   contagion on scale-free networks:
+   \begin{enumerate}
+   \item<2-> 
+     Facilitate disease-like spreading.
+   \item<3-> 
+     Inhibit threshold-like spreading.
+   \end{enumerate}
+ \item<4->
+   Another simple story concerns \alert{system robustness}.
+ \item<5->
+   Albert et al., Nature, 2000:\\
+   \alertb{``Error and attack tolerance of complex networks''}\cite{albert2000a}
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+ \frametitle{Robustness}  
+
+ \begin{itemize}
+ \item \alertb{Standard random networks} (\erdosrenyi)\\
+   versus\\
+   \alert{Scale-free networks}
+ \end{itemize}
+
+ \includegraphics[width=\textwidth]{albert2000a_fig1}
+ {\tiny from Albert et al., 2000}
+
+\end{frame}
+
+\begin{frame}[label=]
+ \frametitle{Robustness}  
+
+ \begin{columns}
+   \column{0.5\textwidth}
+   \includegraphics[width=\textwidth]{albert2000a_fig2}
+   {\tiny from Albert et al., 2000}
+   \column{0.5\textwidth}
+   \begin{itemize}
+   \item 
+     Plots of network diameter as a function of fraction of nodes removed
+   \item 
+     \erdosrenyi\ versus scale-free networks
+   \item
+   \alertb{blue symbols} = \\
+   {random} removal
+   \item
+   \alert{red symbols} = \\
+   {targeted} removal \\
+   (most connected first)
+   \end{itemize}
+
+ \end{columns}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Robustness}  
+  
+  \begin{itemize}
+  \item<1->
+    Scale-free networks are thus \alert{robust to random failures}
+    yet \alertb{fragile to targeted ones}.
+  \item<2-> 
+    All very reasonable: \alertb{Hubs} are a big deal.
+  \item<3-> 
+    \alert{But}: next issue is whether hubs are vulnerable or not.
+  \item<4-> 
+    Representing all webpages as the same size node is obviously
+    a stretch (e.g., google vs. a random person's webpage)
+  \item<5-> 
+    Most connected nodes are either:
+    \begin{enumerate}
+    \item<6->
+      Physically larger nodes that may be harder to `target'
+    \item<7->
+      or subnetworks of smaller, normal-sized nodes.
+    \end{enumerate}
+  \item<8-> 
+    Need to explore cost of various targeting schemes.
+  \end{itemize}
+  
+\end{frame}
+
+
+\section{Redner \& Krapivisky's model}
+
+\subsection{Generalized model}
+
+
+\begin{frame}[label=]
+  \frametitle{Generalized model}  
+
+  \begin{block}<1->{Fooling with the mechanism:}
+    \begin{itemize}
+    \item<1->
+      2001: Redner \& Krapivsky (RK)\cite{krapivsky2001a}
+      explored the \alert{general attachment kernel}:
+      \uncover<2->{
+      $$
+      \Prob(\mbox{attach to node $i$}) \propto A_k  = k_{i}^\nu
+      $$
+      where $A_k$ is the attachment kernel and $\nu>0$.
+      }
+    \item<3->
+      RK also looked at changing the details of
+      the attachment kernel.
+    \item<4->
+      We'll follow RK's approach using
+      \wordwikilink{http://en.wikipedia.org/wiki/Rate_equation}{rate equations}.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model}
+
+  \begin{itemize}
+  \item<1->
+      Here's the set up:
+      $$
+      \diff{N_k}{t}
+      =
+      \frac{1}{A}
+      \left[
+        A_{k-1} N_{k-1} - A_{k} N_{k}
+      \right]
+      + \delta_{k1}
+      $$
+      where $N_k$ is the number of nodes of degree $k$.
+    \begin{enumerate}
+    \item<2-> 
+      The \alertb{first term} corresponds to 
+      degree $k-1$ nodes becoming degree $k$ nodes.
+    \item<3-> 
+      The \alertb{second term} corresponds to 
+      degree $k$ nodes becoming degree $k-1$ nodes.
+    \item<4->
+      Detail: $A_0=0$
+    \item<5-> One node is added per unit time.
+    \item<6-> Seed with some initial network\\
+      \uncover<7->{(e.g., a connected pair)}
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\subsection{Analysis}
+
+\begin{frame}[label=]
+  \frametitle{Generalized model}  
+  
+  \begin{itemize}
+  \item<1->
+    In general, probability of attaching to a \alert{specific node}
+    of degree $k$ at time $t$ is
+    \uncover<2->{
+    $$
+    \Prob(\mbox{attach to node $i$}) 
+    = 
+    \frac{A_k}{A(t)}
+    $$
+    }
+    \uncover<3->{
+    where
+    $ A(t) = \sum_{k=1}^{\infty} A_k N_k(t).$
+    }
+  \item<4->
+    E.g., for BA model, $A_k = k$ and $A = \sum_{k=1}^{\infty} k N_k(t)$.
+  \item<5-> For $A_k=k$, we have
+    $$
+    \uncover<6->{
+    A(t) 
+    = 
+    \sum_{k'=1}^{\infty}
+    k' N_{k'}(t)
+    }
+    \uncover<7->{
+    = 2t     
+    }
+    $$
+    \uncover<8->{
+      since one edge is being added per unit time.
+    }
+  \item<9->
+      Detail: we are ignoring initial seed network's edges.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=]
+  \frametitle{Generalized model}  
+
+  \begin{itemize}
+  \item<1->
+    So now
+    $$
+    \diff{N_k}{t}
+    =
+    \frac{1}{A}
+    \left[
+      A_{k-1} N_{k-1} - A_{k} N_{k}
+    \right]
+    + \delta_{k1}
+    $$
+    becomes
+    $$
+    \diff{N_k}{t}
+    =
+    \frac{1}{2t}
+    \left[
+      (k-1) N_{k-1} - k N_{k}
+    \right]
+    + \delta_{k1}
+    $$
+  \item<2->
+    As for BA method, look for steady-state growing solution:
+    \uncover<3->{
+      $
+      \alert{N_k = n_k t}.
+      $
+    }
+  \item<4->
+    We replace $\tdiff{N_k}{t}$ with $\tdiff{n_k t}{t} = n_k$.
+  \item<5->
+    We arrive at a difference equation:
+    $$
+    n_k
+    =
+    \frac{1}{2\cancel{\alert{t}}}
+    \left[
+      (k-1) n_{k-1}\cancel{\alert{t}} - k n_{k}\cancel{\alert{t}}
+    \right]
+    + \delta_{k1}
+    $$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model}
+
+  \begin{itemize}
+  \item<1->
+    Rearrange and simply:
+    $$
+    n_k
+    =
+    \frac{1}{2}
+    (k-1) n_{k-1} 
+    - 
+    \frac{1}{2}
+    k n_{k}
+    + \delta_{k1}
+    $$
+    \uncover<2->{
+      $$
+      \Rightarrow
+      (k+2)n_k
+      =
+      (k-1) n_{k-1} 
+      + 2\delta_{k1}
+      $$
+    }
+  \item<3->
+    Two cases:
+    \uncover<3->{
+      $$
+      \alert{k=1:}
+      n_1 = 2/3
+      \mbox{\ since $n_0=0$}
+      $$
+    }
+    \uncover<4->{
+      $$
+      \alert{k>1:}
+      n_k
+      =
+      \frac{(k-1)}{k+2} n_{k-1} 
+      $$
+    }
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generalized model}
+
+  \begin{itemize}
+  \item<1-> Now find $n_k$:
+    $$
+    \alert{k>1:}
+    n_k
+    =
+    \frac{(k-1)}{k+2} n_{k-1} 
+    \uncover<2->{
+      =
+      \frac{(k-1)}{k+2}
+      \frac{(k-2)}{k+1} n_{k-2} 
+    }
+    $$
+    $$
+    \uncover<3->{
+      =
+      \frac{(k-1)}{k+2} 
+    \frac{(k-2)}{k+1} 
+    \frac{(k-3)}{k} n_{k-3} 
+    }
+    $$
+    $$
+    \uncover<4->{
+      =
+      \frac{(k-1)}{k+2} 
+      \frac{(k-2)}{k+1} 
+      \frac{(k-3)}{k} 
+      \frac{(k-4)}{k-1} n_{k-4} 
+    }
+    $$%
+    \begin{overprint}%
+      \onslide<5| handout: 0 | trans: 0>%
+      $$
+      =
+      \frac{(k-1)}{k+2} 
+      \frac{(k-2)}{k+1} 
+      \frac{(k-3)}{k} 
+      \frac{(k-4)}{(k-1)} 
+      \frac{(k-5)}{(k-2)} 
+      \frac{\cdots}{\cdots}
+      \frac{5}{8}
+      \frac{4}{7}
+      \frac{3}{6}
+      \frac{2}{5}
+      \frac{1}{4}
+      n_1
+      $$
+      \onslide<6| handout: 0 | trans: 0>
+      $$
+      =
+      \frac{\cancel{(k-1)}}{k+2} 
+      \frac{(k-2)}{k+1} 
+      \frac{(k-3)}{k} 
+      \frac{(k-4)}{\cancel{(k-1)}}
+      \frac{(k-5)}{(k-2)} 
+      \frac{\cdots}{\cdots}
+      \frac{5}{8}
+      \frac{\cancel{4}}{7}
+      \frac{3}{6}
+      \frac{2}{5}
+      \frac{1}{\cancel{4}}
+      n_1
+      $$
+      \onslide<7| handout: 0 | trans: 0>
+      $$
+      =
+      \frac{\cancel{(k-1)}}{k+2} 
+      \frac{\cancel{(k-2)}}{k+1} 
+      \frac{{(k-3)}}{k} 
+      \frac{{(k-4)}}{\cancel{(k-1)}}
+      \frac{{(k-5)}}{\cancel{(k-2)}}
+      \frac{\cdots}{\cdots}
+      \frac{\cancel{5}}{{8}}
+      \frac{\cancel{4}}{{7}}
+      \frac{3}{{6}}
+      \frac{2}{\cancel{5}}
+      \frac{1}{\cancel{4}}
+      n_1
+      $$
+      \onslide<8-| handout: 1 | trans: 1>
+      $$
+      =
+      \frac{\cancel{(k-1)}}{k+2} 
+      \frac{\cancel{(k-2)}}{k+1} 
+      \frac{\cancel{(k-3)}}{k} 
+      \frac{\cancel{(k-4)}}{\cancel{(k-1)}}
+      \frac{\cancel{(k-5)}}{\cancel{(k-2)}}
+      \frac{\cdots}{\cdots}
+      \frac{\cancel{5}}{\cancel{8}}
+      \frac{\cancel{4}}{\cancel{7}}
+      \frac{3}{\cancel{6}}
+      \frac{2}{\cancel{5}}
+      \frac{1}{\cancel{4}}
+      n_1
+      $$
+    \end{overprint}
+    $$
+    \uncover<9->{
+      \Rightarrow \alert{n_k} = 
+      \frac{6}{k(k+1)(k+2)} n_1
+    }
+    \uncover<10->{
+      =
+      \frac{4}{k(k+1)(k+2)}
+    }
+    \uncover<11->{
+      \alert{\sim k^{-3}}
+    }
+    $$
+    
+  \end{itemize}
+\end{frame}
+
+\subsection{Universality?}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    As expected, we have the same result as for the BA model:
+    $$
+    N_k(t) = n_k(t) t \propto k^{-3} \mbox{\ for large $k$}.
+    $$
+  \item<2->
+    Now: what happens if we start playing around with 
+    the attachment kernel $A_k$?
+  \item<3->
+    Again, is the result $\gamma=3$
+    \wordwikilink{http://en.wikipedia.org/w/index.php?title=Universality_\%28dynamical_systems\%29&oldid=204738455}{universal}?
+  \item<4->
+    Natural modification: $A_k = k^\nu$ with $\nu \ne 1$.
+  \item<5->
+    But we'll first explore a more subtle modification of $A_k$ made by Redner/Krapivsky\cite{krapivsky2001a}
+  \item<6->
+    Keep $A_k$ \alertb{linear in $k$} but tweak details.
+  \item<7->
+    \alert{Idea:} Relax from $A_k = k$ to $A_k \sim k$ as $k \rightarrow \infty$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+  
+  \begin{itemize}
+  \item<1->
+    Recall we used the normalization:
+    $$
+    A(t) 
+    = 
+    \sum_{k'=1}^{\infty}
+    k' N_{k'}(t)
+    \simeq 2t
+    \mbox{\ for large $t$.}
+    $$
+  \item<2->
+    We now have 
+    $$
+    A(t) 
+    = 
+    \sum_{k'=1}^{\infty}
+    A_{k'} N_{k'}(t)
+    $$
+    \uncover<3->{
+    where we only know the asymptotic behavior of $A_k$.
+    }
+  \item<4->
+    We assume that \alert{$A = \mu t$}
+  \item<5->
+    We'll find $\mu$ later and make sure that our
+    assumption is consistent.
+  \item<6->
+    As before, also assume $N_k(t) = n_k t$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    For $A_k = k$ we had 
+    $$
+    n_k
+    =
+    \frac{1}{2}
+    \left[
+      (k-1) n_{k-1} - k n_{k}
+    \right]
+    + \delta_{k1}
+    $$
+  \item<2->
+    This now becomes
+        $$
+        n_k
+    =
+    \frac{1}{\mu}
+    \left[
+      A_{k-1} n_{k-1} - A_k n_{k}
+    \right]
+    + \delta_{k1}
+    $$
+    \uncover<3->{
+      $$
+      \Rightarrow
+      (A_k+\mu)n_k
+      =
+      A_{k-1} n_{k-1} 
+      + \mu \delta_{k1}
+      $$
+    }
+  \item<4->
+    Again two cases:
+    \uncover<4->{
+      $$
+      \alert{k=1:}
+      n_1 = \frac{\mu}{\mu+A_1}.
+      $$
+    }
+    \uncover<5->{
+      $$
+      \alert{k>1:}
+      n_k
+      =
+      n_{k-1}\frac{A_{k-1}}{\mu + A_k}
+      $$
+    }
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    Dealing with the $k>1$ case:
+    $$
+    n_k
+    =
+    n_{k-1}
+    \frac{A_{k-1}}{\mu + A_k}
+    \uncover<2->{
+      =
+      n_{k-1}
+      \frac{A_{k-1}}{A_k}
+      \frac{1}{1 + \frac{\mu}{A_k}}
+      $$
+    }
+    \begin{overprint}
+      \onslide<3| handout: 0 | trans: 0>
+      $$
+      =
+      \alert{n_{k-2}
+        \frac{A_{k-2}}{A_{k-1}}
+        \frac{1}{1 + \frac{\mu}{A_{k-1}}}}
+      \frac{A_{k-1}}{A_k}
+      \frac{1}{1 + \frac{\mu}{A_k}}
+      $$
+      \onslide<4-| handout: 1 | trans: 1>
+      $$
+      =
+      n_{k-2}
+      \frac{A_{k-2}}{\cancel{A_{k_1}}}
+      \frac{1}{1 + \frac{\mu}{A_{k-1}}}
+      \frac{\cancel{A_{k-1}}}{A_k}
+      \frac{1}{1 + \frac{\mu}{A_k}}
+      $$
+    \end{overprint}
+    \uncover<5->{
+      $$
+      =
+      n_{1}
+      \frac{A_{1}}{A_k}
+      \prod_{j=2}^{k}
+      \frac{1}{1 + \frac{\mu}{A_j}}
+      $$
+    }
+    \uncover<6->{
+      $$
+      =
+      n_{1}
+      \frac{A_{1}}{A_k}
+      \left(1 + \frac{\mu}{A_1}\right)
+      \prod_{j=\alert{1}}^{k}
+      \frac{1}{1 + \frac{\mu}{A_j}}
+      $$
+    }
+    \uncover<7->{
+      $$
+      =
+      \alert{\frac{\mu}{A_k}}
+      \prod_{j=1}^{k}
+      \frac{1}{1 + \frac{\mu}{A_j}}
+      \mbox{\ since $n_1 = \mu/(\mu+A_1)$}
+      $$
+    }
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    Time for pure excitement: Find \alert{asymptotic behavior} 
+    of $n_k$ given $A_k \rightarrow k$ as $k \rightarrow \infty$.
+  \item<2->
+    For large $k$:
+    $$
+    n_k = 
+    \frac{\mu}{A_k}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \uncover<3->{
+      =
+      \frac{\mu}{A_k}
+      \prod_{j=1}^{k}
+      \frac{A_j}{A_j + \mu}
+    }
+    $$
+    \uncover<4->{
+    $$
+    =
+      \frac{\mu}{\alert{\cancel{A_k}}}
+      \frac{A_1}{(A_1+\mu)}
+      \frac{A_2}{(A_2+\mu)}
+      \cdots
+      \frac{k-1}{(k-1+\mu)}
+      \frac{\alert{\cancel{k}}}{(k+\mu)}
+    $$
+    }
+    $$
+    \uncover<5->{
+      \propto
+      \frac{\Gamma(k)}{\Gamma(k + \mu + 1)}
+    }
+    \uncover<6->{
+      \sim
+      \frac{\sqrt{2\pi} k^{k+1/2} e^{-k}}
+      {\sqrt{2\pi} (k+\mu+1)^{k+\mu+1+1/2}e^{-(k+\mu+1)}}
+    }
+    $$
+    $$
+    \uncover<7->{
+      \alert{ \propto k^{-\mu-1} }
+    }
+    $$
+  \item<8->
+    Since $\mu$ depends on $A_k$, \alert{details matter...}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    Now we need to find $\mu$.
+  \item<2->
+    Our assumption again:
+    $
+    \alertb{A = \mu t = \sum_{k=1}^{\infty} N_k(t) A_k}
+    $
+  \item<3->
+    Since $N_k = n_k t$, we have the simplification
+    $
+    \alertb{
+    \mu = \sum_{k=1}^{\infty} n_k A_k}
+    $
+  \item<4->
+    Now subsitute in our expression for $n_k$:
+    \begin{overprint}
+      \onslide<5| handout: 0 | trans: 0>
+    $$
+    \mu = 
+    \sum_{k=1}^{\infty} 
+    \alert{
+      \frac{\mu}{A_k}
+      \prod_{j=1}^{k}
+      \frac{1}{1 + \frac{\mu}{A_j}}
+    }
+    A_k
+    $$
+    \onslide<6| handout: 0 | trans: 0>
+    $$
+    \mu = 
+    \sum_{k=1}^{\infty} 
+    \frac{\mu}{\alert{\cancel{A_k}}}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \alert{\cancel{A_k}}
+    $$
+    \onslide<7-| handout: 1 | trans: 1>      
+    $$
+    \alertb{1 \cancel{\mu}} = 
+    \sum_{k=1}^{\infty} 
+    \frac{\alertb{\cancel{\mu}}}{\alert{\cancel{A_k}}}
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \alert{\cancel{A_k}}
+    $$
+    \end{overprint}
+    \item<8->
+      Closed form expression for $\mu$.
+    \item<9->
+      We can solve for $\mu$ in some cases.
+    \item<10->
+      Our assumption that $A = \mu t$ is okay.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    Amazingly, we can adjust $A_k$ and tune $\gamma$
+    to be anywhere in $[2,\infty)$.
+  \item<2->
+    $\gamma = 2$ is the lower limit since
+    $$
+    \mu = 
+    \sum_{k=1}^{\infty} A_k n_k 
+    \sim
+    \sum_{k=1}^{\infty} k n_k
+    $$
+    must be finite.
+  \item<3->
+    Let's now look at a specific example of $A_k$
+    to see this range of $\gamma$ is possible.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1->
+    Consider $A_1 = \alpha$ and $A_k = k$ for $k \ge 2$.
+  \item<2-> 
+    Find $\gamma = \mu + 1$ by finding $\mu$.
+  \item<3->
+    Expression for $\mu$: 
+    $$
+    1 =
+    \sum_{k=1}^{\infty} 
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    $$
+    \uncover<4->{
+    $$
+    1 =
+    \frac{1}{1 + \frac{\mu}{A_1}}
+    +
+    \sum_{k=2}^{\infty} 
+    \prod_{j=1}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    $$
+    }
+    \uncover<5->{
+    $$
+    1 -
+    \frac{1}{1 + \frac{\mu}{A_1}}
+    =
+    \frac{1}{1 + \frac{\mu}{A_1}}
+    \sum_{k=2}^{\infty} 
+    \prod_{j=\alert{2}}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    $$
+    }
+    \uncover<6->{
+    $$
+    \frac{\frac{\mu}{\alpha}}{1 + \frac{\mu}{\alpha}}
+    =
+    \frac{1}{1 + \frac{\mu}{\alpha}}
+    \sum_{k=2}^{\infty} 
+    \prod_{j=\alert{2}}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    \mbox{\ since $A_1=\alpha$}
+    $$
+    }
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+  
+  \begin{itemize}
+  \item<1-> Carrying on:
+    $$
+    \frac{\frac{\mu}{\alpha}}{\cancel{\alert{1 + \frac{\mu}{\alpha}}}}
+    =
+    \frac{1}{\cancel{\alert{1 + \frac{\mu}{\alpha}}}}
+    \sum_{k=2}^{\infty} 
+    \prod_{j=\alert{2}}^{k}
+    \frac{1}{1 + \frac{\mu}{A_j}}
+    $$
+    $$
+    \uncover<2->{
+      \frac{\mu}{\alpha}
+      =
+      \sum_{k=2}^{\infty} 
+      \frac{\Gamma(k+1)\Gamma(2+\mu)}{\Gamma(k+\mu+1)}
+    }
+    $$
+  \item<3->
+    Now use result that\cite{krapivsky2001a}
+    $$
+    \sum_{k=2}^{\infty}
+    \frac{\Gamma(a+k)}{\Gamma(b+k)}
+    =
+    \frac{\Gamma(a+2)}{(b-a-1)\Gamma(b+1)}
+    $$
+    with $a=1$ and $b=\mu+1$.
+  \item<4->
+    $$
+    \mu = \alpha \frac{\Gamma(3)}{(\mu+1-1-1)\Gamma(2+\mu)} \Gamma(2+\mu)
+    $$
+    \uncover<5->{
+      $$
+      \Rightarrow \mu(\mu-1) = 2\alpha
+      $$
+    }
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Universality?}
+
+  \begin{itemize}
+  \item<1-> 
+    $$
+    \mu(\mu-1) = 2\alpha \Rightarrow \mu = \frac{1+\sqrt{1+8\alpha}}{2}.
+    $$
+  \item<2-> Since $\gamma = \mu+1$, we have
+    $$
+    0 \le \alpha < \infty \Rightarrow 2 \le \gamma < \infty
+    $$
+  \item<3-> Craziness...    
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Sublinear attachment kernels}
+
+\begin{frame}
+  \frametitle{Sublinear attachment kernels}
+
+  \begin{itemize}
+  \item<1-> 
+    Rich-get-somewhat-richer:
+    $$
+    A_k \sim k^\nu
+    \mbox{\ with $0 < \nu < 1$.}
+    $$
+  \item<2->
+    General finding by Krapivsky and Redner:\cite{krapivsky2001a}
+    $$
+    n_k 
+    \sim 
+    k^{-\nu}
+    e^{-c_1 k^{1-\nu} + \mbox{\scriptsize correction terms}}.
+    $$
+  \item<3->
+    Stretched exponentials (truncated power laws).
+  \item<4->
+    aka Weibull distributions.
+  \item<5->
+    \alert{Universality}: now details of kernel \alertb{do not} matter.
+  \item<6->
+    Distribution of degree is universal providing $\nu<1$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sublinear attachment kernels}
+
+  \begin{block}{Details:}
+    \begin{itemize}
+    \item<1->
+      For $1/2 < \nu < 1$:
+      $$
+      n_k \sim k^{-\nu} e^{-\mu \left(\frac{k^{1-\nu} - 2^{1-\nu}}{1-\nu} \right)}
+      $$
+    \item<2->
+      For $1/3 < \nu < 1/2$:
+      $$
+      n_k \sim k^{-\nu} e^{-\mu \frac{k^{1-\nu}}{1-\nu} + \frac{\mu^2}{2}\frac{k^{1-2\nu}}{1-2\nu}}
+      $$
+    \item<3->
+      And for $1/(r+1) < \nu < 1/r$, we have $r$ pieces in exponential.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{Superlinear attachment kernels}
+
+\begin{frame}
+  \frametitle{Superlinear attachment kernels}
+
+  \begin{itemize}
+  \item<1->
+    Rich-get-much-richer:
+    $$
+    A_k \sim k^\nu
+    \mbox{\ with $\nu > 1$.}
+    $$
+  \item<2->
+    Now a \alert{winner-take-all} mechanism.
+  \item<3->
+    One single node ends up being connected to
+    almost all other nodes.
+  \item<4->
+    For $\nu>2$, all but a finite \# of nodes connect
+    to one node.
+  \end{itemize}
+  
+\end{frame}
+
+%% todo
+
+%% cites for exponents
+
+%% more exponents
+
+%% history
