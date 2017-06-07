@@ -1,0 +1,47 @@
+* Settings
+- [ ] Switch to settings.*.tex naming convention
+  settings.general.tex
+  settings.matrices.tex
+* Format
+Make a printable version and an online version (with backgrounds)
+Make a landscape and portrait version
+** Fonts
+Possibilities:
+Palatino
+- Problems with fonts:
+http://www.printmag.com/featured/flawed-typefaces/
+** Use sidenotes
+** Possible inspiration
+*** Illustrated Theory of Numbers
+https://illustratedtheoryofnumbers.wordpress.com
+** Occasional backgrounds that go across two pages
+** Chapter heading:
+- Try titlesec
+  "No attempt is made to improve your taste in section formatting."
+- Tarot card on verso page
+- https://tex.stackexchange.com/questions/37170/how-can-i-produce-a-fancy-chapter-heading-like-this-one?rq=1
+** Layout possibilities and help
+*** Straight book
+- For geometry
+  https://tex.stackexchange.com/questions/315625/book-geometry-with-margins-and-binding-offset
+- 
+*** Memoir manual
+file:/usr/local/texlive/2015/texmf-dist/doc/latex/memoir/memman.pdf
+*** Grid structure (12 columns?)
+https://en.wikipedia.org/wiki/Grid_(graphic_design)
+http://www.vignelli.com/canon.pdf
+*** Beautiful possibilities:
+https://tex.stackexchange.com/questions/1319/showcase-of-beautiful-typography-done-in-tex-friends
+*** How can I customise memoir's index to have more than two columns?
+https://tex.stackexchange.com/questions/7018/how-can-i-customise-memoirs-index-to-have-more-than-two-columns
+*** flowfram
+https://www.ctan.org/pkg/flowfram
+*** Tufte (meh)
+file:/usr/local/texlive/2015/texmf-dist/source/latex/tufte-latex/sample-book.pdf
+https://tufte-latex.github.io/tufte-latex/
+https://tex.stackexchange.com/questions/33290/two-column-latex-class-for-a-photobook
+https://people.ucsc.edu/~weissman/MathClubTalk2009.pdf
+*** Two-column text-figure layout with memoir
+https://tex.stackexchange.com/questions/195654/two-column-text-figure-layout-with-memoir
+* Makefile possibilities:
+- https://tex.stackexchange.com/questions/140845/how-can-i-ignore-latex-error-while-compiling

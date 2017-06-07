@@ -1,0 +1,16 @@
+* git
+https://github.com/petersheridandodds/PoCS-book-IV.git
+* git history
+** 
+git add NOTES.*.org
+git commit -m "org file"
+git push -u origin master
+** git add pocsbook.* chapters/* makebook.pl log/*
+git commit -m "basic tex files"
+git push -u origin master
+** initial set up
+git init
+git add README.txt
+git commit -m "first commit"
+git remote add origin https://github.com/petersheridandodds/PoCS-book-IV.git
+git push -u origin master
